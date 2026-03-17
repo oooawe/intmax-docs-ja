@@ -1,2 +1,31 @@
-# intmax-docs-jp
-Unofficial Japanese translation of INTMAX documentation. Based on the official docs at docs.network.intmax.io (MIT License).
+# INTMAX ドキュメント 日本語版  
+
+## ℹ️
+
+
+**本リポジトリは非公式の翻訳プロジェクトです。**  
+INTMAX チームによる公式翻訳ではありません。  
+内容の正確性については必ず公式ドキュメントを参照ください。  
+
+
+## 📌
+
+
+本翻訳は下記の原文を基にしています（2026年1月時点のものに基づく）。
+
+- [INTMAX 公式ドキュメント](https://docs.network.intmax.io)  
+- [GitHub リポジトリ](https://github.com/InternetMaximalism/intmax2-docs)  
+ 
+  
+原文は [MIT ライセンス](./LICENSE) で公開されており、  
+本翻訳もそのライセンス条件に従います。  
+
+
+## 目的  
+
+
+- INTMAX に関心を持つ日本語話者の学習・理解を支援すること  
+- 翻訳を通じて 自己理解の促進　また INTMAX エコシステムへの参加貢献
+
+
+誤訳修正・改善提案などなど、気軽に Issue や PR で連絡いただけると助かります。

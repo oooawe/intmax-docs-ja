@@ -1,105 +1,111 @@
+---
+icon: pickaxe
+description: Privacy Mining の概要と参加方法
+---
+
 # Privacy Mining
 
-> Quick Explanation: [Privacy Mining v2 - TL;DR](https://hackmd.io/@lionfeeder/HkNOuv9Ege)
+> 簡易解説: [Privacy Mining v2 - TL;DR](https://hackmd.io/@lionfeeder/HkNOuv9Ege)
 
-## Introduction
+## はじめに
 
-Privacy mining aims to enhance and sustain the anonymity set of the privacy protocol. In INTMAX, this process involves making deposits to the network, which strengthens privacy while allowing participants to earn ITX tokens as rewards.
+Privacy Mining は、プライバシープロトコルの匿名性セット（Anonymity Set）を強化・維持することを目的としています。INTMAX では、ネットワークに Deposit することでプライバシーが強化され、参加者はリワードとして ITX トークンを獲得できます。
 
-## How it works
+## 仕組み
 
-To start mining, users first connect their wallets on the INTMAX mining website. They then sign a transaction with the connected wallet to generate a unique INTMAX address for mining. Once the address is created, they can begin mining immediately.
-Mining involves depositing a specified amount and staying on the INTMAX network for a designated period. Additionally, to ensure that withdrawn tokens are not directly linked to the deposit, they must be withdrawn to a different address. The INTMAX website simplifies address management, allowing users to handle deposits and withdrawals seamlessly without worrying about complex address configurations.
+マイニングを開始するには、まず INTMAX のマイニング Web サイトでウォレットを接続します。次に、接続したウォレットでトランザクションに署名し、マイニング専用の INTMAX アドレスを生成します。アドレスが作成されると、すぐにマイニングを開始できます。
 
-**Please Note:**
-Do not link the deposit address with the withdrawal address.
-It is recommended to use multiple automatically managed addresses via the website for better security and efficiency.
+マイニングでは、指定された金額を Deposit し、一定期間 INTMAX Network 上に保持します。さらに、Withdrawal したトークンが Deposit と直接紐づけられないよう、異なるアドレスに Withdrawal する必要があります。INTMAX の Web サイトではアドレス管理が簡素化されており、複雑なアドレス設定を気にすることなく Deposit と Withdrawal をシームレスに行えます。
 
-## Token Distribution
+**注意事項：**
+Deposit アドレスと Withdrawal アドレスを紐づけないでください。
+セキュリティと効率性を高めるため、Web サイトで自動管理される複数アドレスの使用を推奨します。
 
-The token name is `INTMAX`.
-The token symbol is `ITX`.
-The maximum supply is **1,001,000,000** tokens (1.001 billion).
-The issuance period spans **2,032 days** (16 + 32 + 64 + 128 + 256 + 512 + 1024 days) with **6 halving events**.
-The daily issuance amount is predetermined. Rewards are distributed based on:
-(Daily Issuance) \* (Individual Contribution) / (Total Contribution)
-Details on how contributions are calculated are explained [below](https://docs.network.intmax.io/privacy-mining#mining-contribution).
-ITX is currently **non-transferable**, but will become transferable and usable across various platforms in the near future.
+## トークン配布
 
-## Mining Contribution
+トークン名は `INTMAX` です。
+トークンシンボルは `ITX` です。
+最大供給量は **1,001,000,000** トークン（約 10 億）です。
+発行期間は **2,032 日間**（16 + 32 + 64 + 128 + 256 + 512 + 1024 日）で、**6 回の半減期**があります。
+1 日あたりの発行量はあらかじめ決められており、リワードは以下の計算式で配布されます：
+（1 日の発行量）×（個人の貢献度）÷（全体の貢献度）
+貢献度の計算方法については[後述](https://docs.network.intmax.io/privacy-mining#mining-contribution)します。
+ITX は現在**転送不可**ですが、近い将来、転送可能となりさまざまなプラットフォームで利用できるようになる予定です。
 
-Based on your deposit amount, you will be assigned points used to calculate your share of the rewards. The table below shows how these points are allocated:
+## マイニング貢献度
 
-| Mining Amount | Points |
+Deposit 金額に基づいてポイントが割り当てられ、リワードの配分率を計算するために使用されます。以下の表はポイントの割り当てを示しています：
+
+| マイニング金額 | ポイント |
 | ------------- | ------ |
 | 0.1 ETH       | 1      |
 | 1 ETH         | 4      |
 | 10 ETH        | 9      |
 | 100 ETH       | 16     |
 
-Your total rewards are proportional to the number of points you have relative to everyone else.
+合計リワードは、全参加者に対する自分のポイント比率に応じて配分されます。
 
-**Example:** Suppose that on March 14, Person A requests a mining reward of 0.1 ETH, and Person B requests 1 ETH. Assume that no one else has made a request. According to the table, the contribution for 0.1 ETH is 1 point, while the contribution for 1 ETH is 4 points. This means the total points for the day is 5 points. If the total reward distributed per day is 10,000 ITX, then Person A will receive 10,000 _ 1 / 5 = 2,000 ITX, and Person B will receive 10,000 _ 4 / 5 = 8,000 ITX. The reward will be sent to the user's Ethereum address on March 15.
+**例：** 3 月 14 日に、A さんが 0.1 ETH、B さんが 1 ETH でマイニングリワードを申請したとします。他に申請者がいない場合、表に基づき 0.1 ETH の貢献度は 1 ポイント、1 ETH の貢献度は 4 ポイントとなり、合計は 5 ポイントです。1 日のリワード総額が 10,000 ITX の場合、A さんは 10,000 × 1 / 5 = 2,000 ITX、B さんは 10,000 × 4 / 5 = 8,000 ITX を受け取ります。リワードは翌日の 3 月 15 日にユーザーの Ethereum アドレスに送付されます。
 
-## Reward Schedule
+## リワードスケジュール
 
-Rewards will be distributed to users participating in privacy mining, based on their level of contribution. The daily reward amounts will be distributed according to the schedule below:
+Privacy Mining に参加しているユーザーに対し、貢献度に応じてリワードが配布されます。1 日あたりのリワード額は以下のスケジュールに従います：
 
-- **From mainnet release until December 16, 2025**
-  558,593.75 ITX per day
-- **From December 16, 2025 to May 12, 2027**
-  279,296.875 ITX per day
-- **From May 12, 2027 to March 1, 2030**
-  139,648.4375 ITX per day
+- **メインネットリリースから 2025 年 12 月 16 日まで**
+  558,593.75 ITX / 日
+- **2025 年 12 月 16 日から 2027 年 5 月 12 日まで**
+  279,296.875 ITX / 日
+- **2027 年 5 月 12 日から 2030 年 3 月 1 日まで**
+  139,648.4375 ITX / 日
 
-**Important Things to Note:**
-If there is a day on which no mining activity occurs, all tokens scheduled for distribution on that day will be burned.
-Any fractional amounts resulting from token distribution will also be burned.
+**重要事項：**
+マイニング活動が行われなかった日に配布予定だったトークンはすべてバーン（焼却）されます。
+トークン配布時に生じた端数もバーンされます。
 
-## ⚠️ New Privacy Mining Rules
+## ⚠️ Privacy Mining の新ルール
 
-### Reward Distribution Rules
+### リワード配布ルール
 
-Once the **2–5 day lock period** ends and the user’s status changes to **"Claimable,"** they can claim their rewards.
-If a user violates the mining rules, the associated deposit will be **ineligible** for rewards.
+**2〜5 日間のロック期間（Lock Period）**が終了し、ステータスが**「Claimable」**に変わると、リワードを Claim できます。
+マイニングルールに違反した場合、対象の Deposit はリワードの**対象外**となります。
 
-### Rule of Mining and Lock Period
+### マイニングとロック期間のルール
 
-- Deposit amounts must be exactly 0.1, 1, 10, or 100 ETH.
-- All deposits are screened for AML compliance upon entry. Deposits that fail to meet AML standards cannot be accepted into the INTMAX network.
-- After depositing, you must maintain your funds in place for the entire duration of the specified lock period. This lock period is uniquely determined by the hash of the INTMAX block containing your deposit and the random value determined at the time of deposit.
-- There are no restrictions on the amount of tokens that can be withdrawn.
-- Even if you breach the above rules, you can still withdraw your deposited funds. Using the official UI is recommended, as it is specifically designed to prevent common rule violations.
+- Deposit 金額は 0.1、1、10、100 ETH のいずれかである必要があります。
+- すべての Deposit は入金時に AML（マネーロンダリング対策）スクリーニングを受けます。AML 基準を満たさない Deposit は INTMAX Network に受け入れられません。
+- Deposit 後、指定されたロック期間の全期間にわたり資金を維持する必要があります。ロック期間は、Deposit を含む INTMAX ブロックのハッシュと Deposit 時に決定されるランダム値によって一意に決まります。
+- Withdrawal するトークンの金額に制限はありません。
+- 上記のルールに違反した場合でも、Deposit した資金の Withdrawal は可能です。公式 UI は一般的なルール違反を防ぐよう設計されているため、公式 UI の使用を推奨します。
 
-## AML Rules
+## AML ルール
 
-- Money deposits from high-risk addresses (e.g., sanctioned addresses) undergo AML (Anti-Money Laundering) verification and may be rejected into the system.
-- A "Proof of Innocence" mechanism is available if needed, allowing users to prove their funds are not illicitly mixed.
-- The initial deposit limit is 100 ETH, which will be raised every six months, reaching 10,000 ETH after two years. It remains fixed thereafter. This rule applies only to regular deposits, and the mining limit remains unchanged at 100 ETH.
+- 高リスクアドレス（制裁対象アドレス等）からの Deposit は、AML（Anti-Money Laundering）検証を受け、システムへの入金が拒否される場合があります。
+- 必要に応じて Proof of Innocence メカニズムを利用でき、資金が不正に混合されていないことを証明できます。
+- 初期の Deposit 上限は 100 ETH で、6 か月ごとに引き上げられ、2 年後に 10,000 ETH に達します。以降は固定されます。このルールは通常の Deposit にのみ適用され、マイニングの上限は 100 ETH のまま変更されません。
 
-## Key Differences Between the Old and New Rules
+## 旧ルールと新ルールの主な違い
 
-- **Network:** It operates on the Ethereum Mainnet.
-- **Lock Period:** Previously, rewards were distributed in two stages—after 2 weeks and 3 months. Under the new rules, funds are locked for a shorter period of 2–5 days, and users can claim all rewards at once when the lock is lifted.
-- **New User Interface:** Previously, mining was only available via CLI. Now, you can use a web interface, making it easier for more users to participate.
+- **ネットワーク**：Ethereum メインネットで運用されています。
+- **ロック期間**：以前は 2 週間後と 3 か月後の 2 段階でリワードが配布されていました。新ルールでは、2〜5 日間のより短いロック期間となり、ロック解除時にすべてのリワードを一括で Claim できます。
+- **新しいユーザーインターフェース**：以前は CLI でのみマイニングが可能でした。現在は Web インターフェースが利用でき、より多くのユーザーが参加しやすくなっています。
 
-## Comparison With the Old Rules
+## 旧ルールとの比較
 
-| Rule                        | Old Version                                   | New Version                                |
-| --------------------------- | --------------------------------------------- | ------------------------------------------ |
-| Partial reward distribution | After 2 weeks (1/3), then after 3 months(2/3) | All rewards claimed 2–5 days after deposit |
-| Circulation slashing        | Reduce mining rewards                         | None                                       |
-| Rushy Deposit               | Reduce mining rewards                         | None                                       |
-| 10/10 Deposit Cycle         | Reduce mining rewards                         | None                                       |
-| Mining cycle                | Deposit to a new address                      | UI supports starting new cycles            |
+| ルール | 旧バージョン | 新バージョン |
+| --- | --- | --- |
+| リワードの分割配布 | 2 週間後（1/3）、その後 3 か月後（2/3） | Deposit 後 2〜5 日ですべてのリワードを Claim |
+| Circulation slashing | マイニングリワードの減額 | なし |
+| Rushy Deposit | マイニングリワードの減額 | なし |
+| 10/10 Deposit Cycle | マイニングリワードの減額 | なし |
+| マイニングサイクル | 新しいアドレスに Deposit | UI が新しいサイクルの開始をサポート |
 
-## The History of This Mining
+## マイニングの沿革
 
-- **June 8, 2024**: Mining begins
-- **September 5, 2024**: Mining page pinned
-- **September 14, 2024**: The ERC20 contract is deployed by LappsNet in El Salvador
-- **September 28, 2024**: Deposit contract upgraded
-- **October 19, 2024**: Migration to Base Mainnet
-- **Q2 2025**: Migration to Ethereum Mainnet; old CLI-based mining will be discontinued
+- **2024 年 6 月 8 日**：マイニング開始
+- **2024 年 9 月 5 日**：マイニングページ固定
+- **2024 年 9 月 14 日**：LappsNet がエルサルバドルで ERC-20 コントラクトをデプロイ
+- **2024 年 9 月 28 日**：Deposit コントラクトをアップグレード
+- **2024 年 10 月 19 日**：Base メインネットへ移行
+- **2025 年 Q2**：Ethereum メインネットへ移行。旧 CLI ベースのマイニングは廃止予定
 
-**NOTE**: Access from heavily regulated regions such as the United States may be partially blocked. Please use the service at your own risk, adhering to all local laws and regulations.
+**注意**：米国などの規制が厳しい地域からのアクセスは一部制限される場合があります。すべての現地法規を遵守の上、自己責任でご利用ください。

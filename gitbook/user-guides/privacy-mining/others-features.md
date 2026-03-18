@@ -1,131 +1,136 @@
-# Other Features
+---
+icon: pickaxe
+description: Privacy Mining のその他の機能
+---
 
-## Withdraw rest amount
+# その他の機能
 
-When mining is completed, a small amount of ETH (roughly equivalent to the gas fee) may remain in the address.
-This can occur especially if the withdrawal was executed when Ethereum gas fees were high.
-Below is an explanation of the procedure to withdraw this remaining ETH.
+## 残額の Withdrawal
 
-1. If there is more ETH remaining than the gas fee in the address used for mining, a "Withdraw Rest Amount" button will be displayed.
-   If you wish to withdraw this amount, please click the "Withdraw Rest Amount" button.
+マイニング完了時に、アドレスに少額の ETH（ガス代相当額程度）が残る場合があります。
+これは特に、Ethereum のガス代が高い時に Withdrawal を実行した場合に発生します。
+以下では、この残りの ETH を Withdrawal する手順を説明します。
+
+1. マイニングに使用したアドレスにガス代を上回る ETH が残っている場合、「Withdraw Rest Amount」ボタンが表示されます。
+   この金額を Withdrawal したい場合は、「Withdraw Rest Amount」ボタンをクリックしてください。
 
 ![Withdraw Rest Amount](assets/user-guides/other_features_10.webp)
 
-2. The withdrawal destination address can only be the same as the one used previously.
-You cannot choose a different address freely.
+2. Withdrawal 先アドレスは、以前使用したアドレスと同じものしか指定できません。
+   別のアドレスを自由に選択することはできません。
 
 ![Withdraw Rest Amount](assets/user-guides/other_features_20.webp)
 
-3. Review the transaction details and click the "Confirm" button.
+3. トランザクションの詳細を確認し、「Confirm」ボタンをクリックします。
 
 ![Withdraw Rest Amount](assets/user-guides/other_features_30.webp)
 
-4. Wait until the status changes to "Sync Withdrawals".
+4. ステータスが「Sync Withdrawals」に変わるまでお待ちください。
 
 ![Withdraw Rest Amount](assets/user-guides/other_features_40.webp)
 
-5. Once the status is "Completed," you can safely leave the screen.
+5. ステータスが「Completed」になったら、画面を離れても問題ありません。
 
 ![Withdraw Rest Amount](assets/user-guides/other_features_50.webp)
 
-**NOTE**: If you close the screen during the process, please start over from the beginning of the procedure.
+**注意**：処理中に画面を閉じた場合は、手順の最初からやり直してください。
 
-## Cancel Mining
+## マイニングのキャンセル
 
-You can cancel a mining session even before the lock period has matured. However, please note that if you cancel, **no rewards will be granted**, and only the deposited ETH will be returned.
+ロック期間が満了する前でもマイニングセッションをキャンセルできます。ただし、キャンセルした場合は**リワードは付与されず**、Deposit した ETH のみが返還されます。
 
-1. First, click the **"Cancel Mining Session"** button.
+1. まず、**「Cancel Mining Session」**ボタンをクリックします。
 
-2. A confirmation dialog will then appear, warning you that if the lock period has not yet ended, you may lose the chance to receive rewards.
-By selecting **"Yes, Proceed"**, the cancellation process will continue, and you will be redirected to the withdrawal screen.
+2. 確認ダイアログが表示され、ロック期間がまだ終了していない場合はリワードを受け取る機会を失う可能性があることが警告されます。
+   **「Yes, Proceed」**を選択するとキャンセル処理が続行され、Withdrawal 画面にリダイレクトされます。
 
 <figure>
   <img src="assets/user-guides/cancel_mining_10.webp" alt="Cancel Mining" />
   <img src="assets/user-guides/cancel_mining_20.webp" alt="Cancel Mining" />
 </figure>
 
-3. Here, you can enter the destination Ethereum address and click the **"Cancel + Withdrawal"** button to withdraw the deposited ETH.
+3. ここで、送信先の Ethereum アドレスを入力し、**「Cancel + Withdrawal」**ボタンをクリックして Deposit した ETH を Withdrawal します。
 
 ![Cancel Mining](assets/user-guides/cancel_mining_30.webp)
 
-## Resuming an Interrupted Claim
+## 中断された Claim の再開
 
-Usually, in a mining session that is ready for claiming, you can claim your rewards by clicking the “Withdraw” or “Redeposit” button and following the on-screen instructions.
-However, this process may be interrupted if, for example, you close the browser before it is completed.
+通常、Claim 可能なマイニングセッションでは、「Withdraw」または「Redeposit」ボタンをクリックし、画面の指示に従うことでリワードを Claim できます。
+ただし、処理完了前にブラウザを閉じた場合など、このプロセスが中断されることがあります。
 
-If you open the details page of such a mining session, a “Claim Rewards” button and a warning message will be displayed.
-You can resume the interrupted process by clicking the “Claim Rewards” button.
+そのようなマイニングセッションの詳細ページを開くと、「Claim Rewards」ボタンと警告メッセージが表示されます。
+「Claim Rewards」ボタンをクリックすると、中断されたプロセスを再開できます。
 
 ![Claim Rewards](assets/user-guides/claim-rewards_10.webp)
 
-The button display will change and attempt to execute the claim process.
+ボタンの表示が変わり、Claim プロセスの実行が試みられます。
 
 ![Claim Rewards](assets/user-guides/claim-rewards_20.webp)
 
-If the claim fee payment has not been made, a "Top Up for Claim Fee" button will be displayed. Click the button.
+Claim 手数料の支払いがまだの場合、「Top Up for Claim Fee」ボタンが表示されます。ボタンをクリックしてください。
 
 ![Claim Rewards](assets/user-guides/claim-rewards_30.webp)
 
-A modal like the one below may appear, but click the “Next” button.
+以下のようなモーダルが表示される場合がありますが、「Next」ボタンをクリックしてください。
 
 ![Claim Rewards](assets/user-guides/claim-rewards_40.webp)
 
-Click the "Yes, Proceed" button.
+「Yes, Proceed」ボタンをクリックします。
 
 ![Claim Rewards](assets/user-guides/claim-rewards_50.webp)
 
-Review the transfer details and click the Send button.
+Transfer の詳細を確認し、「Send」ボタンをクリックします。
 
-Your connected wallet will request a signature.
+接続中のウォレットが署名を求めます。
 
 ![Claim Rewards](assets/user-guides/claim-rewards_60.webp)
 
-Once the signature is complete, you will see the transfer waiting screen.
+署名が完了すると、Transfer の待機画面が表示されます。
 
 ![Claim Rewards](assets/user-guides/claim-rewards_70.webp)
 
-When the transfer request is complete, the status will change. Clicking the "Go to Active Mining" button will return you to the mining session details screen.
+Transfer リクエストが完了すると、ステータスが変わります。「Go to Active Mining」ボタンをクリックすると、マイニングセッションの詳細画面に戻ります。
 
 ![Claim Rewards](assets/user-guides/claim-rewards_80.webp)
 
-The "Claim Rewards" button will be unclickable for approximately 5 minutes.
+「Claim Rewards」ボタンは約 5 分間クリックできなくなります。
 
-Once the gas fee top-up is complete, the "Claim Rewards" button will become clickable again. Click the button.
+ガス代の補充が完了すると、「Claim Rewards」ボタンが再びクリック可能になります。ボタンをクリックしてください。
 
 ![Claim Rewards](assets/user-guides/claim-rewards_10.webp)
 
-When the "Claim Rewards" button is no longer displayed, the ITX token reward claim is complete.
+「Claim Rewards」ボタンが表示されなくなったら、ITX トークンのリワード Claim は完了です。
 
-If the "Top Up for Claim Fee" button appears again at this point, wait about 10 minutes and then check the mining session again.
+この時点で「Top Up for Claim Fee」ボタンが再度表示された場合は、約 10 分待ってからマイニングセッションを再確認してください。
 
 ![Claim Rewards](assets/user-guides/claim-rewards_90.webp)
 
-## Withdraw ETH to a Contract Address
+## コントラクトアドレスへの ETH Withdrawal
 
-We would like to provide a clear explanation the procedure for withdrawing ETH to a contract address in mining.
+マイニングでコントラクトアドレスへ ETH を Withdrawal する手順を説明します。
 
-### :warning: **Important Notice**
+### :warning: **重要なお知らせ**
 
-When specifying a withdrawal destination address, please make sure that it is **your own address**.
-In particular, specifying a **contract address** or an **exchange address** as the withdrawal destination is **not covered by our support**, and we do not take any responsibility in such cases.
-If you choose to send ETH to a contract address, please carefully confirm that the contract is able to **receive ETH deposits**.
+Withdrawal 先アドレスを指定する際は、**ご自身のアドレス**であることを必ず確認してください。
+特に、**コントラクトアドレス**や**取引所アドレス**を Withdrawal 先に指定することは**サポート対象外**であり、そのような場合の責任は負いかねます。
+コントラクトアドレスへ ETH を送信する場合は、そのコントラクトが **ETH の Deposit を受け取れる**ことを慎重に確認してください。
 
-### 1. Purpose
+### 1. 目的
 
-The purpose of this function is to enable the transfer of ETH that has entered a “withdrawable state” — for example, when attempting to withdraw to a contract address — so that it can actually be sent to the specified address.
+この機能は、コントラクトアドレスへの Withdrawal を試みた際などに「Withdrawal 可能」状態になった ETH を、指定アドレスへ実際に送信するためのものです。
 
-**NOTE**: In contrast, when sending to a regular address (EOA), the ETH is delivered directly to the address.
+**注意**：通常のアドレス（EOA）への送信では、ETH はアドレスに直接届きます。
 
-### 2. When the Button Appears
+### 2. ボタンの表示条件
 
-- The button will be displayed when your destination account has a withdrawable ETH balance.
-- If you have pending withdrawals, the button will trigger a claim process.
+- 送信先アカウントに Withdrawal 可能な ETH 残高がある場合にボタンが表示されます。
+- 保留中の Withdrawal がある場合、ボタンは Claim プロセスを開始します。
 
 ![Withdraw ETH](assets/user-guides/withdraw_eth_to_contract_10.webp)
 
-### 3. How the Withdrawal Works
+### 3. Withdrawal の仕組み
 
-- When you click the button, you will be asked to **sign a transaction with your connected wallet**.
-- This operation makes your funds available on Ethereum.
+- ボタンをクリックすると、**接続中のウォレットでトランザクションに署名する**よう求められます。
+- この操作により、Ethereum 上で資金が利用可能になります。
 
 ![Withdraw ETH](assets/user-guides/withdraw_eth_to_contract_20.webp)

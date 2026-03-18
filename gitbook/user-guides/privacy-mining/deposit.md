@@ -1,29 +1,35 @@
+---
+icon: pickaxe
+description: Privacy Mining への Deposit 手順
+---
+
 # Deposit
 
-A deposit refers to transferring funds from the Ethereum Mainnet to the INTMAX network. Deposits must be made in fixed amounts of 0.1, 1, 10, or 100 ETH. Simply select your preferred amount and click the "Mine" button to proceed.
+Deposit とは、Ethereum メインネットから INTMAX Network へ資金を移動する操作です。Deposit は 0.1、1、10、100 ETH のいずれかの固定金額で行う必要があります。希望の金額を選択し、「Mine」ボタンをクリックするだけで開始できます。
 
 ![Select Deposit Amount](assets/user-guides/deposit_10.webp)
 
-Next, you will be prompted to confirm your deposit. Please note that once deposited, your funds will be locked and inaccessible until the specified lock period has passed. You must keep them in place until the lock period ends.
+次に、Deposit の確認画面が表示されます。一度 Deposit すると、指定されたロック期間（Lock Period）が経過するまで資金はロックされ、アクセスできなくなります。ロック期間が終了するまで資金を維持してください。
 
 ![Confirm Deposit](assets/user-guides/deposit_20.webp)
 
-After initiating your transaction, it's important to keep your browser window open for at least the first 15 seconds. Doing so helps ensure that the transaction communicates successfully with the INTMAX network, facilitating a smooth start to the processing phase.
+トランザクションを開始した後、最初の 15 秒間はブラウザウィンドウを開いたままにしてください。これにより、トランザクションが INTMAX Network と正常に通信し、処理フェーズがスムーズに開始されます。
 
 ![Processing Deposit](assets/user-guides/deposit_30.webp)
 
-While most transactions finalize sooner, please allow up to 30 minutes for complete confirmation and processing on the INTMAX blockchain. Once your transaction has been fully confirmed, your mining operation will automatically begin.
+ほとんどのトランザクションはそれより早く完了しますが、INTMAX ブロックチェーン上での完全な確認と処理には最大 30 分かかる場合があります。トランザクションが完全に確認されると、マイニングが自動的に開始されます。
 
 ![Deposit Successful](assets/user-guides/deposit_40.webp)
 
-To monitor your mining progress and review detailed performance metrics, you can visit your mining portfolio section. This dashboard will provide insights into your mining activity, status updates, and other relevant information to help you stay informed about your mining performance.
+マイニングの進捗状況や詳細なパフォーマンス指標を確認するには、マイニングポートフォリオセクションにアクセスしてください。このダッシュボードでは、マイニングのアクティビティ、ステータスの更新、その他の関連情報を確認できます。
 
 ![Mining Portfolio](assets/user-guides/deposit_50.webp)
 
-## Additional Note
+## 補足事項
 
-Please be aware that mining funds are managed separately from your primary Intmax address. As a result, any funds generated through mining operations will not appear in your standard INTMAX account balance. They can be tracked and managed exclusively within your dedicated mining portfolio.
+マイニング資金はメインの INTMAX アドレスとは別に管理されます。そのため、マイニングで生成された資金は通常の INTMAX アカウント残高には表示されません。マイニング資金の確認と管理は、専用のマイニングポートフォリオでのみ行えます。
 
-### Limit on Mining Operations
-Each wallet has a limit of 256 mining operations (i.e. pressing the “Mine” button to initiate a deposit). Once this limit is reached, further “Mine” operations from that wallet will no longer be accepted, and deposits cannot be initiated using that function.
-If you want to continue mining, please use a different address.
+### マイニング操作の上限
+
+各ウォレットには 256 回のマイニング操作（「Mine」ボタンを押して Deposit を開始する操作）の上限があります。この上限に達すると、そのウォレットからの「Mine」操作は受け付けられなくなり、Deposit を開始できなくなります。
+マイニングを継続したい場合は、別のアドレスをご利用ください。

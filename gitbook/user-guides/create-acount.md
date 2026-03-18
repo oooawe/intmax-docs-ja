@@ -1,58 +1,63 @@
-# How to Create Account of INTMAX Network
+---
+icon: wallet
+description: ウォレットの接続と INTMAX アカウントの作成手順
+---
 
-Users can create an account by connecting to the website using MetaMask wallet and signing two messages. Supported wallets will be added continuously.
+# INTMAX Network アカウントの作成方法
 
-INTMAX accounts look different from Ethereum addresses, even when starting from the same Ethereum address. Always double-check which network you are targeting before submitting transactions.
+MetaMask などのウォレットで Web サイトに接続し、2 つのメッセージに署名するだけでアカウントを作成できます。対応ウォレットは今後も順次追加される予定です。
 
-**Mainnet**: A 95-character string starting with **i** (lowercase)
+INTMAX アカウントのアドレスは、同じ Ethereum アドレスから作成しても Ethereum アドレスとは異なる形式になります。トランザクションを送信する前に、対象のネットワークを必ず確認してください。
 
-- Example: `i9bX5qzARYR7geR35g4K9972DB8fcWqPjNNgQnoGFViZaTLaSiKUTEd7geR35g4K9972DB8fcWqPjNNgQnoGFViZPctJYmE`
+**メインネット**：**i**（小文字）で始まる 95 文字の文字列
 
-**Testnet**: A 95-character string starting with **T** (uppercase)
+- 例：`i9bX5qzARYR7geR35g4K9972DB8fcWqPjNNgQnoGFViZaTLaSiKUTEd7geR35g4K9972DB8fcWqPjNNgQnoGFViZPctJYmE`
 
-- Example: `T6ubiG36LmNce6uzcJU3h5JR5FWa72jBBLUGmEPx5VXcFtvXnBB3bqice6uzcJU3h5JR5FWa72jBBLUGmEPx5VXcB3prnCZ`
+**テストネット**：**T**（大文字）で始まる 95 文字の文字列
 
-## Procedure
+- 例：`T6ubiG36LmNce6uzcJU3h5JR5FWa72jBBLUGmEPx5VXcFtvXnBB3bqice6uzcJU3h5JR5FWa72jBBLUGmEPx5VXcB3prnCZ`
 
-1. **Click "Connect Wallet"**
+## 手順
 
-   Navigate to the INTMAX webpage and locate the "Connect Wallet" button. Click this button to initiate the connection process.
+1. **「Connect Wallet」をクリック**
+
+   INTMAX の Web ページにアクセスし、「Connect Wallet」ボタンをクリックして接続を開始します。
 
    ![Mining Page](assets/user-guides/how_to_create_account_of_intmax_network_10.webp)
 
-2. **Select Your Preferred Wallet**
+2. **使用するウォレットを選択**
 
-   After clicking the "Connect Wallet" button, you will see a pop-up listing supported wallets. Choose your preferred wallet from this list. Make sure your wallet is [officially supported](supported-wallets) to ensure a smooth experience.
+   「Connect Wallet」ボタンをクリックすると、対応ウォレットの一覧がポップアップで表示されます。一覧からお使いのウォレットを選択してください。スムーズに利用するため、[公式に対応しているウォレット](supported-wallets)であることをご確認ください。
 
    ![Connect wallet](assets/user-guides/how_to_create_account_of_intmax_network_20.webp)
 
-3. **Sign Two or Three Messages**
+3. **2〜3 回の署名を実行**
 
-   Once your wallet is selected and connected, two or three signing requests will appear sequentially in your wallet interface. Carefully follow the instructions provided by your wallet and approve all messages. These signatures confirm your identity and enable the creation of your INTMAX account.
+   ウォレットを選択して接続すると、ウォレットのインターフェースに 2〜3 回の署名リクエストが順番に表示されます。ウォレットの指示に従い、すべてのメッセージを承認してください。これらの署名（Signature）により本人確認が行われ、INTMAX アカウントが作成されます。
 
-   **NOTE**: The third signature is required only when it's the first login with that address and you're using a wallet that is not supported.
+   **注意**：3 回目の署名は、そのアドレスでの初回ログイン時かつ対応していないウォレットを使用している場合にのみ必要です。
 
    <figure>
       <img src="assets/user-guides/how_to_create_account_of_intmax_network_40.webp" alt="Sign messages" />
       <img src="assets/user-guides/how_to_create_account_of_intmax_network_50.webp" alt="Sign messages" />
    </figure>
 
-4. **Generating Your INTMAX Account**
+4. **INTMAX アカウントの生成**
 
-   After successfully signing both messages, your unique INTMAX account address will be automatically generated. As already explained, unlike traditional Ethereum addresses, Intmax addresses are distinctly formatted.
+   すべてのメッセージへの署名が完了すると、一意の INTMAX アカウントアドレスが自動的に生成されます。前述のとおり、INTMAX アドレスは従来の Ethereum アドレスとは異なる形式です。
 
-   An important point to remember is that your INTMAX address is directly linked to the Ethereum wallet you used during registration. This means that whenever you connect with the same Ethereum wallet, it will always generate the identical Intmax address, ensuring consistency across sessions.
+   重要な点として、INTMAX アドレスは登録時に使用した Ethereum ウォレットに紐づけられます。同じ Ethereum ウォレットで接続すると、常に同一の INTMAX アドレスが生成されるため、セッションをまたいでも一貫性が保たれます。
 
-5. **Viewing Your INTMAX Address**
+5. **INTMAX アドレスの確認**
 
-   After signing the messages, you will be redirected to the INTMAX homepage. Here, you can view your newly created INTMAX address.
-   Follow the steps below:
-   1. Click the Ethereum wallet address displayed at the top right of the screen.
-   2. A pop-up window will appear, showing both your Ethereum address and your INTMAX address.
+   署名が完了すると、INTMAX のホームページにリダイレクトされます。ここで、新しく作成された INTMAX アドレスを確認できます。
+   以下の手順で確認してください：
+   1. 画面右上に表示されている Ethereum ウォレットアドレスをクリック
+   2. ポップアップウィンドウが表示され、Ethereum アドレスと INTMAX アドレスの両方が確認できます
 
    <figure>
       <img src="assets/user-guides/how_to_create_account_of_intmax_network_60.webp" alt="View INTMAX address" />
       <img src="assets/user-guides/how_to_create_account_of_intmax_network_70.webp" alt="View INTMAX address" />
    </figure>
 
-This approach allows easy access and verification of your INTMAX account details at any time.
+この方法により、INTMAX アカウントの詳細にいつでも簡単にアクセスして確認できます。

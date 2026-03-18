@@ -1,55 +1,63 @@
-# User Guides Overview
+---
+icon: bookmark
+description: INTMAX Network の概要と各セクションへのナビゲーション
+---
 
-Welcome to the INTMAX Network User Guides. These guides are designed to help you navigate and utilize the INTMAX Network effectively. Whether you're new to INTMAX or looking to explore advanced features, you'll find step-by-step instructions and helpful resources here.
+# ユーザーガイド
 
-## Quick Start
+INTMAX Network ユーザーガイド
+— *Welcome to the INTMAX Network User Guides* —
 
-### Getting Started
+INTMAX Network を使いこなすための手順やリソースをまとめています。初めての方も、より高度な機能を探している方も、ステップバイステップの解説をご活用ください。
 
-- **[Create an INTMAX Account](./create-acount.md)** - Connect your wallet and generate your unique INTMAX address
-- **[Supported Wallets](./supported-wallets)** - View compatible wallets including MetaMask, Phantom, Rabby, Trust Wallet, and more
+## クイックスタート
 
-### Managing Your Assets
+### はじめに
 
-- **[Deposit to INTMAX](./deposit-to-intmax-network.md)** - Transfer assets from Ethereum mainnet to INTMAX
-- **[Transfer on INTMAX](./transfer-on-intmax-network.md)** - Send tokens within the INTMAX network with minimal fees
-- **[Withdraw from INTMAX](./withdrawal-from-intmax-network.md)** - Move your assets back to Ethereum mainnet
+- **[INTMAX アカウントの作成](./create-acount.md)** — ウォレットの接続と INTMAX アドレスの生成
+- **[対応ウォレット](./supported-wallets)** — MetaMask・Phantom・Rabby・Trust Wallet など対応ウォレットの一覧
+
+### アセット管理
+
+- **[INTMAX への Deposit](./deposit-to-intmax-network.md)** — Ethereum メインネットから INTMAX へのアセット移動
+- **[INTMAX での Transfer](./transfer-on-intmax-network.md)** — INTMAX ネットワーク内での低コストなトークン送信
+- **[INTMAX からの Withdrawal](./withdrawal-from-intmax-network.md)** — INTMAX から Ethereum メインネットへのアセット引き出し
 
 ### Privacy Mining
 
-- **[Privacy Mining Overview](./privacy-mining)** - Learn about earning ITX tokens through privacy mining
-- **[Mining Portfolio](./privacy-mining/portfolio)** - Track your mining rewards and performance
-- **[Deposit for Mining](./privacy-mining/deposit)** - Start mining with 0.1, 1, 10, or 100 ETH deposits
+- **[Privacy Mining の概要](./privacy-mining)** — Privacy Mining による ITX トークンの獲得方法
+- **[マイニングポートフォリオ](./privacy-mining/portfolio)** — マイニング報酬とパフォーマンスの確認
+- **[マイニング用 Deposit](./privacy-mining/deposit)** — 0.1 / 1 / 10 / 100 ETH での Deposit 手順
 
-### Account Management
+### アカウント管理
 
-- **[Check Transaction History](./check-transaction-history)** - View all your past transactions
-- **[Export Private Keys](./backup-intmax-account/export-intmax-private-key)** - Securely backup your INTMAX private keys
-- **[Backup Transaction Data](./backup-intmax-account/backup-transaction-data)** - Save your transaction history for records
+- **[トランザクション履歴の確認](./check-transaction-history)** — 過去のトランザクション一覧の表示
+- **[秘密鍵のエクスポート](./backup-intmax-account/export-intmax-private-key)** — INTMAX 秘密鍵（Private Key）の安全なバックアップ
+- **[トランザクションデータのバックアップ](./backup-intmax-account/backup-transaction-data)** — トランザクション履歴の保存
 
-### Support
+### サポート
 
-- **[FAQ & Troubleshooting](./faq-and-trouble-shooting)** - Common questions and solutions
-- **[Resolved Issues](./resolved-issue)** - Previously addressed problems and their fixes
+- **[FAQ とトラブルシューティング](./faq-and-trouble-shooting)** — よくある質問と解決方法
+- **[解決済みの問題](./resolved-issue)** — 過去に対処された問題とその修正内容
 
-### Others
+### その他
 
-- **[INTMAX Explorer](./intmax-explorer)** - Browse network activity and verify transactions
-- **[Smart Contracts](./smart-contracts)** - Interact with INTMAX network smart contracts
+- **[INTMAX Explorer](./intmax-explorer)** — ネットワークアクティビティの閲覧とトランザクション検証
+- **[スマートコントラクト](./smart-contracts)** — INTMAX Network を構成するスマートコントラクト一覧
 
-## Key Features of INTMAX
+## INTMAX の主な特徴
 
-- **Ultra-Low Fees**: Transfer multiple tokens to different addresses without additional transaction costs
-- **Enhanced Privacy**: Advanced privacy measures protect your transaction details
-- **Fast Transactions**: Optimized for rapid token transfers
-- **Privacy Mining**: Earn ITX tokens by participating in the network
-- **Multi-Wallet Support**: Compatible with popular Web3 wallets
+- **超低コスト手数料** — 複数のトークンを異なるアドレスへ、追加の手数料なしで送信可能
+- **高度なプライバシー保護** — トランザクションの詳細を保護する高度なプライバシー機能
+- **高速トランザクション** — 高速なトークン Transfer に最適化された設計
+- **Privacy Mining** — ネットワークへの参加で ITX トークンを獲得可能
+- **マルチウォレット対応** — 主要な Web3 ウォレットに対応
 
-## Important Notes
+## 重要事項
 
-- INTMAX addresses are different from Ethereum addresses (95 characters starting with 'i' for mainnet)
-- Deposits from Ethereum mainnet take approximately 30 minutes to reflect
-- Privacy mining requires maintaining deposits for 2-5 days lock period
-- The network focuses on efficient token transfers rather than general smart contracts
+- INTMAX アドレスは Ethereum アドレスとは異なります（メインネットでは「i」で始まる 95 文字の文字列）
+- Ethereum メインネットからの Deposit は、反映まで約 30 分かかります
+- Privacy Mining では 2〜5 日間のロック期間（Lock Period）中、Deposit を維持する必要があります
+- INTMAX Network は汎用スマートコントラクトではなく、効率的なトークン Transfer に特化しています
 
-For detailed instructions on any topic, click the links above or navigate through the sidebar menu.
+各トピックの詳細は、上記のリンクまたはサイドバーメニューからご覧ください。

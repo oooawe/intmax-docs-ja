@@ -1,17 +1,22 @@
+---
+icon: wallet
+description: Rabby Wallet のカスタムネットワーク追加手順
+---
+
 # Rabby Wallet
 
-When you first download Rabby Wallet, it cannot be used with the INTMAX Web App right away. Please follow the steps below to adjust the settings accordingly.
+Rabby Wallet をダウンロードした直後の状態では、INTMAX Web アプリで使用できません。以下の手順で設定を変更してください。
 
-1. More > Add custom network
+1. 「More」>「Add custom network」を選択
 
 <figure>
   <img src="assets/user-guides/rabby_wallet_10.webp" alt="Add Custom Network" />
   <img src="assets/user-guides/rabby_wallet_20.webp" alt="Add Custom Network" />
 </figure>
 
-2. Select Sepolia network.
-3. Add Sepolia network by using https://chainlist.org/chain/11155111
-4. Copy the RPC URL.
+2. Sepolia ネットワークを選択
+3. https://chainlist.org/chain/11155111 を使用して Sepolia ネットワークを追加
+4. RPC URL をコピー
 
 <figure>
   <img src="assets/user-guides/rabby_wallet_30.webp" alt="Add Sepolia Network" />

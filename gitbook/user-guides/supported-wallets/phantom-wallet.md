@@ -1,24 +1,29 @@
+---
+icon: wallet
+description: Phantom Wallet でのテストネット接続設定
+---
+
 # Phantom Wallet
 
-## Connecting Phantom Wallet to INTMAX Testnet
+## Phantom Wallet を INTMAX テストネットに接続する
 
-To use the INTMAX Testnet with the Phantom Wallet Chrome extension, follow these steps to enable Testnet Mode:
+Phantom Wallet の Chrome 拡張機能で INTMAX テストネットを利用するには、以下の手順でテストネットモードを有効にしてください。
 
-### Steps to Enable Testnet Mode
+### テストネットモードの有効化手順
 
-1. Open the Phantom Wallet extension in your Chrome browser
-2. Access Settings by clicking the gear icon (⚙️) located in the bottom left corner
-3. Navigate to Developer Settings from the settings menu
-4. Enable Testnet Mode by turning the toggle to ON
+1. Chrome ブラウザで Phantom Wallet 拡張機能を開く
+2. 左下にある歯車アイコン（⚙️）をクリックして設定画面を開く
+3. 設定メニューから「Developer Settings」に移動
+4. 「Testnet Mode」のトグルを ON にして有効化
 
-Once Testnet Mode is activated, you'll be able to connect to and interact with the INTMAX Testnet through your Phantom Wallet.
+テストネットモードを有効にすると、Phantom Wallet から INTMAX テストネットに接続して操作できるようになります。
 
-### Switching Back to Mainnet
+### メインネットへの切り替え
 
-When you want to use the mainnet again, simply turn OFF the Testnet Mode by following the same steps and toggling the setting to OFF.
+メインネットに戻す場合は、同じ手順でテストネットモードのトグルを OFF にしてください。
 
-### Important Notes
+### 重要事項
 
-- Make sure you have the Phantom Wallet Chrome extension installed before following these steps
-- Testnet Mode allows you to test features without using real cryptocurrency
-- Always disable Testnet Mode before returning to mainnet usage
+- これらの手順を行う前に、Phantom Wallet の Chrome 拡張機能がインストールされていることを確認してください
+- テストネットモードでは、実際の暗号資産を使用せずに機能をテストできます
+- メインネットでの利用に戻る前に、必ずテストネットモードを無効にしてください

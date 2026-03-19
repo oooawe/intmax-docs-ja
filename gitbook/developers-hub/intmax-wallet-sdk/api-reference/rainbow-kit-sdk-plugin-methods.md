@@ -1,15 +1,20 @@
-# Rainbow Kit SDK Plugin Methods
+---
+icon: puzzle-piece
+description: RainbowKit SDK プラグインの主要メソッドと設定パラメータ
+---
+
+# RainbowKit SDK プラグインメソッド
 
 ### `intmaxwalletsdk(parameters: intmaxwalletsdkParameters)`
 
-This function initializes a new wallet connection with the specified parameters. The `parameters` object can include:
+指定したパラメータで新しいウォレット接続を初期化する関数です。`parameters` オブジェクトには以下を含めることができます：
 
-- `metadata`: Optional metadata about the DApp.
-- `wallet`: An object containing the wallet's name, URL, and icon URL.
-- `mode`: The mode of connection, either "iframe" or "popup".
-- `chains`: The default chain ID(s) to connect to.
+- `metadata`：dApp に関するオプションのメタデータ。
+- `wallet`：ウォレットの名前、URL、アイコン URL を含むオブジェクト。
+- `mode`：接続モード。`"iframe"` または `"popup"` を指定。
+- `chains`：接続先のデフォルトチェーン ID。
 
-**Example**
+**使用例**
 
 ```typescript
 const additionalWallets = [
@@ -53,13 +58,13 @@ const additionalWallets = [
 ];
 ```
 
-**Results**
+**結果**
 
 ![Rainbow Kit SDK Plugin](assets/developers-hub/rainbow-kit-sdk-plugin.webp)
 
 ### `connectorsForWallets(wallets: Wallet[]): Connector[]`
 
-Takes an array of wallet configurations and returns an array of connectors that can be used to connect to those wallets.
+ウォレット設定の配列を受け取り、それらのウォレットへの接続に使用できるコネクタの配列を返します。
 
 ```typescript
 const connectors = connectorsForWallets([
@@ -72,7 +77,7 @@ const connectors = connectorsForWallets([
 
 ### `createConfig(config: WagmiConfig): WagmiConfig`
 
-Creates a configuration object for the Wagmi SDK. This includes settings for auto-connect, the connectors to use, and the public client for blockchain interaction.
+Wagmi SDK の設定オブジェクトを作成します。自動接続の設定、使用するコネクタ、ブロックチェーンインタラクション用のパブリッククライアントを含みます。
 
 ```typescript
 const wagmiConfig = createConfig({
@@ -80,17 +85,4 @@ const wagmiConfig = createConfig({
   connectors,
   publicClient,
 });
-intmaxwalletsdk(parameters: intmaxwalletsdkParameters)
-This function initializes a new wallet connection with the specified parameters. The parameters object can include:
-metadata: Optional metadata about the DApp.wallet: An object containing the wallet's name, URL, and icon URL.mode: The mode of connection, either "iframe" or "popup".chains: The default chain ID(s) to connect to.
-Example
-const additionalWallets = [ intmaxwalletsdk({  wallet: {   url: "https://intmaxwallet-sdk-wallet.vercel.app/",   name: "IntmaxWalletSDK Demo",   iconUrl: "https://intmaxwallet-sdk-wallet.vercel.app/vite.svg",  },  metadata: {   name: "Rainbow-Kit Demo",   description: "Rainbow-Kit Demo",   icons: ["https://intmaxwallet-sdk-wallet.vercel.app/vite.svg"],  }, }), intmaxwalletsdk({  mode: "iframe",  wallet: {   url: "https://intmaxwallet-sdk-wallet.vercel.app/",   name: "IntmaxWalletSDK Demo",   iconUrl: "https://intmaxwallet-sdk-wallet.vercel.app/vite.svg",  },  metadata: {   name: "Rainbow-Kit Demo",   description: "Rainbow-Kit Demo",   icons: ["https://intmaxwallet-sdk-wallet.vercel.app/vite.svg"],  }, }), intmaxwalletsdk({  wallet: {   url: "https://wallet.intmax.io",   name: "INTMAX Wallet",   iconUrl: "https://wallet.intmax.io/favicon.ico",  },  metadata: {   name: "Rainbow-Kit Demo",   description: "Rainbow-Kit Demo",   icons: ["https://intmaxwallet-sdk-wallet.vercel.app/vite.svg"],  }, }),];
-Results
-
-connectorsForWallets(wallets: Wallet[]): Connector[]
-Takes an array of wallet configurations and returns an array of connectors that can be used to connect to those wallets.
-const connectors = connectorsForWallets([  {   groupName: "IntmaxWalletSDK",   wallets: additionalWallets,  },]);
-createConfig(config: WagmiConfig): WagmiConfig
-Creates a configuration object for the Wagmi SDK. This includes settings for auto-connect, the connectors to use, and the public client for blockchain interaction.
-const wagmiConfig = createConfig({  autoConnect: true,  connectors,  publicClient,});
 ```

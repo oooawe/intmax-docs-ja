@@ -1,14 +1,19 @@
-# Quick Start Guide for Rainbow Kit
+---
+icon: rocket
+description: RainbowKit/Wagmi プロジェクトへの INTMAX WalletSDK プラグイン統合手順
+---
 
-The RainbowKit/Wagmi SDK is a powerful toolkit for developers to integrate blockchain-based applications with various wallet providers. INTMAX WalletSDK simplifies the process of connecting to blockchain web wallets, managing wallet connections, and interacting with blockchain networks. It is designed to be flexible and easy to use, supporting a wide range of blockchain networks and wallet providers.
+# RainbowKit 向けクイックスタートガイド
 
-Here's a quick start guide on setting up INTMAX WalletSDK in your Rainbow Kit setup. This enables INTMAX WalletSDK-compatible wallet connections from Rainbow Kit.
+RainbowKit/Wagmi SDK は、ブロックチェーンベースのアプリケーションをさまざまなウォレットプロバイダーと統合するための強力なツールキットです。INTMAX WalletSDK は、ブロックチェーン Web ウォレットへの接続、ウォレット接続の管理、ブロックチェーンネットワークとのインタラクションのプロセスを簡素化します。幅広いブロックチェーンネットワークとウォレットプロバイダーをサポートし、柔軟で使いやすい設計です。
 
-## Installation
+RainbowKit のセットアップに INTMAX WalletSDK を統合するためのクイックスタートガイドです。これにより、RainbowKit から INTMAX WalletSDK 対応のウォレット接続が可能になります。
 
-**Prerequisites**: Node.js 18.0+
+## インストール
 
-To start using the INTMAX WalletSDK RainbowKit/Wagmi Plugin in your project, you need to install them via npm or yarn. Open your terminal and run the following command:
+**前提条件**: Node.js 18.0+
+
+プロジェクトで INTMAX WalletSDK の RainbowKit/Wagmi プラグインを使用するには、npm または yarn でインストールします：
 
 {% tabs %}
   {% tab title="npm" %}
@@ -23,20 +28,20 @@ yarn add intmax-walletsdk @rainbow-me/rainbowkit wagmi
   {% endtab %}
 {% endtabs %}
 
-## Usage
+## 使い方
 
-### Importing the SDK
+### SDK のインポート
 
-After installation, you can import the necessary components from the SDK into your project. Here's an example of how to import the intmaxwalletsdk function and other required modules
+インストール後、SDK から必要なコンポーネントをプロジェクトにインポートします。`intmaxwalletsdk` 関数とその他の必要なモジュールのインポート例を以下に示します。
 
 ```ts
 import { intmaxwalletsdk } from "intmax-walletsdk/rainbowkit";
 // ...
 ```
 
-### Adding Wallet Providers
+### ウォレットプロバイダーの追加
 
-Next, you can add wallet providers to your application. This example demonstrates how to add a custom wallet provider using the `intmaxwalletsdk` function:
+次に、アプリケーションにウォレットプロバイダーを追加します。以下の例では、`intmaxwalletsdk` 関数を使用してカスタムウォレットプロバイダーを追加する方法を示しています：
 
 ```ts
 const additionalWallets = [
@@ -55,9 +60,9 @@ const additionalWallets = [
 ];
 ```
 
-### Integrating with React
+### React との統合
 
-Finally, integrate the SDK with your React application by wrapping your app component with `RainbowKitProvider` and `WagmiConfig`:
+最後に、アプリケーションコンポーネントを `RainbowKitProvider` と `WagmiConfig` でラップして、SDK を React アプリケーションに統合します：
 
 ```ts
 import React from "react";
@@ -93,6 +98,5 @@ ReactDOM.createRoot(root).render(
 );
 ```
 
-​
-Explore the [API reference](../api-reference) section for more methods/events.
-For an end-to-end code example, you can check out the [wallet example](https://github.com/InternetMaximalism/intmax-walletsdk/tree/main/examples/rainbowkit) GitHub repository.
+その他のメソッドやイベントについては [API リファレンス](../api-reference/)セクションを参照してください。
+エンドツーエンドのコード例は [wallet example](https://github.com/InternetMaximalism/intmax-walletsdk/tree/main/examples/rainbowkit) GitHub リポジトリで確認できます。

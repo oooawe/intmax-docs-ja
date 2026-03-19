@@ -1,6 +1,11 @@
-# Resources
+---
+icon: book
+description: INTMAX WalletSDK の GitHub リポジトリ・デモ・npm パッケージへのリンク集
+---
 
-Main links for INTMAX WalletSDK-related content
+# リソース
+
+INTMAX WalletSDK 関連コンテンツへの主要リンク
 
 - [INTMAX WalletSDK GitHub Repository](https://github.com/InternetMaximalism/intmaxwallet-sdk)
 - [INTMAX WalletSDK Dapp Example GitHub](https://github.com/InternetMaximalism/intmaxwallet-sdk/tree/main/examples/dapp)

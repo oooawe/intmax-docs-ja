@@ -1,8 +1,13 @@
-# API Reference
+---
+icon: book-open
+description: INTMAX WalletSDK のプロトコルフロー・メッセージ形式・Namespace の仕様
+---
 
-## Summary of Protocol Flow
+# API リファレンス
 
-The following illustrates the flow when a Dapp calls methods like `eth_requestAccounts` on a Web Wallet.
+## プロトコルフローのまとめ
+
+以下は、dApp が Web ウォレットに対して `eth_requestAccounts` などのメソッドを呼び出す際のフローです。
 
 ```mermaid
 sequenceDiagram
@@ -21,21 +26,21 @@ participant wallet as Wallet (Popup)
   dapp -->> user: DONE!!!
 ```
 
-1. The user clicks the "Connect" button on the dApp.
-2. The dApp uses `window.open` to open the wallet.
-3. The wallet is opened and initialized.
-4. After initialization, the wallet sends a `webmax_ready` message.
-5. After confirming initialization, the dApp sends a message like `eth_requestAccounts`.
-6. The wallet displays the request to the user.
-7. The user checks and approves the request.
-8. The wallet sends a response.
-9. The dApp receives the response and may close the Window.
+1. ユーザーが dApp の「Connect」ボタンをクリックします。
+2. dApp が `window.open` でウォレットを開きます。
+3. ウォレットが開かれ、初期化されます。
+4. 初期化完了後、ウォレットが `webmax_ready` メッセージを送信します。
+5. 初期化を確認した後、dApp が `eth_requestAccounts` などのメッセージを送信します。
+6. ウォレットがリクエスト内容をユーザーに表示します。
+7. ユーザーがリクエスト内容を確認し、承認します。
+8. ウォレットがレスポンスを送信します。
+9. dApp がレスポンスを受信し、必要に応じてウィンドウを閉じます。
 
-## Message Format
+## メッセージ形式
 
-### Extended JSON-RPC
+### 拡張 JSON-RPC
 
-Many wallets for blockchains like Ethereum provide their operations as JSON-RPC methods. Based on these, we define a message format that inherits from JSON-RPC as follows.
+Ethereum をはじめとする多くのブロックチェーン向けウォレットは、JSON-RPC メソッドとして操作を提供しています。これに基づき、JSON-RPC を継承するメッセージ形式を以下のように定義します。
 
 ```tsx
 export type AbstractRequest<NS extends string = string, Params = unknown> = {
@@ -69,7 +74,7 @@ export type AbstractResponse<NS extends string = string, Result = unknown> =
 
 ### Namespace
 
-Each method requires a Namespace, defining the group of methods. The Namespace must be included in each request, and it can also include ChainID information.
+各メソッドには Namespace が必要であり、メソッドのグループを定義します。Namespace は各リクエストに含める必要があり、ChainID 情報を含めることもできます。
 
 ```tsx
 type ChainId = string | number;
@@ -77,7 +82,7 @@ type Namespace = "eip155" | "webmax";
 type ChainedNamespace = `${Namespace}:${ChainId}`;
 ```
 
-**Window Handling**: Specifies how to handle the Wallet's Window after sending a response. This is useful, for example, when the wallet wants to display an error message.
+**Window Handling**：レスポンス送信後のウォレットウィンドウの処理方法を指定します。例えば、ウォレットがエラーメッセージを表示したい場合に有用です。
 
 ```tsx
 type WindowHandling = "keep" | "close";

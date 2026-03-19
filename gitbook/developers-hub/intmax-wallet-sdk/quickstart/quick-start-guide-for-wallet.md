@@ -1,10 +1,15 @@
-# Quick Start Guide for Wallet
+---
+icon: rocket
+description: Web ウォレットへの INTMAX WalletSDK 統合手順とイベントハンドリングの基本
+---
 
-Here's a quick start guide on setting up intmaxwalletsdk in your web wallet. This enables Wallet Next compatible dapps to connect to your wallet.
+# ウォレット向けクイックスタートガイド
 
-## Installation
+Web ウォレットに intmax-walletsdk をセットアップするためのクイックスタートガイドです。これにより、Wallet Next 対応の dApp からウォレットへの接続が可能になります。
 
-**Prerequisites**: Node.js 18.0+
+## インストール
+
+**前提条件**: Node.js 18.0+
 
 {% tabs %}
   {% tab title="npm" %}
@@ -24,9 +29,9 @@ pnpm add intmax-walletsdk
   {% endtab %}
 {% endtabs %}
 
-## Usage
+## 使い方
 
-Import and initialize wallet client intmaxWalletClient.
+ウォレットクライアント `intmaxWalletClient` をインポートして初期化します。
 
 ```ts
 import { intmaxWalletClient } from "intmax-walletsdk/wallet";
@@ -34,18 +39,18 @@ import { intmaxWalletClient } from "intmax-walletsdk/wallet";
 const sdk = intmaxWalletClient();
 ```
 
-`intmaxWalletClient` provides a set of methods to facilitate interaction between wallets and dApps. These methods are essential for setting up event listeners, signaling readiness, and cleaning up resources. The available methods are as follows:
+`intmaxWalletClient` は、ウォレットと dApp 間のインタラクションを円滑にするためのメソッド群を提供します。これらのメソッドは、イベントリスナーの設定、準備完了の通知、リソースのクリーンアップに不可欠です。利用可能なメソッドは以下の通りです：
 
 ### `.on(path, cb)`
 
-Registers a callback function to be executed when a specific event occurs. Use the .on() method to listen for specific events and handle them accordingly.
+特定のイベント発生時に実行されるコールバック関数を登録します。`.on()` メソッドで特定のイベントをリッスンし、適切に処理します。
 
-**Params:**
+**パラメータ：**
 
-- `path` (string): The event path, typically a combination of namespace and method name (e.g., "eip155/eth_requestAccounts", "intmax/intmax_ready", etc).
-- `cb` (function): The callback function to be executed. It receives a `context` object and should return an `AbstractResponse` or a Promise that resolves to an AbstractResponse. Check API reference for the event paths and expected return.
+- `path`（string）：イベントパス。通常はネームスペースとメソッド名の組み合わせです（例：`"eip155/eth_requestAccounts"`、`"intmax/intmax_ready"` など）。
+- `cb`（function）：実行されるコールバック関数。`context` オブジェクトを受け取り、`AbstractResponse` またはそれを解決する Promise を返す必要があります。イベントパスと期待される戻り値については API リファレンスを参照してください。
 
-#### Example
+#### 使用例
 
 ```ts
 // To handle account request events
@@ -80,11 +85,11 @@ sdk.on("eip155/eth_sign", async (c) => {
 
 ### `.ready()`
 
-Signals that the wallet is ready to handle requests. This method sends a `intmax_ready` message to the parent window.
+ウォレットがリクエストを処理する準備ができたことを通知します。このメソッドは親ウィンドウに `intmax_ready` メッセージを送信します。
 
-**Params:** None
+**パラメータ：** なし
 
-#### Example
+#### 使用例
 
 ```ts
 sdk.ready();
@@ -92,17 +97,17 @@ sdk.ready();
 
 ### `.destruct()`
 
-Cleans up resources by removing event listeners and stopping message dispatching. When your wallet is no longer needed or before it is closed, call the `.destruct()` method to clean up resources.
+イベントリスナーの削除とメッセージディスパッチの停止により、リソースをクリーンアップします。ウォレットが不要になった場合や閉じる前に、`.destruct()` メソッドを呼び出してリソースを解放してください。
 
-**Params:** None
+**パラメータ：** なし
 
-#### Example
+#### 使用例
 
 ```ts
 sdk.destruct();
 ```
 
-By following these methods, developers can effectively integrate the intmaxWalletClient into their wallets, enabling seamless communication and interaction between wallets and DApps.
+これらのメソッドを活用することで、`intmaxWalletClient` をウォレットに効果的に統合し、ウォレットと dApp 間のシームレスな通信・インタラクションを実現できます。
 
-Explore the [API reference](../api-reference) section for more methods/events.
-For an end-to-end code example, you can check out the [wallet example](https://github.com/InternetMaximalism/intmax-walletsdk/tree/main/examples/wallet) GitHub repository.
+その他のメソッドやイベントについては [API リファレンス](../api-reference/)セクションを参照してください。
+エンドツーエンドのコード例は [wallet example](https://github.com/InternetMaximalism/intmax-walletsdk/tree/main/examples/wallet) GitHub リポジトリで確認できます。

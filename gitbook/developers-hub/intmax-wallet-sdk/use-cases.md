@@ -1,15 +1,20 @@
+---
+icon: lightbulb
+description: INTMAX WalletSDK Protocol の主要なユースケースと応用パターン
+---
+
 # Use Cases
 
-Here are examples of using the INTMAX WalletSDK protocol. However, the INTMAX WalletSDK protocol is a communication standard, and various applications are possible.
+INTMAX WalletSDK Protocol の使用例を紹介します。INTMAX WalletSDK Protocol は通信規格であり、さまざまなアプリケーションへの応用が可能です。
 
-## Connect with Web Wallet
+## Web ウォレットとの接続
 
-As the most orthodox usage, integrating DappSDK from INTMAX WalletSDK into a Dapp allows connections with web wallets compatible with the protocol. This usage is identical to how protocols like WalletConnect are utilized.
+最もオーソドックスな使い方として、INTMAX WalletSDK の DappSDK を dApp に統合することで、プロトコル対応の Web ウォレットと接続できます。WalletConnect などのプロトコルと同様の利用形態です。
 
-## Bookmarklet Wallet
+## ブックマークレットウォレット
 
-By using bookmarks to insert INTMAX WalletSDK into a Dapp page, it enables the use of web wallets compatible with Webmax from the page's window. Ethereum. This allows for a user experience similar to that of browser extension wallets like Metamask. However, there are issues, such as some Dapps being unusable due to security policies like CSP, and the user experience of the bookmarklet itself being poor.
+ブックマークを使って INTMAX WalletSDK を dApp ページに挿入することで、ページのウィンドウから Webmax 対応の Web ウォレットを利用できるようになります。これにより、MetaMask のようなブラウザ拡張ウォレットに近いユーザー体験が実現します。ただし、CSP（Content Security Policy）などのセキュリティポリシーにより一部の dApp では使用できないケースがあることや、ブックマークレット自体のユーザー体験が十分でないといった課題があります。
 
-## Intmax Wallet Launcher
+## INTMAX Wallet Launcher
 
-As mentioned, bookmarklet wallets have issues with user experience and security. However, these issues can be resolved by providing a launcher that manages web wallets compatible with Protocol as a browser extension. With this extension, web wallets can be used with the same user experience as extension-based wallets, and security is assured at the same level. This use case is innovative for web wallets and is currently under development.
+前述の通り、ブックマークレットウォレットにはユーザー体験とセキュリティの面で課題があります。しかし、プロトコル対応の Web ウォレットをブラウザ拡張機能として管理するランチャーを提供することで、これらの課題を解決できます。この拡張機能を使えば、Web ウォレットを拡張機能ベースのウォレットと同等のユーザー体験で利用でき、セキュリティも同水準が確保されます。このユースケースは Web ウォレットにとって革新的なアプローチであり、現在開発中です。

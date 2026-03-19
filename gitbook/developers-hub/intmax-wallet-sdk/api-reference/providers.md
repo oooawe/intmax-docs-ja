@@ -1,18 +1,23 @@
+---
+icon: plug
+description: intmaxDappClient の Provider メソッドと EthereumProvider の設定方法
+---
+
 # Providers
 
-## `.provider` method
+## `.provider` メソッド
 
-The `.provider` method is a crucial part of the `intmaxDappClient` in the `INTMAX WalletSDK`, enabling direct interaction with different blockchain providers. It enables the use of custom providers, giving you the flexibility to integrate with blockchain networks not directly supported by the SDK. Let's dive into how it works and how to use it effectively.
+`.provider` メソッドは `INTMAX WalletSDK` の `intmaxDappClient` における重要な機能であり、異なるブロックチェーンプロバイダーとの直接的なインタラクションを可能にします。カスタムプロバイダーの使用をサポートしており、SDK が直接対応していないブロックチェーンネットワークとの統合も柔軟に行えます。その仕組みと効果的な使い方を説明します。
 
-### Method Signature
+### メソッドシグネチャ
 
 ```typescript
 provider<NS extends Schema[number]["namespace"]>(namespace: ChainedNamespace<NS> | NS)
 ```
 
-- `namespace`: A string representing the namespace of the blockchain provider you wish to interact with. This can be a simple namespace (e.g., `"eip155"`) or a chained namespace (e.g., `"eip155:1"`), where the number represents the chain ID.
+- `namespace`：インタラクション対象のブロックチェーンプロバイダーの Namespace を表す文字列です。単純な Namespace（例：`"eip155"`）またはチェーン付き Namespace（例：`"eip155:1"`、番号はチェーン ID）を指定できます。
 
-### Example
+### 使用例
 
 ```typescript
 const ethereum = await sdk.provider("eip155");
@@ -20,21 +25,21 @@ const ethereum = await sdk.provider("eip155");
 const ethereumChainSpecific = await sdk.provider("eip155:1");
 ```
 
-In this example, `client.provider("eip155")` returns an instance of the Ethereum provider, which can then be used to interact with the Ethereum blockchain. If you need to interact with a specific chain, such as Ethereum Mainnet (chain ID 1), you can specify the chain ID as part of the namespace (e.g., `"eip155:1"`).
+この例では、`client.provider("eip155")` が Ethereum プロバイダーのインスタンスを返し、Ethereum ブロックチェーンとのインタラクションに使用できます。Ethereum Mainnet（チェーン ID 1）など特定のチェーンとインタラクションする必要がある場合は、Namespace の一部としてチェーン ID を指定します（例：`"eip155:1"`）。
 
 ## EthereumProvider
 
-The `ethereumProvider` is a factory function that creates an Ethereum provider instance, conforming to the EIP-1193 standard. This provider enables interaction with the Ethereum blockchain through a set of methods, allowing Dapps to request account information, switch chains, and perform various blockchain operations like transaction signing, handling various Ethereum JSON-RPC requests, such as `eth_chainId`, `eth_accounts`, and `wallet_switchEthereumChain`, etc.
+`ethereumProvider` は、EIP-1193 標準に準拠した Ethereum プロバイダーインスタンスを作成するファクトリ関数です。このプロバイダーにより、一連のメソッドを通じて Ethereum ブロックチェーンとインタラクションできます。dApp からのアカウント情報のリクエスト、チェーンの切り替え、トランザクション署名などの各種ブロックチェーン操作に加え、`eth_chainId`、`eth_accounts`、`wallet_switchEthereumChain` などの Ethereum JSON-RPC リクエストを処理できます。
 
-### Configuration
+### 設定
 
-The `ethereumProvider` accepts an optional `EthereumProviderOptions` object, which can include:
+`ethereumProvider` はオプションの `EthereumProviderOptions` オブジェクトを受け取ります：
 
-- `httpRpcUrls`: A mapping of chain IDs to HTTP RPC URLs for interacting with the Ethereum blockchain. This is necessary for operations that require direct interaction with the blockchain.
+- `httpRpcUrls`：Ethereum ブロックチェーンとのインタラクション用に、チェーン ID と HTTP RPC URL のマッピングを指定します。ブロックチェーンとの直接的なインタラクションが必要な操作に必須です。
 
-### Example
+### 使用例
 
-To use the `ethereumProvider` within a Dapp, you must first initialize the `intmaxDappClient` with the provider configuration:
+dApp で `ethereumProvider` を使用するには、まずプロバイダー設定で `intmaxDappClient` を初期化します：
 
 ```typescript
 const client = intmaxDappClient({
@@ -51,4 +56,4 @@ const client = intmaxDappClient({
 });
 ```
 
-In this example, the `ethereumProvider` is configured with HTTP RPC URLs for the Ethereum Mainnet (chain ID 1) and Matic Mainnet (chain ID 137).
+この例では、Ethereum Mainnet（チェーン ID 1）と Matic Mainnet（チェーン ID 137）の HTTP RPC URL で `ethereumProvider` を設定しています。

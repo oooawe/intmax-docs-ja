@@ -1,8 +1,13 @@
-# Error Codes
+---
+icon: triangle-exclamation
+description: INTMAX WalletSDK 固有のエラーコード一覧と説明
+---
 
-Error codes inherit from EIP1193 and add the following error codes.
+# エラーコード
 
-| Status code | Name                | Description                                                     |
-| ----------- | ------------------- | --------------------------------------------------------------- |
-| 5001        | Chain not Supported | ChainID specified in namespace, but wallet does not support it. |
-| 5100        | Popups blocked      | For some reason, the wallet could not be opened.                |
+エラーコードは EIP-1193 を継承し、以下のエラーコードが追加されています。
+
+| ステータスコード | 名称                | 説明                                              |
+| ----------- | ------------------- | ------------------------------------------------- |
+| 5001        | Chain not Supported | Namespace で指定されたチェーン ID をウォレットがサポートしていない |
+| 5100        | Popups blocked      | 何らかの理由でウォレットを開けなかった                      |

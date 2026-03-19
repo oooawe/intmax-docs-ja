@@ -1,6 +1,11 @@
-# Installation
+---
+icon: download
+description: INTMAX Wallet SDK のパッケージマネージャー別インストール手順
+---
 
-To get started with the `INTMAX WalletSDK` , developers can install it using various package managers like npm, yarn, or pnpm:
+# インストール
+
+`INTMAX WalletSDK` を使い始めるには、npm、yarn、pnpm などのパッケージマネージャーでインストールします：
 
 {% tabs %}
   {% tab title="npm" %}

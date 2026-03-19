@@ -1,12 +1,17 @@
-# Customizing the Look of the Popup/Iframe
+---
+icon: palette
+description: dApp のブランドに合わせたポップアップ/iframe の外観カスタマイズ方法
+---
 
-When integrating the INTMAX Wallet SDK into your dApp, you might want to customize the appearance of the popup or iframe that users interact with when signing and sending transactions. This includes setting the name, logo, and other metadata to ensure the wallet interface aligns with your brand. Below is an example of how to achieve this using the SDK.
+# ポップアップ/iframe の外観カスタマイズ
 
-## Example
+INTMAX Wallet SDK を dApp に統合する際、トランザクションの署名や送信時にユーザーが操作するポップアップや iframe の外観をカスタマイズできます。名前、ロゴ、その他のメタデータを設定し、ウォレットインターフェースを自社ブランドに合わせることが可能です。以下に、SDK を使用したカスタマイズ方法を示します。
 
-**Here's how you can customize the look of the popup/iframe:**
+## 使用例
 
-1. **Define DApp Metadata**: Set up the metadata for your dApp. This includes the name, description, and icons that will be displayed in the popup/iframe. The icons array can include your custom logo.
+**ポップアップ/iframe の外観をカスタマイズする手順：**
+
+1. **dApp メタデータの定義**：dApp のメタデータを設定します。ポップアップ/iframe に表示される名前、説明、アイコンを含めます。icons 配列にはカスタムロゴを指定できます。
 
    ```javascript
    // Define the default wallet URL for the INTMAX wallet or alternative wallet
@@ -22,7 +27,7 @@ When integrating the INTMAX Wallet SDK into your dApp, you might want to customi
    };
    ```
 
-2. **Customize the SDK Initialization**: When creating the SDK instance, pass in your custom metadata along with the wallet URL. You can also customize the wallet window's appearance by specifying the mode (e.g., `iframe` or `popup`).
+2. **SDK 初期化のカスタマイズ**：SDK インスタンスの作成時に、カスタムメタデータとウォレット URL を渡します。ウォレットウィンドウの表示モード（`iframe` または `popup`）も指定できます。
 
    ```javascript
    // Function to create an SDK instance, taking the wallet URL as an argument
@@ -41,7 +46,7 @@ When integrating the INTMAX Wallet SDK into your dApp, you might want to customi
    const sdk = createsSDK(DEFAULT_WALLET_URL);
    ```
 
-3. **Integrate with Your DApp**: Use the customized SDK instance in your dApp as you would normally. The popup or iframe that appears when the user interacts with the wallet will now reflect your custom branding.
+3. **dApp への統合**：カスタマイズした SDK インスタンスを通常通り dApp で使用します。ユーザーがウォレットを操作する際に表示されるポップアップや iframe に、カスタムブランディングが反映されます。
 
    ```javascript
    const Voting = () => {
@@ -64,9 +69,9 @@ When integrating the INTMAX Wallet SDK into your dApp, you might want to customi
    };
    ```
 
-## Important Notes
+## 重要事項
 
-- **Background and Text Color**: The background and text color of the popup/iframe will be inherited from the wallet integrated into the dApp. This ensures a consistent visual experience across different parts of your application.
-- **Customization Options**: You can customize the popup/iframe with your dApp's name, logo, and description by setting these properties in the `DAPP_METADATA` object. The `icons` array should contain the path to your logo image, which will be displayed in the popup/iframe.
-- Ensure that `logo.png` is located in the `public` directory of your project. This allows the image to be served correctly using the absolute path.
-- The `createsSDK` function can be called with a custom wallet URL or use `DEFAULT_WALLET_URL` as needed.
+- **背景色とテキスト色**：ポップアップ/iframe の背景色とテキスト色は、dApp に統合されたウォレットから継承されます。これにより、アプリケーション全体で一貫したビジュアル体験が確保されます。
+- **カスタマイズオプション**：`DAPP_METADATA` オブジェクトで dApp の名前、ロゴ、説明を設定することで、ポップアップ/iframe をカスタマイズできます。`icons` 配列には、ポップアップ/iframe に表示されるロゴ画像のパスを指定します。
+- `logo.png` がプロジェクトの `public` ディレクトリに配置されていることを確認してください。これにより、絶対パスで画像が正しく配信されます。
+- `createsSDK` 関数は、カスタムウォレット URL または必要に応じて `DEFAULT_WALLET_URL` を渡して呼び出せます。

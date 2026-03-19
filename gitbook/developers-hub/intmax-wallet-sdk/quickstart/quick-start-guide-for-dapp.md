@@ -1,12 +1,17 @@
-# Quick Start Guide for Dapp
+---
+icon: rocket
+description: React dApp への INTMAX WalletSDK 統合手順と主要メソッドの使用例
+---
 
-Here's a quick start guide on setting up INTMAX WalletSDK in your React dApp, which can be adapted for Next.js with minor adjustments. This dApp will let you connect to any compatible web wallet:
+# dApp 向けクイックスタートガイド
 
-## Installation
+React dApp に INTMAX WalletSDK をセットアップするためのクイックスタートガイドです。Next.js にも軽微な調整で対応できます。この dApp から、対応する任意の Web ウォレットに接続できるようになります。
 
-**Prerequisites**: Node.js 18.0+
+## インストール
 
-For your dApp connection, you'll need to install intmax-walletsdk and import intmax-walletsdk/dapp for specific dApp functionalities.
+**前提条件**: Node.js 18.0+
+
+dApp の接続には intmax-walletsdk をインストールし、dApp 固有の機能のために `intmax-walletsdk/dapp` をインポートする必要があります。
 
 {% tabs %}
   {% tab title="npm" %}
@@ -26,11 +31,11 @@ pnpm add intmax-walletsdk
   {% endtab %}
 {% endtabs %}
 
-## Usage
+## 使い方
 
-### Import and Create a New Client Using `intmaxbDappClient`
+### `intmaxDappClient` のインポートとクライアント作成
 
-Start by importingintmaxDappClient from walletnext/dapp and configuring it. To configure it, you need to set a name, wallet URL, metadata of dapp, and a provider.
+`intmax-walletsdk/dapp` から `intmaxDappClient` をインポートして設定します。設定には、名前、ウォレット URL、dApp のメタデータ、プロバイダーの指定が必要です。
 
 ```ts
 // App.tsx
@@ -46,9 +51,9 @@ const createsdk = (walletUrl: string) => {
 };
 ```
 
-Your metadata should contain the name, description, dApp icon of the dApp.
+メタデータには、dApp の名前、説明、アイコンを含めます。
 
-#### Example
+#### 使用例
 
 ```ts
 const DEFAULT_WALLET_URL = "https://wallet.intmax.io";
@@ -59,18 +64,18 @@ const DAPP_METADATA = {
 };
 ```
 
-In this example, intmaxDappClient is configured to use ethereumProvider which is a custom Web3 provider from the SDK. Check out the ethereumProvider docs for more configuration options.
-After configuring the client, you can use it by passing in the wallet URL of your choice.
+この例では、SDK のカスタム Web3 プロバイダーである `ethereumProvider` を使用するよう `intmaxDappClient` を設定しています。その他の設定オプションについては ethereumProvider のドキュメントを参照してください。
+クライアントの設定後、任意のウォレット URL を渡して使用できます。
 
 ```ts
 const sdk = createsdk(DEFAULT_WALLET_URL);
 ```
 
-### Initialize wallet connection
+### ウォレット接続の初期化
 
-To connect to the wallet account, initialize the provider and then use eth_requestAccounts the method to initiate a walletnext pairing process between dApp and wallet. the eth_accounts fetches the accounts available in the wallet.
+ウォレットアカウントに接続するには、プロバイダーを初期化し、`eth_requestAccounts` メソッドで dApp とウォレット間のペアリングプロセスを開始します。`eth_accounts` はウォレット内の利用可能なアカウントを取得します。
 
-#### Example
+#### 使用例
 
 ```ts
 const handleConnect = async () => {
@@ -80,11 +85,11 @@ const handleConnect = async () => {
 };
 ```
 
-### Sign Transaction
+### トランザクションの署名
 
-To set up a function to sign transactions, invoke the eth_sign method. This initiates the wallet popup to sign a transaction that can be used at a later time. This method requires the wallet address and message to be signed as parameters.
+トランザクション署名の関数を設定するには、`eth_sign` メソッドを呼び出します。これにより、ウォレットのポップアップが表示され、後で使用するトランザクションに署名できます。このメソッドには、ウォレットアドレスと署名対象のメッセージをパラメータとして渡す必要があります。
 
-#### Example
+#### 使用例
 
 ```ts
 const handleSignMessage = async () => {
@@ -99,11 +104,11 @@ const handleSignMessage = async () => {
 };
 ```
 
-### Send Transaction
+### トランザクションの送信
 
-To send a transaction, the eth_sendTransaction method is triggered. This method requires you to pass in the to address, from address, and the value. See other optional params on the [API reference page](../api-reference).
+トランザクションを送信するには、`eth_sendTransaction` メソッドを使用します。このメソッドには、送信先アドレス（to）、送信元アドレス（from）、送金額（value）を渡す必要があります。その他のオプションパラメータについては [API リファレンス](../api-reference/)を参照してください。
 
-#### Example
+#### 使用例
 
 ```ts
 const handleSendTransaction = async () => {
@@ -118,21 +123,21 @@ const handleSendTransaction = async () => {
 };
 ```
 
-### Switch Wallet Chains
+### ウォレットチェーンの切り替え
 
-INTMAX WalletSDK also allows you to switch between different chains in the connected wallet. To do this, call the wallet_switchEthereumChain method and pass the required chain id as a parameter. This creates a confirmation asking the user to switch to the specified network.
+INTMAX WalletSDK では、接続中のウォレットで異なるチェーンへの切り替えも可能です。`wallet_switchEthereumChain` メソッドを呼び出し、切り替え先のチェーン ID をパラメータとして渡します。これにより、指定したネットワークへの切り替え確認がユーザーに表示されます。
 
-#### Example
+#### 使用例
 
 ```ts
 await ethereum.request({ method: "wallet_switchEthereumChain", params: [{ chainId: "0x89" }] });
 ```
 
-### Send Signed Typed Transaction
+### 型付きデータの署名
 
-intmaxwalletsdk can be used to handle the signing of typed data using `eth_signTypedData_v4` this method. This method is part of the Ethereum Improvement Proposal (EIP) 712, which introduces a standard for typed structured data signing. `eth_signTypedData_v4` requires the typed data to be passed as a parameter.
+intmax-walletsdk では、`eth_signTypedData_v4` メソッドを使用して型付きデータ（Typed Data）の署名を処理できます。このメソッドは EIP-712（型付き構造化データ署名の標準）の一部です。`eth_signTypedData_v4` には型付きデータをパラメータとして渡す必要があります。
 
-#### Example
+#### 使用例
 
 ```ts
 const handleSignTypedData = async () => {
@@ -165,5 +170,5 @@ const handleSignTypedData = async () => {
 };
 ```
 
-Check out the [API reference](../api-reference) for more methods supported by WalletNext.
-For an end-to-end code example, you can check out the [dapp example](https://github.com/InternetMaximalism/walletnext/tree/main/examples/dapp) GitHub repository.
+WalletNext がサポートするその他のメソッドについては [API リファレンス](../api-reference/)を参照してください。
+エンドツーエンドのコード例は [dapp example](https://github.com/InternetMaximalism/walletnext/tree/main/examples/dapp) GitHub リポジトリで確認できます。

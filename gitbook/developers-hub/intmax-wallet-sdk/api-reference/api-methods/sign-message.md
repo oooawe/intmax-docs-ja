@@ -1,28 +1,33 @@
+---
+icon: book-open
+description: Ethereum 固有の署名を生成するメソッド
+---
+
 # Sign Message
 
-The sign method calculates an Ethereum-specific signature. Adding a prefix to the message makes the calculated signature recognizable as an Ethereum-specific signature. This prevents misuse where a malicious dapp can sign arbitrary data (e.g. transaction) and use the signature to impersonate the victim.
+Ethereum 固有の署名（Signature）を計算するメソッドです。メッセージにプレフィックスを付加することで、Ethereum 固有の署名として識別できるようにします。これにより、悪意のある dApp が任意のデータ（例：トランザクション）に署名させ、その署名を利用してユーザーになりすますことを防止します。
 
-## Request Parameters
+## リクエストパラメータ
 
 ### Params\[0\]
 
-| Parameter | Type   | Required | Description        |
+| パラメータ | 型 | 必須 | 説明 |
 | --------- | ------ | -------- | ------------------ |
-| `DATA`    | String | Yes      | address (20 Bytes) |
+| `DATA`    | String | Yes      | アドレス（20 Bytes） |
 
 ### Params\[1\]
 
-| Parameter | Type   | Required | Description               |
+| パラメータ | 型 | 必須 | 説明 |
 | --------- | ------ | -------- | ------------------------- |
-| `DATA`    | String | Yes      | message to sign (N Bytes) |
+| `DATA`    | String | Yes      | 署名するメッセージ（N Bytes） |
 
-## Response Parameters
+## レスポンスパラメータ
 
-| Parameter | Type   | Description |
+| パラメータ | 型 | 説明 |
 | --------- | ------ | ----------- |
-| `DATA`    | String | signature   |
+| `DATA`    | String | 署名 |
 
-## Request Example
+## リクエスト例
 
 ```typescript
 ethereum.request({
@@ -31,7 +36,7 @@ ethereum.request({
 });
 ```
 
-## Response Example
+## レスポンス例
 
 ```json
 "0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"

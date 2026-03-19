@@ -1,27 +1,32 @@
-# API Methods
+---
+icon: book-open
+description: INTMAX WalletSDK の JSON-RPC API メソッド一覧と分類
+---
 
-This section provides an interactive reference for the JSON-RPC API of INTMAX WalletSDK. The API builds on a set of standard Ethereum methods with INTMAX WalletSDK-specific enhancements and is designed for seamless integration into dapps.
+# API メソッド
 
-The `INTMAX WalletSDK` protocol defines three types of JSON-RPC methods.
+このセクションでは、INTMAX WalletSDK の JSON-RPC API のインタラクティブなリファレンスを提供します。この API は、標準的な Ethereum メソッドをベースに INTMAX WalletSDK 固有の拡張を加えたもので、dApp へのシームレスな統合を目的として設計されています。
 
-- **[notice](#notice-method-types)**: Notification messages from the wallet.
-- **[approval](#approval-method-types)**: Methods that request approval from the wallet.
-- **[readonly](#readonly-method-types)**: Read-only methods resolved on the dapp side.
+`INTMAX WalletSDK` プロトコルでは、3 種類の JSON-RPC メソッドを定義しています。
 
-## Notice Method Types
+- **[notice](#notice-メソッド)**：ウォレットからの通知メッセージ
+- **[approval](#approval-メソッド)**：ウォレットに承認を要求するメソッド
+- **[readonly](#readonly-メソッド)**：dApp 側で解決される読み取り専用メソッド
 
-A slightly special method type representing notifications from the wallet. This type of method is implicitly fired by the wallet and notified to the dapp side. This type is not used except for methods defined in the INTMAX WalletSDK protocol.
+## Notice メソッド
 
-These methods are:
+ウォレットからの通知を表す、やや特殊なメソッドタイプです。ウォレットが暗黙的に発火し、dApp 側に通知されます。INTMAX WalletSDK プロトコルで定義されたメソッド以外では使用されません。
+
+対象メソッド：
 
 - [INTMAX Ready](intmax-ready)
 - [INTMAX Connect](intmax-connect)
 
-## Approval Method Types
+## Approval メソッド
 
-These are methods that require user approval, such as signing.
+署名（Signature）などユーザーの承認を必要とするメソッドです。
 
-The following methods request user approval from the dapp to the wallet. They inherit the schema of each EIP.
+以下のメソッドは、dApp からウォレットに対してユーザーの承認を要求します。各 EIP のスキーマを継承しています。
 
 - [Request Wallet Account](request-wallet-account)
 - [Sign Message](sign-message)
@@ -31,11 +36,11 @@ The following methods request user approval from the dapp to the wallet. They in
 - [Add Chain to Wallet](add-chain-to-wallet)
 - [Watch Wallet Asset](watch-wallet-asset)
 
-## Readonly Method Types
+## Readonly メソッド
 
-They are Read-only methods like `eip155/eth_accounts`. These are generally cached by the SDK on the dapp side and are not requested from the wallet. However, they are just methods, so it is also possible to handle them on the wallet side.
+`eip155/eth_accounts` のような読み取り専用メソッドです。通常は SDK が dApp 側でキャッシュするため、ウォレットへのリクエストは発生しません。ただし、これらは単なるメソッドであるため、ウォレット側で処理することも可能です。
 
-The following methods are expected to be resolved by the SDK on the dapp side. They are not requested from the wallet. The naming "readonly" may change in the future.
+以下のメソッドは、SDK が dApp 側で解決することを想定しています。ウォレットへのリクエストは行われません。なお、「readonly」という命名は将来変更される可能性があります。
 
 - [Get Accounts](get-accounts)
 - [Get Chain ID](get-chain-id)

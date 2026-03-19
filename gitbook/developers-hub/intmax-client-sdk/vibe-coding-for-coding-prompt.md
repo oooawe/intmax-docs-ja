@@ -1,10 +1,15 @@
-# Vibe Coding for Coding Prompt
+---
+icon: wand-magic-sparkles
+description: INTMAX Client SDK のスターターテンプレートと開発用 AI プロンプト集
+---
 
-## Boost Your Productivity with These AI Tools
+# Vibe Coding — 開発プロンプト集
 
-Using an AI pair-programmer will **dramatically speed you up** during the hackathon.
+## AI ツールで生産性を加速する
 
-We **highly recommend**:
+AI ペアプログラマーを使えば、ハッカソン中の開発速度が **飛躍的に向上** します。
+
+以下のツールを **強く推奨** します：
 
 - **Cursor**
 - **Cline**
@@ -14,61 +19,61 @@ We **highly recommend**:
 - **Replit**
 - **v0**
 
-Best-performing models:
+最高性能のモデル：
 
 - **GPT-5**
 - **Gemini 2.5 Pro**
 - **Claude Sonnet 4**
 
-💡 _Tip: Paste the Copilot Starter Template below into your assistant to scaffold quickly._
+*ヒント：以下の Copilot スタータープロンプトをアシスタントに貼り付けると、素早くスキャフォールドできます。*
 
-## 🚀 Starter Template Prompt
+## スタータープロンプト
 
-**Title:** Vite + TypeScript starter using `intmax2-client-sdk`
-(wallet connect & INTMAX2 balance; env switch: testnet/mainnet)
+**タイトル：** `intmax2-client-sdk` を使った Vite + TypeScript スターター
+（ウォレット接続と INTMAX2 残高表示。テストネット/メインネット切り替え対応）
 
-**Context:**
-Build a minimal web dApp starter for the VibeCoding Contest. Use **`intmax2-client-sdk`** to:
+**コンテキスト：**
+VibeCoding コンテスト向けの最小限のウェブ dApp スターターを構築します。**`intmax2-client-sdk`** を使って以下を実装：
 
-1. Connect a wallet
-2. Fetch & display INTMAX2 balance
+1. ウォレットの接続
+2. INTMAX2 残高の取得と表示
 
-**Tech Stack (must-follow):**
+**技術スタック（必須）：**
 
 - Vite + React + TypeScript
 - SDK: `intmax2-client-sdk`
-- Clean modular `/src` structure
-- `.env` for env vars (never hardcode secrets)
-- Minimal UI (headless or lightweight CSS ok)
+- クリーンなモジュラー `/src` 構造
+- `.env` で環境変数管理（シークレットのハードコード禁止）
+- 最小限の UI（ヘッドレスまたは軽量 CSS 可）
 
-**Environment Switching:**
+**環境切り替え：**
 
-- `VITE_INTMAX_ENV = 'testnet' | 'mainnet'` (default: **testnet**)
-- On startup: validate required vars for active env → error if missing
+- `VITE_INTMAX_ENV = 'testnet' | 'mainnet'`（デフォルト：**testnet**）
+- 起動時にアクティブな環境に必要な変数を検証 → 不足時はエラー
 
 ---
 
-### 📝 MVP Requirements
+### MVP 要件
 
-1. **Wallet Connect**
-   - Detect `window.ethereum`
-   - Connect wallet → show shortened address
-2. **Balance Fetch**
-   - “Refresh Balance” button
-   - Show INTMAX2 balance
-3. **UX Basics**
-   - Loading states
-   - Inline/toast error messages
-4. **Type Safety**
-   - No `any` types
+1. **ウォレット接続**
+   - `window.ethereum` を検出
+   - ウォレット接続 → 省略されたアドレスを表示
+2. **残高取得**
+   - 「Refresh Balance」ボタン
+   - INTMAX2 残高を表示
+3. **UX の基本**
+   - ローディング状態
+   - インライン/トーストのエラーメッセージ
+4. **型安全性**
+   - `any` 型の使用禁止
 5. **README**
-   - Steps for running on **testnet** (default)
-   - Switching to mainnet explained clearly
-   - Explicit MetaMask requirement
+   - **テストネット**（デフォルト）での実行手順
+   - メインネットへの切り替え方法を明確に説明
+   - MetaMask が必要である旨を明記
 
 ---
 
-### 📂 Project Skeleton
+### プロジェクト構成
 
 ```
 vite.config.ts
@@ -86,7 +91,7 @@ README.md
 
 ---
 
-### ⚙️ Example `.env.local.example`
+### `.env.local.example` の例
 
 ```
 # Select environment: testnet (default) or mainnet
@@ -95,11 +100,11 @@ VITE_INTMAX_ENV=testnet
 
 ---
 
-### 📖 README Must Include
+### README に含めるべき内容
 
-**Prereqs:** Node.js (LTS), MetaMask (or EIP-1193 wallet)
+**前提条件：** Node.js（LTS）、MetaMask（または EIP-1193 準拠ウォレット）
 
-**Run on Testnet (default):**
+**テストネットで実行（デフォルト）：**
 
 ```bash
 cp .env.local.example .env.local
@@ -107,7 +112,7 @@ npm i
 npm run dev
 ```
 
-**Switch to Mainnet:**
+**メインネットに切り替え：**
 
 ```bash
 # edit .env.local
@@ -116,39 +121,39 @@ VITE_INTMAX_ENV=mainnet
 npm run dev
 ```
 
-## 🚀 How to Use (Scaffold)
+## 使い方（スキャフォールド）
 
-1. Open the app in a browser **with MetaMask installed** _(if no wallet is detected, see Troubleshooting below)_
-2. Click **Connect Wallet** → approve the request in MetaMask
-3. Click **Refresh Balance** → your current INTMAX2 balance will appear
+1. **MetaMask がインストールされた** ブラウザでアプリを開く（ウォレットが検出されない場合は、下記のトラブルシューティングを参照）
+2. **Connect Wallet** をクリック → MetaMask でリクエストを承認
+3. **Refresh Balance** をクリック → 現在の INTMAX2 残高が表示される
 
-✅ **Validation:** If you see your wallet address and a balance, your setup is complete.
+**検証：** ウォレットアドレスと残高が表示されれば、セットアップは完了です。
 
-## 🔜 What’s Next?
+## 次のステップ
 
-Now that your scaffold works, here are suggested next steps:
+スキャフォールドが動作したら、以下の拡張を検討してください：
 
-- **Basic Extension** → Implement a “Deposit” button enabling token deposits to the INTMAX Network
-- **UI Upgrade** → Show a list of past balances or transactions.
-- **AI Integration** → Connect with an AI API (OpenAI, Claude, Gemini) to trigger payments automatically.
-- **Creativity** → Extend the scaffold into your hackathon idea (e.g. P2P payments, games, agents).
+- **基本的な拡張** → INTMAX Network へのトークン Deposit を行う「Deposit」ボタンの実装
+- **UI のアップグレード** → 過去の残高やトランザクションの一覧を表示
+- **AI 連携** → AI API（OpenAI、Claude、Gemini）と接続し、支払いを自動トリガー
+- **創造性** → スキャフォールドをハッカソンのアイデア（P2P 決済、ゲーム、エージェント等）に拡張
 
-👉 This scaffold is only the **starting point**.
+このスキャフォールドはあくまで **出発点** です。
 
-Your goal is to **build on top of it and showcase something unique** during the hackathon!
+ハッカソンで **独自のプロダクトを構築して披露する** ことが目標です！
 
-## 🛠 Troubleshooting (Quick Guide)
+## トラブルシューティング（クイックガイド）
 
-| Problem (What you see)                                        | Cause / Symptom                       | Solution                                                             |
+| 問題（表示内容） | 原因 | 解決方法 |
 | ------------------------------------------------------------- | ------------------------------------- | -------------------------------------------------------------------- |
-| ❌ **No wallet found** _"Connect Wallet" button does nothing_ | Browser has no injected provider      | ✅ Install MetaMask (or any EIP-1193 wallet) and refresh the page    |
-| ❌ **Missing env vars** _App crashes on startup_              | `.env.local` not set or incomplete    | ✅ Copy `.env.local.example` → `.env.local` and fill required values |
-| ❌ **Wrong chain** _Wallet shows “unsupported network”_       | Wallet is connected to a different L1 | ✅ Switch wallet network to the required L1 chain (testnet/mainnet)  |
-| ❌ **RPC unreachable** _Balance shows “0/unavailable”_        | RPC endpoint is down or blocked       | ✅ Retry after a few seconds, or check DevTools console for errors   |
+| ❌ **No wallet found** — 「Connect Wallet」ボタンが反応しない | ブラウザにプロバイダーが注入されていない | ✅ MetaMask（または EIP-1193 準拠ウォレット）をインストールしてページを更新 |
+| ❌ **Missing env vars** — アプリが起動時にクラッシュする | `.env.local` が未設定または不完全 | ✅ `.env.local.example` を `.env.local` にコピーして必要な値を入力 |
+| ❌ **Wrong chain** — ウォレットに「unsupported network」と表示される | ウォレットが別の L1 に接続されている | ✅ ウォレットのネットワークを必要な L1 チェーン（テストネット/メインネット）に切り替え |
+| ❌ **RPC unreachable** — 残高が「0/unavailable」と表示される | RPC エンドポイントがダウンまたはブロックされている | ✅ 数秒後にリトライするか、DevTools コンソールでエラーを確認 |
 
-## Common / Useful Prompts
+## 汎用プロンプト集
 
-### **Debugging Prompt**
+### **デバッグプロンプト**
 
 ```
 Here is my current code for the INTMAX agent.
@@ -159,7 +164,7 @@ It should send a payment, but fails.
 3. Make it demo-ready
 ```
 
-### **Optimization Prompt**
+### **最適化プロンプト**
 
 ```
 I have a working INTMAX agent prototype.
@@ -169,7 +174,7 @@ I have a working INTMAX agent prototype.
 3. Suggest enhancements to impress judges
 ```
 
-### **Integration Prompt (Add AI or External API)**
+### **連携プロンプト（AI または外部 API の追加）**
 
 ```
 I want to integrate an AI API (OpenAI, Claude, Gemini).

@@ -1,18 +1,23 @@
+---
+icon: book-open
+description: ユーザーの Ethereum アドレスを要求するメソッド
+---
+
 # Request Wallet Account
 
-Requests that the user provide an Ethereum address to be identified.
+ユーザーに識別用の Ethereum アドレスの提供を要求するメソッドです。
 
-## Request Parameters
+## リクエストパラメータ
 
-None
+なし
 
-## Response Parameters
+## レスポンスパラメータ
 
-| Parameter     | Type            | Description               |
+| パラメータ | 型 | 説明 |
 | ------------- | --------------- | ------------------------- |
-| `AddressList` | Array\[string\] | Array of wallet addresses |
+| `AddressList` | Array\[string\] | ウォレットアドレスの配列 |
 
-## Request Example
+## リクエスト例
 
 ```typescript
 // For wallet side example
@@ -28,7 +33,7 @@ const ethereum = await webmax.provider("eip155");
 await ethereum.request({ method: "eth_requestAccounts", params: [] });
 ```
 
-## Response Example
+## レスポンス例
 
 ```json
 "0xa22392123a1095f75e62abc7dea7e0e1e5142d5f"

@@ -1,32 +1,37 @@
-# Vibe Coding for General Prompt
+---
+icon: wand-magic-sparkles
+description: INTMAX Client SDK を活用したアイデア発想・計画・プレゼン準備用の AI プロンプト集
+---
 
-## Welcome Message
+# Vibe Coding — 汎用プロンプト集
 
-Welcome to VibeCoding for INTMAX Client SDK! 🎉
+## はじめに
 
-This guide helps you **turn your ideas into reality** by combining **AI** and the **INTMAX Network**. It’s designed to help you quickly generate ideas, validate them, and build a prototype or full application. Instead of getting stuck on setup or planning, you’ll be able to focus on **building and iterating fast**.
+INTMAX Client SDK 向け VibeCoding へようこそ！
 
-By following this guide, you’ll be able to:
+このガイドは、**AI** と **INTMAX Network** を組み合わせて、**アイデアを形にする** ための手引きです。アイデアの発想、検証、プロトタイプやアプリケーションの構築を素早く進められるよう設計されています。セットアップや計画に時間をかけるのではなく、**構築と反復に集中** できます。
 
-- Generate and refine project ideas
-- Plan your development process
-- Create a minimal working prototype
-- Prepare clear presentations and demos
-- Receive structured feedback for improvement
+このガイドに沿って進めることで、以下が可能になります：
 
-## Flow Overview
+- プロジェクトアイデアの発想と洗練
+- 開発プロセスの計画
+- 最小限の動作するプロトタイプの作成
+- 明確なプレゼンテーションとデモの準備
+- 改善のための体系的なフィードバックの取得
 
-After following this flow, you can move on to the **VibeCoding for Coding Prompt**.
+## フロー概要
 
-[Vibe Coding for Coding Prompt](./vibe-coding-for-coding-prompt.md)
+このフローの後は、**VibeCoding for Coding Prompt** に進めます。
 
-This will help you quickly scaffold a **Starter Template** (e.g., Vite + TypeScript, Next.js, or Node.js) so you can focus on **actual development**, not setup work.
+[Vibe Coding — 開発プロンプト集](./vibe-coding-for-coding-prompt.md)
 
-> **Guidance:**
+こちらでは、**スターターテンプレート**（Vite + TypeScript、Next.js、Node.js 等）を素早くスキャフォールドし、セットアップではなく **実際の開発** に集中できます。
+
+> **ガイダンス：**
 >
-> - Check the provided Starter Prompt.
-> - Generate a minimal working dApp template using `intmax2-client-sdk`.
-> - Start coding right away and iterate.
+> - 下記のスタータープロンプトを確認してください。
+> - `intmax2-client-sdk` を使った最小限の動作する dApp テンプレートを生成してください。
+> - すぐにコーディングを開始し、反復してください。
 
 ```
 Documentation
@@ -52,20 +57,20 @@ v
 Feedback Prompt
 ```
 
-## Common / Useful Prompts
+## 汎用プロンプト集
 
-### **Expansion Prompt (Idea Generation)**
+### **Expansion プロンプト（アイデア発想）**
 
 ```
 You are an expert blockchain developer and product strategist.
 
 1. Explain the key features and advantages of the INTMAX Network in clear, beginner-friendly language.
 
-   * Use the official documentation ([https://docs.network.intmax.io/](https://docs.network.intmax.io/), [https://docs.network.intmax.io/developers-hub](https://docs.network.intmax.io/developers-hub), [https://intmax.io/](https://intmax.io/)) as reference sources.
+   * Use the official documentation (https://docs.network.intmax.io/, https://docs.network.intmax.io/developers-hub, https://intmax.io/) as reference sources.
    * Cover these aspects:
 
      * Stateless Layer-2 architecture (zk-Rollup + Plasma hybrid)
-     * Ultra-low on-chain data usage (\~5 bytes per transaction)
+     * Ultra-low on-chain data usage (~5 bytes per transaction)
      * Scalability and near-instant finality
      * Built-in privacy (zero-knowledge proofs, privacy mining, anonymity guarantees)
      * Client-side storage and wallet interoperability (Client SDK, Wallet SDK)
@@ -84,10 +89,10 @@ Make the response structured, practical, and inspiring so developers can quickly
 
 ---
 
-### **Idea Validation Prompt**
+### **アイデア検証プロンプト**
 
 ```
-Here is my project idea: \[describe your idea briefly].
+Here is my project idea: [describe your idea briefly].
 
 Please evaluate:
 
@@ -99,7 +104,7 @@ Please evaluate:
 
 ---
 
-### **Planning Prompt**
+### **計画プロンプト**
 
 ```
 I want to plan the development process for my project.
@@ -114,11 +119,11 @@ Please create a step-by-step plan with milestones, including:
 
 ---
 
-### **Market & Use Case Prompt**
+### **市場・ユースケースプロンプト**
 
 ```
 I want to understand possible real-world applications of my project idea.
-Describe 3 concrete use cases for: \[your project idea].
+Describe 3 concrete use cases for: [your project idea].
 
 For each use case:
 
@@ -129,7 +134,7 @@ For each use case:
 
 ---
 
-### **Presentation Prep Prompt**
+### **プレゼン準備プロンプト**
 
 ```
 I need to prepare a short presentation to introduce my project.
@@ -146,11 +151,11 @@ Keep it simple, clear, and focused on the core message.
 
 ---
 
-### **Feedback Prompt**
+### **フィードバックプロンプト**
 
 ```
 Imagine you are a mentor or reviewer.
-Here is my project: \[describe idea].
+Here is my project: [describe idea].
 
 Please give feedback from the perspective of:
 
@@ -162,8 +167,8 @@ Please give feedback from the perspective of:
 
 ---
 
-## References
+## 参考リンク
 
-- **INTMAX Official Docs:** [https://docs.network.intmax.io/](https://docs.network.intmax.io/)
-- **Developers Hub:** [https://docs.network.intmax.io/developers-hub](https://docs.network.intmax.io/developers-hub)
-- **Website:** [https://intmax.io/](https://intmax.io/)
+- **INTMAX 公式ドキュメント：** [https://docs.network.intmax.io/](https://docs.network.intmax.io/)
+- **Developers Hub：** [https://docs.network.intmax.io/developers-hub](https://docs.network.intmax.io/developers-hub)
+- **ウェブサイト：** [https://intmax.io/](https://intmax.io/)

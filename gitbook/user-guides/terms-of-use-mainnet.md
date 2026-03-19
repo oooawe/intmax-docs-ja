@@ -1,114 +1,117 @@
-Terms of Use (Mainnet)
+---
+icon: scale-balanced
+description: INTMAX メインネットの利用規約
+---
 
-Last Updated: September 02, 2025
+# 利用規約（メインネット）
 
-These Terms of Use ("Terms") govern your access to and use of the INTMAX mainnet protocol, network, website, and related services (collectively, the "Services"). By accessing or using the Services, you agree to be bound by these Terms. If you do not agree, do not use the Services.
+最終更新日：2025年9月2日
 
-## 1. Definitions
+本利用規約（以下「本規約」）は、INTMAX メインネットプロトコル、ネットワーク、ウェブサイト、および関連サービス（以下総称して「本サービス」）へのアクセスおよび利用を規定するものです。本サービスにアクセスまたは利用することにより、お客様は本規約に拘束されることに同意したものとみなされます。同意いただけない場合は、本サービスを利用しないでください。
 
-For clarity, the following terms have the meanings set forth below:
+## 1. 定義
 
-- INTMAX Protocol: A stateless, privacy-focused Layer 2 (L2) rollup protocol on Ethereum, also referred to as Intmax2, designed for efficient, private token transfers with minimal on-chain data usage (e.g., 5 bytes per transaction, 0.08 bytes per transfer when batching up to 64 transfers).
-- INTMAX Wallet: A separate, fully homomorphic encryption-multi-party computation (FHE-MPC) wallet independent from the INTMAX Protocol. It supports interactions with the Protocol but does not inherently provide privacy features.
-- Privacy Mining: A voluntary program where users contribute to the network's anonymity set by depositing and withdrawing funds (primarily ETH), earning ITX tokens as incentives. Governed by separate Privacy Mining Guidelines.
-- ITX Token: The native utility token of the INTMAX ecosystem, issued solely through Privacy Mining, with a maximum supply of 1,001,000,000 tokens. Used for rewards, governance, and private transfers on the Protocol.
-- Aggregator: A permissionless role in the Protocol responsible for batching transactions, generating commitments, and submitting aggregated data to the Ethereum Layer 1 (L1).
-- Restricted Countries: Jurisdictions subject to international sanctions, including but not limited to those listed by OFAC, EU sanctions lists, or UN Security Council resolutions (e.g., North Korea, Iran, Syria).
+明確化のため、以下の用語は下記に定める意味を有します。
 
-## 2. Scope & Nature of Services
+- **INTMAX プロトコル**：Ethereum 上のステートレスでプライバシー重視の L2（Layer 2）ロールアッププロトコル。Intmax2 とも呼ばれ、最小限のオンチェーンデータ使用量（例：トランザクションあたり約 5 バイト、最大 64 件のバッチ転送時は Transfer あたり 0.08 バイト）で効率的かつプライベートなトークン転送を実現する設計です。
+- **INTMAX Wallet**：INTMAX プロトコルとは独立した、完全準同型暗号マルチパーティ計算（FHE-MPC）ウォレット。プロトコルとの連携をサポートしますが、本質的にプライバシー機能を提供するものではありません。
+- **Privacy Mining**：ユーザーが資金（主に ETH）の Deposit と Withdrawal を行うことでネットワークの匿名性セットに貢献し、インセンティブとして ITX トークンを獲得する自発的なプログラム。別途 Privacy Mining ガイドラインに準拠します。
+- **ITX トークン**：INTMAX エコシステムのネイティブユーティリティトークン。Privacy Mining を通じてのみ発行され、最大供給量は 1,001,000,000 トークン。リワード、ガバナンス、プロトコル上のプライベート転送に使用されます。
+- **アグリゲーター（Aggregator）**：プロトコルにおけるパーミッションレスな役割。トランザクションのバッチ処理、コミットメントの生成、集約データの Ethereum L1 への送信を担当します。
+- **制限対象国**：OFAC、EU 制裁リスト、国連安全保障理事会決議等に記載された国際制裁の対象となる管轄区域（例：北朝鮮、イラン、シリア等を含むがこれに限りません）。
 
-INTMAX is a non-custodial, privacy-focused L2 rollup protocol on Ethereum, specializing in stateless architecture for scalable, confidential token transfers. The Services involve real economic value, including deposits, transfers, withdrawals, and Privacy Mining. Users may operate privacy-supporting infrastructure via Privacy Mining, earning ITX incentives under the separate Privacy Mining Guidelines (accessible at https://docs.network.intmax.io/user-guides/privacy-mining/). Participation is voluntary and includes technical responsibilities like maintaining node uptime (for aggregators) and legal compliance.
+## 2. サービスの範囲と性質
 
-Note: The INTMAX Wallet is independent and not covered by these Terms. Refer to its separate documentation.
+INTMAX は Ethereum 上の非カストディアルでプライバシー重視の L2 ロールアップ（Rollup）プロトコルであり、スケーラブルで機密性の高いトークン転送のためのステートレスアーキテクチャ（Stateless Architecture）に特化しています。本サービスには、Deposit、Transfer、Withdrawal、Privacy Mining を含む実際の経済的価値が関係します。ユーザーは Privacy Mining を通じてプライバシー支援インフラストラクチャを運用し、別途 Privacy Mining ガイドライン（https://docs.network.intmax.io/user-guides/privacy-mining/ で参照可能）に基づいて ITX インセンティブを獲得できます。参加は任意であり、アグリゲーターとしてのノード稼働率の維持や法的コンプライアンスなどの技術的責任を伴います。
 
-Privacy Mining operates in phases:
+注：INTMAX Wallet は独立したサービスであり、本規約の対象外です。別途ドキュメントを参照してください。
 
-- Phase 1: Ethereum L1 (ended October 2024).
-- Phase 2: Base (ended June 26, 2025).
-- Phase 3: Ethereum L1 (ongoing since June 26, 2025), with 2-5 day lock periods, halving events, and daily ITX issuance.
+Privacy Mining はフェーズごとに運営されます：
 
-## 3. Eligibility & Compliance
+- **Phase 1**：Ethereum L1（2024年10月に終了）
+- **Phase 2**：Base（2025年6月26日に終了）
+- **Phase 3**：Ethereum L1（2025年6月26日より継続中）。2〜5日間のロック期間（Lock Period）、半減イベント、日次 ITX 発行を伴います。
 
-You must be at least the age of majority in your jurisdiction to use the Services.
+## 3. 利用資格とコンプライアンス
 
-You warrant that:
+本サービスを利用するには、お客様の管轄区域における成年年齢に達している必要があります。
 
-- You are not a resident or entity of Restricted Countries.
-- Your use complies with all applicable laws, including anti-money laundering (AML), counter-terrorism financing (CTF), and know-your-customer (KYC) regulations.
-- You are not using the Services for speculative trading, illicit activities, or in violation of sanctions.
+お客様は以下を表明し保証します：
 
-Deposits from high-risk addresses (e.g., sanctioned or flagged for illicit activity) may be rejected using decentralized on-chain analyzers. Users are responsible for their tax obligations related to ITX rewards or transactions.
+- 制限対象国の居住者または法人ではないこと。
+- AML（マネーロンダリング防止）、CTF（テロ資金供与対策）、KYC（本人確認）規制を含むすべての適用法令を遵守して利用すること。
+- 投機的取引、違法行為、または制裁違反のために本サービスを利用しないこと。
 
-## 4. Authorized Usage
+高リスクアドレス（例：制裁対象または違法行為のフラグが付けられたアドレス）からの Deposit は、分散型オンチェーンアナライザーを使用して拒否される場合があります。ユーザーは、ITX リワードやトランザクションに関連する納税義務について自ら責任を負います。
 
-The Services are for lawful purposes only. Prohibited activities include:
+## 4. 許可される利用
 
-- Money laundering, terrorism financing, or any illicit behavior.
-- Attempting to circumvent Privacy Mining rules (e.g., detectable fund circulation patterns).
-- Interfering with the Protocol's operation, such as submitting invalid transactions or exploiting vulnerabilities.
+本サービスは合法的な目的にのみ使用できます。禁止される活動には以下が含まれます：
 
-Aggregators must be online for liveness and use relayer contracts to mitigate delays/replays.
+- マネーロンダリング、テロ資金供与、その他の違法行為。
+- Privacy Mining ルールの回避の試み（例：検出可能な資金循環パターン）。
+- 無効なトランザクションの送信や脆弱性の悪用など、プロトコルの運用を妨害する行為。
 
-## 5. Decentralization & Autonomy
+アグリゲーターは Liveness のためにオンラインを維持し、遅延やリプレイを軽減するためにリレイヤーコントラクトを使用する必要があります。
 
-INTMAX provides open-source smart contracts and infrastructure but does not control user transactions, balances, or Privacy Mining operations. Block production is permissionless and stateless, with aggregators handling commitments without knowledge of transaction details.
+## 5. 分散化と自律性
 
-You are solely responsible for:
+INTMAX はオープンソースのスマートコントラクトとインフラストラクチャを提供しますが、ユーザーのトランザクション、残高、または Privacy Mining のオペレーションを管理するものではありません。ブロック生成はパーミッションレス（Permissionless）かつステートレスであり、アグリゲーターはトランザクションの詳細を知ることなくコミットメントを処理します。
 
-- Securing your hardware, software, wallets, and private keys.
-- Verifying transaction proofs and balances client-side.
-- Interacting with third-party services (e.g., Ethereum L1, wallets) at your own risk.
+お客様は以下について単独で責任を負います：
 
-The Protocol relies on Ethereum for security; any Ethereum network issues (e.g., forks, congestion) may affect the Services.
+- ハードウェア、ソフトウェア、ウォレット、秘密鍵（Private Key）のセキュリティ確保。
+- クライアント側でのトランザクションプルーフおよび残高の検証。
+- サードパーティサービス（Ethereum L1、ウォレット等）との連携に伴うリスクの受容。
 
-## 6. Data, Privacy & Privacy Mining Participation
+プロトコルはセキュリティについて Ethereum に依存しているため、Ethereum ネットワークの問題（フォーク、混雑等）が本サービスに影響を及ぼす可能性があります。
 
-We collect minimal data as per our Privacy Policy (accessible at https://intmax.io/privacy-policy) and applicable laws (e.g., GDPR, CCPA). The Privacy Policy is incorporated herein; in case of conflict, these Terms prevail.
+## 6. データ、プライバシー、Privacy Mining への参加
 
-## 7. Risks Disclosure
+当社は、プライバシーポリシー（https://intmax.io/privacy-policy で参照可能）および適用法令（GDPR、CCPA 等）に従い、最小限のデータを収集します。プライバシーポリシーは本規約に組み込まれるものとし、矛盾がある場合は本規約が優先します。
 
-Using the Services involves significant risks, including but not limited to:
+## 7. リスクの開示
 
-- Technical Risks: Smart contract vulnerabilities, ZKP failures, client-side computation errors, or Ethereum dependencies (e.g., gas fees, network forks).
-- Financial Risks: Volatility of ITX or deposited assets; loss due to slashing, invalid transactions, or market changes.
-- Privacy Risks: Potential de-anonymization attacks if best practices are not followed; intermediaries in payment channels must be online.
-- Regulatory Risks: Changes in laws affecting privacy protocols, tokens, or mining; classification of ITX as a security.
-- Operational Risks: Delayed block publication, replay attacks (mitigated via timestamps), or aggregator liveness issues.
-- Economic Risks: Halving events reducing rewards; no guarantees on ITX value or mining profitability.
-- Third-Party Risks: Reliance on wallets, oracles, or L1; no liability for their failures.
+本サービスの利用には、以下を含む（ただしこれに限りません）重大なリスクが伴います：
 
-Users bear all risks; conduct due diligence.
+- **技術的リスク**：スマートコントラクトの脆弱性、ZKP の障害、クライアント側の計算エラー、Ethereum への依存（ガス代、ネットワークフォーク等）。
+- **金融リスク**：ITX または預入資産のボラティリティ、スラッシング・無効なトランザクション・市場変動による損失。
+- **プライバシーリスク**：ベストプラクティスに従わない場合の匿名性解除攻撃の可能性。ペイメントチャネルの仲介者はオンラインである必要があります。
+- **規制リスク**：プライバシープロトコル、トークン、マイニングに影響する法改正。ITX が証券に分類される可能性。
+- **運用リスク**：ブロック公開の遅延、リプレイ攻撃（タイムスタンプにより軽減）、アグリゲーターの Liveness の問題。
+- **経済的リスク**：半減イベントによるリワードの減少。ITX の価値やマイニングの収益性に関する保証はありません。
+- **サードパーティリスク**：ウォレット、オラクル、L1 への依存。それらの障害について当社は責任を負いません。
 
-## 8. No Warranty
+ユーザーはすべてのリスクを負うものとし、十分な調査を行ってください。
 
-The Services, including Privacy Mining, are provided "as-is" without warranties, express or implied, including fitness for a particular purpose or non-infringement.
+## 8. 無保証
 
-## 9. Limitation of Liability & Indemnity
+本サービス（Privacy Mining を含む）は、特定目的への適合性や非侵害性を含む明示・黙示のいかなる保証もなく、「現状有姿」で提供されます。
 
-To the fullest extent permitted by law, INTMAX, Ryodan Systems AG, and affiliates shall not be liable for any indirect, incidental, consequential, or punitive damages arising from the Services, even if advised of such possibility. Liability is limited to the amount of fees paid by you in the past 12 months, except for gross negligence or willful misconduct. You indemnify INTMAX against claims arising from your misuse, regulatory violations, or participation in Privacy Mining.
+## 9. 責任の制限と補償
 
-## 10. Intellectual Property
+法律で認められる最大限の範囲において、INTMAX、Ryodan Systems AG、およびその関連会社は、たとえそのような損害の可能性について助言を受けていた場合であっても、本サービスに起因する間接的、付随的、結果的、または懲罰的損害について責任を負いません。責任は、重過失または故意の不正行為を除き、過去 12 か月間にお客様が支払った手数料の金額に限定されます。お客様は、不正利用、規制違反、または Privacy Mining への参加に起因する請求について INTMAX を補償するものとします。
 
-All INTMAX branding, documentation, and source materials remain property of Ryodan Systems AG (or affiliates). Smart contracts are open-source under applicable licenses (e.g., GPL).
+## 10. 知的財産権
 
-## 11. Termination & Suspension
+すべての INTMAX のブランディング、ドキュメント、およびソースマテリアルは Ryodan Systems AG（またはその関連会社）の所有物です。スマートコントラクトは適用されるライセンス（GPL 等）に基づくオープンソースです。
 
-INTMAX may suspend or terminate your access to centralized components (e.g., website, API) for ToS violations, suspected illegality, or security reasons. You may appeal via
+## 11. 停止と終了
 
-support@intmax.io. Decentralized Protocol access cannot be terminated.
+INTMAX は、規約違反、違法行為の疑い、またはセキュリティ上の理由により、中央集権的コンポーネント（ウェブサイト、API 等）へのお客様のアクセスを停止または終了する場合があります。異議申し立ては support@intmax.io にて受け付けます。分散型プロトコルへのアクセスを終了することはできません。
 
-## 12. Force Majeure
+## 12. 不可抗力
 
-INTMAX is not liable for failures due to events beyond control, including network outages, regulatory changes, or natural disasters.
+INTMAX は、ネットワーク障害、規制変更、自然災害など、管理の及ばない事象による障害について責任を負いません。
 
-## 13. Third-Party Services
+## 13. サードパーティサービス
 
-The Services may integrate with third parties (e.g., Ethereum, wallets). INTMAX disclaims liability for their performance or risks.
+本サービスはサードパーティ（Ethereum、ウォレット等）と連携する場合があります。INTMAX はそれらのパフォーマンスやリスクについて責任を負いません。
 
-## 14. Changes to Terms
+## 14. 規約の変更
 
-We may update these Terms; continued use implies acceptance. Material changes will be notified via website or email.
+当社は本規約を更新する場合があり、継続的な利用は承諾を意味します。重要な変更はウェブサイトまたはメールにて通知します。
 
-## 15. Governing Law & Dispute Resolution
+## 15. 準拠法と紛争解決
 
-These Terms are governed by Swiss law. Disputes shall be resolved through binding arbitration under the Swiss Rules of International Arbitration by the Swiss Arbitration Centre, seated in Zurich, with one arbitrator, in English. Exceptions for injunctive relief (e.g., IP violations) may be sought in Swiss courts. Arbitration is final; no class actions.
+本規約はスイス法に準拠します。紛争は、Swiss Arbitration Centre のスイス国際仲裁規則に基づく拘束力のある仲裁により解決されるものとします。仲裁地はチューリッヒ、仲裁人は 1 名、言語は英語とします。差止救済（知的財産権の侵害等）についてはスイスの裁判所に申し立てることができます。仲裁は最終的なものであり、クラスアクションは認められません。

@@ -1,28 +1,33 @@
+---
+icon: book-open
+description: トランザクションに署名するメソッド（後からネットワークに送信可能）
+---
+
 # Sign Transaction
 
-Sign a transaction that can be submitted to the network later.
+後からネットワークに送信可能なトランザクションに署名するメソッドです。
 
-## Request Parameters
+## リクエストパラメータ
 
 ### Params\[0\]
 
-| Parameter  | Type    | Required                                  | Description                                                                                         |
+| パラメータ | 型 | 必須 | 説明 |
 | ---------- | ------- | ----------------------------------------- | --------------------------------------------------------------------------------------------------- |
-| `from`     | String  | Yes                                       | The address the transaction is sent from. (20 Bytes)                                                |
-| `to`       | String  | Yes (optional when creating new contract) | The address the transaction is directed to. (20 Bytes)                                              |
-| `gas`      | String  | No (default: 90000)                       | Integer of the gas provided for the transaction execution. It will return unused gas.               |
-| `gasPrice` | String  | No                                        | The gas price the sender is willing to pay to miners in wei.                                        |
-| `value`    | Integer | No                                        | Integer of the value sent with this transaction, in Wei.                                            |
-| `data`     | String  | No                                        | The compiled code of a contract OR the hash of the invoked method signature and encoded parameters. |
-| `nonce`    | Integer | No                                        | Integer of a nonce. This allows to overwrite your own pending transactions that use the same nonce. |
+| `from`     | String  | Yes                                       | トランザクションの送信元アドレス（20 Bytes） |
+| `to`       | String  | Yes（コントラクト作成時はオプション） | トランザクションの送信先アドレス（20 Bytes） |
+| `gas`      | String  | No（デフォルト: 90000）                  | トランザクション実行に提供するガスの整数値。未使用分は返却される |
+| `gasPrice` | String  | No                                        | マイナーに支払うガス価格（wei 単位） |
+| `value`    | Integer | No                                        | このトランザクションで送金する値（wei 単位）の整数値 |
+| `data`     | String  | No                                        | コントラクトのコンパイル済みコード、またはメソッドシグネチャとエンコード済みパラメータのハッシュ |
+| `nonce`    | Integer | No                                        | nonce の整数値。同じ nonce を使用するペンディング中のトランザクションを上書きできる |
 
-## Response Parameters
+## レスポンスパラメータ
 
-| Parameter | Type   | Description                                                         |
+| パラメータ | 型 | 説明 |
 | --------- | ------ | ------------------------------------------------------------------- |
-| `DATA`    | String | The RLP-encoded transaction object signed by the specified account. |
+| `DATA`    | String | 指定アカウントで署名された RLP エンコード済みトランザクションオブジェクト |
 
-## Request Example
+## リクエスト例
 
 ```typescript
 await window.ethereum.request({
@@ -40,7 +45,7 @@ await window.ethereum.request({
 });
 ```
 
-## Response Example
+## レスポンス例
 
 ```json
 "0xa3f20717a250c2b0b729b7e5becbff67fdaef7e0699da4de7ca5895b02a170a12d887fd3b17bfdce3481f10bea41f45ba9f709d39ce8325427b57afcfc994cee1b"

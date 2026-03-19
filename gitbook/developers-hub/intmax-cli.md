@@ -1,22 +1,27 @@
+---
+icon: rectangle-terminal
+description: INTMAX CLI の概要と主要機能
+---
+
 # INTMAX CLI
 
-## Overview
+## 概要
 
-INTMAX CLI is the official command-line interface designed for interacting seamlessly with the INTMAX Network, a Layer 2 solution built on zk-Rollup. This powerful tool provides comprehensive management capabilities, empowering users to handle digital assets with precision and ease.
+INTMAX CLI は、zk-Rollup ベースの L2（Layer 2）ソリューションである INTMAX Network とシームレスに連携するために設計された公式コマンドラインインターフェースです。包括的な管理機能を備え、デジタル資産を正確かつ簡単に取り扱えます。
 
-Key functionalities include sophisticated asset management through batch transfers, allowing users to efficiently process up to 63 transactions simultaneously from CSV files, significantly reducing transaction fees. Users can also effortlessly monitor transaction statuses, enhancing transparency and control over their assets.
+主な機能として、CSV ファイルからのバッチ転送（Batch Transfer）によるアセット管理があり、一度の操作で最大 63 件のトランザクションを効率的に処理して手数料を大幅に削減できます。また、トランザクションステータスの監視も容易に行え、資産の透明性と管理性を高めます。
 
-Additionally, INTMAX CLI streamlines participation in privacy mining operations, providing intuitive commands to check mining statuses, claim rewards in ITX tokens, and manage mining-specific deposits.
+さらに、INTMAX CLI は Privacy Mining への参加を効率化し、マイニングステータスの確認、ITX トークンでのリワードの Claim、マイニング固有の Deposit 管理を直感的なコマンドで操作できます。
 
-Whether generating new rollup keys or deriving them securely from existing Ethereum private keys, INTMAX CLI prioritizes both convenience and security. Its user-centric design makes it an indispensable tool for anyone seeking reliable, secure, and efficient interactions within the INTMAX ecosystem.
+新しいロールアップ鍵の生成から、既存の Ethereum 秘密鍵（Private Key）からの安全な鍵導出まで、INTMAX CLI は利便性とセキュリティの両立を重視しています。ユーザー中心の設計により、INTMAX エコシステムにおける信頼性の高い効率的なインタラクションに不可欠なツールです。
 
-[View on GitHub →](https://github.com/InternetMaximalism/intmax2/tree/main/cli)
+[GitHub で見る →](https://github.com/InternetMaximalism/intmax2/tree/main/cli)
 
-## Key Features
+## 主な特徴
 
-- **Key Generation**: Generate new rollup keys or derive them from existing Ethereum private keys.
-- **Deposit**: Transfer ETH or any desired ERC-20/721/1155 tokens into the rollup.
-- **Withdrawal**: Execute withdrawals from the INTMAX network back to Ethereum via command-line, with progress tracking available.
-- **Transfer**: Utilize batch transfer functionality to process up to 63 transactions from a CSV file in a single operation, reducing fees.
-- **Mining & Reward Claims**: INTMAX network allocates ITX token rewards to participants of privacy mining. Check status and claim rewards directly via CLI.
-- **Dedicated Mining Deposit Type**: Specifically checks and validates allowable deposit denominations for mining purposes (0.1 / 1 / 10 / 100 ETH).
+- **鍵生成** — 新しいロールアップ鍵の生成、または既存の Ethereum 秘密鍵からの導出
+- **Deposit** — ETH や任意の ERC-20/721/1155 トークンをロールアップに Deposit
+- **Withdrawal** — INTMAX Network から Ethereum へのコマンドラインでの Withdrawal 実行（進捗追跡機能付き）
+- **Transfer** — CSV ファイルから一度の操作で最大 63 件のトランザクションを処理するバッチ転送機能により、手数料を削減
+- **マイニングとリワードの Claim** — INTMAX Network は Privacy Mining 参加者に ITX トークンのリワードを付与。CLI から直接ステータス確認とリワードの Claim が可能
+- **マイニング専用 Deposit タイプ** — マイニング用に許容される Deposit 額面（0.1 / 1 / 10 / 100 ETH）を確認・検証

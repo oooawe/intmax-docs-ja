@@ -1,26 +1,31 @@
+---
+icon: book-open
+description: ウォレットにトークンの追跡を要求するメソッド
+---
+
 # Watch Wallet Asset
 
-Requests that the user track the specified token in the wallet. Returns a boolean indicating if the token was successfully added. Once added, the token is indistinguishable from those added using legacy methods, such as a centralized registry.
+指定されたトークンをウォレットで追跡するようユーザーに要求するメソッドです。トークンが正常に追加されたかどうかを示すブーリアン値を返します。追加されたトークンは、一元管理されたレジストリなどの従来の方法で追加されたトークンと区別がつきません。
 
-## Request Parameters
+## リクエストパラメータ
 
-| Parameter          | Type    | Required | Description                                                                     |
+| パラメータ | 型 | 必須 | 説明 |
 | ------------------ | ------- | -------- | ------------------------------------------------------------------------------- |
-| `type`             | String  | Yes      | Supports ERC-20, ERC-721, and ERC-1155 tokens.                                  |
-| `options`          | Object  | Yes      | Contains the params below                                                       |
-| `options.address`  | String  | Yes      | The address of the token contract.                                              |
-| `options.symbol`   | String  | No       | A ticker symbol or shorthand, up to 11 characters (optional for ERC-20 tokens). |
-| `options.decimals` | Integer | No       | The number of token decimals (optional for ERC-20 tokens).                      |
-| `options.image`    | String  | No       | A string URL of the token logo (optional for ERC-20 tokens).                    |
-| `options.tokenId`  | String  | No       | The unique identifier of the NFT (required for ERC-721 and ERC-1155 tokens).    |
+| `type`             | String  | Yes      | ERC-20、ERC-721、ERC-1155 トークンをサポート |
+| `options`          | Object  | Yes      | 以下のパラメータを含むオブジェクト |
+| `options.address`  | String  | Yes      | トークンコントラクトのアドレス |
+| `options.symbol`   | String  | No       | ティッカーシンボルまたは略称（最大 11 文字、ERC-20 ではオプション） |
+| `options.decimals` | Integer | No       | トークンの小数点以下の桁数（ERC-20 ではオプション） |
+| `options.image`    | String  | No       | トークンロゴの URL 文字列（ERC-20 ではオプション） |
+| `options.tokenId`  | String  | No       | NFT の一意識別子（ERC-721 および ERC-1155 では必須） |
 
-## Response Parameters
+## レスポンスパラメータ
 
-| Parameter | Type    | Description                                       |
+| パラメータ | 型 | 説明 |
 | --------- | ------- | ------------------------------------------------- |
-| `DATA`    | Boolean | `true` if the token was added, `false` otherwise. |
+| `DATA`    | Boolean | トークンが追加された場合は `true`、それ以外は `false` |
 
-## Request Example
+## リクエスト例
 
 ```typescript
 ethereum.request({
@@ -37,7 +42,7 @@ ethereum.request({
 });
 ```
 
-## Response Example
+## レスポンス例
 
 ```json
 true

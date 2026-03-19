@@ -1,33 +1,37 @@
+---
+icon: book-open
+description: 構造化データの署名を要求するメソッド
+---
+
 # Sign Typed Data
 
-Presents a data message for the user to sign in a structured and readable format and returns the signed response. This method requires that the user has granted permission to interact with their account first, so make sure to call `eth_requestAccounts` first.
+ユーザーに対して構造化された可読形式でデータメッセージを提示し、署名済みレスポンスを返すメソッドです。このメソッドを使用するには、ユーザーがアカウントへのアクセスを事前に許可している必要があります。先に `eth_requestAccounts` を呼び出してください。
 
-## Request Parameters
+## リクエストパラメータ
 
 ### Params\[0\]
 
-| Parameter | Type   | Required | Description                                              |
+| パラメータ | 型 | 必須 | 説明 |
 | --------- | ------ | -------- | -------------------------------------------------------- |
-| `DATA`    | String | Yes      | The address of the requested signing account. (20 Bytes) |
+| `DATA`    | String | Yes      | 署名を要求するアカウントのアドレス（20 Bytes） |
 
 ### Params\[1\]
 
-| Parameter            | Type   | Required | Description                                                                    |
+| パラメータ | 型 | 必須 | 説明 |
 | -------------------- | ------ | -------- | ------------------------------------------------------------------------------ |
-| `types`              | Object | Yes      | Message to sign (N Bytes)                                                      |
-| `types.EIP712Domain` | Array  | Yes      | An array specifying one or more of the following domain separator values below |
-| `domain`             | Object | Yes      | Contains the domain separator values specified in the `EIP712Domain` type      |
+| `types`              | Object | Yes      | 署名するメッセージ（N Bytes） |
+| `types.EIP712Domain` | Array  | Yes      | 以下のドメインセパレータ値を 1 つ以上指定する配列 |
+| `domain`             | Object | Yes      | `EIP712Domain` 型で指定されたドメインセパレータ値を含むオブジェクト |
 | `primaryType`        | String | Yes      |                                                                                |
-| `message`            | Object | Yes      | The message you're proposing the user to sign.                                 |
+| `message`            | Object | Yes      | ユーザーに署名を提案するメッセージ |
 
-## Response Parameters
+## レスポンスパラメータ
 
-​
-| Parameter | Type | Description |
+| パラメータ | 型 | 説明 |
 |-----------|----------|-------------|
-| `DATA` | String | signature |
+| `DATA` | String | 署名 |
 
-## Request Example
+## リクエスト例
 
 ```typescript
 await window.ethereum.request({
@@ -94,10 +98,8 @@ await window.ethereum.request({
 });
 ```
 
-## Response Example
+## レスポンス例
 
 ```json
 "0x4355c47d63924e8a72e509b65029052eb6c299d53a04e167c5775fd466751c9d07299936d304c153f6443dfa05f40ff007d72911b6f72307f996231605b915621c"
 ```
-
-​

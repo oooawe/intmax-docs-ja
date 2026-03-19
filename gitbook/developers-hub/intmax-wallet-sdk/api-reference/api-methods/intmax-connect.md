@@ -1,18 +1,23 @@
+---
+icon: book-open
+description: ウォレットへの接続を要求するメソッド
+---
+
 # INTMAX Connect
 
-A method requesting the user to connect with the wallet.
+ユーザーにウォレットとの接続を要求するメソッドです。
 
-## Request Parameters
+## リクエストパラメータ
 
-None
+なし
 
-## Response Parameters
+## レスポンスパラメータ
 
-| Parameter             | Type | Description |
+| パラメータ | 型 | 説明 |
 | --------------------- | ---- | ----------- |
 | `IntmaxConnectResult` |      |             |
 
-## Request Example
+## リクエスト例
 
 ```typescript
 Request Example
@@ -27,7 +32,7 @@ if (isConnected(c, connections)) {
 }
 ```
 
-## Response Example
+## レスポンス例
 
 ```typescript
 type IntmaxConnectResult = {

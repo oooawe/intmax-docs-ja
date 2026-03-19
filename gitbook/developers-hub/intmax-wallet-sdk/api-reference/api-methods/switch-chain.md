@@ -1,22 +1,27 @@
+---
+icon: book-open
+description: ウォレットのアクティブチェーンを切り替えるメソッド
+---
+
 # Switch Chain
 
-Requests that the wallet switches its active Ethereum chain
+ウォレットのアクティブな Ethereum チェーンの切り替えを要求するメソッドです。
 
-## Request Parameters
+## リクエストパラメータ
 
 ### Params\[0\]
 
-| Parameter | Type   | Required | Description                                         |
+| パラメータ | 型 | 必須 | 説明 |
 | --------- | ------ | -------- | --------------------------------------------------- |
-| `chainId` | String | Yes      | The chain ID is a `0x`-prefixed hexadecimal string. |
+| `chainId` | String | Yes      | `0x` プレフィックス付きの16進数文字列 |
 
-## Response Parameters
+## レスポンスパラメータ
 
-| Parameter | Type | Description                                                                      |
+| パラメータ | 型 | 説明 |
 | --------- | ---- | -------------------------------------------------------------------------------- |
-| `null`    |      | `null` is returned **if the active chain was switched**, and an error otherwise. |
+| `null`    |      | アクティブチェーンの切り替えに成功した場合は `null` を返し、失敗した場合はエラーを返す |
 
-## Request Example
+## リクエスト例
 
 ```typescript
 ethereum.request({
@@ -29,7 +34,7 @@ ethereum.request({
 });
 ```
 
-## Response Example
+## レスポンス例
 
 ```json
 null

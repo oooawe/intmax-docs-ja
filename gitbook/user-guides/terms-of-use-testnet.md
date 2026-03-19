@@ -1,88 +1,92 @@
-# Terms of Use (Testnet)
+---
+icon: scale-balanced
+description: INTMAX テストネットの利用規約
+---
 
-Last Updated: 12 December 2024
+# 利用規約（テストネット）
 
-These Terms of Use ("Terms") govern your access to and use of the INTMAX testnet protocol, network, website, and related services (collectively, the "Services"). By accessing or using the Services, you agree to be bound by these Terms. If you do not agree, do not use the Services.
+最終更新日：2024年12月12日
 
-## 1. Overview of the Testnet
+本利用規約（以下「本規約」）は、INTMAX テストネットプロトコル、ネットワーク、ウェブサイト、および関連サービス（以下総称して「本サービス」）へのアクセスおよび利用を規定するものです。本サービスにアクセスまたは利用することにより、お客様は本規約に拘束されることに同意したものとみなされます。同意いただけない場合は、本サービスを利用しないでください。
 
-1.1. The Testnet is a blockchain environment provided by Ryodan Systems AG ("INTMAX") for experimental and educational purposes.
+## 1. テストネットの概要
 
-1.2. The Testnet operates on a non-monetary basis, and all tokens or assets used within the Testnet have no real-world value.
+1.1. テストネットは、Ryodan Systems AG（以下「INTMAX」）が実験的および教育的目的で提供するブロックチェーン環境です。
 
-1.3. The Testnet will exclusively use Sepolia ETH as the primary currency for testing transactions. These test tokens are freely available through faucets and hold no monetary value.
+1.2. テストネットは非金銭ベースで運営されており、テストネット内で使用されるすべてのトークンや資産は実世界での価値を持ちません。
 
-1.4. The Testnet is subject to updates, interruptions, and potential resets as part of its development and testing.
+1.3. テストネットでは、テストトランザクションの主要通貨として Sepolia ETH のみを使用します。これらのテストトークンはフォーセットから無料で入手可能であり、金銭的価値はありません。
 
-## 2. Eligibility
+1.4. テストネットは、開発およびテストの一環として、アップデート、中断、リセットの対象となる場合があります。
 
-2.1. By using the Testnet, you represent that you are at least 18 years old or the age of majority in your jurisdiction.
+## 2. 利用資格
 
-2.2. Use of the Testnet must comply with applicable laws and regulations in your jurisdiction.
+2.1. テストネットを利用することにより、お客様は 18 歳以上またはお客様の管轄区域における成年年齢に達していることを表明します。
 
-## 3. Experimental Nature
+2.2. テストネットの利用は、お客様の管轄区域における適用法令および規制を遵守する必要があります。
 
-3.1. The Testnet is a beta environment and may contain errors, bugs, or vulnerabilities.
+## 3. 実験的性質
 
-3.2. INTMAX is not liable for any loss, damage, or inconvenience caused by the use or malfunction of the Testnet, including but not limited to data loss, smart contract errors, or privacy breaches.
+3.1. テストネットはベータ環境であり、エラー、バグ、または脆弱性を含む可能性があります。
 
-## 4. Use of Sepolia ETH
+3.2. INTMAX は、データの喪失、スマートコントラクトのエラー、プライバシーの侵害を含むがこれに限らず、テストネットの使用または不具合に起因する損失、損害、不便について責任を負いません。
 
-4.1. The Testnet exclusively uses Sepolia ETH as the test currency for all transactions and interactions.
+## 4. Sepolia ETH の使用
 
-4.2. Users are responsible for obtaining Sepolia ETH from publicly available faucets. INTMAX does not issue or sell Sepolia ETH.
+4.1. テストネットでは、すべてのトランザクションおよびインタラクションのテスト通貨として Sepolia ETH のみを使用します。
 
-4.3. Sepolia ETH holds no monetary value and cannot be exchanged for real-world assets or currencies.
+4.2. ユーザーは、一般に公開されているフォーセットから Sepolia ETH を入手する責任を負います。INTMAX は Sepolia ETH の発行または販売を行いません。
 
-## 5. Prohibited Activities
+4.3. Sepolia ETH は金銭的価値を持たず、実世界の資産や通貨と交換することはできません。
 
-When using the Testnet, you agree NOT to:
+## 5. 禁止事項
 
-5.1. Engage in any unlawful or fraudulent activity.
+テストネットの利用にあたり、お客様は以下の行為を行わないことに同意します：
 
-5.2. Use the Testnet to create, test, or deploy malicious software, such as viruses or exploits.
+5.1. 違法または詐欺的な活動に従事すること。
 
-5.3. Attempt to hack, interfere with, or disrupt the Testnet’s operations or infrastructure.
+5.2. テストネットを使用して、ウイルスやエクスプロイトなどの悪意のあるソフトウェアを作成、テスト、またはデプロイすること。
 
-5.4. Misrepresent your identity or impersonate any entity.
+5.3. テストネットの運用やインフラストラクチャへのハッキング、干渉、または妨害を試みること。
 
-## 6. Privacy and Data Usage
+5.4. 身元を偽ること、または他の個人・法人になりすますこと。
 
-6.1. The Testnet is a privacy-focused environment; however, INTMAX may collect limited technical, non-personal and non-sensitive data (e.g., logs, error reports) to improve the Testnet.
+## 6. プライバシーとデータの利用
 
-6.2. INTMAX does not guarantee anonymity or confidentiality for activities conducted on the Testnet.
-Users should exercise caution and avoid sharing sensitive or personal information.
+6.1. テストネットはプライバシー重視の環境ですが、INTMAX はテストネットの改善のために限定的な技術的・非個人的・非機密データ（ログ、エラーレポート等）を収集する場合があります。
 
-## 7. Intellectual Property
+6.2. INTMAX は、テストネット上で行われる活動の匿名性や機密性を保証しません。ユーザーは注意を払い、機密情報や個人情報の共有を避けてください。
 
-7.1. All software, code, and materials associated with the Testnet are the intellectual property of INTMAX or its licensors.
+## 7. 知的財産権
 
-7.2. Users are permitted to use the Testnet for testing and experimentation but may not reproduce, modify, or distribute Testnet-related materials without prior written consent.
+7.1. テストネットに関連するすべてのソフトウェア、コード、およびマテリアルは、INTMAX またはそのライセンサーの知的財産です。
 
-## 8. Disclaimer of Warranties
+7.2. ユーザーはテストおよび実験目的でテストネットを使用することが許可されていますが、事前の書面による同意なくテストネット関連マテリアルを複製、改変、または配布することはできません。
 
-8.1. The Testnet is provided “as is” and “as available” without any warranties, express or implied.
+## 8. 免責事項
 
-8.2. INTMAX disclaims all warranties, including but not limited to merchantability, fitness for a particular purpose, or non-infringement.
+8.1. テストネットは、明示・黙示を問わずいかなる保証もなく、「現状有姿」かつ「利用可能な状態」で提供されます。
 
-## 9. Limitation of Liability
+8.2. INTMAX は、商品性、特定目的への適合性、非侵害性を含むがこれに限らず、すべての保証を否認します。
 
-9.1. INTMAX is not liable for any direct, indirect, incidental, or consequential damages arising from the use or inability to use the Testnet.
+## 9. 責任の制限
 
-9.2. Users accept all risks associated with the Testnet, including potential loss of data, reputational harm, or financial implications.
+9.1. INTMAX は、テストネットの使用または使用不能に起因する直接的、間接的、付随的、または結果的損害について責任を負いません。
 
-## 10. Changes to Terms
+9.2. ユーザーは、データの喪失、風評被害、または金銭的影響を含む、テストネットに関連するすべてのリスクを受け入れるものとします。
 
-10.1. INTMAX reserves the right to modify these Terms of Use at any time.
+## 10. 規約の変更
 
-10.2. Continued use of the Testnet after changes are made constitutes acceptance of the revised terms.
+10.1. INTMAX は、本規約をいつでも変更する権利を留保します。
 
-## 11. Governing Law and Dispute Resolution
+10.2. 変更後もテストネットの利用を継続した場合、改訂後の規約を承諾したものとみなされます。
 
-11.1. These Terms of Use are governed by the laws of Switzerland.
+## 11. 準拠法と紛争解決
 
-11.2. Any disputes arising from these terms will be resolved through arbitration in accordance with Swiss Arbitration Centre (formerly known as the Swiss Chambers’ Arbitration Institution) under the Swiss Rules of International Arbitration.
+11.1. 本規約はスイス法に準拠します。
 
-## 12. Termination
+11.2. 本規約に起因する紛争は、Swiss Arbitration Centre（旧 Swiss Chambers' Arbitration Institution）のスイス国際仲裁規則に基づく仲裁により解決されるものとします。
 
-12.1. INTMAX may suspend or terminate access to the Testnet at its discretion, without prior notice, for any reason, including violation of these Terms of Use.
+## 12. 停止と終了
+
+12.1. INTMAX は、本規約への違反を含むいかなる理由によっても、事前の通知なく、その裁量でテストネットへのアクセスを停止または終了する場合があります。

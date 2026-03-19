@@ -1,18 +1,23 @@
+---
+icon: book-open
+description: 現在のネットワークのチェーン ID を取得するメソッド
+---
+
 # Get Chain ID
 
-Returns the chain ID of the current network.
+現在のネットワークのチェーン ID を返します。
 
-## Request Parameters
+## リクエストパラメータ
 
-None
+なし
 
-## Response Parameters
+## レスポンスパラメータ
 
-| Parameter | Type   | Description                                         |
+| パラメータ | 型 | 説明 |
 | --------- | ------ | --------------------------------------------------- |
-| `chainId` | String | The chain ID is a `0x`-prefixed hexadecimal string. |
+| `chainId` | String | `0x` プレフィックス付きの16進数文字列 |
 
-## Request Example
+## リクエスト例
 
 ```typescript
 await window.ethereum.request({
@@ -21,7 +26,7 @@ await window.ethereum.request({
 });
 ```
 
-## Response Example
+## レスポンス例
 
 ```json
 "0x1"

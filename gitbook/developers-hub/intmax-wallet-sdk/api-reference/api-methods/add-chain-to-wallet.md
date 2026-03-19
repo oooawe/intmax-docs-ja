@@ -1,30 +1,35 @@
+---
+icon: book-open
+description: ウォレットに新しいチェーンを追加するメソッド
+---
+
 # Add Chain To Wallet
 
-Creates a confirmation asking the user to add the specified chain to the wallet application. The caller must specify a chain ID and some chain metadata.
+指定されたチェーンをウォレットアプリケーションに追加する確認をユーザーに求めるメソッドです。呼び出し側はチェーン ID とチェーンのメタデータを指定する必要があります。
 
-## Request Parameters
+## リクエストパラメータ
 
 ### Params\[0\]
 
-| Parameter                 | Type            | Required | Description                                                                                           |
+| パラメータ | 型 | 必須 | 説明 |
 | ------------------------- | --------------- | -------- | ----------------------------------------------------------------------------------------------------- |
-| `chainId`                 | String          | Yes      | The chain ID is a `0x`-prefixed hexadecimal string                                                    |
-| `chainName`               | String          | Yes      | A human-readable name for the chain.                                                                  |
-| `rpcUrls`                 | Array\[string\] | Yes      | One or more URLs pointing to RPC endpoints that can be used to communicate with the chain.            |
-| `iconUrls`                | Array\[string\] | No       | One or more URLs pointing to reasonably sized images that can be used to visually identify the chain. |
-| `nativeCurrency`          | Object          | Yes      | Describes the native currency of the chain using the `name`, `symbol`, and `decimals` fields.         |
-| `nativeCurrency.decimals` | Integer         | Yes      | A non-negative integer.                                                                               |
-| `nativeCurrency.symbol`   | String          | Yes      | A human-readable symbol.                                                                              |
-| `nativeCurrency.name`     | String          | No       | A human-readable name.                                                                                |
-| `blockExplorerUrls`       | Array\[string\] | No       | One or more URLs pointing to block explorer sites for the chain.                                      |
+| `chainId`                 | String          | Yes      | `0x` プレフィックス付きの16進数文字列 |
+| `chainName`               | String          | Yes      | チェーンの人間が読める名称 |
+| `rpcUrls`                 | Array\[string\] | Yes      | チェーンとの通信に使用できる RPC エンドポイントの URL（1 つ以上） |
+| `iconUrls`                | Array\[string\] | No       | チェーンを視覚的に識別するための適切なサイズの画像 URL（1 つ以上） |
+| `nativeCurrency`          | Object          | Yes      | `name`、`symbol`、`decimals` フィールドを使用してチェーンのネイティブ通貨を記述 |
+| `nativeCurrency.decimals` | Integer         | Yes      | 非負の整数 |
+| `nativeCurrency.symbol`   | String          | Yes      | 人間が読める通貨シンボル |
+| `nativeCurrency.name`     | String          | No       | 人間が読める通貨名 |
+| `blockExplorerUrls`       | Array\[string\] | No       | チェーンのブロックエクスプローラーサイトの URL（1 つ以上） |
 
-## Response Parameters
+## レスポンスパラメータ
 
-| Parameter | Type | Description                                                                              |
+| パラメータ | 型 | 説明 |
 | --------- | ---- | ---------------------------------------------------------------------------------------- |
-| `null`    |      | The method **MUST** return `null` if the request was successful, and an error otherwise. |
+| `null`    |      | リクエストが成功した場合は `null` を返し、失敗した場合はエラーを返す |
 
-## Request Example
+## リクエスト例
 
 ```typescript
 ethereum.request({
@@ -53,7 +58,7 @@ ethereum.request({
 })
 ```
 
-## Response Example
+## レスポンス例
 
 ```json
 null

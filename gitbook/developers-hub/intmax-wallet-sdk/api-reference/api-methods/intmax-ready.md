@@ -1,18 +1,23 @@
+---
+icon: book-open
+description: ウォレット初期化完了を dApp に通知するメソッド
+---
+
 # INTMAX Ready
 
-A method notifying that the wallet has been initialized and is ready to communicate with the dapp.
+ウォレットの初期化が完了し、dApp との通信が可能になったことを通知するメソッドです。
 
-## Request Parameters
+## リクエストパラメータ
 
-None
+なし
 
-## Response Parameters
+## レスポンスパラメータ
 
-| Parameter           | Type | Description |
+| パラメータ | 型 | 説明 |
 | ------------------- | ---- | ----------- |
 | `IntmaxReadyResult` |      |             |
 
-## Request Example
+## リクエスト例
 
 ```typescript
 const sdk = intmaxWalletClient();
@@ -25,7 +30,7 @@ sdk.on("intmax/intmax_ready", (c) => {
 });
 ```
 
-### Response Example
+### レスポンス例
 
 ```typescript
 export type WebmaxReadyResult = {

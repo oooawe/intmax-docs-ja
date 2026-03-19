@@ -1,39 +1,44 @@
+---
+icon: server
+description: Withdrawal Aggregator の役割と Withdrawal リクエストの集約・検証の仕組み
+---
+
 # Withdrawal Aggregator
 
-### What is a Withdrawal Aggregator?
+## Withdrawal Aggregator とは
 
-A Withdrawal Aggregator is a decentralized node responsible for processing withdrawal requests from the INTMAX network to the Ethereum network. It handles validating user withdrawal requests, preparing them, and reflecting these transactions securely on the Ethereum blockchain.
+Withdrawal Aggregator は、INTMAX ネットワークから Ethereum ネットワークへの Withdrawal リクエストを処理する分散型ノードです。ユーザーの Withdrawal リクエストの検証、準備、および Ethereum ブロックチェーンへの安全な反映を管理します。
 
-### Main Roles
+## 主な役割
 
-- **Processing Withdrawal Requests:**
-  - Receives withdrawal requests from users, validates them, and securely stores the information.
-- **Aggregation and Submission of Withdrawals:**
-  - Generates Zero-Knowledge Proofs (ZKPs) based on user requests, aggregates them, and submits withdrawal data to the Ethereum network.
-- **Providing Withdrawal Proofs:**
-  - Offers Merkle proofs to users for their withdrawal requests, enabling secure and verifiable withdrawals.
+- **Withdrawal リクエストの処理**
+  - ユーザーからの Withdrawal リクエストを受け付け、検証し、情報を安全に保存します。
+- **Withdrawal の集約と送信**
+  - ユーザーリクエストに基づいて ZKP を生成し、集約した Withdrawal データを Ethereum ネットワークに送信します。
+- **Withdrawal プルーフの提供**
+  - ユーザーの Withdrawal リクエストに対して Merkle Proof を提供し、安全で検証可能な Withdrawal を実現します。
 
-### How it Works
+## 動作の流れ
 
-- Users submit withdrawal requests containing transfer details and necessary proofs.
-- The Withdrawal Aggregator verifies each request, including proofs and balances, and securely stores the data.
-- Once sufficient requests accumulate or after a designated time interval, the Aggregator creates ZKPs and sends the aggregated withdrawal information through the Scroll network to Ethereum.
-- After submission, users receive Merkle proofs to finalize their withdrawals.
+- ユーザーが Transfer の詳細と必要なプルーフを含む Withdrawal リクエストを送信します。
+- Withdrawal Aggregator が各リクエストのプルーフと残高を検証し、データを安全に保存します。
+- 十分なリクエストが蓄積されるか、指定された時間間隔が経過すると、ZKP を作成し、集約された Withdrawal 情報を Scroll ネットワーク経由で Ethereum に送信します。
+- 送信完了後、ユーザーは Withdrawal を確定するための Merkle Proof を受け取ります。
 
-### Features
+## 特徴
 
-- **Decentralized:**
-  - Nodes operate independently across the network without central coordination. Users can run their nodes, although no protocol rewards are provided.
-- **High Availability:**
-  - Ensures continuous service with minimal downtime.
-- **Scalable:**
-  - Capable of efficiently handling an increasing number of requests.
-- **Fault-Tolerant:**
-  - Able to resume operations seamlessly after failures or outages.
-- **Rapid Response:**
-  - Quickly responds to user requests.
+- **分散型**
+  - ノードは中央管理なしにネットワーク全体で独立して動作します。ユーザーは自身のノードを運用できますが、プロトコルによるリワードは提供されません。
+- **高可用性**
+  - 最小限のダウンタイムで継続的なサービスを確保します。
+- **スケーラブル**
+  - 増加するリクエストを効率的に処理できます。
+- **耐障害性**
+  - 障害や停止が発生しても、シームレスに運用を再開できます。
+- **高速レスポンス**
+  - ユーザーリクエストに迅速に応答します。
 
-### What Users Can Do
+## ユーザーができること
 
-- Users can set up and operate their own Withdrawal Aggregator nodes.
-- Users submit withdrawal requests and receive proofs needed for claiming funds on Ethereum.
+- 自身の Withdrawal Aggregator ノードをセットアップ・運用できます。
+- Withdrawal リクエストを送信し、Ethereum 上で資金を受け取るために必要なプルーフを取得できます。

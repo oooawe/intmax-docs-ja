@@ -1,126 +1,131 @@
-# Node Reference
+---
+icon: users-gear
+description: INTMAX ネットワークを構成するノード・コントラクト・UI の全体像
+---
 
-This document outlines the components of the entire system and describes their roles. These components are organized into three categories: User Interface, Contracts, and Nodes.
+# ノードリファレンス
 
-- **Explanation of User Interfaces**
-  - Explain the interfaces through which users interact with the network. Describe the Command Line Interface (CLI) and the Intmax Web App, clarifying how users can operate the network.
-- **Explanation of Smart Contracts**
-  - Explain the roles of various contracts within the network.
-  - This helps you understand how the network utilizes on-chain data.
-- **Explanation of Nodes**
-  - Explain the roles of various nodes within the network.
-  - This helps you understand how the network is structured.
+本ドキュメントでは、INTMAX システム全体のコンポーネントとその役割を説明します。コンポーネントは、ユーザーインターフェース、コントラクト、ノードの 3 つのカテゴリに分類されます。
 
-## Component Dependencies
+- **ユーザーインターフェースの説明**
+  - ユーザーがネットワークと対話するためのインターフェースを説明します。CLI（Command Line Interface）と Intmax Web App について、ネットワークの操作方法を解説します。
+- **スマートコントラクトの説明**
+  - ネットワーク内の各コントラクトの役割を説明します。
+  - ネットワークがオンチェーンデータをどのように活用しているかを理解するのに役立ちます。
+- **ノードの説明**
+  - ネットワーク内の各ノードの役割を説明します。
+  - ネットワークの構造を理解するのに役立ちます。
 
-### Conceptual diagram
+## コンポーネントの依存関係
 
-![Conceptual diagram](assets/developers-hub/node.webp)
+### 概念図
 
-## Main Features
+![概念図](assets/developers-hub/node.webp)
 
-### Batch Transfers of Multiple Tokens
+## 主な機能
 
-Intmax natively supports batch transfers of multiple tokens. Users can send tokens simultaneously to up to 63 different recipients without any additional costs. It's also possible to send different types of tokens to each recipient within a single batch transfer.
+### 複数トークンのバッチ転送
 
-Transactions on the Intmax network do not reveal the recipient’s identity to external observers.
+INTMAX は複数トークンのバッチ転送（Batch Transfer）をネイティブにサポートしています。ユーザーは追加コストなしで、最大 63 人の異なる受信者に同時にトークンを送れます。1 回のバッチ転送で、受信者ごとに異なる種類のトークンを送ることも可能です。
 
-### Deposits and Withdrawals from the Ethereum Network
+INTMAX ネットワーク上のトランザクションでは、受信者の情報が外部の観察者に公開されることはありません。
 
-The Intmax network supports deposits and withdrawals from the Ethereum network. When funds are deposited, only the recipient knows which specific Intmax address received the funds. Similarly, when withdrawing, the Intmax address from which the funds originated remains undisclosed.
+### Ethereum ネットワークとの Deposit・Withdrawal
 
-AML checks are performed upon deposits to prevent risky assets from circulating within the Intmax network.
+INTMAX ネットワークは Ethereum ネットワークからの Deposit と Withdrawal をサポートしています。Deposit 時には、どの INTMAX アドレスが資金を受け取ったかを知ることができるのは受信者本人だけです。同様に、Withdrawal 時にも、資金の送信元となる INTMAX アドレスは開示されません。
+
+Deposit 時には AML（Anti-Money Laundering）チェックが行われ、リスクのある資産が INTMAX ネットワーク内で流通するのを防止します。
 
 ### Privacy Mining
 
-The goal of privacy mining is to expand and maintain the anonymity set of the privacy protocol. Privacy Mining allows users to earn rewards by contributing to privacy through depositing a specified amount of ETH for a designated period within the Intmax network.
+Privacy Mining の目的は、プライバシープロトコルの匿名セットを拡大・維持することです。ユーザーは指定された量の ETH を一定期間 INTMAX ネットワーク内に Deposit することで、プライバシーに貢献し、リワードを獲得できます。
 
-## User Interface
+## ユーザーインターフェース
 
-### Intmax Web App (Recommended)
+### Intmax Web App（推奨）
 
-Intmax Web App provides a UI for users to create accounts on the Intmax network, and perform operations such as depositing, transferring, and withdrawing tokens.
+Intmax Web App は、ユーザーが INTMAX ネットワーク上でアカウントを作成し、トークンの Deposit・Transfer・Withdrawal などの操作を行うための UI を提供します。
 
-It also supports privacy mining features. Intmax Web App is available as a website and a mobile application.
+Privacy Mining 機能にも対応しています。Intmax Web App はウェブサイトおよびモバイルアプリケーションとして利用できます。
 
-- [Open Mainnet App](https://app.intmax.io/)
+- [メインネットアプリを開く](https://app.intmax.io/)
 
-- [Open Testnet App](https://beta.testnet.app.intmax.io/)
+- [テストネットアプリを開く](https://beta.testnet.app.intmax.io/)
 
 ### CLI
 
-A command-line interface (CLI) program necessary for users to operate the Intmax network from a terminal. The CLI program provides commands for users to create accounts on the Intmax network, and perform operations such as depositing, transferring, and withdrawing tokens.
+ユーザーがターミナルから INTMAX ネットワークを操作するための CLI プログラムです。アカウントの作成、トークンの Deposit・Transfer・Withdrawal などの操作コマンドを提供します。
 
-You can access it from the source code provided here.
+以下のソースコードからアクセスできます。
 
-[View INTMAX CLI](../intmax-cli.md)
+[INTMAX CLI を見る →](../intmax-cli.md)
 
-### Contracts
+### コントラクト
 
-The Intmax network is a Layer-2 solution built on top of the Ethereum network. Liquidity remains on Ethereum, while block data storage utilizes the Scroll network—a type of ZK-rollup—allowing Intmax to benefit from lower costs and enhanced security. Smart contracts deployed on these two networks form the foundation of the Intmax network.
+INTMAX ネットワークは Ethereum ネットワーク上に構築された L2（Layer 2）ソリューションです。流動性は Ethereum 上に残り、ブロックデータの保存には zk-Rollup の一種である Scroll ネットワークを利用することで、低コストと高いセキュリティを実現しています。これら 2 つのネットワーク上にデプロイされたスマートコントラクトが、INTMAX ネットワークの基盤を形成しています。
 
-[View Smart Contracts](./smart-contracts)
+[スマートコントラクトを見る →](./smart-contracts)
 
-## Nodes
+## ノード
 
 ### Block Builder
 
-Builder nodes aggregate transfer requests from users, create blocks, and reflect these blocks on the network.
+Block Builder ノードは、ユーザーからの Transfer リクエストを集約してブロックを作成し、ネットワークに反映します。
 
-These nodes are **decentralized** and deployed across the network. Each node operates independently and does not need to synchronize with other builder nodes.
+このノードは**分散型**であり、ネットワーク全体にデプロイされています。各ノードは独立して動作し、他の Block Builder ノードと同期する必要はありません。
 
-[View Block Builder](./block-builder)
+[Block Builder を見る →](./block-builder)
 
 ### Store Vault Server
 
-Backs up data that users must individually store and makes it accessible when using Intmax wallet or CLI from multiple devices. This node securely and efficiently backs up user data and manages the process of restoring it when necessary.
+ユーザーが個別に保存すべきデータをバックアップし、複数のデバイスから INTMAX Wallet や CLI を利用する際にアクセスできるようにします。ユーザーデータを安全かつ効率的にバックアップし、必要時の復元プロセスを管理するノードです。
 
-[View Store Vault Server](./store-vault-server)
+[Store Vault Server を見る →](./store-vault-server)
 
 ### Deposit Relayer
 
-Communicates deposit requests from the Liquidity contract to the Rollup contract.
+Liquidity コントラクトからの Deposit リクエストを Rollup コントラクトに中継します。
 
-[View Deposit Relayer](./deposit-relayer)
+[Deposit Relayer を見る →](./deposit-relayer)
 
 ### Withdrawal Server
 
-This node manages the progress of accepting withdrawal/claim requests, and providing information about withdrawals and claims to authenticated users.
+Withdrawal・Claim リクエストの受付状況を管理し、認証済みユーザーに Withdrawal と Claim に関する情報を提供するノードです。
 
-[View Withdrawal Server](./withdrawal-server)
+[Withdrawal Server を見る →](./withdrawal-server)
 
-### Withdraw Aggregator
+### Withdrawal Aggregator
 
-Processes withdrawal requests from the Intmax network to Ethereum. This node accepts user withdrawal requests, performs necessary verifications and processes, and manages the process of reflecting these in the liquidity contract.
+INTMAX ネットワークから Ethereum への Withdrawal リクエストを処理します。ユーザーの Withdrawal リクエストを受け付け、必要な検証と処理を行い、Liquidity コントラクトへの反映プロセスを管理するノードです。
 
-[View Withdrawal Aggregator](./withdrawal-aggregator)
+[Withdrawal Aggregator を見る →](./withdrawal-aggregator)
 
 ### Claim Aggregator
 
-This node processes requests for mining rewards generated on the Intmax network. This node performs necessary validation and processing of mining reward requests received from users and manages the process of reflecting these requests on-chain.
+INTMAX ネットワーク上で発生したマイニングリワードのリクエストを処理するノードです。ユーザーから受け取ったマイニングリワードリクエストに対して必要な検証と処理を行い、オンチェーンへの反映プロセスを管理します。
 
-[View Claim Aggregator](./claim-aggregator)
+[Claim Aggregator を見る →](./claim-aggregator)
 
-### Withdraw Relayer
+### Withdrawal Relayer
 
-Reflects withdrawal information submitted to the rollup contract in the liquidity contract.
+Rollup コントラクトに送信された Withdrawal 情報を Liquidity コントラクトに反映します。
 
-[View Withdrawal Relayer](./withdrawal-relayer)
+[Withdrawal Relayer を見る →](./withdrawal-relayer)
 
 ### Indexer
 
-Provides information to users for finding block builders and block validity provers. It lists currently active nodes and recommends some nodes to connect to.
+ユーザーが Block Builder や Validity Prover を見つけるための情報を提供します。現在アクティブなノードの一覧を管理し、接続先のノードを推奨します。
 
-[View Indexer](./indexer)
+[Indexer を見る →](./indexer)
 
 ### Validity Prover
 
-A Validity Prover is a decentralized node on the Intmax network responsible for securely storing and providing Merkle trees and ZKPs related to Intmax blocks. These proofs verify the validity of transactions and blocks, ensuring the integrity of network operations.
+Validity Prover は、INTMAX ネットワーク上の分散型ノードであり、INTMAX ブロックに関連する Merkle Tree と ZKP を安全に保存・提供する役割を担います。これらのプルーフによってトランザクションとブロックの有効性が検証され、ネットワーク運用の整合性が保証されます。
 
-[View Validity Prover](./validity-prover)
+[Validity Prover を見る →](./validity-prover)
 
 ### Provers
 
-In the Intmax network, user balances are verified using Zero-Knowledge Proofs (ZKPs) to ensure sufficient funds and validate withdrawal conditions.
+INTMAX ネットワークでは、ZKP（Zero-Knowledge Proof）を使ってユーザーの残高を検証し、十分な資金があることと Withdrawal 条件を満たしていることを確認しています。
 
-[View Provers](./provers)
+[Provers を見る →](./provers)

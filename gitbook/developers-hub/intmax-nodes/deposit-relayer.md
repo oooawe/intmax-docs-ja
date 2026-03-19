@@ -1,24 +1,29 @@
+---
+icon: server
+description: Deposit Relayer の役割と Ethereum から INTMAX への Deposit 中継の仕組み
+---
+
 # Deposit Relayer
 
-### What is a Deposit Relayer?
+## Deposit Relayer とは
 
-A Deposit Relayer is a node responsible for reflecting user deposits made on the Ethereum network (ETH, ERC20, ERC721, ERC1155 tokens) into the Intmax network.
+Deposit Relayer は、ユーザーが Ethereum ネットワーク上で行った Deposit（ETH、ERC-20、ERC-721、ERC-1155 トークン）を INTMAX ネットワークに反映するノードです。
 
-### Main Roles
+## 主な役割
 
-- **Transmitting Deposit Information**
-  - Periodically transmits deposit data from the Ethereum network to the Intmax network.
+- **Deposit 情報の中継**
+  - Ethereum ネットワークからの Deposit データを定期的に INTMAX ネットワークに中継します。
 
-### How it Works
+## 動作の仕組み
 
-- The Deposit Relayer periodically transmits users' deposit transactions to the Rollup contract on the Scroll network.
-  - Data is delivered to the Rollup contract via the [Scroll Messenger](https://docs.scroll.io/en/developers/l1-and-l2-bridging/the-scroll-messenger/).
-  - Once delivered to the Rollup contract, the deposits are reflected in the user's balance after Intmax blocks are generated.
+- Deposit Relayer は、ユーザーの Deposit トランザクションを定期的に Scroll ネットワーク上の Rollup コントラクトに中継します。
+  - データは [Scroll Messenger](https://docs.scroll.io/en/developers/l1-and-l2-bridging/the-scroll-messenger/) を通じて Rollup コントラクトに配信されます。
+  - Rollup コントラクトに配信されると、INTMAX ブロックの生成後にユーザーの残高に反映されます。
 
-### Features
+## 特徴
 
-This node operates independently through multiple nodes without relying on a centralized entity. Users can also run their own Deposit Relayer nodes, though no rewards are provided for doing so.
+このノードは中央管理者に依存せず、複数のノードで独立して動作します。ユーザーも自身の Deposit Relayer ノードを運用できますが、リワードは提供されません。
 
-### What Users Can Do
+## ユーザーができること
 
-Users can build and operate their own Deposit Relayer nodes to participate in the protocol. However, there are no rewards provided for this participation.
+ユーザーは自身の Deposit Relayer ノードを構築・運用してプロトコルに参加できます。ただし、参加に対するリワードは提供されません。

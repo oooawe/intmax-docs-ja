@@ -1,23 +1,28 @@
+---
+icon: brain-circuit
+description: INTMAX で使用される各種 ZKP 生成ノードの概要と役割
+---
+
 # Provers
 
-### What is Provers?
+## Provers とは
 
-In the Intmax network, user balances are verified using Zero-Knowledge Proofs (ZKPs) to ensure sufficient funds and validate withdrawal conditions.
+INTMAX ネットワークでは、ZKP（Zero-Knowledge Proof）を使ってユーザーの残高を検証し、十分な資金があることと Withdrawal 条件を満たしていることを確認しています。
 
-This document describes nodes responsible for generating various ZKPs used in Intmax.
+本ドキュメントでは、INTMAX で使用される各種 ZKP を生成するノードについて説明します。
 
-### **Balance Prover**
+## Balance Prover
 
-This server allows users to create cryptographic proofs of their account balances. Requests to the server are encrypted, and the data is only decrypted and processed within secure, confidential storage. As a result, even the server administrator cannot view users' balances or transaction histories.
+ユーザーがアカウント残高の暗号学的な証明を作成するためのサーバーです。サーバーへのリクエストは暗号化され、データは安全な機密ストレージ内でのみ復号・処理されます。そのため、サーバー管理者であってもユーザーの残高やトランザクション履歴を閲覧することはできません。
 
-### **Validity Prover**
+## Validity Prover
 
-This server generates proofs confirming the correctness of the state of the Intmax blockchain.
+INTMAX ブロックチェーンの状態の正しさを確認するプルーフを生成するサーバーです。
 
-### **Aggregator Prover**
+## Aggregator Prover
 
-This server aggregates withdrawal (claim) requests from users into a single withdrawal (claim) proof. It is capable of aggregating multiple requests from different users into one unified proof.
+ユーザーからの Withdrawal（Claim）リクエストを 1 つの Withdrawal（Claim）プルーフに集約するサーバーです。異なるユーザーからの複数のリクエストを 1 つの統合プルーフにまとめることができます。
 
-### **Gnark Prover**
+## Gnark Prover
 
-This server converts aggregated withdrawal (claim) proofs into Solidity-verifiable proofs. The Withdrawal Aggregator submits aggregated proofs to the Gnark Prover, receives back a Solidity-verifiable proof, and submits this proof directly to the smart contract.
+集約された Withdrawal（Claim）プルーフを Solidity で検証可能なプルーフに変換するサーバーです。Withdrawal Aggregator が集約プルーフを Gnark Prover に送信し、Solidity で検証可能なプルーフを受け取った後、そのプルーフを直接スマートコントラクトに送信します。

@@ -1,59 +1,64 @@
-# Smart Contracts
+---
+icon: file-contract
+description: INTMAX を構成するスマートコントラクトの役割と機能の一覧
+---
 
-### Abstract
+# スマートコントラクト
 
-The Intmax network is a Layer-2 solution built on top of the Ethereum network. Liquidity remains on Ethereum, while block data storage utilizes the Scroll network—a type of ZK-rollup—allowing Intmax to benefit from lower costs and enhanced security. Smart contracts deployed on these two networks form the foundation of the Intmax network.
+## 概要
 
-This document explains the roles of smart contracts associated with Intmax.
+INTMAX ネットワークは Ethereum ネットワーク上に構築された L2（Layer 2）ソリューションです。流動性は Ethereum 上に残り、ブロックデータの保存には zk-Rollup の一種である Scroll ネットワークを利用することで、低コストと高いセキュリティを実現しています。これら 2 つのネットワーク上にデプロイされたスマートコントラクトが、INTMAX ネットワークの基盤を形成しています。
 
-### Rollup
+本ドキュメントでは、INTMAX に関連するスマートコントラクトの役割を説明します。
 
-A smart contract responsible for handling operations related to Intmax blocks. It is deployed on Scroll.
+## Rollup
 
-- **Block Posting:** Allows posting blocks.
-- **Deposit Processing:** Integrates deposits from the liquidity contract into the Rollup state.
-- **Penalty Fee Management:** Enables withdrawal and adjustment of penalty fees associated with rate limiting.
+INTMAX ブロックに関連する操作を管理するスマートコントラクトです。Scroll 上にデプロイされています。
 
-### Liquidity
+- **ブロックの投稿** — ブロックの投稿を可能にします。
+- **Deposit の処理** — Liquidity コントラクトからの Deposit を Rollup の状態に統合します。
+- **ペナルティ手数料の管理** — レート制限に関するペナルティ手数料の Withdrawal と調整を可能にします。
 
-This contract manages asset transfers between the Ethereum and Intmax networks. It handles user deposit and withdrawal operations and maintains asset states. It is deployed on Ethereum.
+## Liquidity
 
-- **Asset Deposits** Users can deposit tokens (native tokens, ERC20, ERC721, ERC1155) from Ethereum into Intmax.
-- **AML Check** This contract performs AML checks upon deposits and rejects deposits from addresses that do not meet compliance standards.
-- **Asset Withdrawals** Sends tokens withdrawn from Intmax to users on Ethereum.
-- **Deposit Management** Deposited tokens are stored in a queue. A Deposit Relayer communicates this information collectively to the Intmax network.
-- **Contribution Recording** Records addresses that execute transactions (such as withdrawals) necessary for maintaining the network.
+Ethereum ネットワークと INTMAX ネットワーク間の資産移動を管理するコントラクトです。ユーザーの Deposit・Withdrawal 操作を処理し、資産の状態を管理します。Ethereum 上にデプロイされています。
 
-### Withdrawal
+- **資産の Deposit** — ユーザーは Ethereum から INTMAX にトークン（ネイティブトークン、ERC-20、ERC-721、ERC-1155）を Deposit できます。
+- **AML チェック** — Deposit 時に AML チェックを実施し、コンプライアンス基準を満たさないアドレスからの Deposit を拒否します。
+- **資産の Withdrawal** — INTMAX から Withdrawal されたトークンを Ethereum 上のユーザーに送金します。
+- **Deposit の管理** — Deposit されたトークンはキューに保存されます。Deposit Relayer がこの情報をまとめて INTMAX ネットワークに中継します。
+- **Contribution の記録** — Withdrawal などネットワーク維持に必要なトランザクションを実行したアドレスを記録します。
 
-This contract manages withdrawal processes from the Intmax network to Ethereum, handles the verification of withdrawal proofs, and manages token indices eligible for direct withdrawals. It is deployed on Scroll.
+## Withdrawal
 
-- **Withdrawal Request Submission** Allows submission and verification of withdrawal proofs from the Intmax network.
-- **Token Management for Direct Withdrawals** Manages the token indices that are eligible for direct withdrawal processing.
+INTMAX ネットワークから Ethereum への Withdrawal プロセスを管理し、Withdrawal プルーフの検証と直接 Withdrawal 対象のトークンインデックスの管理を行うコントラクトです。Scroll 上にデプロイされています。
 
-### Claim
+- **Withdrawal リクエストの送信** — INTMAX ネットワークからの Withdrawal プルーフの送信と検証を可能にします。
+- **直接 Withdrawal 対象トークンの管理** — 直接 Withdrawal 処理の対象となるトークンインデックスを管理します。
 
-This contract is used to claim rewards from privacy mining. It distributes ITX tokens on Ethereum following the same procedures as the Withdrawal contract. It is deployed on Scroll.
+## Claim
 
-- **Claim Proof Submission** Submit claim proof from Intmax network.
-- **Token Management for Direct Withdrawals** Manages the tokens eligible for direct withdrawals.
+Privacy Mining のリワードを Claim するためのコントラクトです。Withdrawal コントラクトと同じ手順に従い、Ethereum 上で ITX トークンを配布します。Scroll 上にデプロイされています。
 
-### Block Builder Registry
+- **Claim プルーフの送信** — INTMAX ネットワークからの Claim プルーフを送信します。
+- **直接 Withdrawal 対象トークンの管理** — 直接 Withdrawal 対象のトークンを管理します。
 
-This contract maintains a registry of active block builders by emitting heartbeat signals with associated URLs. It allows block builders to publicly indicate their operational status. It is deployed on Scroll.
+## Block Builder Registry
 
-- **Heartbeat Emission** Enables block builders to periodically signal that they are active.
+ハートビート信号と URL を発信することでアクティブな Block Builder のレジストリを管理するコントラクトです。Block Builder が自身の稼働状態を公開するために使用されます。Scroll 上にデプロイされています。
 
-### L1/L2 Contribution
+- **ハートビートの発信** — Block Builder が定期的にアクティブであることを通知できるようにします。
 
-This contract manages contributions made by users and tracks their respective allocations and weights. It is used to calculate and distribute rewards based on user contributions. It is deployed on Ethereum and Scroll.
+## L1/L2 Contribution
 
-- **Contribution Recording** Records contributions made by users with associated tags for specific periods.
-- **Period Management** Manages the periodic increment and resets for recording contributions.
-- **Weight Management** Assigns and manages weights for various tags in each period.
+ユーザーの Contribution を管理し、それぞれの割り当てとウェイトを追跡するコントラクトです。ユーザーの Contribution に基づいてリワードを計算・配布するために使用されます。Ethereum と Scroll の両方にデプロイされています。
 
-### Permitter Contract
+- **Contribution の記録** — 特定の期間におけるユーザーの Contribution を関連タグ付きで記録します。
+- **期間管理** — Contribution 記録のための定期的な増分とリセットを管理します。
+- **ウェイト管理** — 各期間のさまざまなタグに対してウェイトを割り当て・管理します。
 
-This contract uses a service called Predicate to verify AML checks and to determine whether the transaction originates from valid mining activities. It is invoked by the Liquidity contract whenever a user deposits funds. Deposits from addresses that do not comply with predetermined policies will be rejected. It is deployed on Ethereum.
+## Permitter Contract
 
-- **Policy Verification** Deposits from addresses that do not comply with predetermined policies will not be permitted. This involves two types of checks: AML verification and validation of legitimate mining activity.
+Predicate と呼ばれるサービスを利用して AML チェックの検証と、トランザクションが正当なマイニング活動に基づくものかどうかの判定を行うコントラクトです。ユーザーが資金を Deposit する際に Liquidity コントラクトから呼び出されます。事前に定められたポリシーに準拠しないアドレスからの Deposit は拒否されます。Ethereum 上にデプロイされています。
+
+- **ポリシー検証** — 事前に定められたポリシーに準拠しないアドレスからの Deposit は許可されません。これには AML 検証と正当なマイニング活動の検証という 2 種類のチェックが含まれます。

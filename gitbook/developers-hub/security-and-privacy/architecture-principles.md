@@ -1,61 +1,66 @@
-# Architecture and Principles
+---
+icon: shield-check
+description: 形式検証によるプロトコルの安全性保証とプライバシーモデルの設計原則
+---
 
-INTMAX is a Layer-2 ZK Rollup designed for strong security and privacy. Its core logic has been formally verified using the Lean theorem prover with support from Nethermind. This ensures the correctness of balance updates, withdrawal logic, and proof validity.
+# アーキテクチャと設計原則
 
-## Formal Verification
+INTMAX は、強固なセキュリティとプライバシーを実現するために設計された L2（Layer 2）の zk-Rollup です。コアロジックは Nethermind の支援のもと、Lean 定理証明器を用いて形式検証（Formal Verification）されています。これにより、残高更新、Withdrawal ロジック、プルーフの妥当性の正しさが保証されています。
 
-INTMAX's core protocol logic has been **mechanically verified** using the Lean theorem prover, under the guidance of the Nethermind Formal Verification team. The verification covers:
+## 形式検証
 
-- Correctness of the balance computation model
-- Soundness of the withdrawal logic (no double spend)
-- Validity of Merkle-based inclusion proofs
-- BLS signature aggregation consistency
+INTMAX のコアプロトコルロジックは、Nethermind Formal Verification チームの指導のもと、Lean 定理証明器を用いて**機械的に検証**されています。検証の対象は以下のとおりです：
 
-**Implication**: A successful withdrawal implies a valid proof, and an invalid proof will always be rejected—regardless of aggregator or L1 adversarial behavior.
+- 残高計算モデルの正しさ
+- Withdrawal ロジックの健全性（二重支出の防止）
+- Merkle Inclusion Proof の妥当性
+- BLS 署名集約（Aggregate Signature）の一貫性
 
-## Replay and Delay Protection (Optional but Recommended)
+**設計上の意義**：Withdrawal が成功した場合、それは有効なプルーフが存在することを意味します。無効なプルーフは、アグリゲーターや L1 の敵対的な振る舞いにかかわらず、必ず拒否されます。
 
-While the core protocol assumes minimal trust and coordination, adversarial aggregators may attempt:
+## リプレイ攻撃・遅延攻撃への対策（任意だが推奨）
 
-- **Replay attacks**: Re-submitting previously accepted transfer blocks
-- **Delay attacks**: Withholding valid blocks to stall inclusion
+コアプロトコルは最小限の信頼と調整を前提としていますが、悪意のあるアグリゲーターが以下を試みる可能性があります：
 
-To mitigate these attacks without sacrificing decentralization, the protocol allows **optional relayer contracts** to enforce:
+- **リプレイ攻撃** — 過去に承認された Transfer ブロックを再送信する攻撃
+- **遅延攻撃** — 有効なブロックを保留し、インクルージョンを遅延させる攻撃
 
-- **Monotonic timestamps** on transfer blocks
-- **Finality deadlines**, requiring a block to be published within a bounded time window
-- **Whitelisting**, where only known aggregator keys may submit blocks during a session
+これらの攻撃を分散性を損なわずに軽減するため、プロトコルでは**任意のリレイヤーコントラクト**を使用して以下を強制できます：
 
-This functionality is out-of-protocol and permissionless; users can opt in by coordinating through social or market incentives.
+- Transfer ブロックへの**単調タイムスタンプ**の付与
+- **ファイナリティ期限** — ブロックが一定の時間枠内に公開されることを要求
+- **ホワイトリスト** — セッション中にブロックを送信できるアグリゲーターの鍵を限定
 
-## Privacy Guarantees
+この機能はプロトコル外のパーミッションレス（Permissionless）な仕組みであり、ユーザーはソーシャルまたはマーケットインセンティブを通じて任意に利用できます。
 
-INTMAX is designed to maximize privacy **without reliance on mixers, encrypted mempools, or shielded pools**.
+## プライバシー保証
 
-## Core Properties
+INTMAX は、**ミキサー、暗号化メモプール、シールドプールに依存することなく**プライバシーを最大化するよう設計されています。
 
-- **No transaction data is ever posted on-chain**: No sender, recipient, or amount is revealed.
-- **Aggregators do not know transaction contents**: They receive only salted hashes.
-- **Only recipients gain access to transaction details**, via direct peer-to-peer message from the sender.
-- **Balance proofs and transfers are locally maintained**, and only revealed to the contract at the point of withdrawal via ZK proofs.
+## コア特性
 
-This yields a privacy model in which:
+- **トランザクションデータがオンチェーンに一切公開されない** — 送信者、受信者、金額のいずれも明かされません
+- **アグリゲーターがトランザクションの内容を知り得ない** — 受け取るのはソルト付きハッシュのみです
+- **トランザクションの詳細にアクセスできるのは受信者のみ** — 送信者からのピアツーピア（P2P）メッセージを通じて共有されます
+- **残高証明（Balance Proof）と Transfer はローカルで管理される** — Withdrawal 時に ZK proof を通じてコントラクトに対してのみ開示されます
 
-- Observers (including L1 validators) learn only who deposited and withdrew, but **nothing in between**.
-- Aggregators cannot front-run or censor based on transaction content—they are blind to it.
-- Users may selectively disclose their balance history off-chain, but there is **no protocol-level linkage** unless voluntarily revealed.
+このモデルにより、以下のプライバシーが実現されます：
 
-## Summary Table
+- 外部の観察者（L1 バリデーターを含む）が知り得るのは、誰が Deposit し誰が Withdrawal したかだけであり、**その間の操作は一切不明**
+- アグリゲーターはトランザクション内容を把握できないため、フロントランや内容に基づく検閲が不可能
+- ユーザーは残高の履歴をオフチェーンで選択的に開示できますが、自発的に開示しない限り**プロトコルレベルでの紐付けは存在しない**
 
-| Attack Vector        | Defense Mechanism                                    | On by Default? |
+## まとめ
+
+| 攻撃ベクトル | 防御メカニズム | デフォルト有効？ |
 | -------------------- | ---------------------------------------------------- | -------------- |
-| State corruption     | Formal verification of balance logic                 | ✅             |
-| Transaction replay   | Optional relayer with monotonic checks               | ⚠️ Optional    |
-| Inclusion censorship | Permissionless aggregation (no leader required)      | ✅             |
-| Transaction leakage  | Off-chain transaction construction and proof sharing | ✅             |
-| Aggregator leakage   | Hash-based commitment, no plaintext access           | ✅             |
+| 状態改ざん | 残高ロジックの形式検証 | ✅ |
+| トランザクションリプレイ | 単調性チェック付きの任意リレイヤー | ⚠️ 任意 |
+| インクルージョン検閲 | パーミッションレスなアグリゲーション（リーダー不要） | ✅ |
+| トランザクション漏洩 | オフチェーンでのトランザクション構築とプルーフ共有 | ✅ |
+| アグリゲーター漏洩 | ハッシュベースのコミットメント、平文へのアクセス不可 | ✅ |
 
-🔒 **For more details:**\
-For a comprehensive overview of Intmax's security testing, audits, and privacy architecture, please refer to the following report:
+🔒 **詳細情報：**\
+INTMAX のセキュリティテスト、監査、プライバシーアーキテクチャの包括的な概要については、以下のレポートを参照してください。
 
-[View the Security and Testing Report](./security-and-testing-report.md)
+[セキュリティ・テストレポートを見る →](./security-and-testing-report.md)

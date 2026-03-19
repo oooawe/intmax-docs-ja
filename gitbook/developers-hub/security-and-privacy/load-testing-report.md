@@ -1,79 +1,84 @@
-# Load Testing Report
+---
+icon: gauge-high
+description: INTMAX ネットワークの負荷テスト結果とスケーラビリティの評価
+---
 
-The objective of this report is to evaluate the operational stability of the Intmax network under conditions of high CPU and memory resource consumption, clarifying performance challenges under heavy load.
+# 負荷テストレポート
 
-## Testing Policy
+本レポートの目的は、CPU やメモリリソースの高負荷状態における INTMAX ネットワークの運用安定性を評価し、高負荷時のパフォーマンス課題を明確にすることです。
 
-The evaluation focuses on determining whether Intmax nodes can efficiently process large numbers of transactions. Specific attention is given to the impacts of database inflation and increased ZKP (Zero-Knowledge Proof) generation times on the system.
+## テスト方針
 
-## Testing Methodology
+INTMAX のノードが大量のトランザクションを効率的に処理できるかどうかの判断に重点を置いています。特に、データベースの肥大化や ZKP（Zero-Knowledge Proof）生成時間の増加がシステムに与える影響に注目しています。
 
-A load testing environment closely resembling the production environment was set up under the following conditions:
+## テスト手法
 
-- Multiple users simultaneously requesting transactions.
-- Users concurrently generating balance proofs.
-- Gradual increase in the number of users, maintaining sustained load over extended periods.
-- Incremental adjustments to node specifications to verify processing capacity limits.
+本番環境に近い負荷テスト環境を以下の条件で構築しました：
 
-## Metrics Monitored
+- 複数ユーザーが同時にトランザクションをリクエスト
+- ユーザーが並行して残高証明（Balance Proof）を生成
+- ユーザー数を段階的に増加させ、長時間にわたり持続的な負荷を維持
+- ノードのスペックを段階的に調整し、処理能力の限界を検証
 
-A script was executed to repeatedly simulate transactions by adjusting the number of simultaneous users. The following metrics were measured and monitored through server logs:
+## 監視メトリクス
 
-- **Nodes**
-  - Requests per second
-  - Response times
-  - CPU usage
-  - Memory usage
+同時ユーザー数を変化させながらトランザクションを繰り返しシミュレーションするスクリプトを実行し、以下のメトリクスをサーバーログを通じて計測・監視しました：
+
+- **ノード**
+  - 1 秒あたりのリクエスト数
+  - レスポンスタイム
+  - CPU 使用率
+  - メモリ使用量
 - **Postgres**
-  - Number of active connections
-  - Memory usage
-  - CPU usage
-  - Data read/write speed per second
+  - アクティブ接続数
+  - メモリ使用量
+  - CPU 使用率
+  - 1 秒あたりのデータ読み書き速度
 - **Redis**
-  - Memory usage
-  - Cache hit rate
+  - メモリ使用量
+  - キャッシュヒット率
 
-## Nodes Under Evaluation
+## 評価対象ノード
 
-The following nodes were included in this test:
+本テストでは以下のノードを対象としました：
 
 - **Block Builder**
-  - Block generation node for the Intmax network.
+  - INTMAX ネットワークのブロック生成ノード
 - **Store Vault Server**
-  - Node for transaction encryption and storage.
+  - トランザクションの暗号化と保存を担うノード
 - **Withdrawal Server**
-  - Node for ZKP verification and smart contract submission.
+  - ZKP の検証とスマートコントラクトへの送信を担うノード
 - **Validity Prover**
-  - Node for verifying block validity.
-  - CPU: 32 cores, Memory: 64Gi
-  - 4 units
+  - ブロックの有効性を検証するノード
+  - CPU: 32 コア、メモリ: 64Gi
+  - 4 台
 - **Balance Prover**
-  - Node generating ZKP for balance proofs.
-  - CPU: 32 cores, Memory: 64Gi
-  - 4 units
+  - 残高証明（Balance Proof）の ZKP を生成するノード
+  - CPU: 32 コア、メモリ: 64Gi
+  - 4 台
 
-## Test Results
+## テスト結果
 
-- **Optimizing the DB Connection Pool**
+- **DB コネクションプールの最適化**
 
-  Stress tests involving heavy, concurrent access to encrypted transactions revealed that the default pool limit could be exceeded. Expanding the pool size and tuning related parameters resolved the issue promptly.
+  暗号化されたトランザクションへの高負荷な同時アクセスを伴うストレステストにおいて、デフォルトのプールサイズの上限を超過する事象が発生しました。プールサイズの拡大と関連パラメータのチューニングにより、速やかに問題を解決しました。
 
-- **Node-Level Scalability Assessment**
+- **ノードレベルのスケーラビリティ評価**
 
-  As user volume was gradually increased, the first component to hit its capacity ceiling was the ZKP proof-generation module. Adding CPU resources keeps block-production intervals stable, so horizontal scaling provides the required headroom.
+  ユーザー数を段階的に増加させた結果、最初に処理能力の限界に達したのは ZKP 生成モジュールでした。CPU リソースの追加によりブロック生成間隔を安定的に維持できるため、水平スケーリングで必要なキャパシティを確保できます。
 
-- **Current Proof-Generation Times and Headroom for Improvement**
+- **現時点のプルーフ生成時間と改善余地**
 
-  With the present configuration, each worker produces a block-validity proof in roughly 65 seconds. We estimate that horizontal scaling could reduce this figure to about 20 seconds per block.
+  現在の構成では、各ワーカーがブロック有効性プルーフを生成するのに約 65 秒を要します。水平スケーリングにより、この数値をブロックあたり約 20 秒まで短縮できると見込んでいます。
 
-- **Balance-Proof Response Times**
+- **残高証明のレスポンスタイム**
 
-  Balance proofs currently take about 5 seconds each, and during concentrated bursts of simultaneous requests we observed wait times exceeding 5 minutes. Increasing throughput via scale-out will shorten these queues.
+  残高証明（Balance Proof）の生成には現在約 5 秒かかり、同時リクエストが集中した場合は待ち時間が 5 分を超えるケースが確認されました。スケールアウトによるスループット向上で、このキュー待ちを短縮します。
 
-- **Synchronization Under High Parallel Access**
+- **高並列アクセス時の同期処理**
 
-  Balance synchronization—mandatory just before a transaction—is security-critical. Under extreme concurrency, it temporarily lowers overall throughput.
+  トランザクション直前に必須となる残高の同期処理はセキュリティ上不可欠です。極度の並列アクセス下では、全体のスループットを一時的に低下させることがあります。
 
-## Summary
+## まとめ
 
-These findings make it clear that expanding compute resources for the **Validity Prover and Balance Prover**, along with stronger load-distribution strategies, will yield the greatest impact as traffic grows. We are already progressing with scale-out architecture and optimization tasks, and staged upgrades will further boost overall network performance and user experience.
+これらの結果から、トラフィック増加時に最も効果が大きいのは、**Validity Prover および Balance Prover** のコンピューティングリソースの拡充と、負荷分散戦略の強化であることが明らかになりました。スケールアウトアーキテクチャの構築と最適化作業はすでに進行中であり、段階的なアップグレードにより、ネットワーク全体のパフォーマンスとユーザー体験をさらに向上させていきます。

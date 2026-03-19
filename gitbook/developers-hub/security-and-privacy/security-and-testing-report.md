@@ -1,79 +1,84 @@
-# Security and Testing Report
+---
+icon: shield-check
+description: ChainSecurity による ZKP・スマートコントラクト監査と各種テストの結果
+---
 
-This report demonstrates that the Intmax network has undergone thorough audits and testing, providing a clear basis for end-users to rely on its security. Intmax is engineered as a Layer-2 ZK Rollup with safety and reliability as top priorities. Accordingly, in addition to external audits of both its ZKP system and smart contracts, we have carried out a range of performance and fault-scenario tests. The following pages summarize those audit and testing results and explain the network’s robustness for users.
+# セキュリティ・テストレポート
 
-## Security Audits
+本レポートは、INTMAX ネットワークが徹底的な監査とテストを経ていることを示し、エンドユーザーがそのセキュリティを信頼するための明確な根拠を提供します。INTMAX は安全性と信頼性を最優先事項とする L2（Layer 2）の zk-Rollup として設計されています。そのため、ZKP システムとスマートコントラクトの両方について外部監査を実施するとともに、各種パフォーマンステストおよび障害シナリオテストも実施しました。以下では、これらの監査・テスト結果をまとめ、ネットワークの堅牢性を説明します。
 
-Intmax underwent an exhaustive security audit by [ChainSecurity](https://www.chainsecurity.com/), a highly regarded firm that has reviewed many leading blockchain projects since 2017. The audit covered two principal areas.
+## セキュリティ監査
 
-### ZKP Circuit Audit
+INTMAX は、2017 年以来数多くの主要ブロックチェーンプロジェクトのレビューを行ってきた著名なセキュリティ企業 [ChainSecurity](https://www.chainsecurity.com/) による包括的なセキュリティ監査を受けました。監査は 2 つの主要領域を対象としています。
 
-Specialists scrutinized Intmax’s ZKP circuits—the core of the rollup—and the related algorithms. The scope included the proof-generation logic and circuit design. ChainSecurity confirmed that proofs are generated and verified correctly, ensuring no forged proof can compromise network integrity. They also examined the entire proving system to rule out vulnerabilities such as counterfeit proofs or acceptance of invalid transactions.
+### ZKP 回路の監査
 
-Several improvement points were raised for the ZKP module; we addressed them immediately and **all issues are now fully resolved**. ChainSecurity’s report details every finding and the corresponding fixes. No known security issues remain outstanding.
+専門家が INTMAX の ZKP 回路（ロールアップ（Rollup）のコア部分）と関連アルゴリズムを精査しました。対象範囲にはプルーフ生成ロジックと回路設計が含まれます。ChainSecurity は、プルーフが正しく生成・検証されることを確認し、偽造されたプルーフによってネットワークの整合性が損なわれないことを保証しました。また、偽造プルーフや無効なトランザクションの受理といった脆弱性を排除するため、プルービングシステム全体の検査も行いました。
 
-### Smart-Contract Audit
+ZKP モジュールに関していくつかの改善点が指摘されましたが、直ちに対処し、**すべての問題は完全に解決済み**です。ChainSecurity のレポートには、すべての発見事項と対応する修正が詳述されています。未解決のセキュリティ問題は確認されていません。
 
-ChainSecurity also audited the smart-contract suite that underpins the Intmax network. Targets included the core rollup contracts—deposit/withdrawal bridge, state-management logic, ZKP verification—and the surrounding auxiliary contracts. Line-by-line code review covered generic risks (privilege errors, re-entrancy, integer overflows) as well as rollup-specific logic flaws.
+### スマートコントラクトの監査
 
-Particular attention was paid to the bridge contract linking Ethereum and Intmax, verifying that asset transfers and unlocks are validated correctly. The auditors confirmed that no invalid transactions or state transitions can be accepted and that only ZKP-verified updates are applied.
+ChainSecurity は、INTMAX ネットワークを支えるスマートコントラクト群も監査しました。対象には、コアとなるロールアップコントラクト（Deposit / Withdrawal ブリッジ、状態管理ロジック、ZKP 検証）および周辺の補助コントラクトが含まれます。コード全行のレビューでは、一般的なリスク（権限エラー、リエントランシー、整数オーバーフロー）に加え、ロールアップ固有のロジック欠陥も対象としました。
 
-Although a few issues were identified, **all contract-level vulnerabilities have been remediated**. ChainSecurity’s report lists every finding and fix, and the Intmax team supplements these external reviews with rigorous internal code review and unit testing before each release.
+特に、Ethereum と INTMAX を接続するブリッジコントラクトに注意が払われ、資産の Transfer とアンロックが正しく検証されていることが確認されました。監査人は、無効なトランザクションや状態遷移が受理されることはなく、ZKP で検証された更新のみが適用されることを確認しました。
 
-For full details, please refer to the ChainSecurity audit PDF.
+いくつかの問題が特定されましたが、**コントラクトレベルの脆弱性はすべて修正済み**です。ChainSecurity のレポートにはすべての発見事項と修正が記載されており、INTMAX チームはこれらの外部レビューに加え、各リリース前に厳格な内部コードレビューとユニットテストを実施しています。
 
-- **ZKP Circuits Audit Report**
-  - [Read the full audit by ChainSecurity](https://www.chainsecurity.com/security-audit/intmax-2-zkp-circuits) – Covers the integrity and correctness of zero-knowledge proof generation and validation.
+詳細は ChainSecurity の監査 PDF を参照してください。
 
-- **Smart Contracts Audit Report**
-  - [Read the full audit by ChainSecurity](https://www.chainsecurity.com/security-audit/intmax-2-smart-contracts) – Reviews the security and robustness of core smart contracts deployed on INTMAX.
+- **ZKP 回路監査レポート**
+  - [ChainSecurity による監査の全文を読む](https://www.chainsecurity.com/security-audit/intmax-2-zkp-circuits) — ZK proof の生成と検証の整合性・正しさを対象とした監査
 
-## Load-Testing Report
+- **スマートコントラクト監査レポート**
+  - [ChainSecurity による監査の全文を読む](https://www.chainsecurity.com/security-audit/intmax-2-smart-contracts) — INTMAX 上にデプロイされたコアスマートコントラクトのセキュリティと堅牢性のレビュー
 
-To evaluate scalability and stability, we performed load tests that simulated peak transaction volumes and measured maximum throughput and latency.
+## 負荷テストレポート
 
-### Peak Test
+スケーラビリティと安定性を評価するため、ピーク時のトランザクション量をシミュレートし、最大スループットとレイテンシを計測する負荷テストを実施しました。
 
-- A large burst of transactions was submitted within a span of several minutes to measure transactions per second (TPS). By gradually increasing the submission rate, we observed the network approaching its capacity threshold.
-- Even under peak load, no critical errors occurred; block production and verification continued uninterrupted.
+### ピークテスト
 
-### Sustained-Load Test
+- 数分間に大量のトランザクションを送信し、1 秒あたりのトランザクション数（TPS）を計測しました。送信レートを段階的に引き上げることで、ネットワークがキャパシティの閾値に近づく様子を観測しました。
+- ピーク負荷下でも重大なエラーは発生せず、ブロック生成と検証は中断なく継続しました。
 
-- High—but below-peak—load was maintained for more than 24 hours to assess long-term stability.
-- Transaction latency rose in line with concurrent access, yet all transactions were finalized successfully, and normal performance returned once the load subsided.
+### 持続負荷テスト
 
-These results show that Intmax can reliably process transactions under sustained load and point to further avenues for throughput optimization. Detailed metrics are provided in the accompanying load-test report.
+- ピーク未満の高負荷を 24 時間以上維持し、長期的な安定性を評価しました。
+- トランザクションレイテンシは同時アクセスに比例して上昇しましたが、すべてのトランザクションは正常にファイナライズされ、負荷が収まるとパフォーマンスは通常レベルに回復しました。
 
-[View Load Testing Report](./load-testing-report.md)
+これらの結果は、INTMAX が持続的な負荷下でも安定的にトランザクションを処理できることを示しており、スループットの更なる最適化に向けた方向性も示唆しています。詳細なメトリクスは付属の負荷テストレポートに記載されています。
 
-## Fault-Scenario Testing
+[負荷テストレポートを見る →](./load-testing-report.md)
 
-We subjected the network to abnormal and adversarial scenarios to validate its resilience.
+## 障害シナリオテスト
 
-### Malicious Data Submission
+ネットワークの耐障害性を検証するため、異常な状況や敵対的なシナリオを用いたテストを実施しました。
 
-- We attempted to submit tampered ZK proofs on-chain.
-- All invalid transactions were correctly rejected, confirming that the ZKP verification layer maintains network consistency.
+### 悪意あるデータの送信
 
-### Resource-Exhaustion Scenario
+- 改ざんされた ZK proof をオンチェーンに送信する試みを行いました。
+- すべての無効なトランザクションが正しく拒否され、ZKP 検証レイヤーがネットワークの整合性を維持していることが確認されました。
 
-- Excessive transaction requests and computational demand were generated to saturate node CPU and memory.
-- An automatic throttling mechanism activated when resource limits were reached, maintaining stability. No data inconsistency or network outage occurred. Although transaction delays can arise during overload, we are refining the system to minimize user impact.
+### リソース枯渇シナリオ
 
-These tests confirm that Intmax tolerates a wide range of failure modes. Even in the unlikely event of a severe incident, on-chain records and per-user backups enable state recovery. Real-time anomaly monitoring and alerting are in place, ensuring swift incident response and providing users with confidence that safety is preserved.
+- 過剰なトランザクションリクエストと計算負荷を発生させ、ノードの CPU とメモリを飽和させました。
+- リソースの上限に達すると自動スロットリングメカニズムが作動し、安定性が維持されました。データの不整合やネットワーク障害は発生していません。過負荷時にトランザクションの遅延が生じる可能性はありますが、ユーザーへの影響を最小限に抑えるためにシステムの改良を進めています。
 
-## Ongoing Security Initiatives
+これらのテストにより、INTMAX が幅広い障害モードに耐えられることが確認されました。万が一深刻な障害が発生した場合でも、オンチェーンの記録とユーザーごとのバックアップにより状態の復元が可能です。リアルタイムの異常検知とアラートが稼働しており、迅速なインシデント対応を実現し、ユーザーに安全性が維持されているという安心感を提供します。
 
-Security and reliability improvements continue beyond the audits and tests outlined above. Following industry best practices, we maintain a **continuous monitoring and improvement cycle**:
+## 継続的なセキュリティへの取り組み
 
-- **Bug-bounty program:** Incentivizes external researchers to disclose vulnerabilities promptly, strengthening security through community participation.
-- **Regular follow-up audits:** Major upgrades or new features trigger additional third-party reviews—spot audits of code diffs or re-audits of critical components—to uphold the latest security standards.
-- **Network monitoring & incident response:** 24/7 monitoring with predefined response procedures and simulation drills ensures rapid mitigation and recovery should an incident occur.
+セキュリティと信頼性の向上は、上述の監査・テスト以降も継続しています。業界のベストプラクティスに準じ、**継続的な監視・改善サイクル**を維持しています：
 
-These measures keep Intmax secure well after launch.
+- **バグバウンティプログラム** — 外部の研究者に脆弱性の早期報告を奨励し、コミュニティの力を活用してセキュリティを強化します。
+- **定期的なフォローアップ監査** — 大規模なアップグレードや新機能の追加時には、追加のサードパーティレビュー（コード差分のスポット監査やクリティカルなコンポーネントの再監査）を実施し、最新のセキュリティ基準を維持します。
+- **ネットワーク監視とインシデント対応** — 24 時間 365 日の監視体制と、事前定義された対応手順およびシミュレーション訓練により、インシデント発生時の迅速な軽減・復旧を確保します。
 
-## Conclusion
+これらの取り組みにより、INTMAX はローンチ後も高いセキュリティを維持し続けます。
 
-This report has outlined the audits and tests conducted to ensure Intmax’s safety and reliability. ChainSecurity’s meticulous review of the ZKP circuits and smart contracts confirmed the absence of critical vulnerabilities. Load tests revealed some challenges under extreme transaction volumes that will be addressed in future optimizations, while fault-scenario tests demonstrated robustness against diverse failures. Continuous monitoring, bug bounties, and periodic audits will uphold and enhance security levels in production.
+## 結論
 
-The Intmax team remains dedicated to providing a dependable Layer-2 platform and will keep evolving in line with industry best practices. We invite users to enjoy Intmax with confidence.
+本レポートでは、INTMAX の安全性と信頼性を確保するために実施された監査・テストの概要を説明しました。ChainSecurity による ZKP 回路とスマートコントラクトの詳細なレビューにより、重大な脆弱性がないことが確認されました。負荷テストでは極端なトランザクション量における一部の課題が明らかになり、今後の最適化で対処する予定です。障害シナリオテストでは、多様な障害に対する堅牢性が実証されました。継続的な監視、バグバウンティ、定期的な監査により、本番環境でのセキュリティレベルを維持・向上させていきます。
+
+INTMAX チームは、信頼性の高い L2 プラットフォームの提供に全力を注いでおり、業界のベストプラクティスに沿って進化し続けます。ぜひ安心して INTMAX をご利用ください。

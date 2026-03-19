@@ -1,30 +1,35 @@
+---
+icon: server
+description: Indexer の役割とアクティブな Block Builder の検索・推奨の仕組み
+---
+
 # Indexer
 
-### What is an Indexer?
+## Indexer とは
 
-An Indexer is a decentralized node on the INTMAX network responsible for providing users with up-to-date information about active Block Builder nodes. It maintains an accurate and current list of these nodes and suggests optimal connections for users.
+Indexer は、INTMAX ネットワーク上の分散型ノードで、アクティブな Block Builder ノードに関する最新情報をユーザーに提供する役割を担います。ノードの正確で最新のリストを管理し、ユーザーに最適な接続先を提案します。
 
-### Main Roles
+## 主な役割
 
-- **Maintaining Active Node Lists**
-  - Keeps track of active Block Builder nodes.
-  - Regularly performs health checks to ensure node availability.
-- **Recommending Nodes**
-  - Provides users with recommendations for active and reliable Block Builders.
+- **アクティブノードリストの管理**
+  - アクティブな Block Builder ノードを追跡します。
+  - 定期的にヘルスチェックを実施し、ノードの可用性を確認します。
+- **ノードの推奨**
+  - アクティブで信頼性の高い Block Builder をユーザーに推奨します。
 
-### How it Works
+## 動作の仕組み
 
-- The Indexer node regularly checks an Block Builder Registry contract on the Scroll network for updates on active Block Builder nodes.
-- When changes occur, the Indexer updates its records and verifies each node’s status by performing health checks.
-- Nodes that don't respond within a certain timeframe (more than a day) are marked inactive and excluded from the active list.
-- Users can request a list of recommended Block Builders through a REST API.
+- Indexer ノードは、Scroll ネットワーク上の Block Builder Registry コントラクトを定期的にチェックし、アクティブな Block Builder ノードの更新を確認します。
+- 変更が検知されると、Indexer はレコードを更新し、ヘルスチェックを実施して各ノードの状態を検証します。
+- 一定の期間内（1 日以上）に応答がないノードは非アクティブとしてマークされ、アクティブリストから除外されます。
+- ユーザーは REST API を通じて推奨 Block Builder のリストをリクエストできます。
 
-### Features
+## 特徴
 
-- **Decentralized Operation**
-  - Each Indexer node operates independently and does not require synchronization with other Indexers.
-  - Users can deploy their own Indexer nodes, although there are no economic rewards for doing so.
+- **分散型運用**
+  - 各 Indexer ノードは独立して動作し、他の Indexer との同期は不要です。
+  - ユーザーは自身の Indexer ノードをデプロイできますが、リワードは提供されません。
 
-### What Users Can Do
+## ユーザーができること
 
-The user executes transactions with the Block Builder recommended by this node.
+ユーザーは、このノードが推奨する Block Builder を使ってトランザクションを実行します。

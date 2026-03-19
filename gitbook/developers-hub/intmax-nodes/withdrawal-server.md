@@ -1,33 +1,38 @@
+---
+icon: server
+description: Withdrawal Server の役割と Withdrawal・Claim リクエストの処理の仕組み
+---
+
 # Withdrawal Server
 
-### What is a Withdrawal Server?
+## Withdrawal Server とは
 
-A Withdrawal Server is a node responsible for processing user withdrawal and claim requests on the Intmax network. It manages accepting requests, verifying proofs, executing transfers, and providing users with transaction details.
+Withdrawal Server は、INTMAX ネットワーク上でユーザーの Withdrawal リクエストと Claim リクエストを処理するノードです。リクエストの受付、プルーフの検証、送金の実行、およびユーザーへのトランザクション詳細の提供を管理します。
 
-### Main Roles
+## 主な役割
 
-- **Withdrawal Requests:**
-  - Accepts withdrawal requests, verifies proofs, and transfers the requested amounts.
-- **Claim Requests:**
-  - Processes claim requests, verifies proofs, and transfers the claimed amounts.
-- **Fee Calculation:**
-  - Calculates fees associated with withdrawals and claims and provides this information to users.
-- **Information Retrieval:**
-  - Provides authenticated users with details about their withdrawals and claims.
+- **Withdrawal リクエスト**
+  - Withdrawal リクエストを受け付け、プルーフを検証し、リクエストされた金額を送金します。
+- **Claim リクエスト**
+  - Claim リクエストを処理し、プルーフを検証し、Claim された金額を送金します。
+- **手数料の計算**
+  - Withdrawal と Claim に関する手数料を計算し、ユーザーに情報を提供します。
+- **情報の取得**
+  - 認証済みユーザーに対して、Withdrawal と Claim の詳細情報を提供します。
 
-### How it Works
+## 動作の流れ
 
-- Users submit withdrawal or claim requests to the Withdrawal Server.
-- The Withdrawal Server verifies transaction proofs and, if valid, processes transactions accordingly.
-- After processing, the funds are transferred to the recipients, and users can retrieve transaction details and fee information.
+- ユーザーが Withdrawal Server に Withdrawal または Claim リクエストを送信します。
+- Withdrawal Server がトランザクションのプルーフを検証し、有効であれば処理を実行します。
+- 処理完了後、資金が受信者に送金されます。ユーザーはトランザクションの詳細と手数料情報を取得できます。
 
-### Features
+## 特徴
 
-- **Decentralized:**
-  - Operates independently through multiple nodes across the network without a central authority.
-  - Users can run their own Withdrawal Server nodes and receive rewards according to the protocol.
+- **分散型**
+  - 中央管理者なしに、ネットワーク全体で複数のノードが独立して動作します。
+  - ユーザーは自身の Withdrawal Server ノードを運用し、プロトコルに基づくリワードを受け取れます。
 
-### What Users Can Do
+## ユーザーができること
 
-- Users can deploy their own Withdrawal Server nodes, participate in network operations, and earn rewards based on the protocol.
-- Users can request withdrawals and claims, retrieve transaction details, and check current fee structures via provided APIs.
+- 自身の Withdrawal Server ノードをデプロイし、ネットワーク運用に参加してプロトコルに基づくリワードを獲得できます。
+- Withdrawal と Claim のリクエスト、トランザクション詳細の取得、現在の手数料体系の確認を API を通じて行えます。

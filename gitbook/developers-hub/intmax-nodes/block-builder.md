@@ -1,35 +1,40 @@
+---
+icon: cubes
+description: Block Builder の役割とトランザクション集約・ブロック生成の仕組み
+---
+
 # Block Builder
 
-### What is a Block Builder?
+## Block Builder とは
 
-A Block Builder is a type of node in the Intmax network that collects transaction requests from users, creates blocks, and reflects them on the network.
+Block Builder は、INTMAX ネットワーク上のノードの一種で、ユーザーからのトランザクションリクエストを収集してブロックを作成し、ネットワークに反映します。
 
-### Main Roles
+## 主な役割
 
-1. **Transaction Aggregation**
-   - Receives transaction requests from users, validates them, and efficiently aggregates them.
-2. **Block Creation**
-   - Creates new blocks from the aggregated transaction data and obtains user approval.
-   - Performs integrity checks on the created blocks.
-3. **Reflecting Blocks on the Network**
-   - Sends completed blocks to the Scroll network to update the network state.
-   - Confirms that the block has been successfully added.
+1. **トランザクションの集約**
+   - ユーザーからのトランザクションリクエストを受け付け、検証し、効率的に集約します。
+2. **ブロックの作成**
+   - 集約されたトランザクションデータから新しいブロックを作成し、ユーザーの承認を得ます。
+   - 作成されたブロックの整合性チェックを行います。
+3. **ブロックのネットワークへの反映**
+   - 完成したブロックを Scroll ネットワークに送信し、ネットワークの状態を更新します。
+   - ブロックが正常に追加されたことを確認します。
 
-### How it Works
+## 動作の流れ
 
-1. The user prepares transaction data and generates proof demonstrating that their balance is sufficient for the transfer made.
-2. The generated proof is stored.
-3. The user sends transaction requests to the Block Builder.
-4. The Block Builder aggregates transactions and returns a proof (Merkle Proof).
-5. The user verifies the proof, sign the transaction, and sends the signature to the Block Builder.
-6. The Block Builder finalizes the block and submits it to the network.
+1. ユーザーがトランザクションデータを準備し、Transfer に十分な残高があることを示すプルーフを生成します。
+2. 生成されたプルーフが保存されます。
+3. ユーザーがトランザクションリクエストを Block Builder に送信します。
+4. Block Builder がトランザクションを集約し、プルーフ（Merkle Proof）を返します。
+5. ユーザーがプルーフを検証し、トランザクションに署名して Block Builder に送信します。
+6. Block Builder がブロックを確定し、ネットワークに送信します。
 
-### Features
+## 特徴
 
-This node operates in a **decentralized** manner across the network. Users can set up their own nodes and are rewarded according to the protocol. Each Block Builder node operates independently and does not need to synchronize with other Block Builder nodes
+このノードはネットワーク全体で**分散型**に運用されます。ユーザーは自身のノードをセットアップでき、プロトコルに基づくリワードを受け取れます。各 Block Builder ノードは独立して動作し、他の Block Builder ノードと同期する必要はありません。
 
-### What Users Can Do
+## ユーザーができること
 
-- **Send Transaction Requests**: Users can send transaction data to the Block Builder when making transactions.
-- **Review and Approve Transactions**: Users can check the proposed block containing their transactions and approve it by signing.
-- **Track Transactions**: Users can check which block includes their transaction.
+- **トランザクションリクエストの送信** — トランザクション実行時に、Block Builder にトランザクションデータを送信できます。
+- **トランザクションの確認と承認** — 自身のトランザクションを含むブロック案を確認し、署名して承認できます。
+- **トランザクションの追跡** — 自身のトランザクションがどのブロックに含まれているかを確認できます。

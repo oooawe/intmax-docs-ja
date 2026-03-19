@@ -1,41 +1,46 @@
+---
+icon: server
+description: Claim Aggregator の役割とマイニングリワードの集約・検証の仕組み
+---
+
 # Claim Aggregator
 
-### What is a Claim Aggregator?
+## Claim Aggregator とは
 
-A Claim Aggregator is a decentralized node responsible for processing mining reward claims generated on the Intmax network. It verifies and processes reward claims submitted by users and ensures these claims are accurately reflected on the blockchain.
+Claim Aggregator は、INTMAX ネットワーク上で発生したマイニングリワードの Claim を処理する分散型ノードです。ユーザーが送信したリワードの Claim を検証・処理し、ブロックチェーンに正確に反映します。
 
-### Main Roles
+## 主な役割
 
-- **Aggregating Claim Requests**
-  - Collects and validates users' mining reward claims.
-  - Generates Zero-Knowledge Proofs (ZKPs) to securely verify these claims on-chain.
-- **Submitting Claim Proofs**
-  - Submits the validated claim proofs to the Claim contract on the Scroll network.
-- **Transmitting Rewards to Ethereum**
-  - Aggregates daily rewards and securely transmits them from the Scroll network to the Ethereum network.
+- **Claim リクエストの集約**
+  - ユーザーのマイニングリワード Claim を収集・検証します。
+  - オンチェーンでの安全な検証のため、ZKP を生成します。
+- **Claim プルーフの送信**
+  - 検証済みの Claim プルーフを Scroll ネットワーク上の Claim コントラクトに送信します。
+- **リワードの Ethereum への送金**
+  - 日次で集約したリワードを Scroll ネットワークから Ethereum ネットワークに安全に送金します。
 
-### How it Works
+## 動作の流れ
 
-- Users submit mining reward claim requests to the Claim Aggregator.
-- The Claim Aggregator validates these requests and generates necessary ZKPs.
-- Once validated, proofs are submitted to the Claim contract on the Scroll network.
-- Daily aggregated rewards are transmitted securely to users' addresses on the Ethereum network.
+- ユーザーが Claim Aggregator にマイニングリワードの Claim リクエストを送信します。
+- Claim Aggregator がリクエストを検証し、必要な ZKP を生成します。
+- 検証完了後、プルーフが Scroll ネットワーク上の Claim コントラクトに送信されます。
+- 日次で集約されたリワードが、ユーザーの Ethereum ネットワーク上のアドレスに安全に送金されます。
 
-### Features
+## 特徴
 
-- **Decentralized**
-  - Claim Aggregator nodes operate independently across the network.
-  - Users can deploy their own nodes and earn economic rewards provided by the protocol.
+- **分散型**
+  - Claim Aggregator ノードはネットワーク全体で独立して動作します。
+  - ユーザーは自身のノードをデプロイし、プロトコルが提供するリワードを獲得できます。
 
-### Security Measures
+## セキュリティ対策
 
-- **Real-time Log Monitoring**
-  - Continuously monitors logs to quickly detect and respond to unauthorized activities or abnormal behaviors.
-- **Private Key Protection**
-  - Access strictly controlled and limited to essential users.
-  - Secure storage of private keys in physically secured or encrypted locations.
+- **リアルタイムログ監視**
+  - ログを継続的に監視し、不正な活動や異常な挙動を迅速に検知・対応します。
+- **秘密鍵の保護**
+  - アクセスは必要不可欠なユーザーに厳格に限定されます。
+  - 秘密鍵は物理的に保護された場所または暗号化された場所に安全に保管されます。
 
-### What Users Can Do
+## ユーザーができること
 
-- Users can deploy and manage their own Claim Aggregator nodes to participate in network operations and receive rewards.
-- Users submit claim requests and benefit from reliable and transparent handling of their mining reward claims.
+- 自身の Claim Aggregator ノードをデプロイ・管理し、ネットワーク運用に参加してリワードを獲得できます。
+- Claim リクエストを送信し、マイニングリワードの信頼性の高い透明な処理の恩恵を受けられます。

@@ -1,29 +1,34 @@
+---
+icon: server
+description: Store Vault Server の役割とユーザーデータの暗号化バックアップの仕組み
+---
+
 # Store Vault Server
 
-### What is a Store Vault Server?
+## Store Vault Server とは
 
-A Store Vault Server is a dedicated node operated by the Intmax team to securely back up and restore user-specific data. It allows users to safely store essential transaction data and access this data seamlessly from multiple devices.
+Store Vault Server は、INTMAX チームが運用する専用ノードで、ユーザー固有のデータを安全にバックアップ・復元します。ユーザーは重要なトランザクションデータを安全に保存し、複数のデバイスからシームレスにアクセスできます。
 
-### Main Roles
+## 主な役割
 
-- **Secure Data Backup**
-  - Backs up essential data generated during transactions, including information required to prove balances and data exchanged between transaction participants.
-  - This protects the privacy of all backup data.
-- **Efficient Data Restoration**
-  - Restores backed-up data securely, enabling users to access transaction details across different devices.
-  - Assists receivers in retrieving and decrypting transaction-related information.
+- **安全なデータバックアップ**
+  - トランザクション時に生成される重要なデータ（残高の証明に必要な情報やトランザクション参加者間でやり取りされるデータなど）をバックアップします。
+  - すべてのバックアップデータのプライバシーが保護されます。
+- **効率的なデータ復元**
+  - バックアップデータを安全に復元し、ユーザーが異なるデバイスからトランザクションの詳細にアクセスできるようにします。
+  - 受信者がトランザクション関連情報を取得・復号する際のサポートも行います。
 
-### How it Works
+## 動作の仕組み
 
-- When users make transactions, relevant data is automatically encrypted and securely backed up to the Store Vault Server.
-- Users can access and restore this securely backed-up data on other devices through authorized access.
-- The backup server stores user data in the database in an encrypted state. Therefore, even the server administrator cannot access information regarding user transactions or balances.
+- ユーザーがトランザクションを行うと、関連データが自動的に暗号化され、Store Vault Server に安全にバックアップされます。
+- ユーザーは認証されたアクセスを通じて、他のデバイスからバックアップデータにアクセスし復元できます。
+- バックアップサーバーはユーザーデータを暗号化された状態でデータベースに保存します。そのため、サーバー管理者であってもユーザーのトランザクションや残高に関する情報にアクセスすることはできません。
 
-### Features
+## 特徴
 
-- **Managed by INTMAX Team**
-  - Operated exclusively by the INTMAX team, ensuring consistent management and robust security practices.
+- **INTMAX チームによる管理**
+  - INTMAX チームが専任で運用しており、一貫した管理体制と堅牢なセキュリティ対策を確保しています。
 
-### What Users Can Do
+## ユーザーができること
 
-Users can securely access backup data from multiple devices. Backup data is encrypted, ensuring its contents remain confidential and inaccessible to others.
+ユーザーは複数のデバイスからバックアップデータに安全にアクセスできます。バックアップデータは暗号化されており、その内容は機密性が保たれ、他者がアクセスすることはできません。

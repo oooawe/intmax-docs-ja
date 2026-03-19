@@ -1,65 +1,70 @@
-# Microtransactions & Cashback Systems
+---
+icon: lightbulb
+description: マイクロトランザクションとキャッシュバックシステムの実装パターン
+---
 
-INTMAX enables **high-frequency, low-cost transactions** with native privacy and scalability. This makes it ideal for use cases where traditional Ethereum transactions are economically infeasible—such as micropayments, in-app rewards, and automated cashback systems.
+# マイクロトランザクションとキャッシュバックシステム
 
-## What You Can Build
+INTMAX は**高頻度・低コストのトランザクション**をネイティブなプライバシーとスケーラビリティとともに実現します。これにより、従来の Ethereum のトランザクションでは経済的に成り立たなかったユースケース——マイクロペイメント、アプリ内リワード、自動キャッシュバックシステムなど——に最適な基盤を提供します。
 
-- **Pay-per-view content**
-- **Streaming payments (e.g., pay-per-second)**
-- **In-app purchases under $0.01**
-- **Loyalty programs and reward points**
-- **Automatic cashback for users or agents**
-- **AI agent-based economic flows**
+## 構築できるもの
 
-## Why INTMAX?
+- **ペイパービュー型コンテンツ**
+- **ストリーミング決済（例：秒単位の課金）**
+- **$0.01 未満のアプリ内購入**
+- **ロイヤリティプログラムとリワードポイント**
+- **ユーザーまたはエージェントへの自動キャッシュバック**
+- **AI エージェントベースの経済フロー**
 
-Traditional L1 and even most rollups struggle with microtransactions due to:
+## なぜ INTMAX か
 
-- High fixed gas costs per transaction
-- Privacy concerns (every payment is public)
-- Centralized sequencer bottlenecks
-- Need to maintain shared state or smart contracts
+従来の L1（Layer 1）やほとんどのロールアップ（Rollup）は、以下の理由でマイクロトランザクションへの対応が困難です：
 
-INTMAX avoids these with a **stateless, proof-based protocol** that minimizes on-chain data (\~5 bytes onchain ), while shifting computation and storage to the user level.
+- トランザクションごとの高い固定ガス代
+- プライバシーの懸念（すべての支払いが公開される）
+- 中央集権的なシーケンサー（Sequencer）のボトルネック
+- 共有状態やスマートコントラクトの管理が必要
 
-## Architecture Overview
+INTMAX は**ステートレスかつプルーフベースのプロトコル**でこれらの課題を回避します。オンチェーンデータを約 5 バイトに抑え、計算とストレージをユーザー側に移行する設計です。
 
-1. **User Deposits** to the rollup with a one-time setup.
-2. **Microtransactions** happen off-chain via hashed commitments and private ZK proofs shared peer-to-peer.
-3. **Aggregators** bundle transaction roots with signatures; on-chain posting cost is amortized over thousands of transactions.
-4. **Cashback** or rewards can be issued off-chain or on a periodic basis using batched transactions.
+## アーキテクチャ概要
 
-No on-chain cost is incurred per individual microtransaction, enabling economic viability even at **sub-cent levels**.
+1. **ユーザーが Deposit** — 一度のセットアップでロールアップに Deposit します。
+2. **マイクロトランザクション** — ハッシュ化されたコミットメント（Commitment）とプライベートな ZK proof を使い、オフチェーンでピアツーピア（P2P）に行われます。
+3. **アグリゲーター（Aggregator）** — トランザクションルートを署名（Signature）とともにバンドルし、オンチェーンへのポスティングコストを数千トランザクションで分散します。
+4. **キャッシュバック**やリワードは、バッチ転送（Batch Transfer）を使ってオフチェーンまたは定期的に発行できます。
 
-## Developer Advantages
+個々のマイクロトランザクションにオンチェーンコストは発生しないため、**1 セント未満のレベル**でも経済的に成立します。
 
-| Feature                 | Advantage                                        |
+## 開発者にとってのメリット
+
+| 特徴 | メリット |
 | ----------------------- | ------------------------------------------------ |
-| Near-zero on-chain cost | Send thousands of txs with no cost increase      |
-| Privacy-native          | Users can’t be linked across payments            |
-| No sequencer bottleneck | Any app or user can act as aggregator            |
-| Flexible token support  | Supports ETH, stablecoins, and reward points     |
-| Fully client-side state | No backend or smart contract management required |
+| ほぼゼロのオンチェーンコスト | 数千のトランザクションを送信してもコスト増なし |
+| ネイティブなプライバシー | 支払い間でユーザーを紐付けることが不可能 |
+| シーケンサーのボトルネックなし | 誰でもアグリゲーターとして機能可能 |
+| 柔軟なトークンサポート | ETH、ステーブルコイン、リワードポイントに対応 |
+| 完全にクライアントサイドの状態管理 | バックエンドやスマートコントラクトの管理が不要 |
 
-## Sample Applications
+## アプリケーション例
 
-| Project Name          | Use Case                                      |
+| プロジェクト名 | ユースケース |
 | --------------------- | --------------------------------------------- |
-| Pay-per-Click Network | Publishers earn a few cents per valid click   |
-| Streaming Payments    | Users pay per second for audio/video access   |
-| Cashback Wallet       | Earn % back on every INTMAX-based transaction |
-| AI Agent Payments     | Agents auto-transact in small denominations   |
+| ペイパークリックネットワーク | パブリッシャーが有効なクリックごとに数セントを獲得 |
+| ストリーミング決済 | 音声・動画アクセスに秒単位で課金 |
+| キャッシュバックウォレット | INTMAX ベースのトランザクションごとに一定割合を還元 |
+| AI エージェント決済 | エージェントが少額単位で自動的にトランザクションを実行 |
 
-## Integration Path
+## 統合パス
 
-Use the [intmax-client-sdk](../intmax-client-sdk) to:
+[intmax-client-sdk](../intmax-client-sdk/) を使って以下を実現できます：
 
-- Construct small-denomination transactions and batch rewards
-- Automate Merkle proof generation and propagation
-- Handle periodic cashback issuance through off-chain logic
+- 少額トランザクションの構築とリワードのバッチ処理
+- Merkle proof の生成・伝播の自動化
+- オフチェーンロジックによる定期キャッシュバックの発行
 
-For cashback, design your aggregator or platform to include cashback transactions in user batches or as separate off-chain incentives.
+キャッシュバック機能については、アグリゲーターやプラットフォームを設計して、キャッシュバックトランザクションをユーザーバッチに含めるか、個別のオフチェーンインセンティブとして発行してください。
 
-## Key Takeaway
+## まとめ
 
-INTMAX unlocks **sub-cent economic design** for dApps—no longer bottlenecked by gas or privacy. If your users act frequently, pay small amounts, or earn tiny rewards, this is the infrastructure you’ve been waiting for.
+INTMAX は dApp に**1 セント未満の経済設計**を可能にします——ガス代やプライバシーがボトルネックになることはもうありません。ユーザーが頻繁にアクションし、少額を支払い、小さなリワードを獲得するようなサービスであれば、INTMAX はまさにそのためのインフラです。

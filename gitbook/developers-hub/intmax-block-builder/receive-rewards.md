@@ -1,34 +1,39 @@
-# Receive Rewards
+---
+icon: cubes
+description: Block Builder のユーザー手数料と ITX トークンリワードの受取手順
+---
 
-## Introduction
+# リワードの受取
 
-This guide provides step-by-step instructions for INTMAX Block Builders to claim their earned rewards. As a Block Builder participant in the INTMAX network, you can receive two types of rewards: user fees collected from transactions processed in your blocks, and ITX tokens distributed through the reward program.
+## はじめに
 
-This document covers the complete process from initial setup to reward claiming, including how to:
+このガイドでは、INTMAX Block Builder が獲得したリワードを Claim するための手順を説明します。INTMAX ネットワークの Block Builder 参加者は、2種類のリワードを受け取ることができます。ブロックで処理したトランザクションから収集されるユーザー手数料と、リワードプログラムを通じて配布される ITX トークンです。
 
-- Set up the command-line tools and environment
-- Generate INTMAX keys from your Ethereum private key
-- Check your accumulated balances and withdraw user fees
-- Claim ITX token rewards earned through block building activities
+このドキュメントでは、初期セットアップからリワードの Claim まで、以下の方法を解説します。
 
-**NOTE:** When receiving rewards, you need to clone the CLI and execute the command, but this does not have to be done on the server running the Block Builder.
+- コマンドラインツールと環境のセットアップ
+- Ethereum 秘密鍵（Private Key）から INTMAX キーの生成
+- 蓄積された残高の確認とユーザー手数料の Withdrawal
+- ブロック生成活動で獲得した ITX トークンリワードの Claim
 
-**NOTE:** The environment in which this operation is executed requires a **minimum of 1 GB of memory**.
+**注意:** リワードを受け取る際は CLI をクローンしてコマンドを実行する必要がありますが、Block Builder を実行しているサーバー上で行う必要はありません。
 
-## How to Receive Rewards
+**注意:** このオペレーションを実行する環境には、**最低 1 GB のメモリ**が必要です。
 
-### Preparation
+## リワードの受取方法
 
-You can claim your rewards using the command-line tool. Below is an explanation of how to claim rewards on the **mainnet**.
+### 準備
+
+コマンドラインツールを使用してリワードを Claim できます。以下は**メインネット**でのリワード Claim 方法の説明です。
 
 ```bash
 git clone git@github.com:InternetMaximalism/intmax2.git -b main
 cd intmax2/cli
 ```
 
-Next, set up your environment variables for the CLI. Specifically, you'll need an RPC URL, which you can obtain by creating an account with providers such as [Alchemy](https://www.alchemy.com/) or [Infura](https://www.infura.io/) and generating an API key.
+次に、CLI 用の環境変数を設定します。RPC URL が必要ですので、[Alchemy](https://www.alchemy.com/) や [Infura](https://www.infura.io/) などのプロバイダーでアカウントを作成し、API キーを生成してください。
 
-⚠️ **Important:** `L1_RPC_URL` and `L2_RPC_URL` should be set to the RPC URLs of the Ethereum and Scroll networks, respectively.
+⚠️ **重要:** `L1_RPC_URL` と `L2_RPC_URL` には、それぞれ Ethereum と Scroll ネットワークの RPC URL を設定してください。
 
 ```bash
 cat <<EOF > .env
@@ -60,31 +65,31 @@ L2_RPC_URL=https://scroll-mainnet.g.alchemy.com/v2/your_api_key # !!! CHANGE YOU
 EOF
 ```
 
-### User Fees
+### ユーザー手数料
 
-Once you've completed these setup steps, execute the following commands step-by-step. Please run the following command in the **cli** directory of the **intmax2** repository.
+セットアップ完了後、以下のコマンドをステップごとに実行してください。**intmax2** リポジトリの **cli** ディレクトリ内で実行してください。
 
-⚠️ Note: If the `rustup` command is not available on your system, please install Rust and Cargo by following the instructions at the [official Rust installation page](https://rust-lang.org/tools/install/).
+⚠️ 注意: `rustup` コマンドがシステムで利用できない場合は、[Rust 公式インストールページ](https://rust-lang.org/tools/install/)の手順に従って Rust と Cargo をインストールしてください。
 
-**Step 0: Update the intmax2 repository**
+**Step 0: intmax2 リポジトリの更新**
 
-Before running any commands, make sure your intmax2 repository is up to date.
-Open your terminal, navigate to the repository directory, and pull the latest changes:
+コマンドを実行する前に、intmax2 リポジトリが最新であることを確認してください。
+ターミナルを開き、リポジトリのディレクトリに移動して最新の変更を取得します。
 
 ```bash
 cd /path/to/intmax2
 git pull origin main
 ```
 
-⚠️ Note: Please replace `/path/to/intmax2` with the actual directory path before executing the command.
+⚠️ 注意: コマンドを実行する前に、`/path/to/intmax2` を実際のディレクトリパスに置き換えてください。
 
-**Step 1: Generate INTMAX keys from your Scroll private key**
+**Step 1: Scroll の秘密鍵から INTMAX キーを生成**
 
 ```bash
 cargo run -r -- key-from-backup-key --backup-key <scroll-private-key>
 ```
 
-Expected output:
+想定される出力：
 
 ```
 Address: i9eW...
@@ -93,33 +98,33 @@ Spend Key: 0x9821...
 Key Pair: keypair/0x49c1...
 ```
 
-**:warning: Important Notice**: **Never share your View Only Key, Spend Key, or Key Pair with anyone.**
-Especially if your Spend Key or Key Pair becomes known to others, they could move your assets on the INTMAX network, putting them at serious risk.
+**:warning: 重要な注意事項**: **View Only Key、Spend Key、Key Pair は絶対に他人と共有しないでください。**
+特に Spend Key や Key Pair が他者に知られた場合、INTMAX ネットワーク上のあなたの資産を移動される重大なリスクがあります。
 
-**Step 2: Check your balance using your INTMAX private key**
+**Step 2: INTMAX 秘密鍵で残高を確認**
 
-**Important:** For `<spend-key>`, copy and paste the `Private key` starting with `0x` from the output log generated in Step 1.
+**重要:** `<spend-key>` には、Step 1 の出力ログで生成された `0x` で始まる `Private key` をコピー＆ペーストしてください。
 
 ```bash
 cargo run -r -- balance --private-key <spend-key>
 ```
 
-> Note: This command may take a significant amount of time to complete. If you have previously submitted a large number of blocks, this command may take over **24 hours** to complete.
+> 注意: このコマンドの完了にはかなりの時間がかかる場合があります。過去に大量のブロックを送信している場合、完了までに **24 時間以上**かかることがあります。
 
-During command execution, logs like the following will be displayed. The longer your node has been running, the more logs will be displayed.
+コマンド実行中は、以下のようなログが表示されます。ノードの稼働期間が長いほど、表示されるログが多くなります。
 
 ```
 [2025-10-17T06:00:00Z INFO  intmax2_client_sdk::external_api::local_backup_store_vault::local_store_vault] local_save_data_batch: topic: v1/ra_wo/transfer, pubkey: 0x0e9e...42cf, digest: 0xfb26...d381
 [2025-10-17T06:00:00Z INFO  intmax2_client_sdk::external_api::local_backup_store_vault::local_store_vault] local_save_data_batch: topic: v1/ra_wo/transfer, pubkey: 0x0e9e...42cf, digest: 0x5408...fc00
 ```
 
-> Note: If you continue to see synchronization logs like the following, it is safe to stop the command and rerun it later—the sync will resume from where it left off.
+> 注意: 以下のような同期ログが表示され続ける場合は、コマンドを安全に停止して後で再実行できます。同期は中断した箇所から再開されます。
 
 ```
 sync_transfer: MetaDataWithBlockNumber { meta: MetaData { timestamp: 1752000000, digest: 0x951d5ad4 }, block_number: 2000 }
 ```
 
-When the balance synchronization is complete, logs like the following will be displayed.
+残高の同期が完了すると、以下のようなログが表示されます。
 
 ```
 Balances:
@@ -128,42 +133,41 @@ Balances:
 		Type: NATIVE
 ```
 
-If the following log appears and execution stops, please run the **balance** command again.
+以下のログが表示されて実行が停止した場合は、**balance** コマンドを再度実行してください。
 
 ```
 Client error: Server client error: Invalid response: Failed to read response: reqwest::Error { kind: Decode, source: reqwest::Error { kind: Body, source: TimedOut } }
 ```
 
-**Step 3: Withdraw your funds**
+**Step 3: 資金の Withdrawal**
 
 ```bash
 cargo run -r -- withdrawal --private-key <spend-key> --to <ethereum-address> --amount <amount> --token-index 0
 cargo run -r -- sync-withdrawals --private-key <spend-key>
 ```
 
-> Note: Executing this command may take at least **2 minutes**.
+> 注意: このコマンドの実行には最低 **2 分**かかる場合があります。
 
-Ensure you replace placeholders such as `<scroll-private-key>`, `<spend-key>`, `<ethereum-address>`, and `<amount>` with your actual values. Please specify in `<amount>` the value displayed in your balance **minus 35,000,000,000,000**. For example, if your balance is **2,342,400,000,000,000 wei**,
-please specify `2307400000000000` (= 2,342,400,000,000,000 − 35,000,000,000,000).
+`<scroll-private-key>`、`<spend-key>`、`<ethereum-address>`、`<amount>` などのプレースホルダーは実際の値に置き換えてください。`<amount>` には、残高に表示された値から **35,000,000,000,000 を引いた値**を指定してください。たとえば、残高が **2,342,400,000,000,000 wei** の場合、`2307400000000000`（= 2,342,400,000,000,000 − 35,000,000,000,000）を指定します。
 
 ```
 cargo run -r -- withdrawal --private-key <spend-key> --to <ethereum-address> --amount 2307400000000000 --token-index 0
 ```
 
 
-### ITX Token
+### ITX トークン
 
-Please execute the following command to claim your rewards. Replace `<scroll-private-key>` with your actual Scroll private key:
+以下のコマンドを実行してリワードを Claim してください。`<scroll-private-key>` を実際の Scroll 秘密鍵に置き換えてください。
 
 ```bash
 cargo run -r -- claim-builder-reward --eth-private-key <scroll-private-key>
 ```
 
-To execute the command, you'll need sufficient ETH to pay the gas fee (approximately **0.00001 ETH**) on the Scroll address corresponding to your Ethereum address.
+コマンドの実行には、Ethereum アドレスに対応する Scroll アドレスにガス代（約 **0.00001 ETH**）を支払うのに十分な ETH が必要です。
 
-**Expected Response**
+**想定されるレスポンス**
 
-If there are rewards available for you to claim, you'll see logs similar to the following output:
+Claim 可能なリワードがある場合、以下のような出力ログが表示されます。
 
 ```
 [2025-06-01T00:00:00Z INFO  intmax2_cli::cli::claim] Claiming block builder reward for user address: 0x...
@@ -176,31 +180,31 @@ If there are rewards available for you to claim, you'll see logs similar to the 
 [2025-06-01T00:00:00Z INFO  intmax2_client_sdk::external_api::contract::handlers] Transaction sent: "batch_claim_reward" with tx hash: 0x...
 ```
 
-You can check whether you have received the ITX tokens by following these steps:
+ITX トークンを受け取れたかどうかは、以下の手順で確認できます。
 
-First, open the following URL:
+まず、次の URL を開きます。
 
 https://scrollscan.com/token/0xc0579287f3CDE6BF796BE6E2bB61DbB06DA85024#balances
 
 ![ScrollScan holders](assets/developers-hub/search-holders.webp)
 
-Click the search icon in the top right corner of the page.
-In the search bar, enter the Scroll address of your Block Builder.
-The current balance will be displayed in the area highlighted by the red box in the following image.
+ページ右上の検索アイコンをクリックします。
+検索バーに Block Builder の Scroll アドレスを入力します。
+以下の画像で赤枠でハイライトされたエリアに、現在の残高が表示されます。
 
 ![ScrollScan ITX balance](assets/developers-hub/itx-token-balance.webp)
 
-## Testnet
+## テストネット
 
-When running the Block Builder on the **testnet**, the reward claiming process will also take place on the **testnet**.
-Please execute the following command.
+**テストネット**で Block Builder を運用している場合、リワードの Claim もテストネット上で行われます。
+以下のコマンドを実行してください。
 
 ```bash
 git clone git@github.com:InternetMaximalism/intmax2.git -b dev
 cd intmax2/cli
 ```
 
-⚠️ **Important:** `L1_RPC_URL` and `L2_RPC_URL` should be set to the RPC URLs of the Ethereum and Scroll networks, respectively.
+⚠️ **重要:** `L1_RPC_URL` と `L2_RPC_URL` には、それぞれ Ethereum と Scroll ネットワークの RPC URL を設定してください。
 
 ```bash
 cat <<EOF > .env
@@ -229,11 +233,11 @@ L2_RPC_URL=https://scroll-sepolia.g.alchemy.com/v2/your_api_key # !!! CHANGE YOU
 EOF
 ```
 
-## Troubleshooting
+## トラブルシューティング
 
-### OpenSSL Build Error
+### OpenSSL ビルドエラー
 
-When running the CLI in a Debian-based Linux environment, you may encounter the following error:
+Debian ベースの Linux 環境で CLI を実行する際、以下のエラーが発生することがあります。
 
 ```
 Could not find directory of OpenSSL installation, and this `-sys` crate cannot
@@ -253,68 +257,66 @@ $TARGET = aarch64-unknown-linux-gnu
 openssl-sys = 0.9.108
 ```
 
-This issue occurs because the OpenSSL development libraries are missing.
-Please execute the following commands to install the required packages.
+これは OpenSSL の開発ライブラリが不足しているために発生します。
+以下のコマンドを実行して必要なパッケージをインストールしてください。
 
 ```
 apt update
 apt install -y build-essential pkg-config libssl-dev
 ```
 
-### Using Rustup Instead of the `apt` Package
+### `apt` パッケージの代わりに Rustup を使用する
 
-When Rust is installed via `apt install cargo rustc`, you cannot use the **nightly version** of Rust.
-To enable nightly and other toolchains, please install Rust through **Rustup** instead.
+`apt install cargo rustc` で Rust をインストールした場合、Rust の **nightly バージョン**は使用できません。
+nightly やその他のツールチェインを有効にするには、**Rustup** 経由で Rust をインストールしてください。
 
-Run the following command:
+以下のコマンドを実行します。
 
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 ```
 
-When prompted during installation, **enter `1`** and press **Enter** to proceed with the default installation.
+インストール中にプロンプトが表示されたら、**`1`** を入力して **Enter** を押し、デフォルトのインストールを進めてください。
 
-To make the Rustup-managed Rust toolchain available in your shell, add the following line to your `~/.bashrc`:
+Rustup が管理する Rust ツールチェインをシェルで使用できるようにするため、`~/.bashrc` に以下の行を追加します。
 
 ```bash
 export PATH="$HOME/.cargo/bin:$PATH"
 ```
 
-Then apply the changes:
+変更を適用します。
 
 ```bash
 source ~/.bashrc
 ```
 
-Run the following command to confirm that the Rust compiler being used is the one installed via Rustup:
+以下のコマンドを実行して、使用中の Rust コンパイラが Rustup 経由でインストールされたものであることを確認します。
 
 ```bash
 which rustc
 ```
 
-If the output shows:
+出力が以下のように表示されれば、設定は完了です。Rustup が Rust ツールチェインを管理しています。
 
 ```
 /home/<username>/.cargo/bin/rustc
 ```
 
-then your configuration is complete and Rustup is now managing your Rust toolchain.
+### 環境変数の読み込みエラーの修正方法
 
-### How to Fix Environment Variable Loading Errors
-
-When you run the following command:
+以下のコマンドを実行した場合：
 
 ```sh
 cargo run -r -- claim-builder-reward --eth-private-key <scroll-private-key>
 ```
 
-you may encounter an error like this:
+以下のようなエラーが発生することがあります。
 
 ```
 Envy error: unknown variant `production`, expected one of `local`, `dev`, `staging`, `prod`
 ```
 
-If you have correctly set the environment variables in your `.env` file but this error still occurs, please try running the following command instead. Make sure to replace `<scroll-private-key>` with your actual Scroll private key.
+`.env` ファイルで環境変数を正しく設定しているにもかかわらずこのエラーが発生する場合は、代わりに以下のコマンドを実行してください。`<scroll-private-key>` を実際の Scroll 秘密鍵に置き換えてください。
 
 ```sh
 ( set -a; source .env; set +a; cargo run -r -- claim-builder-reward --eth-private-key <scroll-private-key> )

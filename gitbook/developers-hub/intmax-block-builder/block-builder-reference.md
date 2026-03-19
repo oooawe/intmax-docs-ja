@@ -1,41 +1,46 @@
-# Block Builder Reference
+---
+icon: cubes
+description: Block Builder 運用の全体リファレンスとセットアップガイドへのナビゲーション
+---
 
-The INTMAX Block Builder is the node responsible for aggregating user transactions and submitting new L2 blocks to the network.
+# Block Builder リファレンス
 
-Running a builder lets you:
+INTMAX の Block Builder は、ユーザーのトランザクションを集約し、新しい L2（Layer 2）ブロックをネットワークに送信するノードです。
 
-- **Earn rewards by helping finalize blocks.**
-- **Strengthen decentralization by contributing new permissionless capacity.**
+Block Builder を運用すると、以下が可能になります。
 
-| Guide                 | When to use                                                                                                         | Key points                                                                                                                   |
+- **ブロックのファイナライズに貢献してリワードを獲得**
+- **パーミッションレス（Permissionless）なキャパシティを追加してネットワークの分散性を強化**
+
+| ガイド | 用途 | ポイント |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| **Full-Network Mode** | When the Builder cannot be accessed publicly (behind NAT or firewall). Traffic is relayed through the INTMAX proxy. | Quick, one-command installation without domain or load balancer setup.                                                       |
-| **Standalone Mode**   | When the Builder can be made publicly accessible using your own domain or load balancer.                            | Minimal or customizable installation, best for production-grade and flexible setups, supports multiple independent Builders. |
+| **Full-Network モード** | Builder がパブリックにアクセスできない場合（NAT やファイアウォールの背後）。トラフィックは INTMAX プロキシ経由で中継される | ドメインやロードバランサーの設定不要。コマンド1つですぐにセットアップ可能 |
+| **Standalone モード**   | Builder を独自のドメインやロードバランサーでパブリックにアクセス可能にする場合 | 最小構成またはカスタマイズ可能な構成。本番グレードの柔軟なセットアップに最適で、複数の独立した Builder をサポート |
 
 ---
 
-## Quick Links
+## クイックリンク
 
-### Block Builder Setup – Full-Network
+### Block Builder セットアップ — Full-Network
 
-A step-by-step guide for setting up and running an INTMAX2 Block Builder using the automated setup script in **Full Network Mode**.
+自動セットアップスクリプトを使用して、**Full Network モード**で INTMAX2 Block Builder をセットアップ・実行するためのステップバイステップガイドです。
 
-[View Full-Network Setup Guide](./full-netwrok.md)
+[Full-Network セットアップガイドを見る](./full-netwrok.md)
 
-### Block Builder Setup – Standalone
+### Block Builder セットアップ — Standalone
 
-Designed for advanced use cases requiring flexible server-side management or deployment across multiple environments, this guide offers a lightweight and modular Block Builder setup in Standalone Mode.
+柔軟なサーバーサイド管理や複数環境へのデプロイが必要な上級ユースケース向けのガイドです。Standalone モードで軽量かつモジュラーな Block Builder セットアップを提供します。
 
-[View Standalone Setup Guide](./standalone.md)
+[Standalone セットアップガイドを見る](./standalone.md)
 
-### Block Builder Business Guide
+### Block Builder ビジネスガイド
 
-This guide supports business development as a Block Builder. It covers reward design, best practices for contributing to the network, and operational considerations.
+Block Builder としてのビジネス展開をサポートするガイドです。リワード設計、ネットワーク貢献のベストプラクティス、運用上の考慮事項を解説します。
 
-[View Business Guide](./business-guide.md)
+[ビジネスガイドを見る](./business-guide.md)
 
-### Block Builder Receive Rewards
+### Block Builder リワードの受取
 
-A reward claiming guide for INTMAX Block Builders. It explains how to receive two types of rewards: **user fees** and **ITX tokens**, from setup to final claiming.
+INTMAX Block Builder のリワード受取ガイドです。セットアップから最終的な Claim まで、**ユーザー手数料**と **ITX トークン**の2種類のリワードを受け取る方法を説明します。
 
-[View Receive Reward Guide](./receive-rewards.md)
+[リワード受取ガイドを見る](./receive-rewards.md)

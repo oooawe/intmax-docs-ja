@@ -1,60 +1,65 @@
+---
+icon: lightbulb
+description: スケーラブルかつプライバシー保護を備えた決済システムの構築パターン
+---
+
 # Payments
 
-## Scalable, Private Payments
+## スケーラブルでプライベートな決済
 
-INTMAX enables developers to build **high-throughput, privacy-preserving payment systems** without the typical tradeoffs of rollups or L1 constraints. Whether you're building a wallet, a merchant gateway, or peer-to-peer payment apps, INTMAX offers a unique stateless architecture ideal for scaling financial interactions.
+INTMAX を使うことで、一般的なロールアップ（Rollup）や L1（Layer 1）の制約にありがちなトレードオフなしに、**高スループットかつプライバシー保護を備えた決済システム**を構築できます。ウォレット、マーチャントゲートウェイ、ピアツーピア（P2P）決済アプリのいずれを構築する場合でも、INTMAX のステートレスアーキテクチャ（Stateless Architecture）は金融インタラクションのスケーリングに最適です。
 
-## What You Can Build
+## 構築できるもの
 
-- **Retail & E-commerce checkout**
-- **Crypto-native payroll**
-- **Micropayments for content or streaming**
-- **Cross-border settlement rails**
-- **Wallet-to-wallet transfers with full unlinkability**
+- **小売・EC サイトのチェックアウト**
+- **暗号資産ネイティブの給与支払い**
+- **コンテンツやストリーミング向けのマイクロペイメント**
+- **クロスボーダーの決済インフラ**
+- **完全にリンク不能なウォレット間 Transfer**
 
-## How It Works
+## 仕組みと流れ
 
-### 1. User Deposit (L1 → L2)
+### 1. ユーザーの Deposit（L1 → L2）
 
-- Users deposit ETH or tokens to the rollup contract, specifying their L2 public key.
+- ユーザーが ETH またはトークンをロールアップコントラクトに Deposit し、L2 の公開鍵（Public Key）を指定します。
 
-### 2. Off-chain Payment
+### 2. オフチェーンでの決済
 
-- Users generate a transaction batch (e.g. “send 5 USDC to Bob”) and share a salted hash with an aggregator.
-- Aggregators build Merkle trees and submit signed roots to the contract.
-- Transaction data is sent directly and privately to the recipient, along with a ZK-proof of validity.
+- ユーザーがトランザクションバッチ（例：「5 USDC を Bob に送る」）を生成し、ソルト付きハッシュをアグリゲーター（Aggregator）と共有します。
+- アグリゲーターが Merkle Tree を構築し、署名（Signature）付きルートをコントラクトに送信します。
+- トランザクションデータは ZK proof とともに、受信者に直接かつプライベートに送られます。
 
-### 3. Withdrawal (L2 → L1)
+### 3. Withdrawal（L2 → L1）
 
-- Users can exit at any time by proving—via ZK—that they received a certain balance.
+- ユーザーはいつでも、ZK proof によって特定の残高を受け取ったことを証明し、L1 へ退出できます。
 
-## Developer Benefits
+## 開発者にとってのメリット
 
-| Feature               | Benefit                                                           |
+| 特徴 | メリット |
 | --------------------- | ----------------------------------------------------------------- |
-| Stateless Protocol    | No need to sync or manage global rollup state                     |
-| Privacy-by-default    | No on-chain sender/recipient/amount data                          |
-| Low On-chain Overhead | \~5 bytes onchain; unlimited recipients per batch                 |
-| Easy Aggregation      | Any app or user can act as an aggregator; no sequencer dependency |
-| Future-Proof Scaling  | Compatible with EIP-4844 and other L1 throughput upgrades         |
+| ステートレスプロトコル | グローバルなロールアップ状態の同期・管理が不要 |
+| デフォルトのプライバシー保護 | オンチェーンに送信者・受信者・金額のデータが残らない |
+| 低いオンチェーンオーバーヘッド | オンチェーンデータは約 5 バイト。1 バッチあたりの受信者数は無制限 |
+| 容易なアグリゲーション | 誰でもアグリゲーターとして機能可能。シーケンサー（Sequencer）依存なし |
+| 将来を見据えたスケーリング | EIP-4844 やその他の L1 スループット向上との互換性 |
 
-## Integration Tips
+## ヒント・Tips
 
-- Use the INTMAX SDK to:
-  - Generate deposit transactions
-  - Construct and hash payment batches
-  - Interact with aggregators
-  - Create/verify zero-knowledge proofs
-- Use relayer contracts for guaranteed timing and replay protection if your app handles batching.
+- INTMAX SDK を使って以下を実現できます：
+  - Deposit トランザクションの生成
+  - 決済バッチの構築とハッシュ化
+  - アグリゲーターとのやり取り
+  - ZK proof の生成・検証
+- バッチ処理をアプリ側で行う場合は、タイミング保証とリプレイ保護のためにリレイヤーコントラクトを利用してください。
 
-## Example Apps
+## アプリケーション例
 
-| Project Idea           | Description                                                |
+| プロジェクトアイデア | 説明 |
 | ---------------------- | ---------------------------------------------------------- |
-| Venmo for Crypto       | Wallet-to-wallet instant transfers with no on-chain trace  |
-| Subscription Manager   | Periodic payments with local state and ZK receipt tracking |
-| Local Merchant Toolkit | POS app using INTMAX for gasless, instant retail checkout  |
+| 暗号資産版 Venmo | オンチェーンの痕跡を残さないウォレット間即時 Transfer |
+| サブスクリプション管理 | ローカル状態と ZK proof ベースのレシート追跡による定期支払い |
+| ローカルマーチャントツールキット | INTMAX を使ったガスレスかつ即時の小売チェックアウト POS アプリ |
 
-## Key Takeaway
+## まとめ
 
-INTMAX lets you build **Ethereum-native payments** that feel more like Web2: instant, private, cheap—and user-controlled. No gas fatigue, no address leaks, no sequencer trust.
+INTMAX を使えば、Web2 のような体験を持つ **Ethereum ネイティブの決済**を構築できます——即時性、プライバシー、低コスト、そしてすべてユーザーがコントロール可能です。ガス代の負担、アドレスの漏洩、シーケンサーへの信頼は不要です。

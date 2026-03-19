@@ -1,140 +1,145 @@
-# Business Guide
+---
+icon: cubes
+description: Block Builder の役割・リワード設計・運用コストと参加方法のビジネスガイド
+---
 
-## Introduction
+# ビジネスガイド
 
-The **Block Builder** is a key component of the INTMAX network, responsible for constructing and proposing new L2 blocks. Its primary role is to collect transactions submitted by users who wish to transfer assets or interact with the network, and then record those transactions in valid blocks.
+## はじめに
 
-Operating as a permissionless node, the Block Builder allows **anyone** to participate in block production without needing approval from a centralized authority. This open participation model makes the system **unstoppable** and resistant to censorship.
+**Block Builder** は INTMAX ネットワークの主要コンポーネントであり、新しい L2（Layer 2）ブロックの構築と提案を担います。ネットワーク上で資産の Transfer やインタラクションを行いたいユーザーから送信されたトランザクションを収集し、有効なブロックに記録することが主な役割です。
 
-By playing a crucial role in finalizing on-chain data, the Block Builder ensures the network remains decentralized, resilient, and continuously updated with user activity. It is not merely a technical component, but a foundation that upholds one of the network’s core values: **trustlessness**—the ability to operate securely without relying on any central authority or trusted third party.
+パーミッションレス（Permissionless）なノードとして動作するため、Block Builder は中央管理者の承認なしに**誰でも**ブロック生成に参加できます。このオープンな参加モデルにより、システムは**停止不可能**であり、検閲耐性を備えています。
 
-Whether you’re an individual enthusiast or an infrastructure provider, running a Block Builder enables you to actively support the network while earning rewards for your contribution.
+オンチェーンデータのファイナライズにおいて重要な役割を果たすことで、Block Builder はネットワークの分散性・耐障害性を維持し、ユーザーのアクティビティを継続的に反映します。単なる技術コンポーネントではなく、ネットワークのコアバリューの1つである**トラストレス（Trustless）**— 中央管理者や信頼できる第三者に依存せず安全に運用できる能力 — を支える基盤です。
 
-### Intended Audience
+個人の愛好家でもインフラプロバイダーでも、Block Builder を運用することでネットワークを積極的にサポートしながら、貢献に対するリワードを獲得できます。
 
-This document is intended for:
+### 想定読者
 
-- Engineers who wish to operate nodes and participate in INTMAX
-- Web3 infrastructure providers (e.g., Alchemy, Infura)
+このドキュメントは以下の方を対象としています。
 
-## Architecture Overview
+- ノードを運用して INTMAX に参加したいエンジニア
+- Web3 インフラプロバイダー（例: Alchemy、Infura）
 
-From startup to reward distribution, the Block Builder operates in the following sequence:
+## アーキテクチャ概要
 
-1. **Transaction Collection**
+起動からリワード配分まで、Block Builder は以下の順序で動作します。
 
-   Gathers user transactions submitted through the INTMAX network.
+1. **トランザクションの収集**
 
-2. **Block Construction**
+   INTMAX ネットワークを通じて送信されたユーザーのトランザクションを収集します。
 
-   Builds a block based on either time intervals or transaction volume.
+2. **ブロックの構築**
 
-3. **Submission to Scroll**
+   時間間隔またはトランザクション量に基づいてブロックを構築します。
 
-   Submits the finalized block to a smart contract on the Scroll network.
+3. **Scroll への送信**
 
-4. **Reward Collection**
-   - **Transaction Fees (ETH)** → Claimable immediately after block submission
-   - **Protocol Incentives (sITX)** → Calculated weekly and claimable from a Scroll smart contract
+   ファイナライズされたブロックを Scroll ネットワーク上のスマートコントラクトに送信します。
 
-## Rewards & Incentives
+4. **リワードの収集**
+   - **トランザクション手数料（ETH）** → ブロック送信後すぐに Claim 可能
+   - **プロトコルインセンティブ（sITX）** → 毎週計算され、Scroll のスマートコントラクトから Claim 可能
 
-### Types of Rewards
+## リワードとインセンティブ
 
-| **Type**                   | **Description**                            | **Timing**                           |
+### リワードの種類
+
+| **種類** | **説明** | **タイミング** |
 | -------------------------- | ------------------------------------------ | ------------------------------------ |
-| Transaction Fees (ETH)     | Collected from users included in the block | Immediately after submission         |
-| Protocol Incentives (sITX) | 1:1 claimable for ITX, distributed weekly  | Calculated every Monday at 00:00 UTC |
+| トランザクション手数料（ETH） | ブロックに含まれるユーザーから収集 | ブロック送信直後 |
+| プロトコルインセンティブ（sITX） | ITX と 1:1 で Claim 可能。毎週配布 | 毎週月曜日 00:00 UTC に計算 |
 
-### Reward Calculation
+### リワードの計算方法
 
-- **Reward Cycle**: Every week from **Monday 00:00 UTC**
-- **Distribution**: Proportional to the number of blocks submitted during the cycle
+- **リワードサイクル**: 毎週**月曜日 00:00 UTC** から開始
+- **配分**: サイクル中に送信したブロック数に比例
 
-### Reward Schedule
+### リワードスケジュール
 
-Until **December 16, 2025**, the total amount of protocol incentives allocated per reward cycle is fixed at **350,000 ITX**.
+**2025年12月16日**まで、1リワードサイクルあたりのプロトコルインセンティブ総額は **350,000 ITX** に固定されています。
 
-This corresponds to an average of **50,000 ITX per day**.
+これは1日あたり平均 **50,000 ITX** に相当します。
 
-The reward schedule beyond this date will be announced in a future update.
+この日以降のリワードスケジュールは、今後のアップデートで発表される予定です。
 
-**Example**
+**例**
 
-Let’s assume the following conditions during a weekly reward cycle:
+1週間のリワードサイクルで以下の条件を仮定します。
 
-- Reward cycle period: From **2025/12/08 00:00 UTC** to **2025/12/15 00:00 UTC**
-- Total number of blocks submitted across the network: **10,000**
-- Number of blocks submitted by you: **100**
+- リワードサイクル期間: **2025/12/08 00:00 UTC** 〜 **2025/12/15 00:00 UTC**
+- ネットワーク全体で送信されたブロック総数: **10,000**
+- あなたが送信したブロック数: **100**
 
-In this case, your ITX reward would be calculated as follows:
+この場合、ITX リワードは以下のように計算されます。
 
 ```
 350,000 ITX / 10,000 blocks × 100 blocks = 3,500 ITX
 ```
 
-Thus, you would receive **3,500 ITX** as your protocol incentive for that week.
+つまり、その週のプロトコルインセンティブとして **3,500 ITX** を受け取ることになります。
 
-### Fee Revenue (Per Sender)
+### 手数料収入（送信者あたり）
 
-In addition to protocol incentives, you also earn transaction fees from senders included in your blocks. The average fee per sender is approximately **$0.005 USD.**
+プロトコルインセンティブに加えて、ブロックに含まれる送信者からのトランザクション手数料も獲得できます。送信者あたりの平均手数料は約 **$0.005 USD** です。
 
-These fees are immediately available upon successful block submission and are paid directly in ETH on the INTMAX network.
+これらの手数料はブロック送信の成功後すぐに利用可能となり、INTMAX ネットワーク上で ETH として直接支払われます。
 
-### Gas Consumption
+### ガス消費量
 
-The estimated cost per block submission is as follows:
+1ブロック送信あたりの推定コストは以下の通りです。
 
-- **Mainnet**: 0.0000045 – 0.0000065 ETH (approximately $0.01 – $0.02)
-- **Testnet**: 0.000003 – 0.003 ETH
+- **Mainnet**: 0.0000045 〜 0.0000065 ETH（約 $0.01 〜 $0.02）
+- **Testnet**: 0.000003 〜 0.003 ETH
 
-> ⚠️ Since a high gas limit is set for block submission transactions, it is recommended to hold a balance approximately **1.5 times** the estimated transaction fee to ensure successful execution.
+> ⚠️ ブロック送信トランザクションには高いガスリミットが設定されているため、実行を確実にするには推定トランザクション手数料の約 **1.5倍**の残高を保持しておくことを推奨します。
 
-**Example**
+**例**
 
-Suppose the Block Builder submits **12 blocks per day** on Mainnet.
+Block Builder が Mainnet で**1日12ブロック**を送信すると仮定します。
 
-When the Mainnet gas price is **1 Gwei**, the gas cost for each block submission is approximately **0.000005 ETH**.
+Mainnet のガス価格が **1 Gwei** のとき、各ブロック送信のガスコストは約 **0.000005 ETH** です。
 
-- **Daily Gas Cost:** 0.000005 ETH × 12 = 0.00006 ETH
+- **1日あたりのガスコスト:** 0.000005 ETH × 12 = 0.00006 ETH
 
-If penalty fees are **disabled**, it is recommended to maintain a balance of approximately **0.000066 ETH** (approximately $0.2) to ensure smooth operation.
+ペナルティ手数料が**無効**の場合、スムーズな運用のためには約 **0.000066 ETH**（約 $0.2）の残高を維持することを推奨します。
 
-## How to Participate
+## 参加方法
 
-Follow this guide to set up your Block Builder:
+以下のガイドに従って Block Builder をセットアップしてください。
 
-[View Full-Network Setup Guide](./full-netwrok.md)
+[Full-Network セットアップガイドを見る](./full-netwrok.md)
 
-[View Standalone Setup Guide](./standalone.md)
+[Standalone セットアップガイドを見る](./standalone.md)
 
 ## FAQ
 
-### Q. I submitted a block, but did not receive any rewards
+### Q: ブロックを送信したのにリワードが受け取れない
 
-A. Common reasons include:
+A: よくある原因：
 
-- Incorrect Block Builder address configuration
-- Reverted transaction when submitting the block
-- Reward cycle not yet completed (before Monday 00:00 UTC)
+- Block Builder アドレスの設定が正しくない
+- ブロック送信時にトランザクションがリバートした
+- リワードサイクルがまだ完了していない（月曜日 00:00 UTC 前）
 
-### Q. How can I check my received ITX rewards?
+### Q: 受け取った ITX リワードはどこで確認できますか？
 
-A. Rewards are issued as **sITX tokens** on the Scroll network:
+A: リワードは Scroll ネットワーク上の **sITX トークン**として発行されます。
 
-- 🔍 Viewable on any compatible block explorer
-- ⛓ Token contract address: _(Link to be added after deployment)_
-- ⚠ Currently non-transferable and non-bridgeable. Unlock schedule to be announced
+- 🔍 対応するブロックエクスプローラーで確認可能
+- ⛓ トークンコントラクトアドレス: _(デプロイ後にリンクを追加予定)_
+- ⚠ 現在は転送・ブリッジ不可。アンロックスケジュールは今後発表予定
 
-### Q. Can I run multiple Block Builders on a single machine?
+### Q: 1台のマシンで複数の Block Builder を実行できますか？
 
-A. Running multiple Block Builder nodes on different port numbers simultaneously is technically possible, but generally not recommended.
-This is because it is more efficient in terms of fee collection and block generation costs to aggregate as many user transactions as possible into a single block submitted by one Block Builder.
+A: 異なるポート番号で複数の Block Builder ノードを同時に実行することは技術的には可能ですが、一般的には推奨されません。
+これは、1つの Block Builder でできるだけ多くのユーザートランザクションを集約して1つのブロックに含める方が、手数料収集とブロック生成コストの面で効率的なためです。
 
-## Support
+## サポート
 
-For technical assistance, operational issues, or troubleshooting, please contact:
+技術的な支援、運用上の問題、トラブルシューティングについては、以下からお問い合わせください。
 
-👉 [Submit a Support Request](https://intmaxhelp.zendesk.com/hc/en-gb/requests/new)
+👉 [サポートリクエストを送信する](https://intmaxhelp.zendesk.com/hc/en-gb/requests/new)
 
-Kindly select **Support form for Block Builders** from the options below, enter the required details including your email address and name, and proceed to submit the form.
+以下のオプションから **Support form for Block Builders** を選択し、メールアドレスと名前を含む必要事項を入力して、フォームを送信してください。

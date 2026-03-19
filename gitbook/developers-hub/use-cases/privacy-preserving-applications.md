@@ -1,64 +1,69 @@
-# Privacy-Preserving Applications
+---
+icon: lightbulb
+description: プライバシー保護アプリケーションの設計思想と構築パターン
+---
 
-INTMAX offers a new foundation for building applications where **privacy is not a feature, but a guarantee**. It enables developers to construct systems where **no sensitive data touches the blockchain**, and user interactions remain unlinkable, untraceable, and fully local—powered by zero-knowledge proofs and stateless architecture.
+# プライバシー保護アプリケーション
 
-## What You Can Build
+INTMAX は、**プライバシーが機能ではなく保証であるアプリケーション**を構築するための新しい基盤を提供します。**機密データがブロックチェーンに一切触れず**、ユーザーのインタラクションがリンク不能・追跡不能・完全にローカルで完結するシステムを、ZKP（Zero-Knowledge Proof）とステートレスアーキテクチャ（Stateless Architecture）によって実現できます。
 
-- **Private crypto transfers**
-- **Anonymous donation platforms**
-- **On-chain private voting or signaling**
-- **ZK-based identity and credential apps**
-- **Unlinkable subscriptions or access tokens**
-- **Dark pools and private marketplaces**
-- **Messaging or social protocols with hidden metadata**
+## 構築できるもの
 
-## Why INTMAX?
+- **プライベートな暗号資産の転送**
+- **匿名寄付プラットフォーム**
+- **オンチェーンのプライベート投票・シグナリング**
+- **ZK ベースの ID・資格証明アプリ**
+- **リンク不能なサブスクリプション・アクセストークン**
+- **ダークプール・プライベートマーケットプレイス**
+- **メタデータを秘匿するメッセージング・ソーシャルプロトコル**
 
-Most privacy approaches in Web3 (mixers, shielded pools, encrypted mempools) rely on heavy infrastructure, trusted setups, or privacy that's optional. INTMAX is different:
+## なぜ INTMAX か
 
-| Property                     | INTMAX Guarantees                                     |
+Web3 における多くのプライバシーアプローチ（ミキサー、シールドプール、暗号化メンプール）は、大規模なインフラ、トラステッドセットアップ、またはオプション的なプライバシーに依存しています。INTMAX はこれらとは異なります：
+
+| 特性 | INTMAX の保証 |
 | ---------------------------- | ----------------------------------------------------- |
-| On-chain anonymity           | ✅ No sender, recipient, or amount ever posted        |
-| Aggregator blindness         | ✅ Aggregators see only salted hashes                 |
-| Peer-to-peer disclosure only | ✅ Only recipient sees transaction details            |
-| Stateless, client-owned data | ✅ No global state exposure or leakage                |
-| Gas-efficient privacy        | ✅ \~5 bytes onchain; cost doesn't scale with tx size |
+| オンチェーンの匿名性 | ✅ 送信者・受信者・金額は一切ポストされない |
+| アグリゲーターに対するブラインドネス | ✅ アグリゲーター（Aggregator）はソルト付きハッシュのみを参照 |
+| ピアツーピアでの開示のみ | ✅ トランザクションの詳細は受信者のみが閲覧可能 |
+| ステートレスかつクライアント所有のデータ | ✅ グローバルな状態の露出・漏洩なし |
+| ガス効率の高いプライバシー | ✅ オンチェーンデータ約 5 バイト。コストはトランザクションサイズに比例しない |
 
-## 🔄 Architecture Overview
+## アーキテクチャ概要
 
-1. **Users generate transactions** locally and hash them before sending to aggregators.
-2. **Aggregators build a Merkle tree**, collect BLS signatures, and post a root (not the tx data) to the contract.
-3. **Recipients receive Merkle paths + ZK proofs** directly from senders and update local balances.
-4. **Nothing sensitive ever touches the chain**—not even encrypted payloads.
+1. **ユーザーがローカルでトランザクションを生成**し、アグリゲーターに送信する前にハッシュ化します。
+2. **アグリゲーターが Merkle Tree を構築**し、BLS 署名（Signature）を収集して、ルート（トランザクションデータではなく）をコントラクトにポストします。
+3. **受信者が Merkle path と ZK proof を直接受け取り**、ローカルの残高を更新します。
+4. **機密情報がチェーンに触れることは一切ありません**——暗号化されたペイロードですら載りません。
 
-## Developer Advantages
+## 開発者にとってのメリット
 
-| Feature                   | Benefit                                                             |
+| 特徴 | メリット |
 | ------------------------- | ------------------------------------------------------------------- |
-| Default Unlinkability     | No correlation between sender and recipient is exposed              |
-| No Need for Trusted Setup | Uses standard SNARKs and cryptographic commitments                  |
-| No Central Coordinator    | Anyone can aggregate; no centralized mixer/sequencer required       |
-| Gas-Optimized Privacy     | Achieve strong privacy without paying extra in fees                 |
-| Local State + Proofs      | Users keep and manage their own state; no central index or registry |
+| デフォルトのリンク不能性 | 送信者と受信者の相関関係は一切露出しない |
+| トラステッドセットアップ不要 | 標準的な ZK-SNARK と暗号学的コミットメント（Commitment）を使用 |
+| 中央コーディネーター不要 | 誰でもアグリゲーション可能。中央集権的なミキサーやシーケンサー（Sequencer）不要 |
+| ガス最適化されたプライバシー | 追加手数料なしで強力なプライバシーを実現 |
+| ローカル状態 + プルーフ | ユーザーが自身の状態を保持・管理。中央インデックスやレジストリなし |
 
-## Sample Applications
+## アプリケーション例
 
-| Application                  | Description                                                   |
+| アプリケーション | 説明 |
 | ---------------------------- | ------------------------------------------------------------- |
-| Private Donations            | Send ETH or tokens anonymously to any public address          |
-| Decentralized Whistleblowing | Tip systems with verifiable but unlinkable sender proofs      |
-| ZK Reputation                | Build score systems where interactions are hidden             |
-| Pseudonymous Identity        | Proofs of activity or holdings without revealing wallet links |
+| プライベート寄付 | ETH やトークンを任意のパブリックアドレスに匿名で送信 |
+| 分散型内部告発 | リンク不能な送信者プルーフによる検証可能な通報システム |
+| ZK レピュテーション | インタラクションを秘匿したスコアリングシステム |
+| 仮名アイデンティティ | ウォレットの紐付けを明かさずにアクティビティや保有量を証明 |
 
-## Integration Ideas
+## 統合のアイデア
 
-Use the INTMAX SDK to:
+INTMAX SDK を使って以下を実現できます：
 
-- Generate and verify ZK proofs for private transactions
-- Build local client storage for tracking balance proofs
-- Create privacy-first UI flows (e.g., show only proof-receipt and balance)
-- Customize aggregators to enforce timing or batching constraints without compromising privacy
+- プライベートトランザクション用の ZK proof の生成・検証
+- 残高証明（Balance Proof）を追跡するためのローカルクライアントストレージの構築
+- プライバシーファーストの UI フロー設計（例：プルーフレシートと残高のみを表示）
+- プライバシーを損なわずにタイミングやバッチング制約を適用するカスタムアグリゲーターの構築
 
-## Key Takeaway
+## まとめ
 
-INTMAX offers a privacy stack **native to Ethereum**, but without revealing any information to the base layer or intermediaries. Whether you're building tools for dissidents, creators, activists, or just privacy-conscious users—INTMAX gives you the cryptographic primitives to make privacy standard, not optional.
+INTMAX は **Ethereum ネイティブのプライバシースタック**を提供しますが、ベースレイヤーや仲介者にはいかなる情報も明かしません。活動家、クリエイター、市民運動家、あるいはプライバシー意識の高い一般ユーザーのためのツールを構築する場合でも——INTMAX はプライバシーをオプションではなく標準にするための暗号学的プリミティブを提供します。

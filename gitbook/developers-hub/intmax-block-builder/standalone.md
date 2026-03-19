@@ -1,59 +1,64 @@
+---
+icon: cubes
+description: Standalone モードでの Block Builder セットアップと運用手順
+---
+
 # Standalone
 
-The Block Builder node is a critical component responsible for submitting blocks to the INTMAX Network.
+Block Builder ノードは、INTMAX Network にブロックを送信する重要なコンポーネントです。
 
-This document provides detailed instructions for setting up and operating the Block Builder efficiently in **Standalone Mode**. In this mode, you are responsible for configuring network access to the Block Builder from the internet as needed, such as setting up firewalls, ports, or load balancers. Despite being standalone, this mode supports deploying multiple Block Builder instances in cloud environments, enabling scalable and redundant setups.
+このドキュメントでは、**Standalone モード**で Block Builder を効率的にセットアップ・運用するための詳細な手順を説明します。このモードでは、インターネットから Block Builder へのネットワークアクセス設定（ファイアウォール、ポート、ロードバランサーなど）をご自身で行う必要があります。Standalone でありながら、クラウド環境で複数の Block Builder インスタンスをデプロイでき、スケーラブルかつ冗長な構成が可能です。
 
-**Standalone Mode also offers greater flexibility and customizability**, allowing operators to tailor their setup according to their infrastructure and operational needs.
+**Standalone モードはより高い柔軟性とカスタマイズ性を提供**し、オペレーターがインフラや運用ニーズに応じたセットアップを構築できます。
 
-**Note**: We offer two versions: **Mainnet** and **Testnet**. Please make sure not to confuse them.
+**注意**: **Mainnet** と **Testnet** の2つのバージョンを提供しています。混同しないようご注意ください。
 
-## Key Features
+## 主な特徴
 
-The Block Builder posts blocks to **Scroll** from the Ethereum account specified by the private key. It is a core component that interacts with the Scroll network. To support future enhancements, the Block Builder is designed to accept external transactions.
+Block Builder は、秘密鍵（Private Key）で指定された Ethereum アカウントから **Scroll** にブロックを送信します。Scroll ネットワークとやり取りするコアコンポーネントであり、将来の機能拡張に対応するため、外部トランザクションを受け付ける設計になっています。
 
-To ensure stable operation in the mainnet environment, the Block Builder should run continuously.
+メインネット環境で安定した運用を行うため、Block Builder は継続的に稼働させる必要があります。
 
-- **Transaction Submission:**
-  - The Block Builder collects transactions from external sources and submits them to the Scroll network as blocks. This enables efficient interaction with the broader network and ensures seamless block submission.
-- **Fee Collection:**
-  - The Block Builder collects a fee of $0.005 per user per transaction.
-  - For each block, it can accumulate up to $0.005 × 128 in fees, supporting scalable and incentivized operation.
-- **Online Status Announcement:**
-  - The Block Builder sends a transaction to the [**Block Builder Registry Contract**](/developers-hub/intmax-nodes/smart-contracts#block-builder-registry) once a day to notify the [**Indexer**](/developers-hub/intmax-nodes/indexer) that it is online.
-  - The indexer plays a critical role in distributing the most suitable Block Builder URL to users, ensuring efficient and reliable network interaction.
+- **トランザクションの送信：**
+  - Block Builder は外部ソースからトランザクションを収集し、ブロックとして Scroll ネットワークに送信します。これにより、ネットワーク全体との効率的なやり取りとシームレスなブロック送信を実現します。
+- **手数料の収集：**
+  - Block Builder はトランザクションごとにユーザーあたり $0.005 の手数料を収集します。
+  - 1ブロックあたり最大 $0.005 × 128 の手数料を蓄積でき、スケーラブルでインセンティブのある運用を支えます。
+- **オンラインステータスの通知：**
+  - Block Builder は1日1回、[**Block Builder Registry Contract**](/developers-hub/intmax-nodes/smart-contracts#block-builder-registry) にトランザクションを送信して、[**Indexer**](/developers-hub/intmax-nodes/indexer) にオンラインであることを通知します。
+  - Indexer は最適な Block Builder の URL をユーザーに配信する重要な役割を担っており、効率的で信頼性の高いネットワークインタラクションを確保します。
 
-## Requirements
+## 要件
 
-- **Recommended Configuration:**
+- **推奨構成：**
   - 2 vCPU
   - 4 GB RAM
   - 10 GB SSD
-- **Minimum Configuration:**
+- **最小構成：**
   - 1 vCPU
   - 1 GB RAM
   - 4 GB SSD
 
-## Getting Started
+## はじめに
 
-### Setting Up Environment Variables
+### 環境変数の設定
 
-Create a `.env` file and configure it with the following settings.
+`.env` ファイルを作成し、以下の設定を行います。
 
-Replace the placeholders with your actual credentials and URLs:
+プレースホルダーを実際の認証情報と URL に置き換えてください。
 
-- `BLOCK_BUILDER_PRIVATE_KEY=<private-key>`: The Ethereum private key of an account that holds ETH on Scroll Network.
-- `BLOCK_BUILDER_URL=<your-block-builder-url>`: The URL of your BlockBuilder that is **accessible from the internet**. If there is a port number, be sure to include it.
+- `BLOCK_BUILDER_PRIVATE_KEY=<private-key>`: Scroll Network 上で ETH を保有する Ethereum アカウントの秘密鍵
+- `BLOCK_BUILDER_URL=<your-block-builder-url>`: **インターネットからアクセス可能な** Block Builder の URL。ポート番号がある場合は必ず含めてください
 
-  ⚠️ **Note:** Always use `https://` instead of `http://` to ensure secure communication.
+  ⚠️ **注意:** 安全な通信を確保するため、`http://` ではなく必ず `https://` を使用してください。
 
-- `L2_RPC_URL=<your-scroll-rpc-url>`: The RPC endpoint for Scroll Network Ensure that the Scroll network is enabled in your Alchemy dashboard.
+- `L2_RPC_URL=<your-scroll-rpc-url>`: Scroll Network の RPC エンドポイント。Alchemy ダッシュボードで Scroll ネットワークが有効になっていることを確認してください
 
-**Important:** Never expose or share your private key (`<private-key>`). Keep it secure to prevent unauthorized access to your account. To ensure stable operation, it is **recommended that the Block Builder always maintains a minimum balance of 0.1 ETH on the Scroll Network**.
+**重要:** 秘密鍵（`<private-key>`）は絶対に公開・共有しないでください。アカウントへの不正アクセスを防ぐため、安全に管理してください。安定した運用のため、**Block Builder は Scroll Network 上で常に最低 0.1 ETH の残高を維持することを推奨します**。
 
-**NOTE:** If you are using the **Testnet** environment, please replace the RPC URL with the Scroll Sepolia RPC endpoint and use an account that holds ETH on the Scroll Sepolia Network instead. Also, ensure that the Scroll network is enabled in your Alchemy dashboard.
+**注意:** **テストネット**環境を使用する場合は、RPC URL を Scroll Sepolia の RPC エンドポイントに置き換え、Scroll Sepolia Network 上で ETH を保有するアカウントを使用してください。また、Alchemy ダッシュボードで Scroll ネットワークが有効になっていることを確認してください。
 
-**Do not use quotation marks** when specifying values in the `.env` file.
+`.env` ファイルで値を指定する際は、**引用符を使用しないでください**。
 
 ```bash
 # Setup .env
@@ -132,19 +137,19 @@ ROLLUP_CONTRACT_ADDRESS=0xcEC03800074d0ac0854bF1f34153cc4c8bAEeB1E
 BLOCK_BUILDER_REGISTRY_CONTRACT_ADDRESS=0x93a41F47ed161AB2bc58801F07055f2f05dfc74E
 ```
 
-### Running with Docker(Linux)
+### Docker での実行（Linux）
 
-Before running the following command, **please replace `<release-version>`** with the latest version available from the official release page:
+以下のコマンドを実行する前に、**`<release-version>`** を公式リリースページで公開されている最新バージョンに置き換えてください。
 
-**Note:** Do not include the `v` prefix in the release version.
+**注意:** リリースバージョンに `v` プレフィックスは付けないでください。
 
-👉 **Check the latest release [here:](https://github.com/InternetMaximalism/intmax2/pkgs/container/intmax2)**
+👉 **最新リリースは[こちら](https://github.com/InternetMaximalism/intmax2/pkgs/container/intmax2)で確認**
 
-Before running the command, make sure to set up the `.env` file or configure the necessary environment variables.
+コマンドを実行する前に、`.env` ファイルのセットアップまたは必要な環境変数の設定が完了していることを確認してください。
 
-⚡ Tip: If you don’t need logs and want to avoid storage usage on your server, you can run Docker with `--log-driver=none`. This disables log persistence and prevents your disk from filling up.
+⚡ ヒント: ログが不要でサーバーのストレージ使用量を抑えたい場合は、Docker を `--log-driver=none` オプションで実行できます。これによりログの永続化が無効になり、ディスクの圧迫を防げます。
 
-**x86-64 Architecture**
+**x86-64 アーキテクチャ**
 
 ```bash
 docker pull ghcr.io/internetmaximalism/intmax2:**<release-version>**
@@ -167,7 +172,7 @@ docker run -d --rm \
      ghcr.io/internetmaximalism/intmax2:0.1.34 /app/block-builder
 ```
 
-**arm-64 Architecture**
+**arm-64 アーキテクチャ**
 
 ```bash
 docker pull ghcr.io/internetmaximalism/intmax2:**<release-version>**-arm64
@@ -190,17 +195,17 @@ docker run -d --rm \
      ghcr.io/internetmaximalism/intmax2:0.1.34-arm64 /app/block-builder
 ```
 
-### Running as a Binary(Linux)
+### バイナリでの実行（Linux）
 
-Before running the following command, **please replace `<release-version>`** with the latest version available from the official release page:
+以下のコマンドを実行する前に、**`<release-version>`** を公式リリースページで公開されている最新バージョンに置き換えてください。
 
-**Note:** Make sure to add the `v` prefix to the release version.
+**注意:** リリースバージョンには `v` プレフィックスを付けてください。
 
-👉 **Check the latest release [here:](https://github.com/InternetMaximalism/intmax2/releases)**
+👉 **最新リリースは[こちら](https://github.com/InternetMaximalism/intmax2/releases)で確認**
 
-Before running the command, make sure to set up the `.env` file or configure the necessary environment variables.
+コマンドを実行する前に、`.env` ファイルのセットアップまたは必要な環境変数の設定が完了していることを確認してください。
 
-**x86-64 Architecture**
+**x86-64 アーキテクチャ**
 
 ```bash
 curl -L https://github.com/InternetMaximalism/intmax2/releases/download/**<release-version>**/intmax2-x86_64-unknown-linux-gnu.tar.gz \
@@ -217,7 +222,7 @@ chmod +x block-builder
 ./block-builder
 ```
 
-**arm-64 Architecture**
+**arm-64 アーキテクチャ**
 
 ```bash
 curl -L https://github.com/InternetMaximalism/intmax2/releases/download/<release-version>/intmax2-aarch64-unknown-linux-gnu.tar.gz \
@@ -234,15 +239,15 @@ chmod +x block-builder
 ./block-builder
 ```
 
-## Health check
+## ヘルスチェック
 
-### Q. How to Check if the Block Builder is Working Correctly?
+### Q: Block Builder が正しく動作しているか確認するには？
 
-These endpoints provide essential insights into the health, operational status, and fee details of the Block Builder. After confirming that it works locally, **you must also verify that the endpoint is accessible from external sources** This ensures that network participants can communicate with your Block Builder. Make sure any firewall settings or reverse proxies allow external access to the appropriate ports.
+これらのエンドポイントは、Block Builder のヘルス、動作状況、手数料の詳細に関する重要な情報を提供します。ローカルで動作を確認した後、**エンドポイントが外部ソースからもアクセス可能であることを必ず確認してください。** これにより、ネットワーク参加者があなたの Block Builder と通信できるようになります。ファイアウォール設定やリバースプロキシが、適切なポートへの外部アクセスを許可していることを確認してください。
 
-**Local Check**
+**ローカルチェック**
 
-First, confirm the Block Builder is running locally:
+まず、Block Builder がローカルで動作していることを確認します。
 
 ```bash
 curl http://localhost:8080/health-check
@@ -251,9 +256,9 @@ curl http://localhost:8080/health-check
 {"name":"block-builder","version":"0.1.34"}
 ```
 
-**External Check**
+**外部チェック**
 
-After confirming local functionality, make sure the health-check endpoint is accessible from external sources as well. Replace `<your-domain>` with your actual domain or IP address:
+ローカルでの動作確認後、ヘルスチェックエンドポイントが外部ソースからもアクセス可能であることを確認します。`<your-domain>` を実際のドメインまたは IP アドレスに置き換えてください。
 
 ```bash
 curl https://<your-domain>/health-check
@@ -262,11 +267,11 @@ curl https://<your-domain>/health-check
 {"name":"block-builder","version":"0.1.34"}
 ```
 
-> ⚠️ Ensure that firewall rules, reverse proxy (e.g., Nginx), or any cloud service settings allow external HTTP/HTTPS access to the endpoint.
+> ⚠️ ファイアウォールルール、リバースプロキシ（例: Nginx）、またはクラウドサービスの設定で、エンドポイントへの外部 HTTP/HTTPS アクセスが許可されていることを確認してください。
 
-### Q: How can I check if my Block Builder is registered and ready?
+### Q: Block Builder が登録済みで稼働準備ができているか確認するには？
 
-You can verify the registration status of your Block Builder by calling the following API:
+以下の API を呼び出すことで、Block Builder の登録状況を確認できます。
 
 ```bash
 # Mainnet
@@ -276,9 +281,9 @@ curl https://api.indexer.intmax.io/v1/indexer/builders/registration/<your-block-
 curl https://stage.api.indexer.intmax.io/v1/indexer/builders/registration/<your-block-builder-address>
 ```
 
-Replace `<your-block-builder-address>` with your actual Block Builder address.
+`<your-block-builder-address>` を実際の Block Builder アドレスに置き換えてください。
 
-The response will look like this:
+レスポンスは以下のようになります。
 
 ```json
 {
@@ -287,16 +292,16 @@ The response will look like this:
 }
 ```
 
-- `registered`: Indicates whether your Block Builder has already been registered with the indexer.
-- `ready`: Indicates whether your Block Builder has passed the fee and balance checks and is now included in the active list of builders.
+- `registered`: Block Builder が Indexer に登録済みかどうかを示します
+- `ready`: Block Builder が手数料と残高のチェックをパスし、アクティブな Builder リストに含まれているかどうかを示します
 
-This API allows you to confirm the current status of your Block Builder in the indexer.
+この API を使用して、Indexer における Block Builder の現在のステータスを確認できます。
 
-### Fee Information
+### 手数料情報
 
-#### Local Check
+#### ローカルチェック
 
-Check the fee-related data for the Block Builder locally:
+Block Builder の手数料関連データをローカルで確認します。
 
 ```bash
 curl http://localhost:8080/fee-info
@@ -324,9 +329,9 @@ curl http://localhost:8080/fee-info
 
 ```
 
-#### External Check
+#### 外部チェック
 
-After confirming local functionality, make sure the fee-info endpoint is accessible from external sources. Replace `<your-domain>` with your actual domain or IP address:
+ローカルでの動作確認後、fee-info エンドポイントが外部ソースからもアクセス可能であることを確認します。`<your-domain>` を実際のドメインまたは IP アドレスに置き換えてください。
 
 ```bash
 curl https://<your-domain>/fee-info
@@ -356,67 +361,67 @@ curl https://<your-domain>/fee-info
 
 ## FAQ
 
-### Q: Overview of the Indexer Component and BlockBuilder Requirements
+### Q: Indexer コンポーネントの概要と Block Builder の要件
 
-An **Indexer** is a component that manages the URLs of multiple valid **BlockBuilders** and returns an appropriate BlockBuilder URL to the user.
+**Indexer** は、複数の有効な **Block Builder** の URL を管理し、ユーザーに適切な Block Builder の URL を返すコンポーネントです。
 
-The Indexer only returns BlockBuilders that meet all of the following conditions:
+Indexer は、以下のすべての条件を満たす Block Builder のみを返します。
 
-- **They regularly send HeartBeat signals.**
-- **Their registered URL is accessible.**
-- **Their balance is at least 0.001 ETH.**
+- **定期的に HeartBeat シグナルを送信している**
+- **登録された URL がアクセス可能である**
+- **残高が最低 0.001 ETH ある**
 
-BlockBuilders must be configured to meet these conditions.
+Block Builder はこれらの条件を満たすように設定する必要があります。
 
-### Q: Verifying Block Submission by Your Block Builder
+### Q: 自分の Block Builder によるブロック送信の確認方法
 
-A block is considered submitted by your Block Builder if the minter address in the block matches the address your Block Builder is configured to use.
+ブロック内の minter アドレスが、Block Builder に設定したアドレスと一致していれば、そのブロックはあなたの Block Builder によって送信されたものです。
 
-You can verify the submitted blocks via the Explorer at:
+送信されたブロックは以下の Explorer で確認できます。
 
 - [Mainnet Explorer](https://explorer.intmax.io/)
 - [Testnet Explorer](https://beta.testnet.explorer.intmax.io/)
 
-### Q: Where is the synchronized data stored inside the Docker container?
+### Q: Docker コンテナ内の同期データはどこに保存されますか？
 
-A: The Block Builder does not store any data persistently. It only receives transaction data and submits it as a block. While transaction data is temporarily held in memory, it is not written to disk or stored permanently inside the container. Therefore, there is no specific directory where synchronized data is stored.
+A: Block Builder はデータを永続的に保存しません。トランザクションデータを受信してブロックとして送信するのみです。トランザクションデータは一時的にメモリに保持されますが、ディスクに書き込まれたりコンテナ内に永続的に保存されたりすることはありません。そのため、同期データが保存される特定のディレクトリはありません。
 
-### Q: Resolving `libssl.so.1.1` Missing Library Error on `ubuntu`
+### Q: Ubuntu で `libssl.so.1.1` ライブラリが見つからないエラーの解決方法
 
-If you encounter an error related to `libssl.so.1.1` missing on Ubuntu, you can manually install the required package using the following steps:
+Ubuntu で `libssl.so.1.1` が見つからないエラーが発生した場合、以下の手順で必要なパッケージを手動インストールできます。
 
 ```bash
 wget http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
 sudo dpkg -i libssl1.1_1.1.1f-1ubuntu2.23_amd64.deb
 ```
 
-### Q: Can I use an RPC URL other than Alchemy for `L2_RPC_URL`?
+### Q: `L2_RPC_URL` に Alchemy 以外の RPC URL を使用できますか？
 
-A: Yes, you can use an RPC provider other than Alchemy for `L2_RPC_URL`. Some examples of alternative providers include:
+A: はい、`L2_RPC_URL` には Alchemy 以外の RPC プロバイダーも使用できます。代替プロバイダーの例：
 
 - **Infura**
 - **Ankr**
-- **Custom RPC**: Your own self-hosted node's RPC URL
+- **カスタム RPC**: 自前のセルフホストノードの RPC URL
 
-The performance and stability may vary depending on the RPC provider, so please choose the one that best suits your environment and use case.
+パフォーマンスと安定性は RPC プロバイダーによって異なる場合があるため、環境とユースケースに最適なものを選択してください。
 
-### Q: What `BLOCK_BUILDER_URL` should I set?
+### Q: `BLOCK_BUILDER_URL` には何を設定すればよいですか？
 
-Please set the `BLOCK_BUILDER_URL` that allows access to your Block Builder. Users will send transactions to your Block Builder through this URL. If the URL is not accessible, your Block Builder will not be able to submit blocks.
+Block Builder にアクセスできる `BLOCK_BUILDER_URL` を設定してください。ユーザーはこの URL を通じてあなたの Block Builder にトランザクションを送信します。URL がアクセスできない場合、Block Builder はブロックを送信できません。
 
-You can verify it by accessing $`${BLOCK_BUILDER_URL}/health-check` . If the URL is accessible, you will receive a health check response like the one below.
+`${BLOCK_BUILDER_URL}/health-check` にアクセスして確認できます。URL がアクセス可能であれば、以下のようなヘルスチェックレスポンスが返されます。
 
 ```bash
 { "name":"block-builder","version":"0.1.34" }
 ```
 
-### Q: How much is the gas fee for one block builder submission on the mainnet?
+### Q: メインネットでの Block Builder 1回の送信にかかるガス代はいくらですか？
 
-Block Builder requires approximately **0.000016 ETH** in gas fees to submit a block. To ensure stable operation, it's recommended to keep a bit more than this amount. Please note that gas fees may fluctuate depending on the congestion of the Mainnet and Scroll networks.
+Block Builder が1ブロックを送信するのに必要なガス代は約 **0.000016 ETH** です。安定した運用のためには、この金額よりも多めに保持しておくことをお勧めします。メインネットや Scroll ネットワークの混雑状況によりガス代は変動する場合があるのでご注意ください。
 
-### Q. How can we check if our indexer is registered
+### Q: Indexer に自分の Block Builder が登録されているか確認する方法
 
-Please send a request to the URL below. Three addresses registered as indexers will be returned at random. Repeat the request several times. This will give you the current list of active indexers.
+以下の URL にリクエストを送信してください。Indexer に登録されているアドレスのうち3件がランダムに返されます。リクエストを数回繰り返すと、現在アクティブな Block Builder のリストを確認できます。
 
 ```bash
 # Mainnet
@@ -448,69 +453,69 @@ curl https://stage.api.indexer.intmax.io/v1/indexer/builders
 ]
 ```
 
-### Q. When will the URL of my BlockBuilder be registered with the indexer?
+### Q: Block Builder の URL が Indexer に登録されるタイミングは？
 
-After the block builder starts running, it registers its URL to the Block Builder Registry Contract once the time set in `INITIAL_HEART_BEAT_DELAY` has passed.
-**If the URL is valid, it will be registered by the indexer 10 to 15 minutes later.**
-To be registered, the URL must be accessible from the indexer's side.
+Block Builder の稼働開始後、`INITIAL_HEART_BEAT_DELAY` で設定された時間が経過すると、Block Builder Registry Contract に URL が登録されます。
+**URL が有効であれば、その 10〜15 分後に Indexer に登録されます。**
+登録されるためには、Indexer 側から URL にアクセスできる必要があります。
 
-### Q: What is the minimum amount of ETH required to deposit? (How much ETH should I keep for stable operation?)
+### Q: Deposit に必要な最低 ETH 量は？（安定運用にはどれくらいの ETH が必要？）
 
-To ensure stable operation of the Block Builder, **please deposit at least 0.01 ETH**.
+Block Builder を安定して運用するには、**最低 0.01 ETH を Deposit してください**。
 
-Submitting one block typically requires approximately **0.000016 ETH** in gas fees, but gas fees may fluctuate depending on network congestion. If your balance falls below **0.001 ETH**, you will no longer be able to submit blocks.
+1ブロックの送信に必要なガス代は約 **0.000016 ETH** ですが、ネットワークの混雑状況により変動します。残高が **0.001 ETH** を下回ると、ブロックの送信ができなくなります。
 
-**Recommended balance management:**
+**推奨される残高管理：**
 
-- **Always keep more than 0.01 ETH** in your account as a guideline.
-- **If your balance drops below 0.002 ETH,** please top up as soon as possible.
-- **If your balance drops below 0.001 ETH,** block submission will fail, so regular balance checks and timely top-ups are strongly recommended.
+- 目安として、アカウントに**常に 0.01 ETH 以上**を維持してください
+- **残高が 0.002 ETH を下回った場合**、できるだけ早くチャージしてください
+- **残高が 0.001 ETH を下回った場合**、ブロック送信が失敗するため、定期的な残高確認と適時のチャージを強く推奨します
 
-### Q. Can the Block Builder set custom fees?
+### Q: Block Builder でカスタム手数料を設定できますか？
 
-Yes, the Block Builder can set custom fees. The supported tokens are `ETH`, `~~USDC`, and `WBTC`,~~ each identified by a `tokenIndex` as follows:
+はい、Block Builder ではカスタム手数料を設定できます。対応トークンは `ETH`、`~~USDC`、`WBTC`~~ で、それぞれ `tokenIndex` で以下のように識別されます。
 
 - `tokenIndex: 0` → ETH
 - ~~`tokenIndex: 1` → ITX~~
 - ~~`tokenIndex: 2` → WBTC~~
 - ~~`tokenIndex: 3` → USDC~~
 
-For example, specifying `0:2500000000000` sets a fee of 0.0000025 ETH.
+たとえば、`0:2500000000000` を指定すると、手数料は 0.0000025 ETH に設定されます。
 
-You can define multiple fees for different tokens at the same time.
+複数のトークンの手数料を同時に定義することもできます。
 
-Example:
+例：
 
 `REGISTRATION_FEE=0:2500000000000~~,1:100000~~`
 
-This sets the fee as 0.0000025 ETH ~~and 1 USDC.~~
+これにより、手数料は 0.0000025 ETH ~~および 1 USDC~~ に設定されます。
 
-## References
+## リファレンス
 
-Here are essential resources for developers working with the INTMAX2 network:
+INTMAX2 ネットワークで開発を行う際に役立つリソースです。
 
 ### INTMAX2 Block Builder
 
-Access the source code and implementation details on GitHub.
+GitHub でソースコードと実装の詳細を確認できます。
 
-[View Block Builder Repository](https://github.com/InternetMaximalism/intmax2/tree/main/block-builder)
+[Block Builder リポジトリを見る](https://github.com/InternetMaximalism/intmax2/tree/main/block-builder)
 
 ### INTMAX Mainnet
 
-- App Frontend:
-  [Open Mainnet App](https://app.intmax.io/)
+- App フロントエンド:
+  [Mainnet App を開く](https://app.intmax.io/)
 - Explorer:
-  [Open Mainnet Explorer](https://explorer.intmax.io/)
+  [Mainnet Explorer を開く](https://explorer.intmax.io/)
 
 ### INTMAX Testnet
 
-- App Frontend:
-  [Open Testnet App](https://testnet.app.intmax.io/)
+- App フロントエンド:
+  [Testnet App を開く](https://testnet.app.intmax.io/)
 - Explorer:
-  [Open Testnet Explorer](https://beta.testnet.explorer.intmax.io/)
+  [Testnet Explorer を開く](https://beta.testnet.explorer.intmax.io/)
 
-### Smart Contracts
+### スマートコントラクト
 
-View the documentation for deployed smart contracts and their usage.
+デプロイ済みスマートコントラクトとその使い方に関するドキュメントです。
 
-[View Smart Contracts Documentation](../intmax-nodes/smart-contracts.md)
+[スマートコントラクトのドキュメントを見る](../intmax-nodes/smart-contracts.md)

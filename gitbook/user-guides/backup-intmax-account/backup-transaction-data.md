@@ -1,77 +1,82 @@
-# Backup Transaction Data
+---
+icon: cloud-arrow-up
+description: トランザクションデータのバックアップ種類と手順
+---
 
-## Overview
+# トランザクションデータのバックアップ
 
-**Backup files** contain personal data including user transaction history. Having this file with INTMAX private key allows you to transfer your assets from the INTMAX network back to Ethereum in the event of a network issue.
+## 概要
 
-### Types of Backup Files
+**バックアップファイル**には、ユーザーのトランザクション履歴を含む個人データが含まれます。このファイルと INTMAX の秘密鍵（Private Key）があれば、ネットワークに問題が発生した場合に INTMAX Network から Ethereum へ資産を移すことができます。
 
-1. **Transaction-level Backup**
-   - How to obtain: From the backup button displayed when executing deposits/withdrawals/transfers
-   - Content: Data related to specific transactions
-   - Recommendation level: Recommended (not mandatory)
+### バックアップファイルの種類
 
-2. **Comprehensive Backup (Settings Screen)**
-   - How to obtain: From the backup function in the settings screen
-   - Content: All transaction history
-   - Recommendation level: Highly recommended
+1. **トランザクション単位のバックアップ**
+   - 取得方法：Deposit・Withdrawal・Transfer 実行時に表示されるバックアップボタンから
+   - 内容：特定のトランザクションに関するデータ
+   - 推奨度：推奨（必須ではない）
 
-### File Details
+2. **包括バックアップ（設定画面）**
+   - 取得方法：設定画面のバックアップ機能から
+   - 内容：すべてのトランザクション履歴
+   - 推奨度：強く推奨
 
-- File format: CSV
-- Content: Transaction history
-- File size: Approximately 200 KB per transaction
-- Estimated weekly size: Around 20 MB (depending on transaction frequency)
-- Security level: No direct risk to assets even if made public
+### ファイルの詳細
 
-### Backup Timing
+- ファイル形式：CSV
+- 内容：トランザクション履歴
+- ファイルサイズ：トランザクションあたり約 200 KB
+- 1 週間あたりの推定サイズ：約 20 MB（トランザクション頻度に依存）
+- セキュリティレベル：公開しても資産への直接的なリスクなし
 
-#### Automatic Backup Notifications
+### バックアップのタイミング
 
-- Backup save buttons appear when you perform deposits, withdrawals, or transfers.
-- Backup after transaction execution is recommended but not mandatory.
+#### 自動バックアップ通知
+
+- Deposit・Withdrawal・Transfer の実行時にバックアップ保存ボタンが表示されます。
+- トランザクション実行後のバックアップは推奨されますが、必須ではありません。
 
 ![Backup Transaction Data](assets/user-guides/backup_transaction_data_10.webp)
 
-#### Comprehensive Backup (Settings Screen)
+#### 包括バックアップ（設定画面）
 
-- Backup files obtained from the settings screen include all transaction history.
-- After saving a backup from the settings screen, you can delete previously downloaded individual backup files.
-- The latest comprehensive backup contains all past data.
+- 設定画面から取得したバックアップファイルには、すべてのトランザクション履歴が含まれます。
+- 設定画面からバックアップを保存した後は、以前ダウンロードした個別のバックアップファイルを削除できます。
+- 最新の包括バックアップには、過去のすべてのデータが含まれます。
 
-The backup method will be explained in the next section.
+次のセクションでバックアップの手順を説明します。
 
-### Flow
+### 手順
 
-1. Click the gear (⚙️) button.
+1. 歯車（⚙️）ボタンをクリック
 
 ![Backup Transaction Data](assets/user-guides/backup_transaction_data_20.webp)
 
-2. Select "Backup INTMAX Addresses" from the settings menu.
+2. 設定メニューから「Backup INTMAX Addresses」を選択
 
 ![Backup Transaction Data](assets/user-guides/backup_transaction_data_30.webp)
 
-3. Switch to the "Backup file" tab.
+3. 「Backup file」タブに切り替え
 
 ![Backup Transaction Data](assets/user-guides/backup_transaction_data_40.webp)
 
-4. After a successful download, the following screen will appear.
+4. ダウンロードが成功すると、以下の画面が表示されます。
 
 ![Backup Transaction Data](assets/user-guides/backup_transaction_data_50.webp)
 
-#### Backup Options
+#### バックアップオプション
 
-Choose from various time ranges:
+さまざまな期間を選択できます：
 
-- All (entire history)
-- 1 week (from now)
-- 1 month (from now)
-- 1 year (from now)
+- All（全履歴）
+- 1 week（現在から 1 週間）
+- 1 month（現在から 1 か月）
+- 1 year（現在から 1 年）
 
 ![Backup Transaction Data](assets/user-guides/backup_transaction_data_60.webp)
 
-#### Recommendations
+#### 推奨事項
 
-- **Regular backups:** Recommend comprehensive backup from settings screen about once a month.
-- **After important transactions:** Utilize backup buttons displayed during transaction execution.
-- **File management:** After saving the latest comprehensive backup, old files can be deleted.
+- **定期的なバックアップ：** 月に 1 回程度、設定画面からの包括バックアップを推奨します。
+- **重要なトランザクション後：** トランザクション実行時に表示されるバックアップボタンを活用してください。
+- **ファイル管理：** 最新の包括バックアップを保存した後は、古いファイルを削除できます。

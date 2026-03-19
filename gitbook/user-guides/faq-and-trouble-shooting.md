@@ -1,70 +1,75 @@
-# FAQ & Trouble Shooting
+---
+icon: comments-question-check
+description: よくある質問とトラブルシューティング
+---
 
-### Q: I would like to know more details about mining rules and learn how to earn ITX.
+# FAQ と トラブルシューティング
 
-A: Please note that the tokens you can claim on the INTMAX Testnet are testnet-specific and differ from the ITX tokens on the Mainnet.
+### Q: マイニングのルールの詳細や、ITX の獲得方法を知りたいです。
 
-Meanwhile, mining is already live on the Ethereum Mainnet try it at https://intmax.io. While the ITX mined cannot be transferred at the moment, it will be a transferable token that can be used within the INTMAX ecosystem in the future.
+A: INTMAX Testnet で Claim できるトークンはテストネット専用であり、Mainnet の ITX トークンとは異なります。
 
-### Q: Why do you receive ITX when you deposit 0.1ETH or 1ETH?
+現在、Ethereum Mainnet でマイニングが稼働しています。https://intmax.io からお試しください。マイニングで獲得した ITX は現時点では Transfer できませんが、将来的には INTMAX エコシステム内で利用可能な Transfer 可能なトークンになる予定です。
 
-A: In Privacy Mining, you receive ITX as a reward for contributing to privacy creation by depositing 0.1 ETH, 1 ETH, 10 ETH, or 100 ETH. Since depositing the same amount is essentially the same as the work done in mining, you are eligible to receive a reward.
+### Q: 0.1 ETH や 1 ETH を Deposit すると ITX がもらえるのはなぜですか？
 
-### Q: I believe Privacy Mining is currently being done through the CLI, so how is this Testnet mining different?
+A: Privacy Mining では、0.1 ETH、1 ETH、10 ETH、または 100 ETH を Deposit することでプライバシー創出に貢献し、そのリワードとして ITX を受け取ります。同じ金額を Deposit することはマイニングで行う作業と本質的に同じであるため、リワードの受取対象になります。
 
-A: Currently, it is possible to obtain ITX that will actually circulate in the market in the future, rather than Testnet tokens.
-Now mining is possible through the CLI and also through a user-friendly UI/UX at https://app.intmax.io
+### Q: Privacy Mining は現在 CLI で行われていると思いますが、この Testnet マイニングとの違いは何ですか？
 
-### Q: There are tokens called INT and INTMX. Are these tokens related to INTMAX?
+A: 現在は、テストネットトークンではなく、将来実際に市場で流通する ITX を獲得できます。
+マイニングは CLI だけでなく、https://app.intmax.io のユーザーフレンドリーな UI/UX からも可能です。
 
-A: No, those are scams pretending to be INTMAX.
-Please be careful and avoid any involvement with them.
-Our token is called ITX, and it does not yet have a transfer function.
-Therefore, any claims that it can be bought or sold are completely false.
+### Q: INT や INTMX というトークンがありますが、これらは INTMAX と関係がありますか？
 
-### Q: Although the wallet should be connected, the balance and other details are not being displayed.
+A: いいえ、それらは INTMAX を装った詐欺です。
+関わらないようご注意ください。
+INTMAX のトークンは ITX であり、現時点では Transfer 機能はありません。
+したがって、売買できるという主張はすべて虚偽です。
 
-A: Please try the following steps:
-Reload the website.
-Close all open tabs in the browser, then close the browser itself. Reopen the browser afterward.
-Ensure that extensions other than the wallet you are using are set so they do not read or modify site data unless clicked.
+### Q: ウォレットは接続されているはずなのに、残高などが表示されません。
+
+A: 以下の手順をお試しください：
+Web サイトをリロードしてください。
+ブラウザで開いているすべてのタブを閉じてから、ブラウザ自体を閉じてください。その後ブラウザを再度開いてください。
+使用しているウォレット以外の拡張機能が、クリックしない限りサイトデータの読み取りや変更を行わない設定になっていることを確認してください。
 https://support.google.com/chrome_webstore/answer/2664769
 
-### Q: What is the recommended way to use wallet apps on mobile devices?
+### Q: モバイルデバイスでウォレットアプリを使用する際の推奨方法は？
 
-A: When using a mobile wallet on an mobile device, it is highly recommended to access DApps through the In-App Browser provided within each wallet application. Some wallets may become unstable when connecting to DApps via external mobile browsers like Chrome or Brave. This can result in issues with DApp communication or signing transactions. Using the In-App Browser ensures that the wallet and DApp operate within the same secure environment, significantly reducing connection issues.
+A: モバイルデバイスでモバイルウォレットを使用する場合は、各ウォレットアプリ内のアプリ内ブラウザ（In-App Browser）から dApp にアクセスすることを強く推奨します。Chrome や Brave などの外部モバイルブラウザ経由で dApp に接続すると、一部のウォレットが不安定になる場合があります。dApp との通信やトランザクションの署名に問題が生じることがあります。アプリ内ブラウザを使用することで、ウォレットと dApp が同じセキュアな環境内で動作し、接続の問題が大幅に軽減されます。
 
-### Q: Which mobile wallets support In-App Browser usage?
+### Q: アプリ内ブラウザに対応しているモバイルウォレットは？
 
-A: Popular mobile wallets that support In-App Browsers include:
+A: アプリ内ブラウザに対応している主なモバイルウォレットは以下の通りです：
 
 - MetaMask
 - Trust Wallet
 - Coinbase Wallet
 - OKX Wallet
 
-### Q: It looks like the assets I deposited for mining have disappeared. How can I verify them?
+### Q: マイニング用に Deposit した資産が消えたように見えます。確認方法を教えてください。
 
-A: Note that regular deposits and mining deposits use different addresses. Regular deposits appear on the Transactions page, while mining deposits appear on the Mining Portfolio page.
-If the issue still persists, please check using the steps below.
+A: 通常の Deposit とマイニング用の Deposit では異なるアドレスが使用されることにご注意ください。通常の Deposit は Transactions ページに、マイニング用の Deposit は Mining Portfolio ページに表示されます。
+問題が解決しない場合は、以下の手順で確認してください。
 
-Please verify the deposited address by following the steps below.
+以下の手順で Deposit 先アドレスを確認してください。
 
-1. Open [the mining address list page](https://app.intmax.io/mining-address-list).
-2. Sign twice with the connected wallet; a list of related addresses will appear.
-3. Take a screenshot of this list and share it with support.
-4. This screen allows you to do two things:
-   a. **Download user data files:** Checking this file will let you confirm your balance.
-   b. **Check the withdrawal address:** This displays the Ethereum (Sepolia) address that will be used for re-deposits. If you choose to redeposit, you can verify on Etherscan that ETH has been deposited to this address.
+1. [マイニングアドレス一覧ページ](https://app.intmax.io/mining-address-list)を開きます。
+2. 接続中のウォレットで 2 回署名すると、関連するアドレスの一覧が表示されます。
+3. この一覧のスクリーンショットを撮り、サポートに共有してください。
+4. この画面では 2 つのことができます：
+   a. **ユーザーデータファイルのダウンロード：** このファイルを確認することで残高を確認できます。
+   b. **Withdrawal アドレスの確認：** Redeposit 時に使用される Ethereum（Sepolia）アドレスが表示されます。Redeposit を行った場合、Etherscan でこのアドレスに ETH が Deposit されたことを確認できます。
 
 ![Mining Address List](assets/user-guides/faq_and_trouble_shooting_10.webp)
 
-5. Please download the USER DATA for the address located immediately under the "Available Unused Addresses" section, and share it with support.
+5. 「Available Unused Addresses」セクションの直下にあるアドレスの USER DATA をダウンロードし、サポートに共有してください。
 
 ![FAQ](assets/user-guides/faq_and_trouble_shooting_20.webp)
 
-### Q: I deposited from the mining page, but it's not showing up in my mining portfolio. How can I verify this?
+### Q: マイニングページから Deposit しましたが、マイニングポートフォリオに表示されません。確認方法を教えてください。
 
-A: Please refer to the following page:
+A: 以下のページを参照してください：
 
-[Resolved Issue: ETH Deposits Not Displaying in Mining Portfolio](resolved-issue.md#eth-deposits-not-displaying-in-mining-portfolio)
+[解決済みの問題：マイニングポートフォリオに ETH の Deposit が表示されない](resolved-issue.md#eth-deposits-not-displaying-in-mining-portfolio)

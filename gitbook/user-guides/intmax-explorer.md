@@ -1,57 +1,62 @@
+---
+icon: magnifying-glass-chart
+description: INTMAX Explorer の使い方とトランザクション検索
+---
+
 # INTMAX Explorer
 
-## Introduction
+## はじめに
 
-**INTMAX Explorer** is a tool for visualizing various activities occurring on the INTMAX Network, such as deposits, withdrawals, and block submissions. It is primarily used for the following purposes:
+**INTMAX Explorer** は、INTMAX Network 上で発生する Deposit、Withdrawal、ブロック送信などのアクティビティを可視化するツールです。主に以下の用途で使用します：
 
-- Monitoring the current state and historical activity of the INTMAX Network
-- Tracking your own deposit and withdrawal history
-- Checking the status and history of block submissions
+- INTMAX Network の現在の状態と過去のアクティビティの監視
+- 自身の Deposit・Withdrawal 履歴の追跡
+- ブロック送信のステータスと履歴の確認
 
-### Key Use Cases
+### 主な Use Cases
 
-**From a User Perspective:**
+**ユーザーの視点：**
 
-- Confirm whether your deposit or withdrawal was successfully processed
+- 自分の Deposit や Withdrawal が正常に処理されたかを確認
 
-**From a Block Builder Perspective:**
+**Block Builder の視点：**
 
-- Verify whether your submitted blocks have been accepted by the network
-- View a list of successfully and unsuccessfully posted blocks
+- 送信したブロックがネットワークに受け入れられたかを検証
+- 投稿に成功したブロックと失敗したブロックの一覧を閲覧
 
-### Target Audience
+### 対象読者
 
-**Users of the INTMAX Network:**
+**INTMAX Network のユーザー：**
 
-- Especially those who have made deposits, withdrawals, or transfers
-- Users who want to understand how their actions are processed on the network
+- Deposit、Withdrawal、Transfer を行ったことがあるユーザー
+- 自分の操作がネットワーク上でどう処理されるかを理解したいユーザー
 
-**Block Builders:**
+**Block Builder：**
 
-- Developers or node operators who want to verify whether their generated and submitted blocks have been accepted by the network
+- 生成・送信したブロックがネットワークに受け入れられたかを検証したい開発者やノードオペレーター
 
-### Prerequisites
+### 前提知識
 
-This documentation assumes that the reader has a basic understanding of the following concepts:
+このドキュメントは、以下の概念について基本的な理解があることを前提としています：
 
-- Core blockchain concepts such as transactions, blocks, and addresses
-- The distinction between Layer 1 and Layer 2
+- トランザクション、ブロック、アドレスなどのブロックチェーンの基礎概念
+- L1（Layer 1）と L2（Layer 2）の違い
 
-### Privacy Limitations
+### プライバシーに関する制限事項
 
-Due to privacy considerations, the Explorer does not display the following information:
+プライバシーへの配慮から、Explorer では以下の情報は表示されません：
 
-- **Address balances:** You cannot view how much ETH or token balance an address holds.
-- **Transaction contents:** The full details of transfer transactions are not exposed.
-- **INTMAX on‑chain addresses:**
-  - Target addresses for deposits to INTMAX
-  - Origin addresses for withdrawals from INTMAX
+- **アドレスの残高：** あるアドレスが保有する ETH やトークンの残高は閲覧できません。
+- **トランザクションの内容：** Transfer トランザクションの詳細は公開されません。
+- **INTMAX オンチェーンアドレス：**
+  - INTMAX への Deposit 先アドレス
+  - INTMAX からの Withdrawal 元アドレス
 
-These restrictions ensure user privacy and align with INTMAX’s stateless, zero‑knowledge architecture.
+これらの制限は、ユーザーのプライバシーを確保し、INTMAX のステートレス（Stateless）なゼロ知識アーキテクチャに沿ったものです。
 
 ## Home
 
-You can access the INTMAX Explorer on:
+INTMAX Explorer には以下からアクセスできます：
 
 - **Mainnet:** https://explorer.intmax.io/
 - **Testnet:** https://beta.testnet.explorer.intmax.io/
@@ -62,46 +67,46 @@ You can access the INTMAX Explorer on:
 
 ### Validity
 
-- **Valid:** Indicates that the block contents have been verified and deemed correct according to protocol rules.
-- **Invalid:** Indicates that the block contents violate protocol rules and are therefore rejected. All transactions within this block are considered invalid and will be dropped.
-- **Empty:** Indicates that the block contains no transactions.
+- **Valid：** ブロックの内容がプロトコルルールに従って検証され、正しいと判定されたことを示します。
+- **Invalid：** ブロックの内容がプロトコルルールに違反しているため、拒否されたことを示します。このブロック内のすべてのトランザクションは無効となり、破棄されます。
+- **Empty：** ブロックにトランザクションが含まれていないことを示します。
 
 ### Status
 
-- **Proving:** The block has been submitted successfully and is currently undergoing verification to confirm its correctness.
-- **Completed:** The block’s validity has been determined. If valid, it will be labeled as Valid under the “Validity” field; if not, it will be marked as Invalid.
+- **Proving：** ブロックは正常に送信され、現在その正当性を確認するための検証が行われています。
+- **Completed：** ブロックの有効性が判定されました。有効であれば「Validity」フィールドに Valid と表示され、そうでなければ Invalid と表示されます。
 
 ### Block type
 
-- **Type 0:** A block containing no user transactions. These blocks are typically executed to reflect deposit actions automatically.
-- **Type 1:** A block that includes the first-ever transaction from a sender's address. This special block type is used for a sender’s initial on-chain activity.
-- **Type 2:** A block that includes a subsequent transaction from a sender's address (i.e., not their first). Compared to Type 1, transactions in a Type 2 block are executed with lower fees, making repeated transactions more cost-efficient.
+- **Type 0：** ユーザートランザクションを含まないブロック。通常、Deposit アクションを自動的に反映するために実行されます。
+- **Type 1：** 送信者アドレスからの最初のトランザクションを含むブロック。送信者の初回オンチェーンアクティビティに使用される特殊なブロックタイプです。
+- **Type 2：** 送信者アドレスからの 2 回目以降のトランザクションを含むブロック。Type 1 と比較して低い手数料で実行されるため、繰り返しのトランザクションがよりコスト効率的になります。
 
-### Blocks List
+### ブロック一覧
 
-Displays a real-time paginated list of blocks, including:
+以下の情報を含むブロックのリアルタイムページネーションリストが表示されます：
 
-- Height (block number)
+- Height（ブロック番号）
 - Hash
 - Timestamp
-- Number of transactions
+- トランザクション数
 - Validity
 - Status
 - Block type
 
-Filtering options are available by status and block type
+Status と Block type によるフィルタリングが可能です。
 
 ![INTMAX Explorer Home](assets/user-guides/intmax_explorer_20.webp)
 
-### Block Details
+### ブロック詳細
 
-Provides detailed block-level information such as:
+ブロックレベルの詳細情報を表示します：
 
-- Status and timestamp
-- Block producer’s address
-- Block validity proof (ZKP)
+- Status と Timestamp
+- ブロック生成者のアドレス
+- ブロックの有効性証明（ZKP）
 
-This helps users and Block Builders confirm whether a specific block was posted successfully.
+ユーザーや Block Builder が特定のブロックの投稿成否を確認するのに役立ちます。
 
 ![INTMAX Explorer Block Details](assets/user-guides/intmax_explorer_30.webp)
 
@@ -109,13 +114,13 @@ This helps users and Block Builders confirm whether a specific block was posted 
 
 ### Status
 
-- **Relayed:** The request has been sent on-chain but is still being processed.
-- **Rejected:** The deposit was rejected.
-- **Completed:** The request has been successfully reflected. You can use the deposited funds on INTMAX network.
+- **Relayed：** リクエストはオンチェーンに送信されましたが、まだ処理中です。
+- **Rejected：** Deposit が拒否されました。
+- **Completed：** リクエストが正常に反映されました。Deposit された資金を INTMAX Network で使用できます。
 
-### Deposits List
+### Deposit 一覧
 
-Shows all deposit transactions, with columns including:
+すべての Deposit トランザクションが表示されます。カラムには以下が含まれます：
 
 - Deposit ID
 - Status
@@ -124,18 +129,18 @@ Shows all deposit transactions, with columns including:
 - Amount
 - TxHash
 
-Users can filter by status or date to monitor deposit history effectively.
+Status や日付でフィルタリングして、Deposit 履歴を効率的に監視できます。
 
 ![INTMAX Explorer Deposits List](assets/user-guides/intmax_explorer_40.webp)
 
-### Deposit Details
+### Deposit 詳細
 
-Detailed view for a specific deposit, showing:
+特定の Deposit の詳細ビューで、以下が表示されます：
 
-- Status and timestamp
-- Linked L1 transaction hash
+- Status と Timestamp
+- 紐づく L1 トランザクションハッシュ
 
-Filtering options help users track their deposit flows.
+フィルタリングオプションにより、Deposit のフローを追跡できます。
 
 ![INTMAX Explorer Deposit Details](assets/user-guides/intmax_explorer_50.webp)
 
@@ -143,13 +148,13 @@ Filtering options help users track their deposit flows.
 
 ### Status
 
-- **Relayed:** The request has been sent on-chain but is still being processed.
-- **Rejected:** The withdrawal was rejected.
-- **Completed:** The request has been successfully reflected. ETH and certain ERC‑20 tokens are automatically credited to the user’s specified address, meaning no additional action is needed. However, other ERC‑20 tokens and NFTs must be claimed manually via the web app’s transaction screen.
+- **Relayed：** リクエストはオンチェーンに送信されましたが、まだ処理中です。
+- **Rejected：** Withdrawal が拒否されました。
+- **Completed：** リクエストが正常に反映されました。ETH および一部の ERC-20 トークンはユーザーが指定したアドレスに自動的に入金されるため、追加の操作は不要です。ただし、その他の ERC-20 トークンや NFT は、Web App のトランザクション画面から手動で Claim する必要があります。
 
-### Withdrawals List
+### Withdrawal 一覧
 
-Lists all withdrawal transactions with details:
+すべての Withdrawal トランザクションが以下の詳細とともに表示されます：
 
 - Withdrawal Hash
 - Status
@@ -158,31 +163,31 @@ Lists all withdrawal transactions with details:
 - Amount
 - TxHash
 
-Filtering options help users track their withdrawal flows.
+フィルタリングオプションにより、Withdrawal のフローを追跡できます。
 
 ![INTMAX Explorer Withdrawals List](assets/user-guides/intmax_explorer_60.webp)
 
-### Withdrawal Details
+### Withdrawal 詳細
 
-Provides in-depth details on a withdrawal transaction:
+Withdrawal トランザクションの詳細情報を表示します：
 
-- Status and timestamp
-- Linked L1 transaction hash
+- Status と Timestamp
+- 紐づく L1 トランザクションハッシュ
 
 <figure>
   <img src="assets/user-guides/intmax_explorer_70.webp" alt="INTMAX Explorer Withdrawal Details Relayed" />
   <img src="assets/user-guides/intmax_explorer_80.webp" alt="INTMAX Explorer Withdrawal Details Completed" />
 </figure>
 
-## Search Features
+## 検索機能
 
-The Search function allows navigation by entering:
+検索機能では、以下を入力してナビゲーションできます：
 
 - Block height
 - Block hash
 - Deposit Hash
 - Withdrawal Hash
 
-This feature provides direct access to Block Details, Deposit Details, and Withdrawal Details.
+この機能により、ブロック詳細、Deposit 詳細、Withdrawal 詳細に直接アクセスできます。
 
 ![INTMAX Explorer Search](assets/user-guides/intmax_explorer_90.webp)

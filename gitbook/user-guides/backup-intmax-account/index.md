@@ -1,20 +1,25 @@
-# Backup INTMAX Account
+---
+icon: cloud-arrow-up
+description: INTMAX アカウントのバックアップ方法と重要なセキュリティ情報
+---
 
-## Overview
+# INTMAX アカウントのバックアップ
 
-This page and its subpages explain how to back up your INTMAX account. You can export your private key and backup your transaction data.
-Backing up your transaction data is especially important, as it provides an effective way to safeguard your assets if issues arise with the INTMAX network.
+## 概要
 
-## Important Security Information
+このページおよびサブページでは、INTMAX アカウントのバックアップ方法を説明します。秘密鍵（Private Key）のエクスポートとトランザクションデータのバックアップが可能です。
+特にトランザクションデータのバックアップは、INTMAX Network に問題が発生した場合に資産を保護する有効な手段となるため、非常に重要です。
 
-### Private Key
+## セキュリティに関する重要事項
 
-- **Private keys are extremely important data. Never share it with anyone.**
-- If your private key becomes known, others can access your assets on INTMAX. Operations such as withdrawals from INTMAX network to Ethereum will also become possible.
-- If you need to share it with a third party, please do so with full understanding of the risks.
+### 秘密鍵
 
-### Backup Files
+- **秘密鍵は極めて重要なデータです。絶対に他人と共有しないでください。**
+- 秘密鍵が他者に知られると、INTMAX 上の資産にアクセスされる可能性があります。INTMAX Network から Ethereum への Withdrawal などの操作も可能になります。
+- 第三者と共有する必要がある場合は、リスクを十分に理解した上で行ってください。
 
-- Backup files contain personal data including user transaction history.
-- Having this file allows you to transfer your assets from the INTMAX network back to Ethereum in the event of a network issue.
-- **Publishing this file will not put your assets at direct risk.** However, we recommend proper management for privacy protection.
+### バックアップファイル
+
+- バックアップファイルには、ユーザーのトランザクション履歴を含む個人データが含まれます。
+- このファイルがあれば、ネットワークに問題が発生した場合に INTMAX Network から Ethereum へ資産を移すことができます。
+- **このファイルを公開しても、資産が直接リスクにさらされることはありません。** ただし、プライバシー保護のため適切な管理を推奨します。

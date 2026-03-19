@@ -1,66 +1,71 @@
-# Roles
+---
+icon: users-gear
+description: プロトコルを構成する各ロールの責務と相互関係
+---
 
-INTMAX introduces a novel role architecture within rollup systems that decentralizes responsibilities typically associated with state management and block production. The protocol separates concerns in a way that enables scalability, parallelism, and censorship resistance—while minimizing on-chain trust and coordination overhead.
+# ロール
 
-### Users (L2 Participants)
+INTMAX は、ロールアップ（Rollup）システムにおける独自のロールアーキテクチャを導入しています。状態管理やブロック生成に関わる責務を分散させ、スケーラビリティ、並列処理、検閲耐性を実現しつつ、オンチェーンの信頼性要件と調整オーバーヘッドを最小化します。
 
-Users are first-class agents who fully own and maintain their own state. They are responsible for:
+## ユーザー（L2 参加者）
 
-- Constructing their own transaction batches (recipient → amount)
-- Generating Merkle hash preimages and signing commitment roots
-- Receiving and storing ZK proofs for incoming transactions
-- Constructing and submitting balance proofs for withdrawals
+ユーザーは自身の状態を完全に所有・管理する主体的なエージェントです。以下の責務を担います：
 
-Importantly, users do **not** rely on any central coordinator to update or verify their balance. All state transitions are **client-executed**, with on-chain interaction limited to deposits, signature aggregation, and withdrawals.
+- 独自のトランザクションバッチの構築（受取人 → 金額）
+- Merkle ハッシュプレイメージ（Preimage）の生成とコミットメントルート（Commitment Root）への署名
+- 受信トランザクションに対する ZK proof の受領・保管
+- Withdrawal 用の残高証明（Balance Proof）の構築と提出
 
-This effectively reverts the account model into a **self-contained state machine**, where the global state is not globally available but instead reconstructed locally through authenticated data and zero-knowledge proofs.
+重要な点として、ユーザーは残高の更新や検証において中央コーディネーターに依存**しません**。すべての状態遷移は**クライアントサイドで実行**され、オンチェーンとのやり取りは Deposit、署名（Signature）の集約、Withdrawal に限定されます。
 
-### Aggregators
+これにより、アカウントモデルは事実上**自己完結型の状態マシン**に回帰します。グローバルな状態はグローバルに利用可能ではなく、認証済みデータとゼロ知識証明を通じてローカルで再構築されます。
 
-Aggregators are **stateless data bundlers**. Their role is sharply restricted to:
+## アグリゲーター
 
-- Receiving transaction hash commitments from users
-- Constructing a Merkle tree of these commitments
-- Returning inclusion proofs to users
-- Collecting user signatures over the Merkle root
-- Posting the Merkle root + aggregated signature + public key list to the rollup contract
+アグリゲーターは**ステートレス（Stateless）なデータバンドラー**です。その役割は以下に厳密に限定されます：
 
-They **do not**:
+- ユーザーからのトランザクションハッシュコミットメント（Commitment）の受信
+- これらのコミットメントで Merkle Tree を構築
+- ユーザーへの Merkle Inclusion Proof の返却
+- Merkle root に対するユーザー署名の収集
+- Merkle root + 集約署名（Aggregate Signature）+ 公開鍵（Public Key）リストをロールアップコントラクトに送信
 
-- See any transaction content
-- Execute state transitions
-- Sequence or reorder transactions
-- Know balances or maintain state history
+アグリゲーターは以下を**行いません**：
 
-This makes the aggregator role **completely trustless and permissionless**. Anyone can become an aggregator; the only constraint is that their Merkle root must be signed by the included users. Aggregators are thus more akin to **message relayers** than traditional block producers.
+- トランザクション内容の閲覧
+- 状態遷移の実行
+- トランザクションの順序付けや並べ替え
+- 残高の把握や状態履歴の保持
 
-### Recipients
+このため、アグリゲーターの役割は**完全にトラストレス（Trustless）かつパーミッションレス（Permissionless）**です。誰でもアグリゲーターになることができ、唯一の制約は Merkle root が含まれるユーザーによって署名されていることです。アグリゲーターは従来のブロックプロデューサーというよりも、**メッセージリレイヤー**に近い存在です。
 
-A recipient is any actor (user or smart contract) that receives a transaction. Their responsibilities include:
+## 受取人
 
-- Verifying transaction validity ZK proofs
-- Updating their local balance proofs with each new incoming transaction
-- Optionally merging state with other users for recursive balance proofs
+受取人は、トランザクションを受信するアクター（ユーザーまたはスマートコントラクト）です。その責務は以下のとおりです：
 
-Recipients act passively but require the correct off-chain data (ZK proof + Merkle path) from the sender to validate inclusion. This interaction is purely peer-to-peer and **does not involve the rollup contract**.
+- トランザクション有効性の ZK proof の検証
+- 新しい受信トランザクションごとのローカル残高証明の更新
+- 他のユーザーとの状態マージによる再帰的な残高証明の構築（オプション）
 
-### Relayer Contracts (Optional)
+受取人は受動的に動作しますが、包含を検証するために送信者から正しいオフチェーンデータ（ZK proof + Merkle path）を必要とします。このやり取りは純粋にピアツーピア（P2P）で行われ、**ロールアップコントラクトを介しません**。
 
-To mitigate timing and replay attacks in adversarial conditions, aggregators can delegate posting of transfer blocks to **L1 relayer contracts**, which enforce:
+## リレイヤーコントラクト（オプション）
 
-- Deadlines for block publication (prevents delayed inclusion)
-- Monotonicity of block timestamps (prevents replay attacks)
-- Signature verification and sender authorization
+敵対的な環境下でのタイミング攻撃やリプレイ攻撃を軽減するため、アグリゲーターは Transfer ブロックの送信を **L1 リレイヤーコントラクト**に委任できます。これにより以下が強制されます：
 
-These contracts act as neutral **liveness and ordering enforcers**, especially useful in highly adversarial or latency-sensitive environments. However, they are not strictly required for correctness.
+- ブロック公開の期限（遅延包含の防止）
+- ブロックタイムスタンプの単調性（リプレイ攻撃の防止）
+- 署名の検証と送信者の認可
 
-### Design Implication
+これらのコントラクトは中立的な **Liveness と順序の強制者**として機能し、特に高度に敵対的またはレイテンシーに敏感な環境で有用です。ただし、正確性のためには厳密には必須ではありません。
 
-This separation of roles leads to a system where:
+## 設計上の意義
 
-- **Users** hold private state
-- **Aggregators** relay commitment metadata
-- **Smart contracts** verify aggregate proofs, but not transaction logic
-- **No actor** has unilateral authority to halt or censor the rollup
+このロールの分離により、以下のようなシステムが実現されます：
 
-In contrast to monolithic rollups where the sequencer is a trusted actor or protocol bottleneck, INTMAX enables **parallel, decentralized, and private computation** across a large set of loosely coordinated actors.
+- **ユーザー** — プライベートな状態を保持
+- **アグリゲーター** — コミットメントメタデータをリレー
+- **スマートコントラクト** — 集約プルーフを検証するが、トランザクションロジックは検証しない
+- **いかなるアクターも** — ロールアップを一方的に停止・検閲する権限を持たない
+
+単一のシーケンサー（Sequencer）が信頼されたアクターやプロトコルのボトルネックとなるモノリシックなロールアップとは対照的に、INTMAX は緩やかに連携する多数のアクター間で**並列・分散・プライベートな計算**を実現します。

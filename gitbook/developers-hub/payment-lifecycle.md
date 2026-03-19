@@ -1,81 +1,86 @@
+---
+icon: timeline-arrow
+description: Deposit・Transfer・Withdrawal の全体フロー
+---
+
 # Payment Lifecycle
 
-The INTMAX rollup architecture employs a fully decentralized and client-driven approach to state transitions. All operations—deposits, transfers, and withdrawals—are mediated through cryptographic commitments and zero-knowledge proofs, with minimal reliance on on-chain computation or state.
+INTMAX のロールアップ（Rollup）アーキテクチャは、状態遷移に対して完全に分散化されたクライアント主体のアプローチを採用しています。Deposit・Transfer・Withdrawal のすべての操作は、暗号コミットメント（Commitment）とゼロ知識証明を介して行われ、オンチェーンの計算や状態への依存を最小限に抑えています。
 
-### Deposit: L1 → L2 Entry
+## Deposit：L1 → L2 エントリー
 
-Deposits are the only operation where on-chain data includes value and recipient identity in plaintext. This is necessary to bootstrap user balances on Layer 2.
+Deposit は、オンチェーンデータに金額と受取人の身元が平文で含まれる唯一の操作です。これは L2（Layer 2）上でユーザー残高を初期化するために必要です。
 
-#### Mechanism
+### 仕組み
 
-- A user invokes the rollup contract’s `deposit()` method with:
-  - Token value (ETH or ERC-20)
-  - Target L2 address (a BLS public key)
-- The contract appends this action as a **deposit block** to its internal log.
-- This entry serves as the root of provenance for all subsequent L2 balance computations.
+- ユーザーはロールアップコントラクトの `deposit()` メソッドを以下のパラメータで呼び出します：
+  - トークン量（ETH または ERC-20）
+  - ターゲット L2 アドレス（BLS 公開鍵（Public Key））
+- コントラクトはこのアクションを **Deposit ブロック**として内部ログに追記します
+- このエントリーが、後続のすべての L2 残高計算の起点となります
 
-**Key property**: No global state mapping is updated. The contract simply logs the event; balance tracking is fully offloaded to the client layer.
+**ポイント**：グローバルな状態マッピングは更新されません。コントラクトはイベントをログに記録するのみで、残高追跡は完全にクライアント層にオフロードされます。
 
-### Transfer: L2 → L2 Private Payments
+## Transfer：L2 → L2 プライベート送金
 
-Transfers are the primary means of moving value between users on L2. The protocol enforces strict separation of concerns: **aggregators coordinate**, but only **users compute and verify**.
+Transfer は L2 上のユーザー間で価値を移動する主要な手段です。プロトコルは厳密な責務分離を強制します：**アグリゲーターは調整を行い**、**計算と検証はユーザーのみが実行**します。
 
-#### Phase 1: Merkle Commitments
+### Phase 1：Merkle コミットメント
 
-1. **Hash submission**: Each user computes a salted hash of their transaction batch and sends only this hash to a chosen aggregator.
-2. **Merkle construction**: The aggregator builds a Merkle tree over all received hashes and sends each user their inclusion proof.
-3. **Signature**: Each user signs the Merkle root with their BLS key, asserting inclusion and authorizing the batch.
-4. **Aggregation**: Aggregator collects all signatures and computes a BLS aggregate signature.
+1. **ハッシュ送信** — 各ユーザーがトランザクションバッチのソルト付きハッシュを計算し、そのハッシュのみを選択したアグリゲーターに送信
+2. **Merkle Tree 構築** — アグリゲーターが受信したすべてのハッシュで Merkle Tree を構築し、各ユーザーに Merkle Inclusion Proof を送信
+3. **署名（Signature）** — 各ユーザーが BLS 鍵で Merkle root に署名し、バッチの包含を承認
+4. **集約** — アグリゲーターがすべての署名を収集し、BLS 集約署名（Aggregate Signature）を計算
 
-#### Phase 2: Contract Interaction
+### Phase 2：コントラクトとのインタラクション
 
-The aggregator submits a **transfer block** to the INTMAX contract containing:
+アグリゲーターは以下を含む **Transfer ブロック**を INTMAX コントラクトに送信します：
 
-- Merkle root (commitment to the batch of transaction hashes)
-- BLS aggregated signature
-- List of public keys of signers
+- Merkle root（トランザクションハッシュバッチへのコミットメント）
+- BLS 集約署名
+- 署名者の公開鍵リスト
 
-The contract validates the aggregate signature and appends the block to the rollup’s history.
+コントラクトは集約署名を検証し、ブロックをロールアップの履歴に追記します。
 
-#### Phase 3: Peer-to-Peer Proof Propagation
+### Phase 3：ピアツーピア（P2P）のプルーフ伝播
 
-- Each sender transmits:
-  - The Merkle inclusion proof
-  - The original transaction batch
-  - A balance proof (constructed from prior receipts and ZKPs)
-- Each recipient verifies the ZK proof and updates their own client-side state.
+- 各送信者が以下を送信：
+  - Merkle Inclusion Proof
+  - 元のトランザクションバッチ
+  - 残高証明（Balance Proof）（過去の受領データと ZK proof から構築）
+- 各受取人が ZK proof を検証し、自身のクライアントサイド状態を更新
 
-**Notably**: the contract does not learn who sent what to whom, nor any amounts—this data is never published on-chain.
+**注目すべき点**として、コントラクトは誰が誰に何を送ったかも金額も把握しません。このデータはオンチェーンに一切公開されません。
 
-### Withdrawal: L2 → L1 Exit
+## Withdrawal：L2 → L1 エグジット
 
-Withdrawals are executed when a user wants to materialize their balance from L2 onto Ethereum.
+Withdrawal は、ユーザーが L2 の残高を Ethereum 上で実体化する際に実行されます。
 
-#### Mechanism
+### 仕組み
 
-1. The user computes a **ZK-proof** that:
-   - At a specific history root `r`
-   - Their public key received at least value `v`
-2. They submit:
-   - History root `r`
-   - Claimed value `v`
-   - ZK-proof of valid receipt
-3. The contract:
-   - Verifies that `r` is a valid block root in its state history
-   - Validates the proof
-   - Subtracts any previous withdrawals
-   - Transfers the remaining claimable balance to the L1 address
+1. ユーザーが以下を証明する **ZK proof** を計算：
+   - 特定の履歴ルート `r` において
+   - 自身の公開鍵が少なくとも `v` の価値を受け取ったこと
+2. 以下を提出：
+   - 履歴ルート `r`
+   - 主張する金額 `v`
+   - 有効な受領の ZK proof
+3. コントラクトが以下を実行：
+   - `r` が状態履歴内の有効なブロックルートであることを検証
+   - プルーフを検証
+   - 過去の Withdrawal を差し引き
+   - 残りの請求可能残高を L1（Layer 1）アドレスに送金
 
-The rollup contract maintains a cumulative withdrawal map to prevent double-spending, even under partial knowledge assumptions.
+ロールアップコントラクトは、部分的な知識の前提下でも二重支出（Double-spending）を防止するために、累積 Withdrawal マップを管理します。
 
 ---
 
-### Summary of Data Flow
+## データフローのまとめ
 
-| Step       | Actor                 | Data Shared                | Publicly Verifiable?  |
+| ステップ | アクター | 共有データ | 公開検証可能？ |
 | ---------- | --------------------- | -------------------------- | --------------------- |
-| Deposit    | User → Contract       | (Recipient L2 key, Amount) | ✅                    |
-| Transfer   | User ↔ Aggregator    | Transaction hash only      | ❌ (fully private)    |
-| Transfer   | Aggregator → Contract | Merkle root + signature    | ✅                    |
-| Transfer   | Sender → Recipient    | ZK proof + Merkle path     | ❌ (off-chain only)   |
-| Withdrawal | User → Contract       | ZK proof of balance        | ✅ (verifiable proof) |
+| Deposit | ユーザー → コントラクト | （受取人 L2 鍵、金額） | ✅ |
+| Transfer | ユーザー ↔ アグリゲーター | トランザクションハッシュのみ | ❌（完全にプライベート） |
+| Transfer | アグリゲーター → コントラクト | Merkle root + 署名 | ✅ |
+| Transfer | 送信者 → 受取人 | ZK proof + Merkle path | ❌（オフチェーンのみ） |
+| Withdrawal | ユーザー → コントラクト | 残高の ZK proof | ✅（検証可能なプルーフ） |

@@ -1,70 +1,76 @@
+---
+icon: sitemap
+description: INTMAX のロールアップ設計思想と技術的特性
+---
+
 # Rollup Architecture
 
-The INTMAX rollup departs fundamentally from traditional zk-rollup designs by minimizing on-chain state commitments and computation. It is a **stateless**, **aggregator-permissionless**, and **client-driven** architecture that optimizes for privacy and scalability, particularly in the context of payment use cases.
+INTMAX のロールアップ（Rollup）は、オンチェーンの状態コミットメント（Commitment）と計算を最小限に抑えることで、従来の zk-Rollup 設計から根本的に逸脱しています。プライバシーとスケーラビリティに最適化された、**ステートレス（Stateless）**、**アグリゲーターパーミッションレス（aggregator-permissionless）**、**クライアント主体**のアーキテクチャであり、特に決済ユースケースに適しています。
 
-### System Design
+## システム設計
 
-The core flow of the protocol is as follows:
+プロトコルのコアフローは以下のとおりです。
 
-#### L1 → L2 Deposit
+### L1 → L2 Deposit
 
-Users initiate participation by depositing assets (e.g., ETH, ERC-20 tokens) into the rollup contract. A deposit block is committed on-chain, assigning L2 ownership to the specified public key.
+ユーザーは資産（ETH や ERC-20 トークンなど）をロールアップコントラクトに Deposit することで参加を開始します。Deposit ブロックがオンチェーンにコミットされ、指定された公開鍵（Public Key）に L2 上の所有権が割り当てられます。
 
-#### Transaction Construction (Off-chain)
+### トランザクションの構築（オフチェーン）
 
-Users construct their own transaction batches locally. These batches consist of arbitrary mappings from recipients to token amounts and are **not revealed to aggregators**. Each transaction batch is salted and hashed. Only these hashes are submitted to the aggregator, preserving privacy
+ユーザーはトランザクションバッチをローカルで構築します。バッチは受取人とトークン量の任意のマッピングで構成され、**アグリゲーターには公開されません**。各トランザクションバッチはソルトを付与してハッシュ化されます。このハッシュのみがアグリゲーターに送信されるため、プライバシーが保護されます。
 
-#### Merkle Aggregation
+### Merkle Aggregation
 
-The aggregator constructs a Merkle tree of the hashed transaction batches. For each sender, a Merkle inclusion proof is returned. The sender then signs the root of the Merkle tree with their BLS key, binding themselves to inclusion.
+アグリゲーターは、ハッシュ化されたトランザクションバッチの Merkle Tree を構築します。各送信者に対して Merkle Inclusion Proof が返されます。送信者は BLS 鍵で Merkle root に署名（Signature）し、自身のバッチの包含を承認します。
 
-#### Commitment Publication
+### コミットメントの公開
 
-The aggregator aggregates all BLS signatures and submits a transfer block to the rollup contract. The block contains:
+アグリゲーターはすべての BLS 署名を集約し、Transfer ブロックをロールアップコントラクトに送信します。ブロックには以下が含まれます：
 
-- The Merkle root
-- The aggregate signature
-- The list of participant public keys\
-  The contract verifies the BLS aggregate signature and records the Merkle root as a commitment. Notably, the contract **does not know the contents** of the transactions.
+- Merkle root
+- 集約署名（Aggregate Signature）
+- 参加者の公開鍵リスト
 
-#### ZK Proof Propagation (P2P)
+コントラクトは BLS 集約署名を検証し、Merkle root をコミットメントとして記録します。**注目すべき点**として、コントラクトはトランザクションの内容を一切把握しません。
 
-After the transfer block is published, users are responsible for proving the receipt of funds. Each sender provides recipients with:
+### ZK Proof の伝播（P2P）
 
-- A transaction validity ZK proof
-- The relevant Merkle path
-- Their local balance proof
+Transfer ブロックの公開後、ユーザーは受領した資金の証明を行う責務を負います。各送信者は受取人に以下を提供します：
 
-_Recipients verify these and update their state accordingly. All balance state is maintained client-side._
+- トランザクション有効性の ZK proof
+- 関連する Merkle path
+- 自身の残高証明（Balance Proof）
 
-### Properties
+*受取人はこれらを検証し、自身の状態を更新します。すべての残高状態はクライアントサイドで管理されます。*
 
-Aggregators are not required to maintain or understand the global state. They simply collect commitments and signatures. This enables:
+## 特性
 
-- Permissionless block production
-- Horizontal scalability (multiple aggregators can act in parallel)
+アグリゲーターはグローバルな状態を維持・把握する必要がありません。コミットメントと署名を収集するだけです。これにより以下が実現されます：
 
-#### Minimal On-Chain Data
+- パーミッションレス（Permissionless）なブロック生成
+- 水平スケーラビリティ（複数のアグリゲーターが並行して動作可能）
 
-Each transfer block adds only:
+### オンチェーンデータの最小化
 
-- 1 Merkle root (32 bytes)
-- 1 aggregated signature (48 bytes)
-- n public keys (96 \* n bytes)
+各 Transfer ブロックで追加されるデータは以下のみです：
 
-This leads to an **asymptotically sublinear on-chain data footprint**, regardless of the number of recipients.
+- Merkle root 1 つ（32 バイト）
+- 集約署名 1 つ（48 バイト）
+- 公開鍵 n 個（96 × n バイト）
 
-#### Privacy
+これにより、受取人数に関係なく、**漸近的にサブリニア（sublinear）なオンチェーンデータフットプリント**を実現します。
 
-- No transaction data appears on-chain.
-- Aggregators never see actual transaction contents.
-- Only the recipient learns about a transfer.
-- Balance proofs are ZK and do not reveal history.
+### プライバシー
 
-### Withdrawals
+- トランザクションデータはオンチェーンに一切現れません
+- アグリゲーターは実際のトランザクション内容を見ることができません
+- Transfer について知るのは受取人のみです
+- 残高証明は ZK ベースであり、履歴を明かしません
 
-Withdrawals from L2 to L1 require the user to submit a ZK proof of balance at a known commitment root. This root must exist in the contract’s on-chain history. The proof is verified on-chain, and funds are released. The contract tracks cumulative withdrawals to prevent double spends.
+## Withdrawal
 
-### Implications
+L2 から L1 への Withdrawal では、既知のコミットメントルート（Commitment Root）における残高の ZK proof を提出する必要があります。このルートはコントラクトのオンチェーン履歴に存在していなければなりません。プルーフはオンチェーンで検証され、資金がリリースされます。コントラクトは二重支出（Double-spending）を防止するために、累積 Withdrawal を追跡します。
 
-INTMAX achieves **asynchronous, decentralized block production** without requiring a global shared state or sequencing. The model is optimal for payment-heavy workloads where privacy and scalability are primary concerns. It reflects a design philosophy more similar to **Plasma** and **UTXO sharding**, but with modern zk-rollup guarantees and no trusted data availability assumptions.
+## 設計上の意義
+
+INTMAX は、グローバルな共有状態やシーケンシングを必要とせずに、**非同期・分散型のブロック生成**を実現します。このモデルは、プライバシーとスケーラビリティが最重要となる決済中心のワークロードに最適です。設計思想は **Plasma** や **UTXO シャーディング（Sharding）**に近いですが、最新の zk-Rollup の保証を備え、信頼されたデータ可用性（Data Availability）の前提を必要としません。

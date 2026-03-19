@@ -1,63 +1,68 @@
-# Performance
+---
+icon: gauge-high
+description: INTMAX Network のパフォーマンス指標と将来のスケーリング展望
+---
 
-INTMAX is designed to asymptotically minimize on-chain data requirements while supporting high-throughput off-chain activity. Its performance characteristics stem directly from its stateless, proof-based design, where **only aggregate commitments** are stored on-chain, and all computation and transaction details remain off-chain and user-controlled.
+# パフォーマンス
+
+INTMAX は、オンチェーンデータ要件を漸近的に最小化しつつ、高スループットのオフチェーンアクティビティをサポートするよう設計されています。そのパフォーマンス特性は、ステートレス（Stateless）かつプルーフベースの設計に直接起因しています。オンチェーンには**集約コミットメント（Commitment）のみ**が記録され、すべての計算とトランザクション詳細はオフチェーンでユーザーが管理します。
 
 ---
 
-### On-Chain Data Efficiency
+## オンチェーンデータ効率
 
-Each transaction batch requires approximately:
+各トランザクションバッチに必要なデータは約：
 
-- **5 bytes per sender**, comprising:
-  - 32 bytes: Merkle root commitment
-  - 48 bytes: Aggregated BLS signature
-  - \~96 bytes × _n_: List of BLS public keys (1 per sender)
+- **送信者あたり約 5 バイト**。内訳は以下のとおりです：
+  - 32 バイト：Merkle root コミットメント
+  - 48 バイト：集約 BLS 署名（Aggregate Signature）
+  - 約 96 バイト × *n*：BLS 公開鍵（Public Key）リスト（送信者 1 人につき 1 つ）
 
-Since transaction content is excluded from the chain, **block size scales with the number of participating senders**, not the number of transactions or recipients. A single sender can batch thousands of payments with no additional on-chain cost.
+トランザクション内容はチェーンから除外されるため、**ブロックサイズは参加する送信者数に比例**し、トランザクション数や受取人数には比例しません。1 人の送信者が数千件の支払いをバッチ処理しても、追加のオンチェーンコストは発生しません。
 
-**Key asymmetry**:
+**主要な非対称性**：
 
-> On-chain size ∝ O(number of _senders_)\
-> Off-chain cost ∝ O(number of _transactions_)
-
----
-
-### Current Throughput (Ethereum Today)
-
-Assuming:
-
-- 0.375 MB Ethereum block size (post-Calldata gas cost reduction)
-- Average sender overhead ≈ 5 bytes
-
-We achieve a theoretical throughput of:
-
-- **\~7,500 senders per second**
-- **Unlimited recipients per sender** (handled off-chain)
-
-This already exceeds the throughput of existing rollups under realistic constraints, especially for payment use cases.
+> オンチェーンサイズ ∝ O（*送信者*数）\
+> オフチェーンコスト ∝ O（*トランザクション*数）
 
 ---
 
-### Future Scaling (EIP-4844 and Beyond)
+## 現在のスループット（現行 Ethereum）
 
-With EIP-4844 (Proto-Danksharding), Ethereum aims to increase data bandwidth to:
+前提条件：
 
-- **\~16 MB per block** (via blob space)
+- Ethereum ブロックサイズ 0.375 MB（Calldata ガス代削減後）
+- 送信者あたりの平均オーバーヘッド ≈ 5 バイト
 
-Under these conditions, INTMAX could support:
+理論上のスループットは以下のとおりです：
 
-- **320,000+ senders per second**
-- Again, with no increase in on-chain cost per recipient or transaction volume
+- **毎秒約 7,500 送信者**
+- **送信者あたりの受取人数は無制限**（オフチェーンで処理）
 
-This positions INTMAX as a **future-proof scalability layer**, where increasing L1 bandwidth immediately benefits L2 throughput—without redesign.
+これは、特に決済ユースケースにおいて、現実的な制約下での既存ロールアップ（Rollup）のスループットをすでに上回っています。
 
 ---
 
-### Comparative Efficiency
+## 将来のスケーリング（EIP-4844 以降）
 
-| Metric                        | INTMAX                               | Traditional ZK-Rollups       |
+EIP-4844（Proto-Danksharding）により、Ethereum はデータ帯域幅を以下まで拡大する予定です：
+
+- **ブロックあたり約 16 MB**（Blob スペース経由）
+
+この条件下で、INTMAX は以下をサポートできます：
+
+- **毎秒 320,000 以上の送信者**
+- 受取人数やトランザクション量が増加しても、送信者あたりのオンチェーンコストは変わりません
+
+これにより、INTMAX は**将来を見据えたスケーラビリティレイヤー**として位置付けられます。L1 の帯域幅が増加すれば、再設計なしで L2 のスループットが直接向上します。
+
+---
+
+## 比較効率
+
+| 指標 | INTMAX | 従来の zk-Rollup |
 | ----------------------------- | ------------------------------------ | ---------------------------- |
-| On-chain data per transaction | \~5 bytes                            | \~200–300 bytes              |
-| Transaction batching model    | Sender-centric, unlimited recipients | Flat per-transaction cost    |
-| Sequencer bottleneck          | None (permissionless)                | Centralized or single leader |
-| Withdraw proof size           | Constant (ZK-SNARK)                  | Similar                      |
+| トランザクションあたりのオンチェーンデータ | 約 5 バイト | 約 200〜300 バイト |
+| トランザクションバッチモデル | 送信者中心、受取人数無制限 | トランザクションごとの固定コスト |
+| シーケンサー（Sequencer）のボトルネック | なし（パーミッションレス（Permissionless）） | 中央集権型またはシングルリーダー |
+| Withdrawal プルーフサイズ | 一定（ZK-SNARK） | 同等 |

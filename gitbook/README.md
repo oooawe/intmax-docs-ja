@@ -1,28 +1,54 @@
+---
+
+## icon: dna
+description:  本ドキュメントは [INTMAX 公式ドキュメント](https://docs.network.intmax.io) の非公式日本語訳です。正確な情報は必ず原文を参照ください
+
 # INTMAX 日本語ドキュメント
-
-{% hint style="warning" %}
-**非公式翻訳（Unofficial Japanese Translation）**
-
-本ドキュメントは [INTMAX 公式ドキュメント](https://docs.network.intmax.io) の非公式日本語訳です。正確な情報は必ず原文をご確認ください。
-{% endhint %}
 
 ## INTMAX とは
 
-INTMAX は、ゼロ知識証明（ZKP）ベースのレイヤー2（Layer 2）プロトコルです。ステートレスアーキテクチャ（Stateless Architecture）を採用し、スケーラブルかつプライバシーを保護した決済を実現します。
+{% hint style="success" icon="dna" %}
+INTMAX は、ゼロ知識証明（ZKP）とステートレスアーキテクチャを採用し、スケーラビリティとプライバシーを両立する Ethereum のレイヤー2プロトコルです
+{% endhint %}
+
+### ステートレスという選択
+
+プライバシーを実現するアプローチとして、多くのプロジェクトは「データを暗号化して守る」方法を採用しています。ネットワーク上にステート（状態）を保持しつつ、暗号技術でその中身を秘匿する設計です。
+
+それらとは異なり、 **INTMAX ではネットワークがユーザーの資産状態を保持しない**完全なステートレス設計で構築されています。ユーザー自身が自分の資産状態を管理でき、取引の正当性はゼロ知識証明によって検証されます。
+
+この設計がもたらすのは、**構造的なプライバシー**です。保護すべきデータがネットワーク上に存在しない以上、漏洩や検閲のリスクそのものが排除されると同時にスケーラビリティも向上するという合理的な帰結（必然性）です。
+
+### 特徴
+
+- **構造的プライバシー** — 暗号化で隠すのではなく、そもそもネットワーク上に存在しない
+- **高いスケーラビリティ** — ステートレス設計によりノード負荷を最小化し、処理効率を向上
+- **低コストな送受信** — 誰もが、より速く・より安く・より安全にデジタル資産を扱える
+- **ユーザー主権の設計思想** — データの管理主体はプロトコル側ではなくユーザー側
+
+{% hint style="info" icon="dna" %}
+INTMAX の思想は、Cypherpunk の理念 — 暗号技術によって個人の自由とプライバシーを守るという信条 — と深く共鳴しています
+{% hint style="info" icon="dna" %}
+
 
 ## このドキュメントについて
 
-| 項目 | 内容 |
-|------|------|
-| 原文 | [INTMAX Documentation](https://docs.network.intmax.io) |
+| 項目      | 内容 |
+| ------- | ------------------------------------------------------------------------------------- |
+| 原文      | [INTMAX Documentation](https://docs.network.intmax.io)                                |
 | 原文リポジトリ | [InternetMaximalism/intmax2-docs](https://github.com/InternetMaximalism/intmax2-docs) |
 | 翻訳の基準時点 | 2026年1月時点の原文 |
-| ライセンス | MIT（原文に準拠） |
+| 翻訳リポジトリ| [oooawe/intmax-docs-ja](https://github.com/oooawe/intmax-docs-ja) |
+| ライセンス   | MIT（原文に準拠） |
 
-## リンク
+## INTMAX公式リンク
 
-* [INTMAX App](https://app.intmax.io)
-* [INTMAX Wallet](https://wallet.intmax.io)
-* [Discord](https://discord.gg/TGMctchPR6)
-* [GitHub](https://github.com/InternetMaximalism)
-* [Whitepaper](https://eprint.iacr.org/2023/1082.pdf)
+| 項目            | アドレス |
+| ------------- | --- |
+| INTMAX Web    | https://intmax.io                 |
+| INTMAX App    | https://app.intmax.io                 |
+| INTMAX Wallet | https://wallet.intmax.io           |
+| GitHub        | https://github.com/InternetMaximalism     |
+| Whitepaper    | https://eprint.iacr.org/2023/1082.pdf |
+
+

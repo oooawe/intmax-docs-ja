@@ -1,5 +1,5 @@
 ---
-icon: cubes
+icon: dna
 description: Block Builder 運用の全体リファレンスとセットアップガイドへのナビゲーション
 ---
 

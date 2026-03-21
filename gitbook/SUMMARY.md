@@ -5,7 +5,7 @@
 
 ## ユーザーガイド
 
-* [ユーザーガイド概要](user-guides/intro.md)
+* [ユーザーガイド概要](user-guides/README.md)
 * [INTMAX アカウントの作成](user-guides/create-acount.md)
 * [対応ウォレット](user-guides/supported-wallets/README.md)
   * [Bitget Wallet](user-guides/supported-wallets/bitget-wallet-ios-app.md)

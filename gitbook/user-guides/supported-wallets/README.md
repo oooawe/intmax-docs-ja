@@ -29,7 +29,7 @@ description: INTMAX が対応しているウォレットとブラウザの一覧
 | Coinbase Wallet  | MacOS Chrome 拡張機能   |   |
 | OKX Wallet       | MacOS Chrome 拡張機能   |   |
 | Rabby Wallet     | MacOS Chrome 拡張機能   | [Rabby Wallet](../../user-guides/supported-wallets/rabby-wallet.md)                     |
-| Trust Wallet     | MacOS Chrome 拡張機能<br>iOS アプリ（iOS Safari 経由）   | [Trust Wallet](user-guides/supported-wallets/trust-wallet.md)   |
+| Trust Wallet     | MacOS Chrome 拡張機能<br>iOS アプリ（iOS Safari 経由）   | [Trust Wallet](../../user-guides/supported-wallets/trust-wallet.md)   |
 | Phantom Wallet   | MacOS Chrome 拡張機能   | [Phantom Wallet](../../user-guides/supported-wallets/phantom-wallet.md)   |
 
 **注意**：「iOS アプリ（iOS Safari 経由）」とは、Safari ブラウザからウォレットアプリに接続する方式を指します。

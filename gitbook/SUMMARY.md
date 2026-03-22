@@ -1,10 +1,8 @@
 # Summary
 
-## 📚
-
 * [はじめに](README.md)
 
-## INTMAX2 User Guides 
+## INTMAX2 User Guides
 
 * [ユーザーガイド概要](user-guides/README.md)
 * [INTMAX アカウントの作成](user-guides/create-acount.md)
@@ -112,11 +110,8 @@
     * [RainbowKit SDK プラグインメソッド](developers-hub/intmax-wallet-sdk/api-reference/rainbow-kit-sdk-plugin-methods.md)
   * [Use Cases](developers-hub/intmax-wallet-sdk/use-cases.md)
   * [リソース](developers-hub/intmax-wallet-sdk/resources.md)
+  * [コードリポジトリ](developers-hub/code-repository.md)
 
-* [コードリポジトリ](developers-hub/code-repository.md)
-
-## 🧬🔗📃
-
+## Internet Maximalism
 * [コミュニティ](community.md)
 * [ホワイトペーパー](https://eprint.iacr.org/2023/1082.pdf)
-* [Privacy Mining v2 – TL;DR](https://hackmd.io/@lionfeeder/HkNOuv9Ege)

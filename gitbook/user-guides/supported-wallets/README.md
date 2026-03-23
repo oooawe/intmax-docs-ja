@@ -25,7 +25,7 @@ description: INTMAX が対応しているウォレットとブラウザの一覧
 | アプリ名 | 対応 OS | 備考 |
 | ---------------- | --- | --- |
 | `MetaMask`         | MacOS Chrome 拡張機能<br>Windows Chrome 拡張機能<br>iOS アプリ（iOS Safari 経由） |   |
-| `Bitget Wallet`    | MacOS Chrome 拡張機能<br>iOS アプリ（iOS Safari 経由）<br>iOS アプリ内ブラウザ       | [`Bitget Wallet`（iOS アプリ）](user-guides/supported-wallets/bitget-wallet-ios-app.md) |
+| `Bitget Wallet`    | MacOS Chrome 拡張機能<br>iOS アプリ（iOS Safari 経由）<br>iOS アプリ内ブラウザ       | [`Bitget Wallet`（iOS アプリ）](/user-guides/supported-wallets/bitget-wallet-ios-app.md) |
 | `Coinbase Wallet`  | MacOS Chrome 拡張機能   |   |
 | `OKX Wallet`       | MacOS Chrome 拡張機能   |   |
 | `Rabby Wallet`     | MacOS Chrome 拡張機能   | [`Rabby Wallet`](user-guides/supported-wallets/rabby-wallet.md)                     |

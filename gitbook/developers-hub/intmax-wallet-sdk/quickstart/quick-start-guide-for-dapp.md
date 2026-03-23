@@ -106,7 +106,7 @@ const handleSignMessage = async () => {
 
 ### トランザクションの送信
 
-トランザクションを送信するには、`eth_sendTransaction` メソッドを使用します。このメソッドには、送信先アドレス（to）、送信元アドレス（from）、送金額（value）を渡す必要があります。その他のオプションパラメータについては [API リファレンス](developers-hub/intmax-wallet-sdk/api-reference/index.md)を参照してください。
+トランザクションを送信するには、`eth_sendTransaction` メソッドを使用します。このメソッドには、送信先アドレス（to）、送信元アドレス（from）、送金額（value）を渡す必要があります。その他のオプションパラメータについては [API リファレンス](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/index.md)を参照してください。
 
 #### 使用例
 
@@ -170,5 +170,5 @@ const handleSignTypedData = async () => {
 };
 ```
 
-WalletNext がサポートするその他のメソッドについては [API リファレンス](developers-hub/intmax-wallet-sdk/api-reference/index.md)を参照してください。
+WalletNext がサポートするその他のメソッドについては [API リファレンス](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/index.md)を参照してください。
 エンドツーエンドのコード例は [dapp example](https://github.com/InternetMaximalism/walletnext/tree/main/examples/dapp) GitHub リポジトリで確認できます。

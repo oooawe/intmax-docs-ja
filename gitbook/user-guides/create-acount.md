@@ -24,15 +24,15 @@ INTMAX アカウントのアドレスは、同じ Ethereum アドレスから作
 INTMAX の Web ページにアクセスし、「Connect Wallet」ボタンをクリックして接続を開始します。
 
 <div align="center" data-with-frame="true">
-<img src="assets/user-guides/how_to_create_account_of_intmax_network_10.png" alt="Mining Page" width="75%">
+<img src="/gitbook/assets/user-guides/how_to_create_account_of_intmax_network_10.png" alt="Mining Page" width="75%">
 </div>
 
 ### 2. **使用するウォレットを選択**
 
-「Connect Wallet」ボタンをクリックすると、対応ウォレットの一覧がポップアップで表示されます。一覧からお使いのウォレットを選択してください。スムーズに利用するため、[公式に対応しているウォレット](user-guides/supported-wallets/README.md)であることをご確認ください。
+「Connect Wallet」ボタンをクリックすると、対応ウォレットの一覧がポップアップで表示されます。一覧からお使いのウォレットを選択してください。スムーズに利用するため、[公式に対応しているウォレット](/gitbook/user-guides/supported-wallets/README.md)であることをご確認ください。
 
 <div align="center" data-with-frame="true">
-<img src="assets/user-guides/how_to_create_account_of_intmax_network_20.png" alt="Connect wallet" width="75%">
+<img src="/gitbook/assets/user-guides/how_to_create_account_of_intmax_network_20.png" alt="Connect wallet" width="75%">
 </div>
 
 ### 3. **2〜3 回の署名を実行**
@@ -42,8 +42,8 @@ INTMAX の Web ページにアクセスし、「Connect Wallet」ボタンをク
 **注意**：3 回目の署名は、そのアドレスでの初回ログイン時かつ対応していないウォレットを使用している場合にのみ必要です。
 
 <div align="center" data-with-frame="true">
-<img src="assets/user-guides/how_to_create_account_of_intmax_network_40.png" alt="Sign messages" width="75%">
-<img src="assets/user-guides/how_to_create_account_of_intmax_network_50.png" alt="Sign messages" width="75%">
+<img src="/gitbook/assets/user-guides/how_to_create_account_of_intmax_network_40.png" alt="Sign messages" width="75%">
+<img src="/gitbook/assets/user-guides/how_to_create_account_of_intmax_network_50.png" alt="Sign messages" width="75%">
 </div>
 
 ### 4. **INTMAX アカウントの生成**
@@ -60,8 +60,8 @@ INTMAX の Web ページにアクセスし、「Connect Wallet」ボタンをク
 2. ポップアップウィンドウが表示され、Ethereum アドレスと INTMAX アドレスの両方が確認できます
 
 <div align="center" data-with-frame="true">
-<img src="assets/user-guides/how_to_create_account_of_intmax_network_60.png" alt="View INTMAX address" width="75%">
-<img src="assets/user-guides/how_to_create_account_of_intmax_network_70.png" alt="View INTMAX address" width="75%">
+<img src="/gitbook/assets/user-guides/how_to_create_account_of_intmax_network_60.png" alt="View INTMAX address" width="75%">
+<img src="/gitbook/assets/user-guides/how_to_create_account_of_intmax_network_70.png" alt="View INTMAX address" width="75%">
 </div>
 
 この方法により、INTMAX アカウントの詳細にいつでも簡単にアクセスして確認できます。

@@ -9,9 +9,9 @@ description: INTMAX WalletSDK の JSON-RPC API メソッド一覧と分類
 
 `INTMAX WalletSDK` プロトコルでは、3 種類の JSON-RPC メソッドを定義しています。
 
-- **[notice](#notice-methods)**：ウォレットからの通知メッセージ
-- **[approval](#approval-methods)**：ウォレットに承認を要求するメソッド
-- **[readonly](#readonly-methods)**：dApp 側で解決される読み取り専用メソッド
+- **[notice](/gitbook/#notice-methods)**：ウォレットからの通知メッセージ
+- **[approval](/gitbook/#approval-methods)**：ウォレットに承認を要求するメソッド
+- **[readonly](/gitbook/#readonly-methods)**：dApp 側で解決される読み取り専用メソッド
 
 ## Notice メソッド {#notice-methods}
 
@@ -19,8 +19,8 @@ description: INTMAX WalletSDK の JSON-RPC API メソッド一覧と分類
 
 対象メソッド：
 
-- [INTMAX Ready](developers-hub/intmax-wallet-sdk/api-reference/api-methods/intmax-ready.md)
-- [INTMAX Connect](developers-hub/intmax-wallet-sdk/api-reference/api-methods/intmax-connect.md)
+- [INTMAX Ready](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/api-methods/intmax-ready.md)
+- [INTMAX Connect](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/api-methods/intmax-connect.md)
 
 ## Approval メソッド {#approval-methods}
 
@@ -28,13 +28,13 @@ description: INTMAX WalletSDK の JSON-RPC API メソッド一覧と分類
 
 以下のメソッドは、dApp からウォレットに対してユーザーの承認を要求します。各 EIP のスキーマを継承しています。
 
-- [Request Wallet Account](developers-hub/intmax-wallet-sdk/api-reference/api-methods/request-wallet-account.md)
-- [Sign Message](developers-hub/intmax-wallet-sdk/api-reference/api-methods/sign-message.md)
-- [Sign Typed Data](developers-hub/intmax-wallet-sdk/api-reference/api-methods/sign-typed-data.md)
-- [Sign Transaction](developers-hub/intmax-wallet-sdk/api-reference/api-methods/sign-transaction.md)
-- [Send Transaction](developers-hub/intmax-wallet-sdk/api-reference/api-methods/send-transaction.md)
-- [Add Chain to Wallet](developers-hub/intmax-wallet-sdk/api-reference/api-methods/add-chain-to-wallet.md)
-- [Watch Wallet Asset](developers-hub/intmax-wallet-sdk/api-reference/api-methods/watch-wallet-asset.md)
+- [Request Wallet Account](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/api-methods/request-wallet-account.md)
+- [Sign Message](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/api-methods/sign-message.md)
+- [Sign Typed Data](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/api-methods/sign-typed-data.md)
+- [Sign Transaction](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/api-methods/sign-transaction.md)
+- [Send Transaction](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/api-methods/send-transaction.md)
+- [Add Chain to Wallet](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/api-methods/add-chain-to-wallet.md)
+- [Watch Wallet Asset](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/api-methods/watch-wallet-asset.md)
 
 ## Readonly メソッド {#readonly-methods}
 
@@ -42,6 +42,6 @@ description: INTMAX WalletSDK の JSON-RPC API メソッド一覧と分類
 
 以下のメソッドは、SDK が dApp 側で解決することを想定しています。ウォレットへのリクエストは行われません。なお、「readonly」という命名は将来変更される可能性があります。
 
-- [Get Accounts](developers-hub/intmax-wallet-sdk/api-reference/api-methods/get-accounts.md)
-- [Get Chain ID](developers-hub/intmax-wallet-sdk/api-reference/api-methods/get-chain-id.md)
-- [Switch Chain](developers-hub/intmax-wallet-sdk/api-reference/api-methods/switch-chain.md)
+- [Get Accounts](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/api-methods/get-accounts.md)
+- [Get Chain ID](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/api-methods/get-chain-id.md)
+- [Switch Chain](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/api-methods/switch-chain.md)

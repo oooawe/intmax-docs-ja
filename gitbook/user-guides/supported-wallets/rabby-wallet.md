@@ -10,8 +10,8 @@ description: Rabby Wallet のカスタムネットワーク追加手順
 1. 「More」>「Add custom network」を選択
 
 <div align="center" data-with-frame="true">
-  <img src="assets/user-guides/rabby_wallet_10.png" alt="Add Custom Network" width="75%">
-  <img src="assets/user-guides/rabby_wallet_20.png" alt="Add Custom Network" width="75%">
+  <img src="/gitbook/assets/user-guides/rabby_wallet_10.png" alt="Add Custom Network" width="75%">
+  <img src="/gitbook/assets/user-guides/rabby_wallet_20.png" alt="Add Custom Network" width="75%">
 </div>
 
 2. `Sepolia` ネットワークを選択
@@ -19,6 +19,6 @@ description: Rabby Wallet のカスタムネットワーク追加手順
 4. RPC URL をコピー
 
 <div align="center" data-with-frame="true">
-  <img src="assets/user-guides/rabby_wallet_30.png" alt="Add Sepolia Network" width="75%">
-  <img src="assets/user-guides/rabby_wallet_40.png" alt="Copy RPC URL" width="75%">
+  <img src="/gitbook/assets/user-guides/rabby_wallet_30.png" alt="Add Sepolia Network" width="75%">
+  <img src="/gitbook/assets/user-guides/rabby_wallet_40.png" alt="Copy RPC URL" width="75%">
 </div>

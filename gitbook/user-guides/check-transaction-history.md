@@ -8,7 +8,7 @@ description: トランザクション履歴の確認方法
 このページでは、トランザクション履歴を確認できます。
 
 <div align="center" data-with-frame="true">
-<img src="assets/user-guides/check_transaction_history.png" alt="Check Transaction History" width="75%">
+<img src="/gitbook/assets/user-guides/check_transaction_history.png" alt="Check Transaction History" width="75%">
 </div>
 
 ## トランザクション履歴の概要

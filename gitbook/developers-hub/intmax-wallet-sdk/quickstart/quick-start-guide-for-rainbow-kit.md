@@ -98,5 +98,5 @@ ReactDOM.createRoot(root).render(
 );
 ```
 
-その他のメソッドやイベントについては [API リファレンス](developers-hub/intmax-wallet-sdk/api-reference/index.md)セクションを参照してください。
+その他のメソッドやイベントについては [API リファレンス](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/index.md)セクションを参照してください。
 エンドツーエンドのコード例は [wallet example](https://github.com/InternetMaximalism/intmax-walletsdk/tree/main/examples/rainbowkit) GitHub リポジトリで確認できます。

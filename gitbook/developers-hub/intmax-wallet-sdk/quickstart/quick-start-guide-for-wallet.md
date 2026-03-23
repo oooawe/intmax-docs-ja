@@ -109,5 +109,5 @@ sdk.destruct();
 
 これらのメソッドを活用することで、`intmaxWalletClient` をウォレットに効果的に統合し、ウォレットと dApp 間のシームレスな通信・インタラクションを実現できます。
 
-その他のメソッドやイベントについては [API リファレンス](developers-hub/intmax-wallet-sdk/api-reference/index.md)セクションを参照してください。
+その他のメソッドやイベントについては [API リファレンス](/gitbook/developers-hub/intmax-wallet-sdk/api-reference/index.md)セクションを参照してください。
 エンドツーエンドのコード例は [wallet example](https://github.com/InternetMaximalism/intmax-walletsdk/tree/main/examples/wallet) GitHub リポジトリで確認できます。

@@ -9,11 +9,11 @@ INTMAX WalletSDK Protocol の使用例を紹介します。INTMAX WalletSDK Prot
 
 ## Web ウォレットとの接続
 
-最もオーソドックスな使い方として、INTMAX WalletSDK の DappSDK を dApp に統合することで、プロトコル対応の Web ウォレットと接続できます。WalletConnect などのプロトコルと同様の利用形態です。
+最もオーソドックスな使い方として、INTMAX WalletSDK の DappSDK を dApp に統合することで、プロトコル対応の Web ウォレットと接続できます。`WalletConnect` などのプロトコルと同様の利用形態です。
 
 ## ブックマークレットウォレット
 
-ブックマークを使って INTMAX WalletSDK を dApp ページに挿入することで、ページのウィンドウから Webmax 対応の Web ウォレットを利用できるようになります。これにより、MetaMask のようなブラウザ拡張ウォレットに近いユーザー体験が実現します。ただし、CSP（Content Security Policy）などのセキュリティポリシーにより一部の dApp では使用できないケースがあることや、ブックマークレット自体のユーザー体験が十分でないといった課題があります。
+ブックマークを使って INTMAX WalletSDK を dApp ページに挿入することで、ページのウィンドウから Webmax 対応の Web ウォレットを利用できるようになります。これにより、`MetaMask` のようなブラウザ拡張ウォレットに近いユーザー体験が実現します。ただし、CSP（Content Security Policy）などのセキュリティポリシーにより一部の dApp では使用できないケースがあることや、ブックマークレット自体のユーザー体験が十分でないといった課題があります。
 
 ## INTMAX Wallet Launcher
 

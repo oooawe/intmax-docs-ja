@@ -24,30 +24,30 @@ description: INTMAX が対応しているウォレットとブラウザの一覧
 
 | アプリ名 | 対応 OS | 備考 |
 | ---------------- | --- | --- |
-| MetaMask         | MacOS Chrome 拡張機能<br>Windows Chrome 拡張機能<br>iOS アプリ（iOS Safari 経由） |   |
-| Bitget Wallet    | MacOS Chrome 拡張機能<br>iOS アプリ（iOS Safari 経由）<br>iOS アプリ内ブラウザ       | [Bitget Wallet（iOS アプリ）](user-guides/supported-wallets/bitget-wallet-ios-app.md) |
-| Coinbase Wallet  | MacOS Chrome 拡張機能   |   |
-| OKX Wallet       | MacOS Chrome 拡張機能   |   |
-| Rabby Wallet     | MacOS Chrome 拡張機能   | [Rabby Wallet](user-guides/supported-wallets/rabby-wallet.md)                     |
-| Trust Wallet     | MacOS Chrome 拡張機能<br>iOS アプリ（iOS Safari 経由）   | [Trust Wallet](user-guides/supported-wallets/trust-wallet.md)   |
-| Phantom Wallet   | MacOS Chrome 拡張機能   | [Phantom Wallet](user-guides/supported-wallets/phantom-wallet.md)   |
+| `MetaMask`         | MacOS Chrome 拡張機能<br>Windows Chrome 拡張機能<br>iOS アプリ（iOS Safari 経由） |   |
+| `Bitget Wallet`    | MacOS Chrome 拡張機能<br>iOS アプリ（iOS Safari 経由）<br>iOS アプリ内ブラウザ       | [`Bitget Wallet`（iOS アプリ）](user-guides/supported-wallets/bitget-wallet-ios-app.md) |
+| `Coinbase Wallet`  | MacOS Chrome 拡張機能   |   |
+| `OKX Wallet`       | MacOS Chrome 拡張機能   |   |
+| `Rabby Wallet`     | MacOS Chrome 拡張機能   | [`Rabby Wallet`](user-guides/supported-wallets/rabby-wallet.md)                     |
+| `Trust Wallet`     | MacOS Chrome 拡張機能<br>iOS アプリ（iOS Safari 経由）   | [`Trust Wallet`](user-guides/supported-wallets/trust-wallet.md)   |
+| `Phantom Wallet`   | MacOS Chrome 拡張機能   | [`Phantom Wallet`](user-guides/supported-wallets/phantom-wallet.md)   |
 
 **注意**：「iOS アプリ（iOS Safari 経由）」とは、Safari ブラウザからウォレットアプリに接続する方式を指します。
 
 ### 非対応ウォレット
 
 - **INTMAX Wallet** — 他のウォレットアプリで生成されるアドレスとは異なるアドレスが生成されます
-- **Safe Wallet** — 署名フォーマットの非互換により、署名検証に失敗します
+- **`Safe Wallet`** — 署名フォーマットの非互換により、署名検証に失敗します
 - **ハードウェアウォレット** — 接続のたびに異なる INTMAX アドレスが生成される場合があります
-- **Coinbase Wallet（iOS Safari）** — 接続できません
-- **Rabby Wallet（iOS Safari）** — 接続できません
-- **OKX Wallet（iOS Safari）** — ETH の Deposit ができません
+- **`Coinbase Wallet`（iOS Safari）** — 接続できません
+- **`Rabby Wallet`（iOS Safari）** — 接続できません
+- **`OKX Wallet`（iOS Safari）** — `ETH` の Deposit ができません
 
-## ウォレットを Sepolia テストネットワークに接続する
+## ウォレットを `Sepolia` テストネットワークに接続する
 
-テストネット環境を利用するには、ウォレットを **Sepolia ネットワーク** に接続する必要があります。
-一部のウォレットアプリでは、デフォルトのネットワーク一覧に Sepolia が含まれていません。その場合は、手動で Sepolia ネットワークを追加する必要があります。
-カスタムネットワークの追加方法については、お使いのウォレットの公式ドキュメントまたはアプリ内の案内をご参照ください。テストネット関連の操作を行う前に、Sepolia ネットワークが追加・選択されていることを確認してください。
+テストネット環境を利用するには、ウォレットを **`Sepolia` ネットワーク** に接続する必要があります。
+一部のウォレットアプリでは、デフォルトのネットワーク一覧に `Sepolia` が含まれていません。その場合は、手動で `Sepolia` ネットワークを追加する必要があります。
+カスタムネットワークの追加方法については、お使いのウォレットの公式ドキュメントまたはアプリ内の案内をご参照ください。テストネット関連の操作を行う前に、`Sepolia` ネットワークが追加・選択されていることを確認してください。
 
 ## 補足事項
 

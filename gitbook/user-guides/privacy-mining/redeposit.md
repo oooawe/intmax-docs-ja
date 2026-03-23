@@ -9,7 +9,7 @@ Redeposit 機能について、以下の点に留意してください：
 
 - 最初のマイニングラウンドが完了した後、自動的に次のラウンドに資金を Deposit できる機能です。
 - Withdrawal のために新しいウォレットを繰り返し作成する手間を省くために用意されています。
-- 資産の Withdrawal（システムが生成するアドレスへの送金）、ITX の Claim、そして Redeposit の 3 つのプロセスを一括で行います。
+- 資産の Withdrawal（システムが生成するアドレスへの送金）、`ITX` の Claim、そして Redeposit の 3 つのプロセスを一括で行います。
 - システムが生成したアドレスにガス代を補充する必要があります。これにより、Redeposit のタイミングが来た際にシステムが資金を送出できます。
 - ガス代の急激な変動により、2 回以上のガス補充が必要になる場合があります。
 - Redeposit は最初の 2 つのプロセス（Withdrawal と Claim）が正常に完了した後に開始されます。その後、システムが生成したアドレスに送られた資金を Deposit し、次のマイニングラウンドに使用します。
@@ -74,7 +74,7 @@ Redeposit を進めるには、まず蓄積されたリワードを Claim する
 
 <div align="center" data-with-frame="true"><img src="assets/user-guides/redeposit_130.png" alt="Redeposit" width="75%"></div>
 
-**注意**：この時点では、リワードの Claim と ETH の Withdrawal はまだ実行されていません。
+**注意**：この時点では、リワードの Claim と `ETH` の Withdrawal はまだ実行されていません。
 
 ### マイニングステータスの確認
 
@@ -100,7 +100,7 @@ Redeposit を進めるには、まず蓄積されたリワードを Claim する
 
 **注意**：INTMAX はステートレスであるため、データはクライアント側に保存されており、システムはユーザーのアカウント状態を把握していません。そのため、この検証プロセスが必要です。
 
-### ETH の Withdrawal と ITX の Claim
+### `ETH` の Withdrawal と `ITX` の Claim
 
 <div align="center" data-with-frame="true"><img src="assets/user-guides/redeposit_190.png" alt="Redeposit" width="75%"></div>
 
@@ -134,11 +134,11 @@ Withdrawal の詳細を再確認し、内容が正しいことを確認します
 
 - トランザクション処理中は、約 2 分間 INTMAX の Web サイトを閉じたりページから離れたりしないでください。途中で Web ページを閉じると、トランザクションがキャンセルされ、Withdrawal プロセスを最初からやり直す必要があります。
 - 画面左側に表示されるトランザクションインジケーターが緑色に変わると、Withdrawal が正常に開始されたことを意味します。インジケーターが緑色になって初めて、トランザクションに影響なく Web ページを閉じることができます。
-- 資産の到着時間は資産の種類によって異なります。Withdrawal した ETH は通常、最大 11 時間以内に届きます。ITX トークンは、Withdrawal リクエストが正常に処理された翌日の UTC 00:00 に届く予定です。
+- 資産の到着時間は資産の種類によって異なります。Withdrawal した `ETH` は通常、最大 11 時間以内に届きます。`ITX` トークンは、Withdrawal リクエストが正常に処理された翌日の UTC 00:00 に届く予定です。
 
 <div align="center" data-with-frame="true"><img src="assets/user-guides/redeposit_260.png" alt="Redeposit" width="75%"></div>
 
-Withdrawal と Claim が開始されると、マイニングセッションのステータスが「Claim Processing」に更新されます。リワード（ITX トークン）は、Withdrawal リクエストが正常に処理された翌日の UTC 00:00 に届く予定です。
+Withdrawal と Claim が開始されると、マイニングセッションのステータスが「Claim Processing」に更新されます。リワード（`ITX` トークン）は、Withdrawal リクエストが正常に処理された翌日の UTC 00:00 に届く予定です。
 
 <div align="center" data-with-frame="true"><img src="assets/user-guides/redeposit_270.png" alt="Redeposit" width="75%"></div>
 

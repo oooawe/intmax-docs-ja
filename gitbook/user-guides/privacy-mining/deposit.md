@@ -5,7 +5,7 @@ description: Privacy Mining への Deposit 手順
 
 # Deposit
 
-Deposit とは、Ethereum メインネットから INTMAX Network へ資金を移動する操作です。Deposit は 0.1、1、10、100 ETH のいずれかの固定金額で行う必要があります。希望の金額を選択し、「Mine」ボタンをクリックするだけで開始できます。
+Deposit とは、Ethereum メインネットから INTMAX Network へ資金を移動する操作です。Deposit は 0.1、1、10、100 `ETH` のいずれかの固定金額で行う必要があります。希望の金額を選択し、「Mine」ボタンをクリックするだけで開始できます。
 
 <div align="center" data-with-frame="true"><img src="assets/user-guides/deposit_10.png" alt="Select Deposit Amount" width="75%"></div>
 

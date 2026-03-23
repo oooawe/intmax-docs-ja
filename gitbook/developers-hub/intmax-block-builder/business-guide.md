@@ -109,9 +109,9 @@ Mainnet のガス価格が **1 Gwei** のとき、各ブロック送信のガス
 
 以下のガイドに従って Block Builder をセットアップしてください。
 
-[Full-Network セットアップガイドを見る](./full-netwrok.md)
+[Full-Network セットアップガイドを見る](developers-hub/intmax-block-builder/full-netwrok.md)
 
-[Standalone セットアップガイドを見る](./standalone.md)
+[Standalone セットアップガイドを見る](developers-hub/intmax-block-builder/standalone.md)
 
 ## FAQ
 

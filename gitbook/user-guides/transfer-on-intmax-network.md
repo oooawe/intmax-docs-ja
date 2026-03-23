@@ -19,28 +19,28 @@ Send ページでは、INTMAX 上のトークンを他のユーザーに Transfe
 
    トークンを送りたい相手の INTMAX アドレスを貼り付けます。
 
-<div align="center" data-with-frame="true"><img src="../assets/user-guides/transfer_on_intmax_network_10.png" alt="Transfer on INTMAX Network" width="75%"></div>
+<div align="center" data-with-frame="true"><img src="assets/user-guides/transfer_on_intmax_network_10.png" alt="Transfer on INTMAX Network" width="75%"></div>
 
 3. **宛先の追加（任意）**
 
    複数の宛先にトークンを送信したい場合は、「Add」ボタンをクリックして送信先を追加します。
 
-<div align="center" data-with-frame="true"><img src="../assets/user-guides/transfer_on_intmax_network_20.png" alt="Transfer on INTMAX Network" width="75%"></div>
+<div align="center" data-with-frame="true"><img src="assets/user-guides/transfer_on_intmax_network_20.png" alt="Transfer on INTMAX Network" width="75%"></div>
 
 4. **「Send」ボタンをクリック**
 
    すべての宛先と金額を指定したら、「Send」ボタンをクリックします。
 
-<div align="center" data-with-frame="true"><img src="../assets/user-guides/transfer_on_intmax_network_30.png" alt="Transfer on INTMAX Network" width="75%"></div>
+<div align="center" data-with-frame="true"><img src="assets/user-guides/transfer_on_intmax_network_30.png" alt="Transfer on INTMAX Network" width="75%"></div>
 
 5. **トランザクション内容の確認**
 
    確認ページで詳細を確認し、問題がなければ再度「Send」ボタンをクリックして実行します。
 
-<div align="center" data-with-frame="true"><img src="../assets/user-guides/transfer_on_intmax_network_40.png" alt="Transfer on INTMAX Network" width="75%"></div>
+<div align="center" data-with-frame="true"><img src="assets/user-guides/transfer_on_intmax_network_40.png" alt="Transfer on INTMAX Network" width="75%"></div>
 
 6. **処理の完了を待つ**
 
    トランザクション処理中は、最初の 1 分間はブラウザを閉じないでください。処理が完了すると、トークンの送信は正常に完了しています。
 
-<div align="center" data-with-frame="true"><img src="../assets/user-guides/transfer_on_intmax_network_50.png" alt="Transfer on INTMAX Network" width="75%"></div>
+<div align="center" data-with-frame="true"><img src="assets/user-guides/transfer_on_intmax_network_50.png" alt="Transfer on INTMAX Network" width="75%"></div>

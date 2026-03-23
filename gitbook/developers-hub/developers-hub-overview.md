@@ -16,16 +16,16 @@ dApp開発、ウォレット構築、インフラのセットアップなど、I
 
 ### はじめに
 
-- **[Core Concepts](./core-concepts/rollup-architecture.md)** — INTMAX のステートレス（Stateless）でプライバシーファーストな L2（Layer 2）アーキテクチャの理解
-- **[Payment Lifecycle](./payment-lifecycle.md)** — ZK proof を用いた Deposit・Transfer・Withdrawal の流れ
-- **[INTMAX Nodes](./intmax-nodes/node-reference.md)** — ネットワークを構成する各ノードタイプとその役割
+- **[Core Concepts](developers-hub/core-concepts/rollup-architecture.md)** — INTMAX のステートレス（Stateless）でプライバシーファーストな L2（Layer 2）アーキテクチャの理解
+- **[Payment Lifecycle](developers-hub/payment-lifecycle.md)** — ZK proof を用いた Deposit・Transfer・Withdrawal の流れ
+- **[INTMAX Nodes](developers-hub/intmax-nodes/node-reference.md)** — ネットワークを構成する各ノードタイプとその役割
 
 ### 開発ツール
 
-- **[INTMAX Client SDK](./intmax-client-sdk/overview.md)** — WebAssembly ベースの高パフォーマンス暗号処理 SDK
-- **[INTMAX CLI](./intmax-cli.md)** — CSV 対応で最大 63 件の Transfer をバッチ処理できるコマンドラインツール
-- **[INTMAX Wallet SDK](./intmax-wallet-sdk/wallet-sdk-reference.md)** — ウォレット ↔ dApp 統合のためのプロトコルと SDK
-- **[コードリポジトリ](./code-repository.md)** — INTMAX 各コンポーネントの公式 GitHub リポジトリ
+- **[INTMAX Client SDK](developers-hub/intmax-client-sdk/overview.md)** — WebAssembly ベースの高パフォーマンス暗号処理 SDK
+- **[INTMAX CLI](developers-hub/intmax-cli.md)** — CSV 対応で最大 63 件の Transfer をバッチ処理できるコマンドラインツール
+- **[INTMAX Wallet SDK](developers-hub/intmax-wallet-sdk/wallet-sdk-reference.md)** — ウォレット ↔ dApp 統合のためのプロトコルと SDK
+- **[コードリポジトリ](developers-hub/code-repository.md)** — INTMAX 各コンポーネントの公式 GitHub リポジトリ
 
 ### 統合パス
 
@@ -37,49 +37,49 @@ dApp開発、ウォレット構築、インフラのセットアップなど、I
 
 ### コアノード
 
-- **[ノードリファレンス](./intmax-nodes/node-reference.md)** — 全ノードタイプの概要とデプロイガイド
-- **[Block Builder](./intmax-nodes/block-builder.md)** — トランザクションをブロックに集約してリワードを獲得
-- **[Validity Prover](./intmax-nodes/validity-prover.md)** — Merkle Tree のホストと ZK proof の生成
-- **[Withdrawal Server](./intmax-nodes/withdrawal-server.md)** — Withdrawal リクエストの処理と L1 との同期
-- **[Provers](./intmax-nodes/provers.md)** — ネットワーク検証のための暗号プルーフ生成
+- **[ノードリファレンス](developers-hub/intmax-nodes/node-reference.md)** — 全ノードタイプの概要とデプロイガイド
+- **[Block Builder](developers-hub/intmax-nodes/block-builder.md)** — トランザクションをブロックに集約してリワードを獲得
+- **[Validity Prover](developers-hub/intmax-nodes/validity-prover.md)** — Merkle Tree のホストと ZK proof の生成
+- **[Withdrawal Server](developers-hub/intmax-nodes/withdrawal-server.md)** — Withdrawal リクエストの処理と L1 との同期
+- **[Provers](developers-hub/intmax-nodes/provers.md)** — ネットワーク検証のための暗号プルーフ生成
 
 ### ブリッジインフラ
 
-- **[Deposit Relayer](./intmax-nodes/deposit-relayer.md)** — Ethereum から INTMAX への資産ブリッジ
-- **[Withdrawal Relayer](./intmax-nodes/withdrawal-relayer.md)** — Withdrawal のオンチェーン同期
-- **[Withdrawal Aggregator](./intmax-nodes/withdrawal-aggregator.md)** — L2 → L1 の Withdrawal Claim のバンドル
-- **[Claim Aggregator](./intmax-nodes/claim-aggregator.md)** — マイニングリワード Claim のバンドルと検証
+- **[Deposit Relayer](developers-hub/intmax-nodes/deposit-relayer.md)** — Ethereum から INTMAX への資産ブリッジ
+- **[Withdrawal Relayer](developers-hub/intmax-nodes/withdrawal-relayer.md)** — Withdrawal のオンチェーン同期
+- **[Withdrawal Aggregator](developers-hub/intmax-nodes/withdrawal-aggregator.md)** — L2 → L1 の Withdrawal Claim のバンドル
+- **[Claim Aggregator](developers-hub/intmax-nodes/claim-aggregator.md)** — マイニングリワード Claim のバンドルと検証
 
 ### サポートサービス
 
-- **[Store Vault Server](./intmax-nodes/store-vault-server.md)** — プライベートデータのバックアップとリストア
-- **[Indexer](./intmax-nodes/indexer.md)** — ノードディスカバリーとデータフィードの提供
-- **[スマートコントラクト](./intmax-nodes/smart-contracts.md)** — INTMAX の L1 コントラクトスイート
+- **[Store Vault Server](developers-hub/intmax-nodes/store-vault-server.md)** — プライベートデータのバックアップとリストア
+- **[Indexer](developers-hub/intmax-nodes/indexer.md)** — ノードディスカバリーとデータフィードの提供
+- **[スマートコントラクト](developers-hub/intmax-nodes/smart-contracts.md)** — INTMAX の L1 コントラクトスイート
 
 ## Use Cases とアプリケーション
 
 ### 実用アプリケーション
 
-- **[決済](./use-cases/payments.md)** — 高速かつ低コストなトークン Transfer
-- **[マイクロトランザクションとキャッシュバック](./use-cases/microtransactions-and-cashback-systems.md)** — スケーラブルなリワード・インセンティブシステム
-- **[プライバシー保護アプリケーション](./use-cases/privacy-preserving-applications.md)** — 匿名性の高いアプリケーションとサービス
+- **[決済](developers-hub/use-cases/payments.md)** — 高速かつ低コストなトークン Transfer
+- **[マイクロトランザクションとキャッシュバック](developers-hub/use-cases/microtransactions-and-cashback-systems.md)** — スケーラブルなリワード・インセンティブシステム
+- **[プライバシー保護アプリケーション](developers-hub/use-cases/privacy-preserving-applications.md)** — 匿名性の高いアプリケーションとサービス
 
 ### ビジネス機会
 
-- **[Block Builder ビジネスガイド](./intmax-block-builder/business-guide.md)** — インフラプロバイダー向けの運用インサイト
-- **[ネットワーク参加](./intmax-block-builder/block-builder-reference.md)** — ブロックバリデーションを通じたリワードの獲得
+- **[Block Builder ビジネスガイド](developers-hub/intmax-block-builder/business-guide.md)** — インフラプロバイダー向けの運用インサイト
+- **[ネットワーク参加](developers-hub/intmax-block-builder/block-builder-reference.md)** — ブロックバリデーションを通じたリワードの獲得
 
 ## セキュリティとパフォーマンス
 
 ### セキュリティ機能
 
-- **[セキュリティとプライバシー](./security-and-privacy/architecture-principles.md)** — Lean 定理証明器による形式検証
+- **[セキュリティとプライバシー](developers-hub/security-and-privacy/architecture-principles.md)** — Lean 定理証明器による形式検証
 - **ゼロリーク** — トランザクションデータはオンチェーンに一切公開されない
 - **耐障害設計** — リプレイ攻撃、遅延攻撃、検閲攻撃に対する保護
 
 ### パフォーマンス指標
 
-- **[パフォーマンス概要](./performance.md)** — 現在 約 7,500 TPS、EIP-4844 対応で 320,000+ TPS
+- **[パフォーマンス概要](developers-hub/performance.md)** — 現在 約 7,500 TPS、EIP-4844 対応で 320,000+ TPS
 - **効率性** — 送信者あたりわずか約 5 バイト（他のロールアップの 200〜300 バイトと比較）
 
 ## INTMAX の主な特徴
@@ -95,16 +95,16 @@ dApp開発、ウォレット構築、インフラのセットアップなど、I
 
 ### dApp 開発者向け {#for-dapp-developers}
 
-1. **[Client SDK](./intmax-client-sdk/overview.md) から始める** — WebAssembly ベースの高パフォーマンス SDK
-2. **[Use Cases](./use-cases/payments.md) を探索** — 実用的な実装例
+1. **[Client SDK](developers-hub/intmax-client-sdk/overview.md) から始める** — WebAssembly ベースの高パフォーマンス SDK
+2. **[Use Cases](developers-hub/use-cases/payments.md) を探索** — 実用的な実装例
 3. **トランザクションライフサイクルを理解** — 作成 → 署名 → ブロードキャストの流れ
-4. **[VibeCoding ガイド](./intmax-client-sdk/vibe-coding-for-general-prompt.md) を活用** — INTMAX + AI を使ったアイデア生成とプロトタイプ構築
+4. **[VibeCoding ガイド](developers-hub/intmax-client-sdk/vibe-coding-for-general-prompt.md) を活用** — INTMAX + AI を使ったアイデア生成とプロトタイプ構築
 
 ### ウォレット開発者向け {#for-wallet-developers}
 
-1. **[Wallet SDK](./intmax-wallet-sdk/wallet-sdk-reference.md) を実装** — EIP-1193 スタイルの通信プロトコル
+1. **[Wallet SDK](developers-hub/intmax-wallet-sdk/wallet-sdk-reference.md) を実装** — EIP-1193 スタイルの通信プロトコル
 
 ### インフラプロバイダー向け {#for-infra-providers}
 
-1. **[Block Builder](./intmax-block-builder/block-builder-reference.md) をデプロイ** — コアインフラコンポーネント
-2. **[ビジネスガイド](./intmax-block-builder/business-guide.md) を確認** — 運用と経済性に関するインサイト
+1. **[Block Builder](developers-hub/intmax-block-builder/block-builder-reference.md) をデプロイ** — コアインフラコンポーネント
+2. **[ビジネスガイド](developers-hub/intmax-block-builder/business-guide.md) を確認** — 運用と経済性に関するインサイト

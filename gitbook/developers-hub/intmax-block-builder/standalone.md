@@ -25,7 +25,7 @@ Block Builder は、秘密鍵（Private Key）で指定された Ethereum アカ
   - Block Builder はトランザクションごとにユーザーあたり $0.005 の手数料を収集します。
   - 1ブロックあたり最大 $0.005 × 128 の手数料を蓄積でき、スケーラブルでインセンティブのある運用を支えます。
 - **オンラインステータスの通知：**
-  - Block Builder は1日1回、[**Block Builder Registry Contract**](../intmax-nodes/smart-contracts.md#block-builder-registry) にトランザクションを送信して、[**Indexer**](../intmax-nodes/indexer.md) にオンラインであることを通知します。
+  - Block Builder は1日1回、[**Block Builder Registry Contract**](developers-hub/intmax-nodes/smart-contracts.md#block-builder-registry) にトランザクションを送信して、[**Indexer**](developers-hub/intmax-nodes/indexer.md) にオンラインであることを通知します。
   - Indexer は最適な Block Builder の URL をユーザーに配信する重要な役割を担っており、効率的で信頼性の高いネットワークインタラクションを確保します。
 
 ## 要件
@@ -518,4 +518,4 @@ GitHub でソースコードと実装の詳細を確認できます。
 
 デプロイ済みスマートコントラクトとその使い方に関するドキュメントです。
 
-[スマートコントラクトのドキュメントを見る](../intmax-nodes/smart-contracts.md)
+[スマートコントラクトのドキュメントを見る](developers-hub/intmax-nodes/smart-contracts.md)

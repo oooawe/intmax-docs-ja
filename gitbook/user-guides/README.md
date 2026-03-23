@@ -3,15 +3,7 @@ icon: compass
 description: INTMAX Network の概要と各セクションへのナビゲーション
 ---
 
-# ユーザーガイド
-
-INTMAX Network ユーザーガイド
-
-{% hint style="success" icon="book-open" %}
-*Welcome to the INTMAX Network User Guides*  
-  
-INTMAX Network を使いこなすための手順やリソースをまとめています。初めての方から上級者まで、目的に合わせてぜひご活用ください。
-{% endhint %}
+# ユーザーガイド 概要
 
 ## クイックスタート
 

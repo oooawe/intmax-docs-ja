@@ -25,22 +25,22 @@ Block Builder を運用すると、以下が可能になります。
 
 自動セットアップスクリプトを使用して、**Full Network モード**で INTMAX2 Block Builder をセットアップ・実行するためのステップバイステップガイドです。
 
-[Full-Network セットアップガイドを見る](./full-netwrok.md)
+[Full-Network セットアップガイドを見る](developers-hub/intmax-block-builder/full-netwrok.md)
 
 ### Block Builder セットアップ — Standalone
 
 柔軟なサーバーサイド管理や複数環境へのデプロイが必要な上級ユースケース向けのガイドです。Standalone モードで軽量かつモジュラーな Block Builder セットアップを提供します。
 
-[Standalone セットアップガイドを見る](./standalone.md)
+[Standalone セットアップガイドを見る](developers-hub/intmax-block-builder/standalone.md)
 
 ### Block Builder ビジネスガイド
 
 Block Builder としてのビジネス展開をサポートするガイドです。リワード設計、ネットワーク貢献のベストプラクティス、運用上の考慮事項を解説します。
 
-[ビジネスガイドを見る](./business-guide.md)
+[ビジネスガイドを見る](developers-hub/intmax-block-builder/business-guide.md)
 
 ### Block Builder リワードの受取
 
 INTMAX Block Builder のリワード受取ガイドです。セットアップから最終的な Claim まで、**ユーザー手数料**と **ITX トークン**の2種類のリワードを受け取る方法を説明します。
 
-[リワード受取ガイドを見る](./receive-rewards.md)
+[リワード受取ガイドを見る](developers-hub/intmax-block-builder/receive-rewards.md)

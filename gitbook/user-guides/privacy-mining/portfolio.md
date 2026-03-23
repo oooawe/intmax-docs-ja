@@ -8,13 +8,13 @@ description: Privacy Mining のポートフォリオ確認方法
 マイニングポートフォリオでは、アカウントに紐づくすべてのアクティブなマイニングアクティビティと過去のマイニングセッションを一覧で確認できます。Deposit、リワード、マイニング全体のパフォーマンスを一か所で追跡できます。
 
 <div align="center" data-with-frame="true">
-<img src="../../assets/user-guides/portfolio_10.png" alt="Mining Portfolio1" width="75%" height="auto">
+<img src="assets/user-guides/portfolio_10.png" alt="Mining Portfolio1" width="75%" height="auto">
 </div>
 
 アカウントでマイニングアクティビティが行われていない場合、ポートフォリオは空で表示されます。マイニングが開始されると、アクティブなセッションと進行中のアクティビティが表示されます。
 
 <div align="center" data-with-frame="true">
-<img src="../../assets/user-guides/portfolio_20.png" width="75%" height="auto" alt="Mining Portfolio2">
+<img src="assets/user-guides/portfolio_20.png" width="75%" height="auto" alt="Mining Portfolio2">
 </div>
 
 ## マイニングステータス
@@ -28,8 +28,8 @@ description: Privacy Mining のポートフォリオ確認方法
 - **Completed** — マイニングリワードの Claim が正常に完了した状態（ただし、Redeposit はまだ完了していない場合があります）
 
 <div align="center" data-with-frame="true">
-  <img src="../../assets/user-guides/portfolio_30.png" alt="Mining Portfolio" width="75%">
-  <img src="../../assets/user-guides/portfolio_40.png" alt="Mining Portfolio" width="75%">
+  <img src="assets/user-guides/portfolio_30.png" alt="Mining Portfolio" width="75%">
+  <img src="assets/user-guides/portfolio_40.png" alt="Mining Portfolio" width="75%">
 </div>
 
 ## 補足事項

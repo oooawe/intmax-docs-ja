@@ -15,13 +15,13 @@ description: 解決済みの既知の問題と復旧手順
 
 1. Etherscan でトランザクションが Ethereum 上で正常に実行されたかを確認します。
 
-<div align="center" data-with-frame="true"><img src="../assets/user-guides/resolved_issue_10.png" alt="Etherscan Transaction" width="75%"></div>
+<div align="center" data-with-frame="true"><img src="assets/user-guides/resolved_issue_10.png" alt="Etherscan Transaction" width="75%"></div>
 
 2. 接続中のアドレスで検索し、実行されたトランザクションの一覧を表示します。
 
 3. 「Deposit Native Token」というラベルのトランザクションを見つけ、そのタイムスタンプがマイニング操作を行った時刻と一致するかを確認します。
 
-<div align="center" data-with-frame="true"><img src="../assets/user-guides/resolved_issue_20.png" alt="Etherscan Transaction" width="75%"></div>
+<div align="center" data-with-frame="true"><img src="assets/user-guides/resolved_issue_20.png" alt="Etherscan Transaction" width="75%"></div>
 
 トランザクションが実行されているにもかかわらず、1 時間経過してもマイニングポートフォリオに表示されない場合は、次の手順に進んでください。
 
@@ -33,10 +33,10 @@ description: 解決済みの既知の問題と復旧手順
    https://app.intmax.io/mining-portfolio
 2. ウォレットの接続に成功したら、「View Address List」リンクをクリックしてください。
 
-<div align="center" data-with-frame="true"><img src="../assets/user-guides/resolved_issue_30.png" alt="Mining Address List" width="75%"></div>
+<div align="center" data-with-frame="true"><img src="assets/user-guides/resolved_issue_30.png" alt="Mining Address List" width="75%"></div>
 
 3. この画面に約 1 分間留まってください。このページにいる間、復旧処理が自動的に開始されます。
 
-<div align="center" data-with-frame="true"><img src="../assets/user-guides/resolved_issue_40.png" alt="Mining Address List" width="75%"></div>
+<div align="center" data-with-frame="true"><img src="assets/user-guides/resolved_issue_40.png" alt="Mining Address List" width="75%"></div>
 
 4. 一覧に表示されるアドレスの数が増えたことを確認し、更新が完了したことを確かめます。「Back to Mining Portfolio」リンクをクリックして、マイニングポートフォリオページに戻ってください。

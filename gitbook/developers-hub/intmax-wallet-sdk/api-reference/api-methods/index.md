@@ -19,8 +19,8 @@ description: INTMAX WalletSDK の JSON-RPC API メソッド一覧と分類
 
 対象メソッド：
 
-- [INTMAX Ready](intmax-ready.md)
-- [INTMAX Connect](intmax-connect.md)
+- [INTMAX Ready](developers-hub/intmax-wallet-sdk/api-reference/api-methods/intmax-ready.md)
+- [INTMAX Connect](developers-hub/intmax-wallet-sdk/api-reference/api-methods/intmax-connect.md)
 
 ## Approval メソッド {#approval-methods}
 
@@ -28,13 +28,13 @@ description: INTMAX WalletSDK の JSON-RPC API メソッド一覧と分類
 
 以下のメソッドは、dApp からウォレットに対してユーザーの承認を要求します。各 EIP のスキーマを継承しています。
 
-- [Request Wallet Account](request-wallet-account.md)
-- [Sign Message](sign-message.md)
-- [Sign Typed Data](sign-typed-data.md)
-- [Sign Transaction](sign-transaction.md)
-- [Send Transaction](send-transaction.md)
-- [Add Chain to Wallet](add-chain-to-wallet.md)
-- [Watch Wallet Asset](watch-wallet-asset.md)
+- [Request Wallet Account](developers-hub/intmax-wallet-sdk/api-reference/api-methods/request-wallet-account.md)
+- [Sign Message](developers-hub/intmax-wallet-sdk/api-reference/api-methods/sign-message.md)
+- [Sign Typed Data](developers-hub/intmax-wallet-sdk/api-reference/api-methods/sign-typed-data.md)
+- [Sign Transaction](developers-hub/intmax-wallet-sdk/api-reference/api-methods/sign-transaction.md)
+- [Send Transaction](developers-hub/intmax-wallet-sdk/api-reference/api-methods/send-transaction.md)
+- [Add Chain to Wallet](developers-hub/intmax-wallet-sdk/api-reference/api-methods/add-chain-to-wallet.md)
+- [Watch Wallet Asset](developers-hub/intmax-wallet-sdk/api-reference/api-methods/watch-wallet-asset.md)
 
 ## Readonly メソッド {#readonly-methods}
 
@@ -42,6 +42,6 @@ description: INTMAX WalletSDK の JSON-RPC API メソッド一覧と分類
 
 以下のメソッドは、SDK が dApp 側で解決することを想定しています。ウォレットへのリクエストは行われません。なお、「readonly」という命名は将来変更される可能性があります。
 
-- [Get Accounts](get-accounts.md)
-- [Get Chain ID](get-chain-id.md)
-- [Switch Chain](switch-chain.md)
+- [Get Accounts](developers-hub/intmax-wallet-sdk/api-reference/api-methods/get-accounts.md)
+- [Get Chain ID](developers-hub/intmax-wallet-sdk/api-reference/api-methods/get-chain-id.md)
+- [Switch Chain](developers-hub/intmax-wallet-sdk/api-reference/api-methods/switch-chain.md)

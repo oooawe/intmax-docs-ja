@@ -33,7 +33,7 @@ INTMAX へのログイン例です。SDK の各機能を使用する前に、一
 
 2 つのメッセージに署名します。ポップアップウィンドウに自動的に表示されます：
 
-1. ETH ウォレットアドレスを確認するメッセージに署名
+1. `ETH` ウォレットアドレスを確認するメッセージに署名
 
 2. チャレンジ文字列を含むメッセージに署名
 
@@ -133,7 +133,7 @@ console.log("Sent Transfers:", sentTxs);
 
 #### ガス代の見積もりと Deposit
 
-ETH の Deposit に必要なガス代を見積もり、Deposit を実行します。
+`ETH` の Deposit に必要なガス代を見積もり、Deposit を実行します。
 
 ```tsx
 const token = {
@@ -167,7 +167,7 @@ console.log("Transaction Hash:", depositResult.txHash);
 
 #### Transfer 手数料の確認とトランザクションのブロードキャスト
 
-現在の Transfer 手数料（トークンインデックス / 金額）を取得する例です。その後、0.000001 ETH を別の INTMAX アドレスに送信します。
+現在の Transfer 手数料（トークンインデックス / 金額）を取得する例です。その後、0.000001 `ETH` を別の INTMAX アドレスに送信します。
 
 ```tsx
 const token = {
@@ -200,7 +200,7 @@ console.log("Transfer confirmation result:", transferConfirmation);
 
 Withdrawal 手数料と Transfer 手数料の両方を取得してから Withdrawal を実行する方法を示します。
 
-ETH の Withdrawal を実行し、プルーフの準備が完了したら Claim します。
+`ETH` の Withdrawal を実行し、プルーフの準備が完了したら Claim します。
 
 ```tsx
 const token = {

@@ -41,6 +41,6 @@ Block Builder としてのビジネス展開をサポートするガイドです
 
 ### Block Builder リワードの受取
 
-INTMAX Block Builder のリワード受取ガイドです。セットアップから最終的な Claim まで、**ユーザー手数料**と **ITX トークン**の2種類のリワードを受け取る方法を説明します。
+INTMAX Block Builder のリワード受取ガイドです。セットアップから最終的な Claim まで、**ユーザー手数料**と **`ITX` トークン**の2種類のリワードを受け取る方法を説明します。
 
 [リワード受取ガイドを見る](developers-hub/intmax-block-builder/receive-rewards.md)

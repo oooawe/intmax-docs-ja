@@ -77,7 +77,7 @@ const connectors = connectorsForWallets([
 
 ### `createConfig(config: WagmiConfig): WagmiConfig`
 
-Wagmi SDK の設定オブジェクトを作成します。自動接続の設定、使用するコネクタ、ブロックチェーンインタラクション用のパブリッククライアントを含みます。
+`Wagmi` SDK の設定オブジェクトを作成します。自動接続の設定、使用するコネクタ、ブロックチェーンインタラクション用のパブリッククライアントを含みます。
 
 ```typescript
 const wagmiConfig = createConfig({

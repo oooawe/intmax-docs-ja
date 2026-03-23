@@ -7,19 +7,19 @@ description: Withdrawal Relayer の役割と INTMAX から Ethereum への Withd
 
 ## Withdrawal Relayer とは
 
-Withdrawal Relayer は、INTMAX ネットワークから Ethereum ネットワークへの Withdrawal を安全に処理する分散型ノードです。Rollup コントラクトを通じて送信されたユーザーリクエストに基づき、ETH、ERC-20、ERC-721、ERC-1155 などのトークンの Withdrawal を実行します。
+Withdrawal Relayer は、INTMAX ネットワークから Ethereum ネットワークへの Withdrawal を安全に処理する分散型ノードです。Rollup コントラクトを通じて送信されたユーザーリクエストに基づき、`ETH`、ERC-20、ERC-721、ERC-1155 などのトークンの Withdrawal を実行します。
 
 ## 主な役割
 
 - **Withdrawal の実行**
-  - Scroll Messenger を介して Rollup コントラクトから受け取った Withdrawal リクエストを処理します。
+  - `Scroll` Messenger を介して Rollup コントラクトから受け取った Withdrawal リクエストを処理します。
   - Ethereum 上の Liquidity コントラクトの `processWithdrawals` 関数を呼び出してトークンを送金します。
 
 ## 動作の流れ
 
-- Withdrawal Relayer は、Scroll Messenger API を継続的に監視し、Withdrawal リクエストと Claim リクエストを検知します。
+- Withdrawal Relayer は、`Scroll` Messenger API を継続的に監視し、Withdrawal リクエストと Claim リクエストを検知します。
 - Withdrawal の指示を受け取ると、Ethereum 上でトランザクションを安全に実行し、リクエストされたトークンをユーザーのアドレスに送金します。
-- ETH または特定の ERC-20 トークンの直接送金が失敗した場合、ユーザーは Liquidity コントラクト上で Claim トランザクションを実行してトークンを受け取る必要があります。
+- `ETH` または特定の ERC-20 トークンの直接送金が失敗した場合、ユーザーは Liquidity コントラクト上で Claim トランザクションを実行してトークンを受け取る必要があります。
 - その他の ERC-20、ERC-721、ERC-1155 トークンについては、ユーザーが Liquidity コントラクト上で Claim トランザクションを手動で実行する必要があります。
 
 ## 特徴

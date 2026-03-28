@@ -4,7 +4,6 @@
 
 * [はじめに](README.md)
 
-***
 
 ## INTMAX2 User Guides
 
@@ -24,10 +23,8 @@
   * [トランザクションデータのバックアップ](user-guides/backup-intmax-account/backup-transaction-data.md)
 * [INTMAX Explorer](user-guides/intmax-explorer.md)
 * [スマートコントラクト](user-guides/smart-contracts.md)
-* [FAQ とトラブルシューティング](user-guides/faq-and-trouble-shooting.md)
-* [解決済みの問題](user-guides/resolved-issue.md)
 
-## Privacy Mining
+### Privacy Mining
 
 * [Privacy Mining 概要](user-guides/privacy-mining/README.md)
 * [Deposit](user-guides/privacy-mining/deposit.md)
@@ -38,6 +35,8 @@
 
 ***
 
+* [FAQ とトラブルシューティング](user-guides/faq-and-trouble-shooting.md)
+* [解決済みの問題](user-guides/resolved-issue.md)
 * [利用規約（テストネット）](user-guides/terms-of-use-testnet.md)
 * [利用規約（メインネット）](user-guides/terms-of-use-mainnet.md)
 
@@ -49,16 +48,16 @@
 * コアコンセプト
   * [Rollup Architecture](developers-hub/core-concepts/rollup-architecture.md)
   * [Roles](developers-hub/core-concepts/roles.md)
+
 * セキュリティとプライバシー
   * [アーキテクチャと原則](developers-hub/security-and-privacy/architecture-principles.md)
   * [セキュリティ監査・テストレポート](developers-hub/security-and-privacy/security-and-testing-report.md)
   * [負荷テストレポート](developers-hub/security-and-privacy/load-testing-report.md)
+
 * Use Cases
   * [決済](developers-hub/use-cases/payments.md)
   * [マイクロトランザクションとキャッシュバックシステム](developers-hub/use-cases/microtransactions-and-cashback-systems.md)
   * [プライバシー保護アプリケーション](developers-hub/use-cases/privacy-preserving-applications.md)
-
-***
 
 * INTMAX Nodes
   * [ノードリファレンス](developers-hub/intmax-nodes/node-reference.md)
@@ -90,7 +89,6 @@
   * [Vibe Coding — 汎用プロンプト集](developers-hub/intmax-client-sdk/vibe-coding-for-general-prompt.md)
   * [Vibe Coding — 開発プロンプト集](developers-hub/intmax-client-sdk/vibe-coding-for-coding-prompt.md)
   * [FAQ](developers-hub/intmax-client-sdk/faq.md)
-
 
 * INTMAX Wallet SDK
   * [Wallet SDK リファレンス](developers-hub/intmax-wallet-sdk/wallet-sdk-reference.md)

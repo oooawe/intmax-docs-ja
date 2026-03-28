@@ -4,7 +4,6 @@
 
 * [はじめに](README.md)
 
-
 ## INTMAX2 User Guides
 
 * [ユーザーガイド概要](user-guides/README.md)
@@ -18,23 +17,23 @@
 * [INTMAX 上の Transfer](user-guides/transfer-on-intmax-network.md)
 * [INTMAX からの Withdrawal](user-guides/withdrawal-from-intmax-network.md)
 * [トランザクション履歴の確認](user-guides/check-transaction-history.md)
-* [INTMAX アカウントのバックアップ](user-guides/backup-intmax-account/index.md)
-  * [INTMAX 秘密鍵のエクスポート](user-guides/backup-intmax-account/export-intmax-private-key.md)
-  * [トランザクションデータのバックアップ](user-guides/backup-intmax-account/backup-transaction-data.md)
+* [アカウントのバックアップ](user-guides/backup-intmax-account/index.md)
+  * [秘密鍵のエクスポート](user-guides/backup-intmax-account/export-intmax-private-key.md)
+  * [トランザクションのバックアップ](user-guides/backup-intmax-account/backup-transaction-data.md)
+
+---
+
+* [Privacy Mining](user-guides/privacy-mining/README.md)
+  * [Deposit](user-guides/privacy-mining/deposit.md)
+  * [ポートフォリオ](user-guides/privacy-mining/portfolio.md)
+  * [Withdraw](user-guides/privacy-mining/withdraw.md)
+  * [Redeposit](user-guides/privacy-mining/redeposit.md)
+  * [その他の機能](user-guides/privacy-mining/others-features.md)
+
+---
+
 * [INTMAX Explorer](user-guides/intmax-explorer.md)
 * [スマートコントラクト](user-guides/smart-contracts.md)
-
-### Privacy Mining
-
-* [Privacy Mining 概要](user-guides/privacy-mining/README.md)
-* [Deposit](user-guides/privacy-mining/deposit.md)
-* [ポートフォリオ](user-guides/privacy-mining/portfolio.md)
-* [Withdraw](user-guides/privacy-mining/withdraw.md)
-* [Redeposit](user-guides/privacy-mining/redeposit.md)
-* [その他の機能](user-guides/privacy-mining/others-features.md)
-
-***
-
 * [FAQ とトラブルシューティング](user-guides/faq-and-trouble-shooting.md)
 * [解決済みの問題](user-guides/resolved-issue.md)
 * [利用規約（テストネット）](user-guides/terms-of-use-testnet.md)
@@ -124,7 +123,8 @@
 * [Payment Lifecycle](developers-hub/payment-lifecycle.md)
 * [パフォーマンス](developers-hub/performance.md)
 
-
 ## Internet Maximalism
 * [コミュニティ](community.md)
 * [ホワイトペーパー](https://eprint.iacr.org/2023/1082.pdf)
+
+***

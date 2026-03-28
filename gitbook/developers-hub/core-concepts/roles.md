@@ -1,6 +1,6 @@
 ---
 icon: users-gear
-description: プロトコルを構成する各ロールの責務と相互関係
+description: プロトコルを構成するRolesの責務と相互関係
 ---
 
 # ロール

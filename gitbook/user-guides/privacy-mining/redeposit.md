@@ -1,18 +1,18 @@
 ---
 icon: rotate
-description: Privacy Mining の Redeposit 手順
+description: Privacy Mining - Redepositの概要や注意点など
 ---
 
 # Redeposit
 
-Redeposit 機能について、以下の点に留意してください：
-
-- 最初のマイニングラウンドが完了した後、自動的に次のラウンドに資金を Deposit できる機能です。
+{% hint style="success" %}
+- Redeposit とは最初のマイニングラウンドが完了した後、自動的に次のラウンドに資金を Deposit できる機能です。
 - Withdrawal のために新しいウォレットを繰り返し作成する手間を省くために用意されています。
-- 資産の Withdrawal（システムが生成するアドレスへの送金）、`ITX` の Claim、そして Redeposit の 3 つのプロセスを一括で行います。
+- 資産の Withdrawal（システムが生成するアドレスへの送金）、`ITX` の Claim、そして Redeposit の 3つのプロセスを一括で行います。
 - システムが生成したアドレスにガス代を補充する必要があります。これにより、Redeposit のタイミングが来た際にシステムが資金を送出できます。
 - ガス代の急激な変動により、2 回以上のガス補充が必要になる場合があります。
 - Redeposit は最初の 2 つのプロセス（Withdrawal と Claim）が正常に完了した後に開始されます。その後、システムが生成したアドレスに送られた資金を Deposit し、次のマイニングラウンドに使用します。
+{% endhint %}
 
 ## ステップバイステップガイド
 

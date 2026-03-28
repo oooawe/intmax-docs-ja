@@ -3,6 +3,11 @@
     "gitbook-docs": {
       "type": "url",
       "url": "https://gitbook.com/docs/~gitbook/mcp"
+    },
+
+    "intmax-ja": {
+      "type": "url",
+      "url": "https://zkpaw.gitbook.com/intmax-ja/~gitbook/mcp"
     }
   }
 }

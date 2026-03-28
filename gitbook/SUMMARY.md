@@ -1,6 +1,10 @@
-# Summary
+# Table of contents
+
+***
 
 * [はじめに](README.md)
+
+***
 
 ## INTMAX2 User Guides
 
@@ -11,12 +15,6 @@
   * [Rabby Wallet](user-guides/supported-wallets/rabby-wallet.md)
   * [Trust Wallet](user-guides/supported-wallets/trust-wallet.md)
   * [Phantom Wallet](user-guides/supported-wallets/phantom-wallet.md)
-* [Privacy Mining](user-guides/privacy-mining/index.md)
-  * [Deposit](user-guides/privacy-mining/deposit.md)
-  * [ポートフォリオ](user-guides/privacy-mining/portfolio.md)
-  * [Withdraw](user-guides/privacy-mining/withdraw.md)
-  * [Redeposit](user-guides/privacy-mining/redeposit.md)
-  * [その他の機能](user-guides/privacy-mining/others-features.md)
 * [INTMAX への Deposit](user-guides/deposit-to-intmax-network.md)
 * [INTMAX 上の Transfer](user-guides/transfer-on-intmax-network.md)
 * [INTMAX からの Withdrawal](user-guides/withdrawal-from-intmax-network.md)
@@ -24,25 +22,43 @@
 * [INTMAX アカウントのバックアップ](user-guides/backup-intmax-account/index.md)
   * [INTMAX 秘密鍵のエクスポート](user-guides/backup-intmax-account/export-intmax-private-key.md)
   * [トランザクションデータのバックアップ](user-guides/backup-intmax-account/backup-transaction-data.md)
-* [FAQ とトラブルシューティング](user-guides/faq-and-trouble-shooting.md)
-* [解決済みの問題](user-guides/resolved-issue.md)
 * [INTMAX Explorer](user-guides/intmax-explorer.md)
 * [スマートコントラクト](user-guides/smart-contracts.md)
+* [FAQ とトラブルシューティング](user-guides/faq-and-trouble-shooting.md)
+* [解決済みの問題](user-guides/resolved-issue.md)
+
+## Privacy Mining
+
+* [Privacy Mining 概要](user-guides/privacy-mining/README.md)
+* [Deposit](user-guides/privacy-mining/deposit.md)
+* [ポートフォリオ](user-guides/privacy-mining/portfolio.md)
+* [Withdraw](user-guides/privacy-mining/withdraw.md)
+* [Redeposit](user-guides/privacy-mining/redeposit.md)
+* [その他の機能](user-guides/privacy-mining/others-features.md)
+
+***
+
 * [利用規約（テストネット）](user-guides/terms-of-use-testnet.md)
 * [利用規約（メインネット）](user-guides/terms-of-use-mainnet.md)
 
+
 ## Developers Hub
 
-* [Developers Hub 概要](developers-hub/developers-hub-overview.md)
+* [Developers Hub 概要](developers-hub/README.md)
+
 * コアコンセプト
   * [Rollup Architecture](developers-hub/core-concepts/rollup-architecture.md)
-  * [ロール](developers-hub/core-concepts/roles.md)
-* [ペイメントライフサイクル](developers-hub/payment-lifecycle.md)
+  * [Roles](developers-hub/core-concepts/roles.md)
 * セキュリティとプライバシー
   * [アーキテクチャと原則](developers-hub/security-and-privacy/architecture-principles.md)
   * [セキュリティ監査・テストレポート](developers-hub/security-and-privacy/security-and-testing-report.md)
   * [負荷テストレポート](developers-hub/security-and-privacy/load-testing-report.md)
-* [パフォーマンス](developers-hub/performance.md)
+* Use Cases
+  * [決済](developers-hub/use-cases/payments.md)
+  * [マイクロトランザクションとキャッシュバックシステム](developers-hub/use-cases/microtransactions-and-cashback-systems.md)
+  * [プライバシー保護アプリケーション](developers-hub/use-cases/privacy-preserving-applications.md)
+
+***
 
 * INTMAX Nodes
   * [ノードリファレンス](developers-hub/intmax-nodes/node-reference.md)
@@ -57,11 +73,6 @@
   * [Indexer](developers-hub/intmax-nodes/indexer.md)
   * [Validity Prover](developers-hub/intmax-nodes/validity-prover.md)
   * [Provers](developers-hub/intmax-nodes/provers.md)
-
-* Use Cases
-  * [決済](developers-hub/use-cases/payments.md)
-  * [マイクロトランザクションとキャッシュバックシステム](developers-hub/use-cases/microtransactions-and-cashback-systems.md)
-  * [プライバシー保護アプリケーション](developers-hub/use-cases/privacy-preserving-applications.md)
 
 * INTMAX Block Builder
   * [Block Builder リファレンス](developers-hub/intmax-block-builder/block-builder-reference.md)
@@ -80,7 +91,6 @@
   * [Vibe Coding — 開発プロンプト集](developers-hub/intmax-client-sdk/vibe-coding-for-coding-prompt.md)
   * [FAQ](developers-hub/intmax-client-sdk/faq.md)
 
-* [INTMAX CLI](developers-hub/intmax-cli.md)
 
 * INTMAX Wallet SDK
   * [Wallet SDK リファレンス](developers-hub/intmax-wallet-sdk/wallet-sdk-reference.md)
@@ -111,6 +121,11 @@
   * [Use Cases](developers-hub/intmax-wallet-sdk/use-cases.md)
   * [リソース](developers-hub/intmax-wallet-sdk/resources.md)
   * [コードリポジトリ](developers-hub/code-repository.md)
+
+* [INTMAX CLI](developers-hub/intmax-cli.md)
+* [Payment Lifecycle](developers-hub/payment-lifecycle.md)
+* [パフォーマンス](developers-hub/performance.md)
+
 
 ## Internet Maximalism
 * [コミュニティ](community.md)

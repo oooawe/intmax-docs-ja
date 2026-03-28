@@ -1,6 +1,6 @@
 ---
 icon: compass
-description: Developers Hub の概要と各セクションへのナビゲーション
+description: Developers Hub 概要と各セクションへのナビゲーション
 ---
 
 # Developers Hub 概要

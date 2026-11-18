@@ -1,9 +1,9 @@
 ---
-icon: coins
 description: Block Builder のユーザー手数料と ITX トークンリワードの受取手順
+icon: coins
 ---
 
-# リワードの受取
+# リワードの受け取り
 
 ## はじめに
 
@@ -11,10 +11,10 @@ description: Block Builder のユーザー手数料と ITX トークンリワー
 
 このドキュメントでは、初期セットアップからリワードの Claim まで、以下の方法を解説します。
 
-- コマンドラインツールと環境のセットアップ
-- Ethereum 秘密鍵（Private Key）から INTMAX キーの生成
-- 蓄積された残高の確認とユーザー手数料の Withdrawal
-- ブロック生成活動で獲得した `ITX` トークンリワードの Claim
+* コマンドラインツールと環境のセットアップ
+* Ethereum 秘密鍵（Private Key）から INTMAX キーの生成
+* 蓄積された残高の確認とユーザー手数料の Withdrawal
+* ブロック生成活動で獲得した `ITX` トークンリワードの Claim
 
 **注意:** リワードを受け取る際は CLI をクローンしてコマンドを実行する必要がありますが、Block Builder を実行しているサーバー上で行う必要はありません。
 
@@ -73,8 +73,7 @@ EOF
 
 **Step 0: intmax2 リポジトリの更新**
 
-コマンドを実行する前に、intmax2 リポジトリが最新であることを確認してください。
-ターミナルを開き、リポジトリのディレクトリに移動して最新の変更を取得します。
+コマンドを実行する前に、intmax2 リポジトリが最新であることを確認してください。 ターミナルを開き、リポジトリのディレクトリに移動して最新の変更を取得します。
 
 ```bash
 cd /path/to/intmax2
@@ -98,8 +97,7 @@ Spend Key: 0x9821...
 Key Pair: keypair/0x49c1...
 ```
 
-**:warning: 重要な注意事項**: **View Only Key、Spend Key、Key Pair は絶対に他人と共有しないでください。**
-特に Spend Key や Key Pair が他者に知られた場合、INTMAX ネットワーク上のあなたの資産を移動される重大なリスクがあります。
+:warning: **重要な注意事項**: **View Only Key、Spend Key、Key Pair は絶対に他人と共有しないでください。** 特に Spend Key や Key Pair が他者に知られた場合、INTMAX ネットワーク上のあなたの資産を移動される重大なリスクがあります。
 
 **Step 2: INTMAX 秘密鍵で残高を確認**
 
@@ -154,7 +152,6 @@ cargo run -r -- sync-withdrawals --private-key <spend-key>
 cargo run -r -- withdrawal --private-key <spend-key> --to <ethereum-address> --amount 2307400000000000 --token-index 0
 ```
 
-
 ### `ITX` トークン
 
 以下のコマンドを実行してリワードを Claim してください。`<scroll-private-key>` を実際の `Scroll` 秘密鍵に置き換えてください。
@@ -186,18 +183,15 @@ Claim 可能なリワードがある場合、以下のような出力ログが�
 
 https://scrollscan.com/token/0xc0579287f3CDE6BF796BE6E2bB61DbB06DA85024#balances
 
-<div align="center" data-with-frame="true"><img src="/gitbook/assets/developers-hub/search-holders.png" alt="ScrollScan holders" width="75%"></div>
+<div align="center" data-with-frame="true"><img src="../../.gitbook/assets/search-holders.png" alt="ScrollScan holders" width="75%"></div>
 
-ページ右上の検索アイコンをクリックします。
-検索バーに Block Builder の `Scroll` アドレスを入力します。
-以下の画像で赤枠でハイライトされたエリアに、現在の残高が表示されます。
+ページ右上の検索アイコンをクリックします。 検索バーに Block Builder の `Scroll` アドレスを入力します。 以下の画像で赤枠でハイライトされたエリアに、現在の残高が表示されます。
 
-<div align="center" data-with-frame="true"><img src="/gitbook/assets/developers-hub/itx-token-balance.png" alt="ScrollScan ITX balance" width="75%"></div>
+<div align="center" data-with-frame="true"><img src="../../.gitbook/assets/itx-token-balance.png" alt="ScrollScan ITX balance" width="75%"></div>
 
 ## テストネット
 
-**テストネット**で Block Builder を運用している場合、リワードの Claim もテストネット上で行われます。
-以下のコマンドを実行してください。
+**テストネット**で Block Builder を運用している場合、リワードの Claim もテストネット上で行われます。 以下のコマンドを実行してください。
 
 ```bash
 git clone git@github.com:InternetMaximalism/intmax2.git -b dev
@@ -257,8 +251,7 @@ $TARGET = aarch64-unknown-linux-gnu
 openssl-sys = 0.9.108
 ```
 
-これは OpenSSL の開発ライブラリが不足しているために発生します。
-以下のコマンドを実行して必要なパッケージをインストールしてください。
+これは OpenSSL の開発ライブラリが不足しているために発生します。 以下のコマンドを実行して必要なパッケージをインストールしてください。
 
 ```
 apt update
@@ -267,8 +260,7 @@ apt install -y build-essential pkg-config libssl-dev
 
 ### `apt` パッケージの代わりに Rustup を使用する
 
-`apt install cargo rustc` で Rust をインストールした場合、Rust の **nightly バージョン**は使用できません。
-nightly やその他のツールチェインを有効にするには、**Rustup** 経由で Rust をインストールしてください。
+`apt install cargo rustc` で Rust をインストールした場合、Rust の **nightly バージョン**は使用できません。 nightly やその他のツールチェインを有効にするには、**Rustup** 経由で Rust をインストールしてください。
 
 以下のコマンドを実行します。
 

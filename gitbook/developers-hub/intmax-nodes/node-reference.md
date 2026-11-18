@@ -1,26 +1,26 @@
 ---
-icon: book-open
 description: INTMAX ネットワークを構成するノード・コントラクト・UI の全体像
+icon: book-open
 ---
 
 # ノードリファレンス
 
 本ドキュメントでは、INTMAX システム全体のコンポーネントとその役割を説明します。コンポーネントは、ユーザーインターフェース、コントラクト、ノードの 3 つのカテゴリに分類されます。
 
-- **ユーザーインターフェースの説明**
-  - ユーザーがネットワークと対話するためのインターフェースを説明します。CLI（Command Line Interface）と Intmax Web App について、ネットワークの操作方法を解説します。
-- **スマートコントラクトの説明**
-  - ネットワーク内の各コントラクトの役割を説明します。
-  - ネットワークがオンチェーンデータをどのように活用しているかを理解するのに役立ちます。
-- **ノードの説明**
-  - ネットワーク内の各ノードの役割を説明します。
-  - ネットワークの構造を理解するのに役立ちます。
+* **ユーザーインターフェースの説明**
+  * ユーザーがネットワークと対話するためのインターフェースを説明します。CLI（Command Line Interface）と Intmax Web App について、ネットワークの操作方法を解説します。
+* **スマートコントラクトの説明**
+  * ネットワーク内の各コントラクトの役割を説明します。
+  * ネットワークがオンチェーンデータをどのように活用しているかを理解するのに役立ちます。
+* **ノードの説明**
+  * ネットワーク内の各ノードの役割を説明します。
+  * ネットワークの構造を理解するのに役立ちます。
 
 ## コンポーネントの依存関係
 
 ### 概念図
 
-<div align="center" data-with-frame="true"><img src="/gitbook/assets/developers-hub/node.png" alt="概念図" width="75%"></div>
+<div align="center" data-with-frame="true"><img src="../../.gitbook/assets/node.png" alt="概念図" width="75%"></div>
 
 ## 主な機能
 
@@ -48,9 +48,8 @@ Intmax Web App は、ユーザーが INTMAX ネットワーク上でアカウン
 
 Privacy Mining 機能にも対応しています。Intmax Web App はウェブサイトおよびモバイルアプリケーションとして利用できます。
 
-- [メインネットアプリを開く](https://app.intmax.io/)
-
-- [テストネットアプリを開く](https://beta.testnet.app.intmax.io/)
+* [メインネットアプリを開く](https://app.intmax.io/)
+* [テストネットアプリを開く](https://beta.testnet.app.intmax.io/)
 
 ### CLI
 
@@ -58,13 +57,13 @@ Privacy Mining 機能にも対応しています。Intmax Web App はウェブ�
 
 以下のソースコードからアクセスできます。
 
-[INTMAX CLI を見る →](/gitbook/developers-hub/intmax-cli.md)
+[INTMAX CLI を見る →](../intmax-cli.md)
 
 ### コントラクト
 
 INTMAX ネットワークは Ethereum ネットワーク上に構築された L2（Layer 2）ソリューションです。流動性は Ethereum 上に残り、ブロックデータの保存には zk-Rollup の一種である `Scroll` ネットワークを利用することで、低コストと高いセキュリティを実現しています。これら 2 つのネットワーク上にデプロイされたスマートコントラクトが、INTMAX ネットワークの基盤を形成しています。
 
-[スマートコントラクトを見る →](/gitbook/developers-hub/intmax-nodes/smart-contracts.md)
+[スマートコントラクトを見る →](smart-contracts.md)
 
 ## ノード
 
@@ -74,58 +73,58 @@ Block Builder ノードは、ユーザーからの Transfer リクエストを�
 
 このノードは **分散型**であり、ネットワーク全体にデプロイされています。各ノードは独立して動作し、他の Block Builder ノードと同期する必要はありません。
 
-[Block Builder を見る →](/gitbook/developers-hub/intmax-nodes/block-builder.md)
+[Block Builder を見る →](block-builder.md)
 
 ### Store Vault Server
 
 ユーザーが個別に保存すべきデータをバックアップし、複数のデバイスから INTMAX Wallet や CLI を利用する際にアクセスできるようにします。ユーザーデータを安全かつ効率的にバックアップし、必要時の復元プロセスを管理するノードです。
 
-[Store Vault Server を見る →](/gitbook/developers-hub/intmax-nodes/store-vault-server.md)
+[Store Vault Server を見る →](store-vault-server.md)
 
 ### Deposit Relayer
 
 Liquidity コントラクトからの Deposit リクエストを Rollup コントラクトに中継します。
 
-[Deposit Relayer を見る →](/gitbook/developers-hub/intmax-nodes/deposit-relayer.md)
+[Deposit Relayer を見る →](deposit-relayer.md)
 
 ### Withdrawal Server
 
 Withdrawal・Claim リクエストの受付状況を管理し、認証済みユーザーに Withdrawal と Claim に関する情報を提供するノードです。
 
-[Withdrawal Server を見る →](/gitbook/developers-hub/intmax-nodes/withdrawal-server.md)
+[Withdrawal Server を見る →](withdrawal-server.md)
 
 ### Withdrawal Aggregator
 
 INTMAX ネットワークから Ethereum への Withdrawal リクエストを処理します。ユーザーの Withdrawal リクエストを受け付け、必要な検証と処理を行い、Liquidity コントラクトへの反映プロセスを管理するノードです。
 
-[Withdrawal Aggregator を見る →](/gitbook/developers-hub/intmax-nodes/withdrawal-aggregator.md)
+[Withdrawal Aggregator を見る →](withdrawal-aggregator.md)
 
 ### Claim Aggregator
 
 INTMAX ネットワーク上で発生したマイニングリワードのリクエストを処理するノードです。ユーザーから受け取ったマイニングリワードリクエストに対して必要な検証と処理を行い、オンチェーンへの反映プロセスを管理します。
 
-[Claim Aggregator を見る →](/gitbook/developers-hub/intmax-nodes/claim-aggregator.md)
+[Claim Aggregator を見る →](claim-aggregator.md)
 
 ### Withdrawal Relayer
 
 Rollup コントラクトに送信された Withdrawal 情報を Liquidity コントラクトに反映します。
 
-[Withdrawal Relayer を見る →](/gitbook/developers-hub/intmax-nodes/withdrawal-relayer.md)
+[Withdrawal Relayer を見る →](withdrawal-relayer.md)
 
 ### Indexer
 
 ユーザーが Block Builder や Validity Prover を見つけるための情報を提供します。現在アクティブなノードの一覧を管理し、接続先のノードを推奨します。
 
-[Indexer を見る →](/gitbook/developers-hub/intmax-nodes/indexer.md)
+[Indexer を見る →](indexer.md)
 
 ### Validity Prover
 
 Validity Prover は、INTMAX ネットワーク上の分散型ノードであり、INTMAX ブロックに関連する Merkle Tree と ZKP を安全に保存・提供する役割を担います。これらのプルーフによってトランザクションとブロックの有効性が検証され、ネットワーク運用の整合性が保証されます。
 
-[Validity Prover を見る →](/gitbook/developers-hub/intmax-nodes/validity-prover.md)
+[Validity Prover を見る →](validity-prover.md)
 
 ### Provers
 
 INTMAX ネットワークでは、ZKP（Zero-Knowledge Proof）を使ってユーザーの残高を検証し、十分な資金があることと Withdrawal 条件を満たしていることを確認しています。
 
-[Provers を見る →](/gitbook/developers-hub/intmax-nodes/provers.md)
+[Provers を見る →](provers.md)

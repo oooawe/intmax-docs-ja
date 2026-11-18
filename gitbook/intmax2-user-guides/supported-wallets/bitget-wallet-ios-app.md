@@ -1,0 +1,28 @@
+---
+description: Bitget Wallet iOS アプリでの Sepolia ネットワーク追加と接続手順
+icon: wallet
+---
+
+# Bitget Wallet
+
+`Bitget Wallet` は Ethereum メインネットでは問題なく動作しますが、Ethereum `Sepolia` テストネットワークでの使用にはいくつかの制限があります。
+
+iOS 版アプリでは、インポートした秘密鍵（Private Key）を使って Ethereum `Sepolia` ネットワークを追加することはできません。ニーモニックフレーズで作成したウォレット、またはキーレスウォレットでのみ使用可能です。
+
+また、`WalletConnect` の接続に失敗した場合は、`WalletConnect` のポップアップを一度閉じてから再度開き、QR コードをスキャンすることで次の画面に進めることがあります。
+
+## `Bitget Wallet` で `Sepolia` ネットワークを追加するには
+
+1. 画面右上に表示されているネットワーク名をタップ
+2. 「Add Network」を選択
+
+<div align="center"><img src="../../.gitbook/assets/bitget_wallet_10.png" alt="Network Name" width="75%"> <img src="../../.gitbook/assets/bitget_wallet_20.png" alt="Add Network" width="75%"></div>
+
+3. 検索バーに「`Sepolia`」と入力し、候補一覧から「Ethereum `Sepolia`」を選択
+4. 「Adding network is not supported yet」というメッセージが表示された場合、現在使用しているアドレスでは `Sepolia` ネットワークを追加できません。その場合は、新しいウォレットの作成、またはニーモニックフレーズのインポートもしくはキーレスウォレットによるウォレットの復元を行ってください。
+
+<div align="center"><img src="../../.gitbook/assets/bitget_wallet_30.png" alt="Ethereum Sepolia" width="75%"> <img src="../../.gitbook/assets/bitget_wallet_40.png" alt="Adding Network Not Supported" width="75%"></div>
+
+5. 「`WalletConnect` connection failed」というメッセージが表示された場合は、Web サイト上の `WalletConnect` ポップアップを閉じてから再度開き QRコードを再度スキャンして接続をお試しください。
+
+<div align="center"><img src="../../.gitbook/assets/bitget_wallet_50.png" alt="WalletConnect Connection Failed" width="75%"> <img src="../../.gitbook/assets/bitget_wallet_60.png" alt="WalletConnect QR Code" width="75%"></div>
